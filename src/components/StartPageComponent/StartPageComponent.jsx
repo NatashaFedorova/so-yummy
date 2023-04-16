@@ -1,13 +1,12 @@
 import { NavLink } from 'react-router-dom';
-import { Text } from './StartPageComponent.styled';
 import { Container } from 'components/constants/Container.styled';
-import { DefaultBtn } from 'components/constants/DefaultBtn.styled';
+import { Btn } from './StartPageComponent.styled';
 
 export const StartPageComponent = () => {
   return (
     <Container>
-      <Text>StartPage</Text>
-      <DefaultBtn>Test</DefaultBtn>
+      <p>StartPage</p>
+      <Btn>Registration</Btn>
       <NavLink to="register">Registration</NavLink>
       <NavLink to="signin">SignIn</NavLink>
     </Container>

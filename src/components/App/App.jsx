@@ -4,10 +4,11 @@ import { Routes, Route } from 'react-router-dom';
 import { lightTheme } from 'components/constants/Theme';
 import { Background } from 'components/constants/Background.styled';
 
-import { StartPage } from 'page/StartPage';
-import { RegisterPage } from 'page/RegisterPage';
-import { SigninPage } from 'page/SigninPage';
 import { SharedLayout } from 'components/SharedLayout/SharedLayout';
+
+import StartPage from 'page/StartPage';
+import RegisterPage from 'page/RegisterPage';
+import SigninPage from 'page/SigninPage';
 
 const MainPage = lazy(() => import('page/MainPage'));
 const CategoriesPage = lazy(() => import('page/CategoriesPage'));

@@ -1,5 +1,7 @@
 import { StartPageComponent } from 'components/StartPageComponent/StartPageComponent';
 
-export const StartPage = () => {
+const StartPage = () => {
   return <StartPageComponent />;
 };
+
+export default StartPage;

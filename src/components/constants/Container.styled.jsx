@@ -13,7 +13,6 @@ export const device = {
 };
 
 export const Container = styled.div`
-  border: 1px solid red;
   margin: 0 auto;
 
   @media ${device.mobile} {
