@@ -17,6 +17,7 @@ const RecipePage = lazy(() => import('page/RecipePage'));
 const MyRecipesPage = lazy(() => import('page/MyRecipesPage'));
 const SearchPage = lazy(() => import('page/SearchPage'));
 const ShoppingListPage = lazy(() => import('page/ShoppingListPage'));
+const ErrorNotFoundPage = lazy(() => import('page/ErrorNotFoundPage'));
 
 const App = () => {
   // render певних шляхів, за умови, що user = true або false
@@ -44,7 +45,7 @@ const App = () => {
               <Route path="/my" element={<MyRecipesPage />} />
               <Route path="/search" element={<SearchPage />} />
               <Route path="/shopping-list" element={<ShoppingListPage />} />
-              <Route path="*" element={<p>page 404</p>} />
+              <Route path="*" element={<ErrorNotFoundPage />} />
             </Route>
           </Routes>
         )}
