@@ -1,4 +1,4 @@
-import { MyRecipes } from 'components/MyRecipes/MyRecipes';
+import MyRecipes from 'components/MyRecipes';
 
 const MyRecipesPage = () => {
   return <MyRecipes />;

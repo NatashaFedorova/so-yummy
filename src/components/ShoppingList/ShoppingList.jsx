@@ -1,9 +1,11 @@
-import { Container } from 'components/constants/Container.styled';
+import Container from 'components/constants/Container';
 
-export const ShoppingList = () => {
+const ShoppingList = () => {
   return (
     <Container>
       <p>ShoppingList</p>
     </Container>
   );
 };
+
+export default ShoppingList;

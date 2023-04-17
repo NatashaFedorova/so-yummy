@@ -6,13 +6,13 @@ const size = {
   desktop: '1440px',
 };
 
-export const device = {
+const device = {
   mobile: `(min-width: ${size.mobile})`,
   tablet: `(min-width: ${size.tablet})`,
   desktop: `(min-width: ${size.desktop})`,
 };
 
-export const Container = styled.div`
+const Box = styled.div`
   margin: 0 auto;
 
   @media ${device.mobile} {
@@ -30,3 +30,5 @@ export const Container = styled.div`
     padding: 0 100px;
   }
 `;
+
+export default Box;

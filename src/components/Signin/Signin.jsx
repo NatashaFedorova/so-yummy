@@ -1,10 +1,12 @@
-import { Container } from 'components/constants/Container.styled';
+import Container from 'components/constants/Container';
 import { Text } from './Signin.styled.jsx';
 
-export const Signin = () => {
+const Signin = () => {
   return (
     <Container>
       <Text>Signin</Text>
     </Container>
   );
 };
+
+export default Signin;

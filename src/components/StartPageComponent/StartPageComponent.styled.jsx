@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { DefaultBtn } from 'components/constants/DefaultBtn.styled';
+import DefaultBtn from 'components/constants/DefaultBtn';
 
 export const Btn = styled(DefaultBtn)`
   cursor: pointer;

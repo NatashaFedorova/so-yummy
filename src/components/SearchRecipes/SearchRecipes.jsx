@@ -1,6 +1,6 @@
-import { Container } from 'components/constants/Container.styled';
+import Container from 'components/constants/Container';
 
-export const SearchRecipes = () => {
+const SearchRecipes = () => {
   return (
     <Container>
       <p>SearchRecipes</p>
@@ -8,3 +8,4 @@ export const SearchRecipes = () => {
     </Container>
   );
 };
+export default SearchRecipes;

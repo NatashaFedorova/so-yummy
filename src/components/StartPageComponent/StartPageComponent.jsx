@@ -1,8 +1,8 @@
 import { NavLink } from 'react-router-dom';
-import { Container } from 'components/constants/Container.styled';
+import Container from 'components/constants/Container';
 import { Btn } from './StartPageComponent.styled';
 
-export const StartPageComponent = () => {
+const StartPageComponent = () => {
   return (
     <Container>
       <p>StartPage</p>
@@ -12,3 +12,5 @@ export const StartPageComponent = () => {
     </Container>
   );
 };
+
+export default StartPageComponent;
