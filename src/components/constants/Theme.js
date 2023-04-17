@@ -1,4 +1,6 @@
 // ${props => props.theme.colors.text} - example
+// назви кольорів, які закоментовані, варіант для hover
+//  не заявлений в макеті, але визначений по аналогії
 
 export const lightTheme = Object.freeze({
   colors: {
@@ -168,7 +170,7 @@ export const lightTheme = Object.freeze({
     searchPage: {
       title: '#001833',
       textInput: '#3e4462',
-      textOptionSelect: 'rgba(0, 0, 0, .5)',
+      textSecondary: 'rgba(0, 0, 0, .5)',
       icon: '#8baa36',
       bgInput: '#ffffff',
       borderInput: '#f0f0f0',
@@ -181,17 +183,38 @@ export const lightTheme = Object.freeze({
 
     // ShoppingListPage
     shoppingListPage: {
-      text: 'x',
+      title: '#001833',
+      textMain: '#3e4462',
+      textSecondary: '#fafafa',
+      bdAccent: '#8baa36',
+      icon: '#333333',
+      // iconHover: '#8baa36',
     },
 
     // Modal
     modal: {
-      text: 'x',
+      text: 'rgba(35, 38, 42, .8)',
+      icon: 'rgba(35, 38, 42, .8)',
+      border: '#e7e7e7', // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+      // iconHover: '#8baa36',
+      // borderHover: '#23262a',
+      bg: '#fafafa',
+      bgBtn: '#8baa36',
+      textBtn: '#fafafa',
+      bgBtnHover: '#22252a',
     },
 
     // BurgerMenu
     burgerMenu: {
-      text: 'x',
+      text: '#22252a',
+      colorAccent: '#8baa36',
+      bg: '#ebf3d4',
+    },
+
+    // errorPageNotFound - 404
+    errorPageNotFound: {
+      text: '#ffffff',
+      textSecondary: 'rgba(0, 0, 0, .5)',
     },
 
     // pagination
