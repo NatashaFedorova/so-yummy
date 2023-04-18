@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const RecipeCard = styled.div`
   position: relative;
   width: 200px;
-  border: 1px solid #ccc;
   border-radius: 8px;
   overflow: hidden;
   min-width: 300px;
@@ -21,12 +20,12 @@ export const RecipeCard = styled.div`
     left: 16px;
     right: 16px;
     padding: 16px;
-    background-color: #ffffff;
-    color: #3e4462;
+    background-color: ${props => props.theme.colors.cardRecipe.bgbtn};
+    color: ${props => props.theme.colors.categoriesPage.overlay};
     font-family: 'Poppins';
     font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
+    font-weight: ${props => props.theme.fontWeight.medium};
+    font-size: ${props => props.theme.fontSizes.m};
     line-height: 20px;
 
     transition-duration: 2000ms;
@@ -39,7 +38,7 @@ export const RecipeCard = styled.div`
   }
 
   .title {
-    font-size: 16px;
+    font-size: ${props => props.theme.fontSizes.m};
     font-weight: bold;
     margin: 0;
     transition-duration: 2000ms;
@@ -52,7 +51,8 @@ export const RecipeCard = styled.div`
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgb(139, 170, 54, 0.3);
+    background-color: ${props =>
+      props.theme.colors.categoriesPage.overlayHover};
     z-index: 1;
     opacity: 0;
 
@@ -61,7 +61,8 @@ export const RecipeCard = styled.div`
 
   &:hover::after {
     opacity: 1;
-    background-color: rgb(0, 0, 0, 0.5);
+    background-color: ${props =>
+      props.theme.colors.categoriesPage.overlayHoverAfter};
   }
   &:hover .overlay {
     z-index: 2;
