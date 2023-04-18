@@ -1,11 +1,20 @@
 import Container from 'components/constants/Container';
 
+import { HeroBackground, SectionRelative } from './Main.styled';
+
 const Main = () => {
   return (
-    <Container>
-      <p>HERO</p>
-      <p>List</p>
-    </Container>
+    <>
+      <SectionRelative>
+        <HeroBackground>
+          <Container>
+            <p>HERO</p>
+            <p>List</p>
+          </Container>
+        </HeroBackground>
+        <Container></Container>
+      </SectionRelative>
+    </>
   );
 };
 

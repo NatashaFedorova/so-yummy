@@ -25,7 +25,7 @@ const App = () => {
   return (
     <ThemeProvider theme={lightTheme}>
       <Background>
-        {!user ? (
+        {user ? (
           <Routes>
             <Route path="/" element={<StartPage />} />
             <Route path="/register" element={<RegisterPage />} />
