@@ -1,14 +1,19 @@
-import { NavLink } from 'react-router-dom';
-import { Container } from 'components/constants/Container.styled';
-import { Btn } from './StartPageComponent.styled';
+import { StyledSPSection, StyledSPContainer, StyledSPBox, StyledSPLogo, StyledSPTitle, StyledSPText, StyledSPNavList, StyledSPNavLinkRegistration, StyledSPNavLinkSignIn } from './StartPageComponent.styled';
 
 export const StartPageComponent = () => {
   return (
-    <Container>
-      <p>StartPage</p>
-      <Btn>Registration</Btn>
-      <NavLink to="register">Registration</NavLink>
-      <NavLink to="signin">SignIn</NavLink>
-    </Container>
+    <StyledSPSection>
+      <StyledSPContainer>
+        <StyledSPBox>
+          <StyledSPLogo src='./images/startPageComponent/logo.svg'/>
+          <StyledSPTitle>Welcome to the app!</StyledSPTitle>
+          <StyledSPText>This app offers more than just a collection of recipes - it is designed to be your very own digital cookbook. You can easily save and retrieve your own recipes at any time.</StyledSPText>
+          <StyledSPNavList>
+            <StyledSPNavLinkRegistration to="register">Registration</StyledSPNavLinkRegistration>
+            <StyledSPNavLinkSignIn to="signin">Sign in</StyledSPNavLinkSignIn>
+          </StyledSPNavList>
+        </StyledSPBox>
+      </StyledSPContainer>
+    </StyledSPSection>
   );
 };
