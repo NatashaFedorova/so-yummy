@@ -1,6 +1,6 @@
-import axios from 'axios';
+// import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import clearAuthHeader from './clearAuthHeader';
+// import clearAuthHeader from './clearAuthHeader';
 
 const logOut = createAsyncThunk('', async (credentials, thunkAPI) => {
   try {
