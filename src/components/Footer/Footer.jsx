@@ -1,4 +1,4 @@
-import Box from 'components/constants/Container/Container.styled';
+import { Box } from 'components/constants/Container/Container.styled';
 import { LogoFooter } from './LogoFooter/LogoFooter';
 import { AppInfo } from './AppInfo/AppInfo';
 import { Nav } from './Nav/Nav';

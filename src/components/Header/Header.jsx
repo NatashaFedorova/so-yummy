@@ -1,4 +1,4 @@
-import Box from 'components/constants/Container/Container.styled';
+import { Box } from 'components/constants/Container/Container.styled';
 import { Logo } from './Logo';
 import { Navigation } from './Navigation';
 import { UserLogo } from './UserLogo';
