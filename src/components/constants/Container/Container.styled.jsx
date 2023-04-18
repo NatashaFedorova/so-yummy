@@ -5,7 +5,7 @@ const Container = styled.div`
   margin: 0 auto;
 
   @media ${device.mobile} {
-    width: 320px;
+    width: 375px;
     padding: 0 16px;
   }
 
@@ -15,7 +15,7 @@ const Container = styled.div`
   }
 
   @media ${device.desktop} {
-    width: 1440px;
+    width: ${device.desktop};
     padding: 0 100px;
   }
 `;
