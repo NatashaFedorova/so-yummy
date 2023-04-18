@@ -1,3 +1,4 @@
+
 import { Container } from 'components/constants/Container.styled';
 import { LogoFooter } from './LogoFooter/LogoFooter';
 import { AppInfo } from './AppInfo/AppInfo';
@@ -7,7 +8,7 @@ import { CommercionInfo } from './ComercionInfo/ComercionInfo';
 import { FooterSection, LogoGroup } from './Footer.styled';
 import { SocialLinks } from './SocialLinks/SocialLinks';
 
-export const Footer = () => {
+const Footer = () => {
   return (
     <footer>
       <Container style={{ padding: 0 }}>
@@ -25,3 +26,5 @@ export const Footer = () => {
     </footer>
   );
 };
+
+export default Footer;

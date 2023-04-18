@@ -1,9 +1,10 @@
-import { Container } from 'components/constants/Container.styled';
+import { Container } from 'components/constants/Container/Container.styled';
 import { Logo } from './Logo';
 import { Navigation } from './Navigation';
 import { UserLogo } from './UserLogo';
 
-export const Header = () => {
+
+const Header = () => {
   return (
     <header>
       <Container>
@@ -14,3 +15,5 @@ export const Header = () => {
     </header>
   );
 };
+
+export default Header;

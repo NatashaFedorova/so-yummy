@@ -1,9 +1,11 @@
-import { Container } from 'components/constants/Container.styled';
+import Container from 'components/constants/Container';
 
-export const Recipe = () => {
+const Recipe = () => {
   return (
     <Container>
       <p>Recipe</p>
     </Container>
   );
 };
+
+export default Recipe;

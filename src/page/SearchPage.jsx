@@ -1,4 +1,4 @@
-import { SearchRecipes } from 'components/SearchRecipes/SearchRecipes';
+import SearchRecipes from 'components/SearchRecipes';
 
 const SearchPage = () => {
   return <SearchRecipes />;

@@ -26,4 +26,5 @@ const recipesSlice = createSlice({
   },
 });
 
-export const recipesReducer = recipesSlice.reducer;
+const recipesReducer = recipesSlice.reducer;
+export default recipesReducer;

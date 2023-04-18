@@ -1,6 +1,6 @@
-import { Container } from 'components/constants/Container.styled';
+import Container from 'components/constants/Container';
 
-export const Main = () => {
+const Main = () => {
   return (
     <Container>
       <p>HERO</p>
@@ -8,3 +8,5 @@ export const Main = () => {
     </Container>
   );
 };
+
+export default Main;

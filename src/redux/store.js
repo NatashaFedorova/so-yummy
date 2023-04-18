@@ -11,9 +11,9 @@ import {
   REGISTER,
 } from 'redux-persist';
 
-// import { themeReducer } from 'redux/theme/themeSlice';
-// import { authReducer } from 'redux/auth/authSlice';
-// import { recipesReducer } from 'redux/auth/authSlice';
+// import {themeReducer} from 'redux/theme/themeSlice';
+// import authReducer from 'redux/auth/authSlice';
+// import recipesReducer from 'redux/auth/authSlice';
 
 // const authPersistConfig = {
 //   key: 'auth',
