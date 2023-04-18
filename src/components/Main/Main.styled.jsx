@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import lightTheme from '../constants/theme/lightTheme';
+// import lightTheme from '../constants/theme/lightTheme';
 
 // import heroBgDesktop from './images/mainPage/heroBG-desc.png';
 // import heroBgDesktopWebp from '../../../public/images/mainPage/heroBG-desc-webp.webp';
