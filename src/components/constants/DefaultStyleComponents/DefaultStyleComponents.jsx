@@ -36,9 +36,9 @@ export const DefaultSquareСircle = styled.div`
 `;
 
 export const Box = styled.div`
-  margin: 0 auto;
+  /* margin: 0 auto; */
 
-  @media ${device.mobile} {
+  /* @media ${device.mobile} {
     width: 320px;
     padding: 0 16px;
   }
@@ -51,5 +51,5 @@ export const Box = styled.div`
   @media ${device.desktop} {
     width: 1440px;
     padding: 0 100px;
-  }
+  } */
 `;
