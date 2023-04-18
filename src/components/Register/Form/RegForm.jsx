@@ -1,5 +1,13 @@
-import {ReactComponent as ReactIcon} from '../Form/user-01.svg';
-import { StyledRegForm, StyledRegTitle, StyledRegLabel, StyledRegInputIcon, StyledRegInput, StyledRegBtnSubmit, StyledReactIcon} from "./RegForm.styled";
+// import {ReactComponent as ReactIcon} from '../Form/user-01.svg';
+import {
+  StyledRegForm,
+  StyledRegTitle,
+  StyledRegLabel,
+  StyledRegInputIcon,
+  StyledRegInput,
+  StyledRegBtnSubmit,
+  StyledReactIcon,
+} from './RegForm.styled';
 
 export const RegForm = () => {
   return (
@@ -10,15 +18,25 @@ export const RegForm = () => {
         {/* <StyledReactIcon style={{ color: 'green' }} /> */}
         <StyledReactIcon />
         {/* <StyledRegInputIcon src='./images/signPages/user-01.svg' alt="User icon" width={18} height={18}/> */}
-        <StyledRegInput type="text" placeholder="Name"/>
+        <StyledRegInput type="text" placeholder="Name" />
       </StyledRegLabel>
       <StyledRegLabel>
-        <StyledRegInputIcon src='./images/signPages/mail.svg' alt="User icon" width={18} height={18}/>
-        <StyledRegInput type="email" placeholder="Email"/>
+        <StyledRegInputIcon
+          src="./images/signPages/mail.svg"
+          alt="User icon"
+          width={18}
+          height={18}
+        />
+        <StyledRegInput type="email" placeholder="Email" />
       </StyledRegLabel>
       <StyledRegLabel>
-      <StyledRegInputIcon src='./images/signPages/lock.svg' alt="User icon" width={18} height={18}/>
-        <StyledRegInput type="Password" placeholder="Password"/>
+        <StyledRegInputIcon
+          src="./images/signPages/lock.svg"
+          alt="User icon"
+          width={18}
+          height={18}
+        />
+        <StyledRegInput type="Password" placeholder="Password" />
       </StyledRegLabel>
       <StyledRegBtnSubmit type="sybmit">Sign up</StyledRegBtnSubmit>
     </StyledRegForm>
