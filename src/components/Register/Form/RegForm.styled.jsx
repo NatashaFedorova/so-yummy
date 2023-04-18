@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { device } from 'components/constants/Container/Container.styled';
-import { ReactComponent as ReactIcon } from '../Form/user-01.svg';
+import {ReactComponent as UserIcon} from '../Form/user.svg';
+import {ReactComponent as MailIcon} from '../Form/mail.svg';
+import {ReactComponent as LockIcon} from '../Form/lock.svg';
 
 export const StyledRegForm = styled.form`
   display: flex;
@@ -44,7 +46,8 @@ export const StyledRegLabel = styled.label`
   position: relative;
 
   margin-bottom: 12px;
-  color: blue;
+
+  // color: green;
 
   :last-of-type {
     margin-bottom: 28px;
@@ -58,15 +61,30 @@ export const StyledRegLabel = styled.label`
     }
   }
 `;
-export const StyledRegInputIcon = styled.img`
+export const StyledUserIcon = styled(UserIcon)`
   position: absolute;
   top: 50%;
   left: 18px;
   width: 18px;
   height: 18px;
+
+  // color: inherit;
+  // color: red;
+
   transform: translateY(-50%);
 `;
-export const StyledReactIcon = styled(ReactIcon)`
+export const StyledMailIcon = styled(MailIcon)`
+  position: absolute;
+  top: 50%;
+  left: 18px;
+  width: 18px;
+  height: 18px;
+
+  color: inherit;
+
+  transform: translateY(-50%);
+`;
+export const StyledLockIcon = styled(LockIcon)`
   position: absolute;
   top: 50%;
   left: 18px;
@@ -89,7 +107,7 @@ export const StyledRegInput = styled.input`
   opacity: 0.8;
   border: 1px solid;
   border-radius: 6px;
-  // border-color: ${props => props.theme.colors.startPage.borderBtnSignIn};
+  border-color: ${props => props.theme.colors.startPage.borderBtnSignIn};
   border-color: currentColor;
 
   @media ${device.tablet} {
