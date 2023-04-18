@@ -1,4 +1,4 @@
-import { ShoppingList } from 'components/ShoppingList/ShoppingList';
+import ShoppingList from 'components/ShoppingList';
 
 const ShoppingListPage = () => {
   return <ShoppingList />;

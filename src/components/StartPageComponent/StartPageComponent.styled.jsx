@@ -59,7 +59,6 @@ export const StyledSPTitle = styled.h1`
   height: 24px;
   
   margin-bottom: 14px;
-w
   font-weight: 600;
   font-size: 24px;
   line-height: 1;
@@ -72,7 +71,6 @@ w
   @media ${device.tablet} {
     width: 288px;
     height: 35px;
-
     font-size: 28px;
   }
 `;

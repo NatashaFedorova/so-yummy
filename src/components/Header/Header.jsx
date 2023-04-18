@@ -1,6 +1,6 @@
-import { Container } from 'components/constants/Container.styled';
+import Container from 'components/constants/Container';
 
-export const Header = () => {
+const Header = () => {
   return (
     <header>
       <Container>
@@ -9,3 +9,5 @@ export const Header = () => {
     </header>
   );
 };
+
+export default Header;

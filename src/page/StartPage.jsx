@@ -1,4 +1,4 @@
-import { StartPageComponent } from 'components/StartPageComponent/StartPageComponent';
+import StartPageComponent from 'components/StartPageComponent';
 
 const StartPage = () => {
   return <StartPageComponent />;

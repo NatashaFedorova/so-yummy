@@ -1,11 +1,10 @@
 import { lazy } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { Routes, Route } from 'react-router-dom';
-import { lightTheme } from 'components/constants/Theme';
-import { Background } from 'components/constants/Background.styled';
-
-import { SharedLayout } from 'components/SharedLayout/SharedLayout';
-
+import lightTheme from 'components/constants/theme/lightTheme';
+// import darkTheme from 'components/constants/theme/darkTheme';
+import Background from 'components/constants/Background';
+import SharedLayout from 'components/SharedLayout';
 import StartPage from 'page/StartPage';
 import RegisterPage from 'page/RegisterPage';
 import SigninPage from 'page/SigninPage';
@@ -18,8 +17,9 @@ const RecipePage = lazy(() => import('page/RecipePage'));
 const MyRecipesPage = lazy(() => import('page/MyRecipesPage'));
 const SearchPage = lazy(() => import('page/SearchPage'));
 const ShoppingListPage = lazy(() => import('page/ShoppingListPage'));
+const ErrorNotFoundPage = lazy(() => import('page/ErrorNotFoundPage'));
 
-export const App = () => {
+const App = () => {
   // render певних шляхів, за умови, що user = true або false
   const user = false;
   return (
@@ -45,7 +45,7 @@ export const App = () => {
               <Route path="/my" element={<MyRecipesPage />} />
               <Route path="/search" element={<SearchPage />} />
               <Route path="/shopping-list" element={<ShoppingListPage />} />
-              <Route path="*" element={<p>page 404</p>} />
+              <Route path="*" element={<ErrorNotFoundPage />} />
             </Route>
           </Routes>
         )}
@@ -53,3 +53,5 @@ export const App = () => {
     </ThemeProvider>
   );
 };
+
+export default App;

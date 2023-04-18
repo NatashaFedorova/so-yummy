@@ -1,9 +1,11 @@
-import { Container } from 'components/constants/Container.styled';
+import Container from 'components/constants/Container';
 
-export const Favorite = () => {
+const Favorite = () => {
   return (
     <Container>
       <p>Favorite</p>
     </Container>
   );
 };
+
+export default Favorite;

@@ -2,7 +2,8 @@ import { StyledSPContainer } from 'components/StartPageComponent/StartPageCompon
 import { StyledRegSection, StyledRegBoxWrap, StyledRegBox, StyledRegNavLink, StyledRegSectionBg, StyledRegImgBg } from '../Register/Register.styled';
 import { SigninForm } from './SigninForm';
 
-export const Signin = () => {
+
+const Signin = () => {
   return (
     <StyledRegSection>
       <StyledSPContainer>
@@ -19,3 +20,5 @@ export const Signin = () => {
     </StyledRegSection>
   );
 };
+
+export default Signin;

@@ -1,6 +1,6 @@
-import { Container } from 'components/constants/Container.styled';
+import Container from 'components/constants/Container';
 
-export const Categories = () => {
+const Categories = () => {
   return (
     <Container>
       <ul>

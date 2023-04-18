@@ -1,1 +1,3 @@
-export const selectStatusTheme = state => state.theme.status;
+const selectStatusTheme = state => state.theme.status;
+
+export default selectStatusTheme;

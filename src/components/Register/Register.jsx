@@ -1,8 +1,9 @@
+
 import { StyledSPContainer } from 'components/StartPageComponent/StartPageComponent.styled.jsx';
 import { StyledRegSection, StyledRegBoxWrap, StyledRegBox, StyledRegNavLink, StyledRegSectionBg, StyledRegImgBg } from './Register.styled.jsx';
 import { RegForm } from './Form/RegForm.jsx';
 
-export const Register = () => {
+const Register = () => {
   return (
     <StyledRegSection>
       <StyledSPContainer>
@@ -18,3 +19,5 @@ export const Register = () => {
     </StyledRegSection>
   );
 };
+
+export default Register;

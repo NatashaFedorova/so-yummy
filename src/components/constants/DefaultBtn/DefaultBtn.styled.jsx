@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const DefaultBtn = styled.button`
+const DefaultBtn = styled.button`
   cursor: pointer;
   display: block;
   padding: 23px 52px;
@@ -11,3 +11,5 @@ export const DefaultBtn = styled.button`
     color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 `;
+
+export default DefaultBtn;

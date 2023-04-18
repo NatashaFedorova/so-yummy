@@ -1,6 +1,6 @@
-import { Container } from 'components/constants/Container.styled';
+import Container from 'components/constants/Container';
 
-export const Footer = () => {
+const Footer = () => {
   return (
     <footer>
       <Container>
@@ -9,3 +9,5 @@ export const Footer = () => {
     </footer>
   );
 };
+
+export default Footer;
