@@ -21,7 +21,7 @@ const ShoppingListPage = lazy(() => import('page/ShoppingListPage'));
 
 export const App = () => {
   // render певних шляхів, за умови, що user = true або false
-  const user = false;
+  const user = true;
   return (
     <ThemeProvider theme={lightTheme}>
       <Background>
