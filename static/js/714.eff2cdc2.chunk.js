@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkso_yummy=self.webpackChunkso_yummy||[]).push([[714],{364:function(n,r,u){u.d(r,{Z:function(){return t}});var e=u(718),c=u(184),t=function(n){var r=n.children;return(0,c.jsx)(e.xu,{children:r})}},714:function(n,r,u){u.r(r),u.d(r,{default:function(){return i}});var e=u(364),c=u(184),t=function(){return(0,c.jsx)(e.Z,{children:(0,c.jsx)("p",{children:"Add recipe"})})},i=function(){return(0,c.jsx)(t,{})}}}]);
-//# sourceMappingURL=714.eff2cdc2.chunk.js.map
