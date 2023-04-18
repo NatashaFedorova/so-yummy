@@ -22,6 +22,7 @@ const ErrorNotFoundPage = lazy(() => import('page/ErrorNotFoundPage'));
 const App = () => {
   // render певних шляхів, за умови, що user = true або false
   const user = false;
+
   return (
     <ThemeProvider theme={lightTheme}>
       <Background>
