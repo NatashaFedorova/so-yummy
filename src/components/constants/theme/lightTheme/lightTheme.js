@@ -11,6 +11,12 @@ const lightTheme = Object.freeze({
     warningState: '#f6c23e',
     errorState: '#e74a3b',
 
+    // decoreElements
+    decoreElements: {
+      main: '#22252a',
+      accent: '#8baa36',
+    },
+
     // CardRecipe - small
     cardRecipe: {
       bgbtn: '#ffffff',
@@ -192,7 +198,7 @@ const lightTheme = Object.freeze({
       bgCardRecipe: '#ffffff',
     },
 
-    // // RecipePage
+    // RecipePage
     recipePage: {
       title: '#8baa36',
       titleSecondry: '#3e4462',
@@ -210,9 +216,11 @@ const lightTheme = Object.freeze({
       borderBtn: '#8baa36',
       textBtnHover: '#fafafa',
       bgBtnHover: '#8baa36',
+      textNumber: '#ffffff',
+      bgNumber: '#8baa36',
     },
 
-    // // MyRecipesPage
+    // MyRecipesPage
     myRecipesPage: {
       title: '#001833',
       titleSecondary: '#3e4462',
@@ -252,7 +260,7 @@ const lightTheme = Object.freeze({
       // iconHover: '#8baa36',
     },
 
-    // // errorPageNotFound - 404
+    // errorPageNotFound - 404
     errorPageNotFound: {
       text: '#000000',
       textSecondary: 'rgba(0, 0, 0, .5)',
@@ -266,9 +274,11 @@ const lightTheme = Object.freeze({
   },
   radii: {
     none: 'none',
+    decore: '3px',
     normal: '4px',
     btnNormal: '6px',
     btnSpecial: '24px 44px',
+    circle: '50%',
   },
   fontSizes: {
     xxs: '10px',

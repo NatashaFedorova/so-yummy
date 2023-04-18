@@ -13,6 +13,12 @@ const darkTheme = Object.freeze({
     warningState: '#f6c23e',
     errorState: '#e74a3b',
 
+    // decoreElements
+    decoreElements: {
+      main: '#fafafa',
+      accent: '#8baa36',
+    },
+
     // CardRecipe - small
     cardRecipe: {
       bgbtn: '#ffffff',
@@ -212,6 +218,8 @@ const darkTheme = Object.freeze({
       borderBtn: '#8baa36',
       textBtnHover: '#fafafa',
       bgBtnHover: '#8baa36',
+      textNumber: '#ffffff',
+      bgNumber: '#8baa36',
     },
 
     // // MyRecipesPage
@@ -268,9 +276,11 @@ const darkTheme = Object.freeze({
   },
   radii: {
     none: 'none',
+    decore: '3px',
     normal: '4px',
     btnNormal: '6px',
     btnSpecial: '24px 44px',
+    circle: '50%',
   },
   fontSizes: {
     xxs: '10px',
