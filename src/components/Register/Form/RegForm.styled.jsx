@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { device } from 'components/constants/Container.styled';
-import {ReactComponent as ReactIcon} from '../Form/user-01.svg';
+import { device } from 'components/constants/Container/Container.styled';
+import { ReactComponent as ReactIcon } from '../Form/user-01.svg';
 
 export const StyledRegForm = styled.form`
   display: flex;
@@ -12,7 +12,7 @@ export const StyledRegForm = styled.form`
   letter-spacing: -0.02em;
   font-feature-settings: 'liga' off;
 
-  background: #2A2C36;
+  background: #2a2c36;
   border-radius: 30px;
   box-shadow: 0px 4px 48px rgba(0, 0, 0, 0.1);
 
@@ -94,7 +94,7 @@ export const StyledRegInput = styled.input`
 
   @media ${device.tablet} {
     padding: 16px 18px 16px 50px;
-    
+
     font-size: 18px;
     line-height: 27px;
   }

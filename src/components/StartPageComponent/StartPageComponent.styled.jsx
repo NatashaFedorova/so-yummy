@@ -1,4 +1,4 @@
-import { device } from 'components/constants/Container.styled';
+import { device } from 'components/constants/Container/Container.styled';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -15,7 +15,7 @@ export const StyledSPSection = styled.section`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url('./images/startPageComponent/bg1.jpg');
+  background-image: url('./images/signPages/bg1.jpg');
 `;
 export const StyledSPContainer = styled.div`
   margin: 0 auto;
@@ -45,7 +45,7 @@ export const StyledSPLogo = styled.img`
   height: 54px;
   margin-bottom: 28px;
 
-  background: #8BAA36;
+  background: #8baa36;
   border-radius: 12px;
 
   @media ${device.tablet} {
@@ -57,7 +57,7 @@ export const StyledSPLogo = styled.img`
 export const StyledSPTitle = styled.h1`
   width: 247px;
   height: 24px;
-  
+
   margin-bottom: 14px;
   font-weight: 600;
   font-size: 24px;
@@ -126,7 +126,7 @@ export const StyledSPNavLinkRegistration = styled(NavLink)`
     padding: 22px 44px;
 
     font-size: 16px;
-    line-height: 24px;  
+    line-height: 24px;
   }
 `;
 export const StyledSPNavLinkSignIn = styled(StyledSPNavLinkRegistration)`

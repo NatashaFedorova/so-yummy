@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { device } from 'components/constants/Container.styled';
+import { device } from 'components/constants/Container/Container.styled';
 import { NavLink } from 'react-router-dom';
 
 export const StyledRegSection = styled.section`
@@ -36,7 +36,6 @@ export const StyledRegBoxWrap = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
 
   @media ${device.desktop} {
     // align-items: flex-start;
@@ -110,5 +109,5 @@ export const StyledRegNavLink = styled(NavLink)`
 
   text-decoration-line: underline;
 
-  color: #FAFAFA;
-`
+  color: #fafafa;
+`;
