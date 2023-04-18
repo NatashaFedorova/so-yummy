@@ -1,6 +1,6 @@
-import axios from 'axios';
+// import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import setAuthHeader from './setAuthHeader';
+// import setAuthHeader from './setAuthHeader';
 
 const signIn = createAsyncThunk('', async (credentials, thunkAPI) => {
   try {

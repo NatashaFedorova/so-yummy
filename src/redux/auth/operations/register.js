@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import setAuthHeader from './setAuthHeader';
+// import setAuthHeader from './setAuthHeader';
 
 axios.defaults.baseURL = 'https:/xxxxxxxxxxxxxxxxxxxxx.com/';
 
