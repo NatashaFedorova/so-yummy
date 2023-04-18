@@ -1,4 +1,4 @@
-import { Box } from 'components/constants/Container/Container.styled';
+import Container from 'components/constants/Container';
 import { Logo } from './Logo';
 import { Navigation } from './Navigation';
 import { UserLogo } from './UserLogo';
@@ -6,11 +6,11 @@ import { UserLogo } from './UserLogo';
 const Header = () => {
   return (
     <header>
-      <Box>
+      <Container>
         <Logo />
         <Navigation />
         <UserLogo />
-      </Box>
+      </Container>
     </header>
   );
 };

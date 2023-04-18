@@ -1,18 +1,7 @@
 import styled from 'styled-components';
+import { device } from '../deviceType/deviceType';
 
-export const size = {
-  mobile: '375px',
-  tablet: '768px',
-  desktop: '1440px',
-};
-
-export const device = {
-  mobile: `(min-width: ${size.mobile})`,
-  tablet: `(min-width: ${size.tablet})`,
-  desktop: `(min-width: ${size.desktop})`,
-};
-
-export const Box = styled.div`
+const Container = styled.div`
   margin: 0 auto;
 
   @media ${device.mobile} {
@@ -30,3 +19,5 @@ export const Box = styled.div`
     padding: 0 100px;
   }
 `;
+
+export default Container;

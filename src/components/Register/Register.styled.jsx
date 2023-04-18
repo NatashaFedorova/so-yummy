@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { device } from 'components/constants/Container/Container.styled';
+import { device } from 'components/constants/deviceType/deviceType';
 import { NavLink } from 'react-router-dom';
 
 export const StyledRegSection = styled.section`

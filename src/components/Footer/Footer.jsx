@@ -1,4 +1,4 @@
-import { Box } from 'components/constants/Container/Container.styled';
+import Container from 'components/constants/Container';
 import { LogoFooter } from './LogoFooter/LogoFooter';
 import { AppInfo } from './AppInfo/AppInfo';
 import { Nav } from './Nav/Nav';
@@ -10,7 +10,7 @@ import { SocialLinks } from './SocialLinks/SocialLinks';
 const Footer = () => {
   return (
     <footer>
-      <Box style={{ padding: 0 }}>
+      <Container style={{ padding: 0 }}>
         <FooterSection>
           <LogoGroup>
             <LogoFooter />
@@ -21,7 +21,7 @@ const Footer = () => {
           <SocialLinks />
         </FooterSection>
         <CommercionInfo />
-      </Box>
+      </Container>
     </footer>
   );
 };

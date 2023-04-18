@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { device } from 'components/constants/Container/Container.styled';
+import { device } from 'components/constants/deviceType/deviceType';
 import { ReactComponent as ReactIcon } from '../Form/user-01.svg';
 
 export const StyledRegForm = styled.form`

@@ -1,6 +1,6 @@
 // ${props => props.theme.colors.text}
 import styled from 'styled-components';
-import { device } from '../Container/Container.styled';
+import { device } from '../deviceType/deviceType';
 
 export const DefaultSquare = styled.div`
   background: ${props => props.theme.colors.decoreElements.accent};
