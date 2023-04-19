@@ -35,18 +35,16 @@ export const DefaultSquareСircle = styled.div`
   }
 `;
 
-
 export const DecoreBoxForBg = styled.div`
   position: relative;
   margin: 0 auto;
 
   @media ${device.mobile} {
     width: 375px;
-
+  }
   @media ${device.tablet} {
     width: 768px;
   }
-
   @media ${device.desktop} {
     width: 1440px;
   }
