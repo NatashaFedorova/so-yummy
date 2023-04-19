@@ -1,7 +1,5 @@
-import { AiFillPlusCircle } from 'react-icons/ai';
 import { RxPerson } from 'react-icons/rx';
 import { HiOutlinePencil } from 'react-icons/hi';
-import { GrFormClose } from 'react-icons/gr';
 import { useState } from 'react';
 import {
   ConfigAvatarArea,
@@ -15,7 +13,7 @@ import {
   StyledGrFormClose,
 } from './UserInfoModal.styled';
 
-export const UserInfoModal = ({ showUserInfoModal, closeUserInfoModal }) => {
+export const UserInfoModal = ({ closeUserInfoModal }) => {
   const [newUserName, setNewUserName] = useState('');
 
   return (

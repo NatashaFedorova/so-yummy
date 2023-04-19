@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { UserInfoModal } from '../UserInfoModal/UserInfoModal';
 import { HiOutlinePencil } from 'react-icons/hi';
 import { AiOutlineArrowRight } from 'react-icons/ai';
