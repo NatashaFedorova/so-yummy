@@ -1,12 +1,7 @@
-import { device } from 'components/constants/Container/Container.styled';
+import { device, size } from 'components/constants/deviceType/deviceType';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const size = {
-  mobile: '375px',
-  tablet: '768px',
-  desktop: '1440px',
-};
 export const StyledSPSection = styled.section`
   display: flex;
   align-items: center;

@@ -1,54 +1,47 @@
-// import {ReactComponent as ReactIcon} from '../Form/user-01.svg';
 import {
   StyledRegForm,
   StyledRegTitle,
   StyledRegLabel,
-  StyledRegInputIcon,
   StyledRegInput,
   StyledRegBtnSubmit,
-  StyledReactIcon,
+  StyledUserIcon,
+  StyledMailIcon,
+  StyledLockIcon
 } from './RegForm.styled';
 
 export const RegForm = () => {
+  const handleSubmit = e => {
+    e.preventDefault();
+
+    // console.log(e.currentTarget);
+
+    const form = e.currentTarget;
+    // const { name, email, password } = e.currentTarget.elements;
+    // const formData = new FormData(form);
+    // const formDataValue = [...formData.entries()]
+
+    // console.log(formDataValue);
+    // console.log(name, email, password );
+    form.reset();
+  };
+
   return (
-    <StyledRegForm>
-      {/* <ReactLogo style={{ color: 'green' }} /> */}
+    <StyledRegForm className="registerForm" id="registerForm" onSubmit={handleSubmit}>
       <StyledRegTitle>Registration</StyledRegTitle>
       <StyledRegLabel>
-        {/* <StyledReactIcon style={{ color: 'green' }} /> */}
-        <StyledReactIcon />
-        {/* <StyledRegInputIcon src='./images/signPages/user-01.svg' alt="User icon" width={18} height={18}/> */}
-        <StyledRegInput type="text" placeholder="Name" />
+        <StyledUserIcon />
+        <StyledRegInput name="name" type="text" placeholder="Name" className="req_" required/>
       </StyledRegLabel>
       <StyledRegLabel>
-        <StyledRegInputIcon
-          src="./images/signPages/mail.svg"
-          alt="User icon"
-          width={18}
-          height={18}
-        />
-        <StyledRegInput type="email" placeholder="Email" />
+        {/* <StyledMailIcon style={{ color: 'yellow' }}/> */}
+        <StyledMailIcon />
+        <StyledRegInput name="email" type="email" placeholder="Email" className="req_" required/>
       </StyledRegLabel>
       <StyledRegLabel>
-        <StyledRegInputIcon
-          src="./images/signPages/lock.svg"
-          alt="User icon"
-          width={18}
-          height={18}
-        />
-        <StyledRegInput type="Password" placeholder="Password" />
+        <StyledLockIcon />
+        <StyledRegInput name="password" type="Password" placeholder="Password" className="req_" required/>
       </StyledRegLabel>
       <StyledRegBtnSubmit type="sybmit">Sign up</StyledRegBtnSubmit>
     </StyledRegForm>
   );
 };
-
-// import React from 'react';
-// import {ReactComponent as ReactLogo} from './logo.svg';
-
-// const App = () => {
-//   return (
-//     <div className="App">
-//       <ReactLogo />
-//     </div>
-//   );
