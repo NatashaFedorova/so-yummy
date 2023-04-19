@@ -1,14 +1,19 @@
 import styled from 'styled-components';
-import { device } from 'components/constants/Container/Container.styled';
 import { NavLink } from 'react-router-dom';
+import { device } from 'components/constants/Container/Container.styled';
 
-export const StyledRegSection = styled.section`
+export const size = {
+  mobile: '375px',
+  tablet: '768px',
+  desktop: '1440px',
+};
+export const SignSection = styled.section`
   position: relative;
   display: flex;
   align-items: center;
   min-height: 100vh;
 `;
-export const StyledRegSectionBg = styled.div`
+export const SignSectionBg = styled.div`
   position: absolute;
   bottom: 0;
 
@@ -31,7 +36,25 @@ export const StyledRegSectionBg = styled.div`
     background-image: url('./images/signPages/bg-bottom-desktop.svg');
   }
 `;
-export const StyledRegBoxWrap = styled.div`
+export const SignContainer = styled.div`
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+
+  @media ${device.mobile} {
+    width: ${size.mobile};
+  }
+
+  @media ${device.tablet} {
+    width: ${size.tablet};
+    padding: 0 134px;
+  }
+
+  @media ${device.desktop} {
+    width: ${size.desktop};
+  }
+`;
+export const SignBoxWrap = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -43,23 +66,7 @@ export const StyledRegBoxWrap = styled.div`
     gap: 114px;
   }
 `;
-export const StyledRegImg = styled.img`
-  width: 285px;
-  height: 250px;
-  flex-shrink: 0;
-  z-index: 1;
-
-  @media ${device.tablet} {
-    width: 409px;
-    height: 359px;
-  }
-
-  @media ${device.desktop} {
-    width: 532px;
-    height: 469px;
-  }
-`;
-export const StyledRegImgBg = styled.div`
+export const SignBgImg = styled.div`
   width: 285px;
   height: 250px;
   flex-shrink: 0;
@@ -83,7 +90,7 @@ export const StyledRegImgBg = styled.div`
     background-image: url('./images/signPages/order-food-pana-desktop.png');
   }
 `;
-export const StyledRegBox = styled.div`
+export const SignBox = styled.div`
   position: relative;
   bottom: 32px;
 
@@ -103,7 +110,7 @@ export const StyledRegBox = styled.div`
     bottom: -32px;
   }
 `;
-export const StyledRegNavLink = styled(NavLink)`
+export const SignNavLink = styled(NavLink)`
   font-size: 16px;
   line-height: 24px;
 
