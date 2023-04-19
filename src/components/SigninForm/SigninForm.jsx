@@ -11,7 +11,7 @@ import {
 } from 'components/SignPages/AuthForm.styled';
 import { logOut } from 'redux/auth/authOperation';
 
-export const SigninForm = () => {
+const SigninForm = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = e => {
@@ -54,3 +54,5 @@ export const SigninForm = () => {
 //   currentInput.style.color = 'red';
 //   console.log(currentInput);
 // }
+
+export default SigninForm;

@@ -8,7 +8,7 @@ import {
   SignNavLink,
 } from 'components/SignPages/SignPages.styled';
 // import SigninForm from 'components/SigninForm/';
-import { SigninForm } from 'components/SigninForm/SigninForm';
+import SigninForm  from 'components/SigninForm/';
 
 const SigninPage = () => {
   return (

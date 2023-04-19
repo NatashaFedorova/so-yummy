@@ -11,7 +11,7 @@ import {
   AuthFormUserIcon,
 } from 'components/SignPages/AuthForm.styled';
 
-export const RegisterForm = () => {
+const RegisterForm = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = e => {
@@ -48,3 +48,5 @@ export const RegisterForm = () => {
     </AuthForm>
   );
 };
+
+export default RegisterForm;

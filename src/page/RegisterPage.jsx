@@ -7,8 +7,7 @@ import {
   SignBox,
   SignNavLink,
 } from 'components/SignPages/SignPages.styled';
-// import RegisterForm from 'components/RegisterForm/';
-import { RegisterForm } from 'components/RegisterForm/RegisterForm';
+import RegisterForm from 'components/RegisterForm/';
 
 const RegisterPage = () => {
   return (
