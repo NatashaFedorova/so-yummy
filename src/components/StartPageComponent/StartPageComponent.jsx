@@ -1,4 +1,3 @@
-
 import { StyledSPSection, StyledSPContainer, StyledSPBox, StyledSPLogo, StyledSPTitle, StyledSPText, StyledSPNavList, StyledSPNavLinkRegistration, StyledSPNavLinkSignIn } from './StartPageComponent.styled';
 
 const StartPageComponent = () => {
@@ -19,7 +18,4 @@ const StartPageComponent = () => {
   );
 };
 
-
-
 export default StartPageComponent;
-
