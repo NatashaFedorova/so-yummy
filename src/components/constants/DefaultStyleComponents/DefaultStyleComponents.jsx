@@ -35,13 +35,13 @@ export const DefaultSquareСircle = styled.div`
   }
 `;
 
+
 export const DecoreBoxForBg = styled.div`
   position: relative;
   margin: 0 auto;
 
   @media ${device.mobile} {
     width: 375px;
-  }
 
   @media ${device.tablet} {
     width: 768px;
@@ -51,6 +51,7 @@ export const DecoreBoxForBg = styled.div`
     width: 1440px;
   }
 `;
+
 export const DefaultSectionTitle = styled.h2`
   line-height: 1;
   letter-spacing: -0.02em;
