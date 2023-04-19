@@ -1,40 +1,20 @@
-// ${props => props.theme.colors.text}
 import styled from 'styled-components';
+import { device } from 'components/constants/deviceType/deviceType';
 import {
-  DefaultSectionTitle,
   DefaultSquare,
   DefaultSquareСircle,
 } from 'components/constants/DefaultStyleComponents/DefaultStyleComponents';
-import { device } from 'components/constants/deviceType/deviceType';
 
-export const MainStyleConponent = styled.main`
+export const DecoreBox = styled.div`
   position: relative;
-`;
-
-export const Section = styled.section`
-  position: relative;
-  border: 1px solid red;
-  display: flex;
-  flex-direction: column;
 
   @media ${device.mobile} {
-    padding-top: 50px;
-    padding-bottom: 100px;
-  }
-
-  @media ${device.tablet} {
-    padding-top: 72px;
-    padding-bottom: 200px;
+    height: 100px;
   }
 
   @media ${device.desktop} {
-    padding-top: 100px;
-    padding-bottom: 195px;
+    height: 138px;
   }
-`;
-
-export const SectionTitle = styled(DefaultSectionTitle)`
-  color: ${props => props.theme.colors.shoppingListPage.title};
 `;
 
 export const Square = styled(DefaultSquare)`
@@ -42,17 +22,17 @@ export const Square = styled(DefaultSquare)`
 
   @media ${device.mobile} {
     top: 12px;
-    left: 120px;
+    left: 104px;
   }
 
   @media ${device.tablet} {
     top: 21px;
-    left: 219px;
+    left: 187px;
   }
 
   @media ${device.desktop} {
-    top: 52px;
-    left: 328px;
+    top: 56px;
+    left: 228px;
   }
 `;
 
@@ -61,17 +41,17 @@ export const SecondSquare = styled(DefaultSquare)`
 
   @media ${device.mobile} {
     top: 44px;
-    right: 16px;
+    right: 0;
   }
 
   @media ${device.tablet} {
     top: 34px;
-    right: 24px;
+    right: -8px;
   }
 
   @media ${device.desktop} {
-    top: 65px;
-    right: 172px;
+    top: 69px;
+    right: 72px;
   }
 `;
 
@@ -80,16 +60,16 @@ export const SquareСircle = styled(DefaultSquareСircle)`
 
   @media ${device.mobile} {
     top: 77px;
-    right: 120px;
+    right: 104px;
   }
 
   @media ${device.tablet} {
     top: 91px;
-    right: 315px;
+    right: 283px;
   }
 
   @media ${device.desktop} {
-    top: 135px;
-    right: 617px;
+    top: 140px;
+    right: 517px;
   }
 `;

@@ -8,6 +8,10 @@ import SharedLayout from 'components/SharedLayout';
 import StartPage from 'page/StartPage';
 import RegisterPage from 'page/RegisterPage';
 import SigninPage from 'page/SigninPage';
+import {
+  DecoreBoxForBg,
+  BoxWithPicture,
+} from 'components/constants/DefaultStyleComponents/DefaultStyleComponents';
 
 const MainPage = lazy(() => import('page/MainPage'));
 const CategoriesPage = lazy(() => import('page/CategoriesPage'));
@@ -25,30 +29,34 @@ const App = () => {
   return (
     <ThemeProvider theme={lightTheme}>
       <Background>
-        {!user ? (
-          <Routes>
-            <Route path="/" element={<StartPage />} />
-            <Route path="/register" element={<RegisterPage />} />
-            <Route path="/signin" element={<SigninPage />} />
-          </Routes>
-        ) : (
-          <Routes>
-            <Route path="/" element={<SharedLayout />}>
-              <Route path="/main" element={<MainPage />} />
-              <Route
-                path="/categories/:categoryName"
-                element={<CategoriesPage />}
-              />
-              <Route path="/add" element={<AddRecipePage />} />
-              <Route path="/favorite" element={<FavoritePage />} />
-              <Route path="/recipe/:recipeId" element={<RecipePage />} />
-              <Route path="/my" element={<MyRecipesPage />} />
-              <Route path="/search" element={<SearchPage />} />
-              <Route path="/shopping-list" element={<ShoppingListPage />} />
-              <Route path="*" element={<ErrorNotFoundPage />} />
-            </Route>
-          </Routes>
-        )}
+        <DecoreBoxForBg>
+          <BoxWithPicture />
+
+          {!user ? (
+            <Routes>
+              <Route path="/" element={<StartPage />} />
+              <Route path="/register" element={<RegisterPage />} />
+              <Route path="/signin" element={<SigninPage />} />
+            </Routes>
+          ) : (
+            <Routes>
+              <Route path="/" element={<SharedLayout />}>
+                <Route path="/main" element={<MainPage />} />
+                <Route
+                  path="/categories/:categoryName"
+                  element={<CategoriesPage />}
+                />
+                <Route path="/add" element={<AddRecipePage />} />
+                <Route path="/favorite" element={<FavoritePage />} />
+                <Route path="/recipe/:recipeId" element={<RecipePage />} />
+                <Route path="/my" element={<MyRecipesPage />} />
+                <Route path="/search" element={<SearchPage />} />
+                <Route path="/shopping-list" element={<ShoppingListPage />} />
+                <Route path="*" element={<ErrorNotFoundPage />} />
+              </Route>
+            </Routes>
+          )}
+        </DecoreBoxForBg>
       </Background>
     </ThemeProvider>
   );

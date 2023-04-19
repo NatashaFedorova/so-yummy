@@ -1,6 +1,8 @@
 const { default: styled } = require('styled-components');
 
 export const FooterSection = styled.section`
+  position: relative;
+  z-index: 1;
   display: flex;
   color: white;
   padding: 64px 100px 50px 100px;

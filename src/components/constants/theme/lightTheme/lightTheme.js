@@ -158,7 +158,7 @@ const lightTheme = Object.freeze({
       overlay: '#3e4462',
       overlayHover: 'rgb(139, 170, 54, 0.3)',
       overlayHoverAfter: 'rgb(0, 0, 0, 0.5)',
-      gradient: '#a8c163'
+      gradient: '#a8c163',
     },
 
     // AddRecipePage
@@ -291,8 +291,9 @@ const lightTheme = Object.freeze({
     m: '16px',
     l: '18px',
     xl: '24px',
-    xxl: '44px',
-    xxxl: '28px',
+    xxl: '28px',
+    xxxl: '44px',
+    sectionTitleTablet: '32px',
     generalTitle: '100px',
   },
   fontWeight: {
