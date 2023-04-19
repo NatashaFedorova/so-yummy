@@ -8,8 +8,10 @@ import SharedLayout from 'components/SharedLayout';
 import StartPage from 'page/StartPage';
 import RegisterPage from 'page/RegisterPage';
 import SigninPage from 'page/SigninPage';
-
-import { Box } from 'components/constants/DefaultStyleComponents/DefaultStyleComponents';
+import {
+  DecoreBoxForBg,
+  BoxWithPicture,
+} from 'components/constants/DefaultStyleComponents/DefaultStyleComponents';
 
 const MainPage = lazy(() => import('page/MainPage'));
 const CategoriesPage = lazy(() => import('page/CategoriesPage'));
@@ -27,7 +29,9 @@ const App = () => {
   return (
     <ThemeProvider theme={lightTheme}>
       <Background>
-        <Box>
+        <DecoreBoxForBg>
+          <BoxWithPicture />
+
           {!user ? (
             <Routes>
               <Route path="/" element={<StartPage />} />
@@ -52,7 +56,7 @@ const App = () => {
               </Route>
             </Routes>
           )}
-        </Box>
+        </DecoreBoxForBg>
       </Background>
     </ThemeProvider>
   );
