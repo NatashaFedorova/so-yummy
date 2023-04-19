@@ -35,6 +35,13 @@ export const Section = styled.section`
 
 export const SectionTitle = styled(DefaultSectionTitle)`
   color: ${props => props.theme.colors.shoppingListPage.title};
+
+  @media ${device.mobile} {
+    margin-bottom: 50px;
+  }
+  @media ${device.tablet} {
+    margin-bottom: 72px;
+  }
 `;
 
 export const Square = styled(DefaultSquare)`
@@ -91,5 +98,85 @@ export const SquareСircle = styled(DefaultSquareСircle)`
   @media ${device.desktop} {
     top: 135px;
     right: 617px;
+  }
+`;
+
+export const ListTableHeards = styled.ul`
+  background-color: ${props => props.theme.colors.shoppingListPage.bgAccent};
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+
+  @media ${device.mobile} {
+    padding: 10px;
+    margin-bottom: 32px;
+  }
+
+  @media ${device.tablet} {
+    padding: 16px 20px;
+    margin-bottom: 50px;
+  }
+
+  @media ${device.desktop} {
+    padding: 17px 40px;
+  }
+`;
+
+export const Box = styled.div`
+  display: flex;
+
+  @media ${device.mobile} {
+    gap: 24px;
+  }
+
+  @media ${device.tablet} {
+    gap: 78px;
+  }
+
+  @media ${device.desktop} {
+    gap: 142px;
+  }
+`;
+
+export const ItemTableHeaders = styled.li`
+  color: ${props => props.theme.colors.shoppingListPage.textSecondary};
+  font-weight: ${props => props.theme.fontWeight.semiBold};
+  line-height: 1.5;
+
+  @media ${device.mobile} {
+    font-size: ${props => props.theme.fontSizes.xs};
+  }
+
+  @media ${device.tablet} {
+    font-size: ${props => props.theme.fontSizes.l};
+  }
+`;
+
+export const List = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  @media ${device.mobile} {
+    gap: 24px;
+  }
+
+  @media ${device.tablet} {
+    gap: 44px;
+  }
+`;
+
+export const Item = styled.li`
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  @media ${device.mobile} {
+    gap: 24px;
+  }
+
+  @media ${device.tablet} {
+    gap: 44px;
   }
 `;

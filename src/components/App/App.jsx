@@ -13,8 +13,6 @@ import {
   BoxWithPicture,
 } from 'components/constants/DefaultStyleComponents/DefaultStyleComponents';
 
-import { Box } from 'components/constants/DefaultStyleComponents/DefaultStyleComponents';
-
 const MainPage = lazy(() => import('page/MainPage'));
 const CategoriesPage = lazy(() => import('page/CategoriesPage'));
 const AddRecipePage = lazy(() => import('page/AddRecipePage'));

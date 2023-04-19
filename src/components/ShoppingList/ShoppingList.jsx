@@ -3,10 +3,14 @@ import {
   MainStyleConponent,
   Section,
   SectionTitle,
-  // DecoreBox,
   Square,
   SecondSquare,
   SquareСircle,
+  ListTableHeards,
+  ItemTableHeaders,
+  Box,
+  List,
+  Item,
 } from './ShoppingList.styled';
 
 const ShoppingList = () => {
@@ -14,26 +18,24 @@ const ShoppingList = () => {
     <MainStyleConponent>
       <Section>
         <Container>
-          {/* <DecoreBox> */}
           <Square />
           <SecondSquare />
           <SquareСircle />
-          {/* </DecoreBox> */}
           <SectionTitle>Shopping list</SectionTitle>
-          <ul>
-            <li>
-              <p>Text</p>
-            </li>
-            <li>
-              <p>Text</p>
-            </li>
-            <li>
-              <p>Text</p>
-            </li>
-            <li>
-              <p>Text</p>
-            </li>
-          </ul>
+          <ListTableHeards>
+            <ItemTableHeaders>Product</ItemTableHeaders>
+            <Box>
+              <ItemTableHeaders>Number</ItemTableHeaders>
+              <ItemTableHeaders>Remove</ItemTableHeaders>
+            </Box>
+          </ListTableHeards>
+          <List>
+            <Item>
+              <img src="" alt="" />
+              <p>Salmon</p>
+              <input type="checkbox" name="" id="" />
+            </Item>
+          </List>
         </Container>
       </Section>
     </MainStyleConponent>
