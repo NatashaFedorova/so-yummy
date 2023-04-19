@@ -1,3 +1,5 @@
+import { useDispatch } from 'react-redux';
+import { register } from 'redux/auth/authOperation';
 import {
   AuthForm,
   AuthFormBtnSubmit,
@@ -10,52 +12,39 @@ import {
 } from 'components/SignPages/AuthForm.styled';
 
 export const RegisterForm = () => {
+  const dispatch = useDispatch();
+
   const handleSubmit = e => {
     e.preventDefault();
 
     const form = e.currentTarget;
+
+    dispatch(
+      register({
+        name: form.elements.name.value,
+        email: form.elements.email.value,
+        password: form.elements.password.value,
+      })
+    );
     form.reset();
   };
 
   return (
-    <AuthForm
-      className="registerForm"
-      id="registerForm"
-      onSubmit={handleSubmit}
-    >
+    <AuthForm id="registerForm" onSubmit={handleSubmit}>
       <AuthFormTitle>Registration</AuthFormTitle>
       <AuthFormLabel>
         <AuthFormUserIcon />
-        <AuthFormInput
-          name="name"
-          type="text"
-          placeholder="Name"
-          className="req_"
-          required
-        />
+        <AuthFormInput type="text" name="name" placeholder="Name" required />
       </AuthFormLabel>
       <AuthFormLabel>
-        {/* <StyledMailIcon style={{ color: 'yellow' }}/> */}
         <AuthFormMailIcon />
-        <AuthFormInput
-          name="email"
-          type="email"
-          placeholder="Email"
-          className="req_"
-          required
-        />
+        <AuthFormInput type="email" name="email" placeholder="Email" required />
       </AuthFormLabel>
       <AuthFormLabel>
         <AuthFormLockIcon />
-        <AuthFormInput
-          name="password"
-          type="Password"
-          placeholder="Password"
-          className="req_"
-          required
-        />
+        <AuthFormInput type="password" name="password" placeholder="Password" required />
       </AuthFormLabel>
-      <AuthFormBtnSubmit type="sybmit">Sign up</AuthFormBtnSubmit>
+      <AuthFormBtnSubmit type="submit">Sign up</AuthFormBtnSubmit>
     </AuthForm>
   );
 };
