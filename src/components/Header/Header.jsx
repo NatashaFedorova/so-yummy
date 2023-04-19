@@ -1,16 +1,16 @@
-import { Box } from 'components/constants/Container/Container.styled';
-import { Logo } from './Logo';
-import { Navigation } from './Navigation';
-import { UserLogo } from './UserLogo';
+import { HeaderContainer } from './Header.styled';
+import { Logo } from './Logo/Logo';
+import { Navigation } from './Navigation/Navigation';
+import { UserLogo } from './UserLogo/UserLogo';
 
 const Header = () => {
   return (
     <header>
-      <Box>
+      <HeaderContainer>
         <Logo />
         <Navigation />
         <UserLogo />
-      </Box>
+      </HeaderContainer>
     </header>
   );
 };

@@ -50,7 +50,7 @@ export const SubcribeFormDiv = styled.div`
     background-color: #8baa36;
     color: white;
     border-radius: 6px;
-
+    cursor: pointer;
     &:hover {
       color: black;
     }
