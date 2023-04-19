@@ -21,9 +21,10 @@ export const HeroBackground = styled.div`
   background-repeat: no-repeat;
 
   display: flex;
+  flex-direction: column;
   height: 777px;
   margin-bottom: 64px;
-  padding: 0 16px;
+  /* padding: 0 16px; */
 
   @media (min-width: 768px) {
     background-image: url(./images/mainPage/heroBG-tablet.png);

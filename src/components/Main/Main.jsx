@@ -1,6 +1,10 @@
-import Container from 'components/constants/Container';
+import Container from 'components/constants/Container/Container.styled';
 
 import { HeroBackground, SectionRelative } from './Main.styled';
+
+import HeroTitle from './Hero/HeroTitle';
+import HeroImage from './Hero/HeroImage';
+import SearchInput from './SearchInput/SearchInput';
 
 const Main = () => {
   return (
@@ -8,11 +12,15 @@ const Main = () => {
       <SectionRelative>
         <HeroBackground>
           <Container>
-            <p>HERO</p>
-            <p>List</p>
+            <HeroTitle />
+            <HeroImage />
+            <SearchInput />
           </Container>
         </HeroBackground>
-        <Container></Container>
+        <Container>
+          {/* <ul></ul>
+          <a href=""></a> */}
+        </Container>
       </SectionRelative>
     </>
   );
