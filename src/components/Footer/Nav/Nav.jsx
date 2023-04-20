@@ -11,8 +11,10 @@ const pages = [
 export const Nav = () => {
   return (
     <FooterNav>
-      {pages.map(page => (
-        <StyledNavLink to={`${page.to}`}>{page.title}</StyledNavLink>
+      {pages.map((page, ind) => (
+        <StyledNavLink key={ind} to={`${page.to}`}>
+          {page.title}
+        </StyledNavLink>
       ))}
     </FooterNav>
   );
