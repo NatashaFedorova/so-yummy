@@ -10,7 +10,7 @@ export const StyledSPSection = styled.section`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url('./images/signPages/bg1.jpg');
+  background-image: url('./images/welcomePage/bg1.webp');
 `;
 export const StyledSPContainer = styled.div`
   margin: 0 auto;

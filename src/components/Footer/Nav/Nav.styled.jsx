@@ -12,4 +12,7 @@ export const FooterNav = styled.nav`
 
 export const StyledNavLink = styled(NavLink)`
   color: white;
+  &:hover {
+    color: #8baa36;
+  }
 `;

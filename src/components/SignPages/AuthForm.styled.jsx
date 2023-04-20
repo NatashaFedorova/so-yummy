@@ -1,11 +1,11 @@
 import styled from 'styled-components';
-import { device } from 'components/constants/deviceType/deviceType';
-// import { ReactComponent as ReactIcon } from '../Form/user-01.svg';
-import { ReactComponent as UserIcon } from '../Form/user.svg';
-import { ReactComponent as MailIcon } from '../Form/mail.svg';
-import { ReactComponent as LockIcon } from '../Form/lock.svg';
 
-export const StyledRegForm = styled.form`
+import device from 'components/constants/Container/Container.styled';
+import { ReactComponent as UserIcon } from './user.svg';
+import { ReactComponent as MailIcon } from './mail.svg';
+import { ReactComponent as LockIcon } from './lock.svg';
+
+export const AuthForm = styled.form`
   display: flex;
   flex-direction: column;
   width: 335px;
@@ -26,7 +26,7 @@ export const StyledRegForm = styled.form`
     padding: 44px 50px;
   }
 `;
-export const StyledRegTitle = styled.h1`
+export const AuthFormTitle = styled.h1`
   margin-bottom: 18px;
 
   font-weight: 600;
@@ -43,7 +43,7 @@ export const StyledRegTitle = styled.h1`
     margin-bottom: 32px;
   }
 `;
-export const StyledRegLabel = styled.label`
+export const AuthFormLabel = styled.label`
   position: relative;
 
   margin-bottom: 12px;
@@ -62,7 +62,7 @@ export const StyledRegLabel = styled.label`
     }
   }
 `;
-export const StyledUserIcon = styled(UserIcon)`
+export const AuthFormUserIcon = styled(UserIcon)`
   position: absolute;
   top: 50%;
   left: 18px;
@@ -74,7 +74,7 @@ export const StyledUserIcon = styled(UserIcon)`
 
   transform: translateY(-50%);
 `;
-export const StyledMailIcon = styled(MailIcon)`
+export const AuthFormMailIcon = styled(MailIcon)`
   position: absolute;
   top: 50%;
   left: 18px;
@@ -85,7 +85,7 @@ export const StyledMailIcon = styled(MailIcon)`
 
   transform: translateY(-50%);
 `;
-export const StyledLockIcon = styled(LockIcon)`
+export const AuthFormLockIcon = styled(LockIcon)`
   position: absolute;
   top: 50%;
   left: 18px;
@@ -96,7 +96,7 @@ export const StyledLockIcon = styled(LockIcon)`
 
   transform: translateY(-50%);
 `;
-export const StyledRegInput = styled.input`
+export const AuthFormInput = styled.input`
   width: 100%;
   padding: 12px 14px 12px 40px;
 
@@ -118,7 +118,7 @@ export const StyledRegInput = styled.input`
     line-height: 27px;
   }
 `;
-export const StyledRegBtnSubmit = styled.button`
+export const AuthFormBtnSubmit = styled.button`
   height: 60px;
 
   color: inherit;

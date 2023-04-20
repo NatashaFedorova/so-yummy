@@ -1,10 +1,13 @@
-import { GrCafeteria } from 'react-icons/gr';
+import { LogoSvg, StyledGrCafeteria } from './Logo.styled';
+
 import { NavLink } from 'react-router-dom/dist';
 
 export const Logo = () => {
   return (
     <NavLink to="/">
-      <GrCafeteria />
+      <LogoSvg>
+        <StyledGrCafeteria />
+      </LogoSvg>
     </NavLink>
   );
 };
