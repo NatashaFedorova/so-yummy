@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { device } from 'components/constants/deviceType/deviceType';
-import Container from 'components/constants/Container/Container.styled';
+import Container from 'components/constants/Container';
 
 export const HeroBackground = styled.div`
   background-image: image-set(
@@ -31,7 +31,7 @@ export const HeroBackground = styled.div`
     background-image: url(./images/mainPage/heroBG-desc.png);
     height: 800px;
     margin-bottom: 100px;
-    padding: 0 100px;
+    /* padding: 0 100px; */
     /* align-items: center; */
   }
 `;
@@ -41,19 +41,20 @@ export const SectionRelative = styled.section`
 `;
 
 export const HeroContainer = styled(Container)`
-  padding-top: 71px;
+  padding-top: 132px;
 
   @media ${device.tablet} {
     display: flex;
     position: relative;
-    padding-top: 141px;
+    padding-top: 204px;
   }
 
   @media ${device.desktop} {
-    justify-content: space-between;
-    width: 1440px;
+    padding-top: 226px;
+    /* justify-content: space-between; */
+    /* width: 1440px;
 
-    padding: 163px 0 0 0;
-    margin: 0 auto;
+    padding: 163px 0 0 100px;
+    margin: 0 auto; */
   }
 `;
