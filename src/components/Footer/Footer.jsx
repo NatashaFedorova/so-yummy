@@ -10,16 +10,20 @@ const Footer = () => {
   return (
     <footer>
       <StyledContainer>
-        <FooterSection>
-          <LogoGroup>
-            <LogoFooter />
-            <AppInfo />
-          </LogoGroup>
-          <Nav />
-          <SubscribeForm />
-          <SocialLinks />
-        </FooterSection>
-        <CommercionInfo />
+        <div>
+          <FooterSection>
+            <LogoGroup>
+              <LogoFooter />
+              <AppInfo />
+            </LogoGroup>
+            <Nav />
+            <SubscribeForm />
+            <SocialLinks />
+          </FooterSection>
+        </div>
+        <div>
+          <CommercionInfo />
+        </div>
       </StyledContainer>
     </footer>
   );
