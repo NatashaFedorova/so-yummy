@@ -6,7 +6,6 @@ import { HiOutlineArrowRight } from 'react-icons/hi';
 
 export const HeroImageWrapper = styled.div`
   top: 261px;
-
   position: absolute;
 
   @media ${device.tablet} {
