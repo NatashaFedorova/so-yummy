@@ -1,10 +1,17 @@
 import Container from 'components/constants/Container';
+import RecipePageHero from './RecipePageHero';
+import RecipeInngredientsList from './RecipeInngredientsList';
+import RecipePreparation from './RecipePreparation';
 
 const Recipe = () => {
   return (
-    <Container>
-      <p>Recipe</p>
-    </Container>
+    <>
+      <RecipePageHero />
+      <Container>
+        <RecipeInngredientsList />
+        <RecipePreparation />
+      </Container>
+    </>
   );
 };
 

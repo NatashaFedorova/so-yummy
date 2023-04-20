@@ -1,32 +1,20 @@
 import styled from 'styled-components';
+import { device, size } from '../deviceType/deviceType';
 
-export const size = {
-  mobile: '375px',
-  tablet: '768px',
-  desktop: '1440px',
-};
-
-export const device = {
-  mobile: `(min-width: ${size.mobile})`,
-  tablet: `(min-width: ${size.tablet})`,
-  desktop: `(min-width: ${size.desktop})`,
-};
-
-export const Box = styled.div`
+const Container = styled.div`
   margin: 0 auto;
-
   @media ${device.mobile} {
-    width: 320px;
+    width: ${size.mobile};
     padding: 0 16px;
   }
-
   @media ${device.tablet} {
-    width: 768px;
+    width: ${size.tablet};
     padding: 0 32px;
   }
-
   @media ${device.desktop} {
-    width: 1440px;
+    width: ${size.desktop};
     padding: 0 100px;
   }
 `;
+
+export default Container;

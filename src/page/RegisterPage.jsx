@@ -1,7 +1,29 @@
-import Register from 'components/Register';
+import {
+  SignSection,
+  SignSectionBg,
+  SignContainer,
+  SignBoxWrap,
+  SignBgImg,
+  SignBox,
+  SignNavLink,
+} from 'components/SignPages/SignPages.styled';
+import RegisterForm from 'components/RegisterForm/';
 
 const RegisterPage = () => {
-  return <Register />;
+  return (
+    <SignSection>
+      <SignContainer>
+        <SignBoxWrap>
+          <SignBgImg />
+          <SignBox>
+            <RegisterForm />
+            <SignNavLink to="/signin">signin</SignNavLink>
+          </SignBox>
+        </SignBoxWrap>
+      </SignContainer>
+      <SignSectionBg />
+    </SignSection>
+  );
 };
 
 export default RegisterPage;

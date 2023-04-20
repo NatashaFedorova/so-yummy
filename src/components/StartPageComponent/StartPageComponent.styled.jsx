@@ -1,12 +1,7 @@
-import { device } from 'components/constants/Container/Container.styled';
+import { device, size } from 'components/constants/deviceType/deviceType';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const size = {
-  mobile: '375px',
-  tablet: '768px',
-  desktop: '1440px',
-};
 export const StyledSPSection = styled.section`
   display: flex;
   align-items: center;
@@ -15,7 +10,7 @@ export const StyledSPSection = styled.section`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url('./images/signPages/bg1.jpg');
+  background-image: url('./images/welcomePage/bg1.webp');
 `;
 export const StyledSPContainer = styled.div`
   margin: 0 auto;
