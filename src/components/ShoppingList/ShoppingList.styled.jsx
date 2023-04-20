@@ -195,6 +195,11 @@ export const List = styled.ul`
   @media ${device.tablet} {
     gap: 44px;
   }
+
+  @media ${device.tablet} {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
 `;
 
 export const Item = styled.li`
