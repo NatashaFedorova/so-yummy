@@ -21,13 +21,13 @@ const ErrorNotFoundPage = lazy(() => import('page/ErrorNotFoundPage'));
 
 const App = () => {
   // render певних шляхів, за умови, що user = true або false
-  const user = false;
+  const user = true;
   return (
     <ThemeProvider theme={lightTheme}>
       <Background>
         {!user ? (
           <Routes>
-            <Route path="/" element={<StartPage />} />
+            <Route index element={<StartPage />} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/signin" element={<SigninPage />} />
           </Routes>

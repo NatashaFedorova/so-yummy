@@ -9,18 +9,24 @@ import { SocialLinks } from './SocialLinks/SocialLinks';
 const Footer = () => {
   return (
     <footer>
-      <StyledContainer>
-        <FooterSection>
-          <LogoGroup>
-            <LogoFooter />
-            <AppInfo />
-          </LogoGroup>
-          <Nav />
-          <SubscribeForm />
-          <SocialLinks />
-        </FooterSection>
-        <CommercionInfo />
-      </StyledContainer>
+      <div style={{ background: '#22252a' }}>
+        <StyledContainer>
+          <FooterSection>
+            <LogoGroup>
+              <LogoFooter />
+              <AppInfo />
+            </LogoGroup>
+            <Nav />
+            <SubscribeForm />
+            <SocialLinks />
+          </FooterSection>
+        </StyledContainer>
+      </div>
+      <div>
+        <StyledContainer>
+          <CommercionInfo />
+        </StyledContainer>
+      </div>
     </footer>
   );
 };
