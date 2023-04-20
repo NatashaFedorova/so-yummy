@@ -6,17 +6,28 @@ import {
   DefaultSquareСircle,
 } from 'components/constants/DefaultStyleComponents/DefaultStyleComponents';
 import { device } from 'components/constants/deviceType/deviceType';
+import Container from 'components/constants/Container';
 
-export const MainStyleConponent = styled.main`
-  position: relative;
-`;
+export const MainStyleConponent = styled.main``;
 
 export const Section = styled.section`
   position: relative;
-  border: 1px solid red;
-  display: flex;
-  flex-direction: column;
+  margin: 0 auto;
 
+  @media ${device.mobile} {
+    width: 375px;
+  }
+
+  @media ${device.tablet} {
+    width: 768px;
+  }
+
+  @media ${device.desktop} {
+    width: 1440px;
+  }
+`;
+
+export const SectionContainer = styled(Container)`
   @media ${device.mobile} {
     padding-top: 50px;
     padding-bottom: 100px;
@@ -30,6 +41,25 @@ export const Section = styled.section`
   @media ${device.desktop} {
     padding-top: 100px;
     padding-bottom: 195px;
+  }
+`;
+
+export const DecoreBox = styled.div`
+  position: absolute;
+
+  @media ${device.mobile} {
+    height: 100px;
+    width: 375px;
+  }
+
+  @media ${device.tablet} {
+    height: 138px;
+    width: 768px;
+  }
+
+  @media ${device.desktop} {
+    height: 138px;
+    width: 1440px;
   }
 `;
 
@@ -164,6 +194,11 @@ export const List = styled.ul`
 
   @media ${device.tablet} {
     gap: 44px;
+  }
+
+  @media ${device.tablet} {
+    padding-left: 40px;
+    padding-right: 40px;
   }
 `;
 

@@ -1,6 +1,7 @@
-import Container from 'components/constants/Container';
 import {
   MainStyleConponent,
+  DecoreBox,
+  SectionContainer,
   Section,
   SectionTitle,
   Square,
@@ -17,10 +18,12 @@ const ShoppingList = () => {
   return (
     <MainStyleConponent>
       <Section>
-        <Container>
+        <DecoreBox>
           <Square />
           <SecondSquare />
           <SquareСircle />
+        </DecoreBox>
+        <SectionContainer>
           <SectionTitle>Shopping list</SectionTitle>
           <ListTableHeards>
             <ItemTableHeaders>Product</ItemTableHeaders>
@@ -31,12 +34,38 @@ const ShoppingList = () => {
           </ListTableHeards>
           <List>
             <Item>
-              <img src="" alt="" />
-              <p>Salmon</p>
-              <input type="checkbox" name="" id="" />
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <div
+                  style={{
+                    display: 'flex',
+                    gap: '16px',
+                    alignItems: 'flex-start',
+                  }}
+                >
+                  <div
+                    style={{
+                      width: '60px',
+                      height: '60px',
+                      background: '#8baa36',
+                    }}
+                  ></div>
+                  <p>Salmon</p>
+                </div>
+                <div
+                  style={{
+                    display: 'flex',
+                    gap: '174px',
+                    alignItems: 'flex-start',
+                    marginRight: '28px',
+                  }}
+                >
+                  <p>400 g</p>
+                  <button type="button">x</button>
+                </div>
+              </div>
             </Item>
           </List>
-        </Container>
+        </SectionContainer>
       </Section>
     </MainStyleConponent>
   );
