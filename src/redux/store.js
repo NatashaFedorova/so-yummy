@@ -13,6 +13,7 @@ import {
 
 // import {themeReducer} from 'redux/theme/themeSlice';
 import { authReducer } from 'redux/auth/authSlice';
+import recipesByIdReducer from 'redux/recipes/recipesSlice/recipeByIdSlice';
 // import recipesReducer from 'redux/auth/authSlice';
 
 const authPersistConfig = {
@@ -29,6 +30,7 @@ const authPersistConfig = {
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
+    recipeById: recipesByIdReducer,
     // recipes: recipesReducer,
     // theme: persistReducer(themePersistConfig, themeReducer),
   },
