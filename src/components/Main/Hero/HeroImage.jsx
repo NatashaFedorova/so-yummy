@@ -8,7 +8,6 @@ import {
   HeroImageLink,
   HeroImageIcon,
 } from './HeroImage.styled';
-// import { AiOutlineArrowRight } from 'react-icons/ai';
 
 const HeroImage = () => {
   return (

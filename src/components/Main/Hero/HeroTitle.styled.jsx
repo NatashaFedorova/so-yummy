@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { device, size } from 'components/constants/deviceType/deviceType';
+import { device } from 'components/constants/deviceType/deviceType';
 
 export const MainPageTitle = styled.h1`
   text-align: center;
@@ -13,6 +13,17 @@ export const MainPageTitle = styled.h1`
   letter-spacing: -0.005em;
 
   margin-bottom: 14px;
+
+  @media ${device.tablet} {
+    margin-bottom: 24px;
+    font-size: 72px;
+  }
+
+  @media ${device.desktop} {
+    margin-bottom: 14px;
+    font-size: 100px;
+    line-height: 100px;
+  }
 `;
 
 export const MainPageTitleAccent = styled.span`
@@ -36,5 +47,20 @@ export const MainPageText = styled.p`
   & br {
     display: inline;
     content: ' ';
+  }
+
+  @media ${device.tablet} {
+    max-width: 362px;
+    text-align: left;
+    padding-left: 4px;
+  }
+
+  @media ${device.desktop} {
+    max-width: 465px;
+    text-align: left;
+    padding-left: 7px;
+    margin-left: 0;
+
+    font-size: ${props => props.theme.fontSizes.l};
   }
 `;

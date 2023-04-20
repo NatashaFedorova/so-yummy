@@ -1,12 +1,6 @@
 import styled from 'styled-components';
-// import lightTheme from '../constants/theme/lightTheme';
-
-// import heroBgDesktop from './images/mainPage/heroBG-desc.png';
-// import heroBgDesktopWebp from '../../../public/images/mainPage/heroBG-desc-webp.webp';
-// import heroBgTabletWebp from '../../../public/images/mainPage/heroBG-tablet-webp.webp';
-// import heroBgTablet from '../../../public/images/mainPage/heroBG-tablet.png';
-// import heroBgMobile from '../../../public/images/mainPage/heroBG-mobile.png';
-// import heroBgMobileWebp from '../../../public/images/mainPage/heroBG-mobile-webp.webp';
+import { device } from 'components/constants/deviceType/deviceType';
+import Container from 'components/constants/Container/Container.styled';
 
 export const HeroBackground = styled.div`
   background-image: image-set(
@@ -24,23 +18,42 @@ export const HeroBackground = styled.div`
   flex-direction: column;
   height: 777px;
   margin-bottom: 64px;
-  /* padding: 0 16px; */
 
-  @media (min-width: 768px) {
+  @media ${device.tablet} {
     background-image: url(./images/mainPage/heroBG-tablet.png);
     height: 640px;
     margin-bottom: 72px;
-    padding: 0 32px;
+    /* padding: 0 32px; */
+    display: flex;
   }
 
-  @media (min-width: 1440px) {
+  @media ${device.desktop} {
     background-image: url(./images/mainPage/heroBG-desc.png);
     height: 800px;
     margin-bottom: 100px;
     padding: 0 100px;
+    /* align-items: center; */
   }
 `;
 
 export const SectionRelative = styled.section`
   position: relative;
+`;
+
+export const HeroContainer = styled(Container)`
+  padding-top: 71px;
+
+  @media ${device.tablet} {
+    display: flex;
+    position: relative;
+    padding-top: 141px;
+  }
+
+  @media ${device.desktop} {
+    justify-content: space-between;
+    width: 1440px;
+
+    padding: 163px 0 0 0;
+    margin: 0 auto;
+  }
 `;

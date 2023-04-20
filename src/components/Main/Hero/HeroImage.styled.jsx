@@ -1,22 +1,60 @@
 import styled from 'styled-components';
-import { device, size } from 'components/constants/deviceType/deviceType';
+import { device } from 'components/constants/deviceType/deviceType';
 
 import { NavLink } from 'react-router-dom';
 import { HiOutlineArrowRight } from 'react-icons/hi';
 
 export const HeroImageWrapper = styled.div`
-  margin-top: 44px;
-  position: relative;
+  top: 261px;
+
+  position: absolute;
+
+  @media ${device.tablet} {
+    top: -55px;
+    position: relative;
+  }
+
+  @media ${device.desktop} {
+    top: -100px;
+    left: 73px;
+    position: relative;
+    margin-right: auto;
+  }
 `;
 export const HeroImageDish = styled.img`
   position: absolute;
   width: 320px;
+
+  @media ${device.tablet} {
+    width: 378px;
+  }
+
+  @media ${device.desktop} {
+    width: 578px;
+    margin: 0 auto;
+  }
 `;
 
 export const HeroImageArrow = styled.img`
-  width: 130px;
+  width: 146px;
+  height: 105px;
   position: absolute;
   display: none;
+
+  @media ${device.tablet} {
+    display: block;
+    top: 288px;
+    left: 145px;
+  }
+
+  @media ${device.desktop} {
+    display: block;
+    width: 160px;
+    height: 115px;
+
+    top: 415px;
+    left: 410px;
+  }
 `;
 
 export const HeroImageTextWrapper = styled.div`
@@ -26,11 +64,26 @@ export const HeroImageTextWrapper = styled.div`
 
   border-radius: 8px;
   padding: 8px;
-  /* margin-bottom: 115px; */
 
   width: 225px;
   top: 113px;
   left: 88px;
+
+  @media ${device.tablet} {
+    width: 260px;
+    padding: 12px 12px 15px;
+
+    top: 213px;
+    left: 75px;
+  }
+
+  @media ${device.desktop} {
+    width: 298px;
+    padding: 16px 16px 19px;
+
+    top: 336px;
+    left: 342px;
+  }
 `;
 
 export const HeroImageText = styled.p`
@@ -41,6 +94,12 @@ export const HeroImageText = styled.p`
   font-size: ${props => props.theme.fontSizes.xs};
   line-height: 1.5;
   letter-spacing: -0.24px;
+
+  @media ${device.tablet} {
+    font-size: ${props => props.theme.fontSizes.s};
+    line-height: 1.3;
+    margin-bottom: 7px;
+  }
 `;
 
 export const HeroImageSpan = styled.span`

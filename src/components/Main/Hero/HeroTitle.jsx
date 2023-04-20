@@ -3,6 +3,7 @@ import {
   MainPageTitleAccent,
   MainPageText,
 } from './HeroTitle.styled';
+import SearchInput from '../SearchInput/SearchInput';
 
 const HeroTitle = () => {
   return (
@@ -15,6 +16,7 @@ const HeroTitle = () => {
         cookbook. You can add your own recipes to <br /> save them for the
         future.
       </MainPageText>
+      <SearchInput />
     </div>
   );
 };

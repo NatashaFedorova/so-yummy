@@ -1,5 +1,5 @@
-import { device, size } from 'components/constants/deviceType/deviceType';
-import { NavLink } from 'react-router-dom';
+import { device } from 'components/constants/deviceType/deviceType';
+// import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const SearchInputWrapper = styled.div`
@@ -15,6 +15,20 @@ export const SearchInputWrapper = styled.div`
 
   border: 1px solid ${props => props.theme.colors.mainPage.bgInput};
   border-radius: ${props => props.theme.radii.btnSpecial};
+
+  @media ${device.tablet} {
+    margin-top: 32px;
+
+    width: 362px;
+    height: 59px;
+  }
+
+  @media ${device.desktop} {
+    margin-top: 50px;
+
+    width: 510px;
+    height: 70px;
+  }
 `;
 
 export const SearchInputForm = styled.form`
@@ -28,8 +42,16 @@ export const SearchInputField = styled.input`
 
   border-radius: ${props => props.theme.radii.btnSpecial};
   border: none;
-  /* outline: 2px solid transparent; */
-  /* outline-offset: 2px; */
+  padding: 15.7px 113px 15.7px 32px;
+  color: ${props => props.theme.colors.mainPage.placeholderInputSearch};
+
+  font-weight: ${props => props.theme.fontWeight.regular};
+  font-size: ${props => props.theme.fontSizes.xs};
+  line-height: 1.5;
+
+  @media ${device.tablet} {
+    font-size: ${props => props.theme.fontSizes.m};
+  }
 `;
 
 export const SearchInputButton = styled.button`
@@ -46,35 +68,24 @@ export const SearchInputButton = styled.button`
 
   font-weight: ${props => props.theme.fontWeight.regular};
   font-size: ${props => props.theme.fontSizes.s};
+  line-height: 1.5;
 
   border: none;
   border-radius: ${props => props.theme.radii.btnSpecial};
 
   cursor: pointer;
+
+  @media ${device.tablet} {
+    width: 161px;
+    height: 59px;
+
+    font-size: ${props => props.theme.fontSizes.m};
+  }
+
+  @media ${device.desktop} {
+    width: 161px;
+    height: 70px;
+
+    font-size: ${props => props.theme.fontSizes.m};
+  }
 `;
-
-// export const StyledSPNavLinkRegistration = styled(NavLink)`
-//   display: inline-block;
-//   padding: 12px 24px;
-
-//   font-size: 14px;
-//   line-height: 21px;
-//   color: ${props => props.theme.colors.startPage.textButton};
-
-//   border-radius: 24px 44px;
-//   border-color: ${props => props.theme.colors.startPage.borderBtnRegistration};
-//   background-color: ${props => props.theme.colors.startPage.bgBtnRegistration};
-//   cursor: pointer;
-
-//   @media ${device.tablet} {
-//     padding: 22px 44px;
-
-//     font-size: 16px;
-//     line-height: 24px;
-//   }
-// `;
-// export const StyledSPNavLinkSignIn = styled(StyledSPNavLinkRegistration)`
-//   background-color: ${props => props.theme.colors.startPage.bgBtnSignIn};
-//   border-color: ${props => props.theme.colors.startPage.borderBtnSignIn};
-//   border: 2px solid;
-// `;
