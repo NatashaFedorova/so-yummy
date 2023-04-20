@@ -23,6 +23,8 @@ import {
   CategoryDefaultSquareSecond,
 } from './Category.styled';
 
+// http://localhost:3000/so-yummy/categories/1
+
 const Categories = () => {
   const { categoryName: id } = useParams();
   // if (!useParams()) {
