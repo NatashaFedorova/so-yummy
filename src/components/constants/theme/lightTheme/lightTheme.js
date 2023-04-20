@@ -151,7 +151,7 @@ const lightTheme = Object.freeze({
     // CategoriesPage
     categoriesPage: {
       title: '#001833',
-      linkNameCategory: '#bdbdbd',
+      linkNameCategory: '#BDBDBD',
       linkNameCategoryHover: '#8baa36',
       lineActive: '#8baa36',
       line: '#e0e0e0',
