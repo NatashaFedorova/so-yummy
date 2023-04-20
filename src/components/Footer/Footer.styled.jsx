@@ -1,4 +1,4 @@
-import { Box } from 'components/constants/Container/Container.styled';
+import Container from 'components/constants/Container';
 
 const { default: styled } = require('styled-components');
 
@@ -21,6 +21,6 @@ export const LogoGroup = styled.div`
   margin-right: 160px;
 `;
 
-export const StyledContainer = styled(Box)`
+export const StyledContainer = styled(Container)`
   padding: 0px;
 `;

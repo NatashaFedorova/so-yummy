@@ -1,8 +1,8 @@
-import { Box } from 'components/constants/Container/Container.styled';
+import Container from 'components/constants/Container';
 
 const { default: styled } = require('styled-components');
 
-export const HeaderContainer = styled(Box)`
+export const HeaderContainer = styled(Container)`
   display: flex;
   align-items: center;
   justify-content: space-between;
