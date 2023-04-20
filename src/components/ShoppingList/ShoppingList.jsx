@@ -1,4 +1,3 @@
-import { green } from '@mui/material/colors';
 import {
   MainStyleConponent,
   DecoreBox,
