@@ -1,7 +1,7 @@
-import axios from 'axios';
+// import axios from 'axios';
 
-const clearAuthHeader = () => {
-  axios.defaults.headers.common.Authorization = '';
-};
+// const clearAuthHeader = () => {
+//   axios.defaults.headers.common.Authorization = '';
+// };
 
-export default clearAuthHeader;
+// export default clearAuthHeader;

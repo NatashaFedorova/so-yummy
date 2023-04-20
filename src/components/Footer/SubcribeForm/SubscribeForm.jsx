@@ -1,3 +1,4 @@
+import DefaultBtn from 'components/constants/DefaultBtn';
 import { useState } from 'react';
 import { StyledHiOutlineMail, SubcribeFormDiv } from './SubscribeForm.styled';
 
@@ -17,7 +18,9 @@ export const SubscribeForm = () => {
           onChange={event => setSubscribeEmail(event.target.value)}
         />
       </label>
-      <button disabled={subscribeEmail ? false : true}>Subscribe</button>
+      <DefaultBtn disabled={subscribeEmail ? false : true}>
+        Subscribe
+      </DefaultBtn>
     </SubcribeFormDiv>
   );
 };

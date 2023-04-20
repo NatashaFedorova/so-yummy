@@ -35,21 +35,54 @@ export const DefaultSquareСircle = styled.div`
   }
 `;
 
-export const Box = styled.div`
-  /* margin: 0 auto; */
+export const DecoreBoxForBg = styled.div`
+  position: relative;
+  margin: 0 auto;
 
-  /* @media ${device.mobile} {
-    width: 320px;
-    padding: 0 16px;
+  @media ${device.mobile} {
+    width: 375px;
+  }
+  @media ${device.tablet} {
+    width: 768px;
+  }
+  @media ${device.desktop} {
+    width: 1440px;
+  }
+`;
+
+export const DefaultSectionTitle = styled.h2`
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-feature-settings: 'liga' off;
+
+  @media ${device.mobile} {
+    font-weight: ${props => props.theme.fontWeight.semiBold};
+    font-size: ${props => props.theme.fontSizes.xxl};
   }
 
   @media ${device.tablet} {
-    width: 768px;
-    padding: 0 32px;
+    font-weight: ${props => props.theme.fontWeight.semiBold};
+    font-size: ${props => props.theme.fontSizes.sectionTitleTablet};
   }
 
   @media ${device.desktop} {
-    width: 1440px;
-    padding: 0 100px;
-  } */
+    font-weight: ${props => props.theme.fontWeight.semiBold};
+    font-size: ${props => props.theme.fontSizes.xxxl};
+  }
+`;
+
+export const BoxWithPicture = styled.div`
+  position: absolute;
+  transform: rotate(356deg);
+  filter: blur(4.5px);
+
+  @media ${device.desktop} {
+    width: 558px;
+    height: 852px;
+    background: url('./images/bg/spinach-big-up-desktop.png');
+    background-repeat: no-repeat;
+    background-size: auto;
+    left: -214px;
+    bottom: 176px;
+  }
 `;

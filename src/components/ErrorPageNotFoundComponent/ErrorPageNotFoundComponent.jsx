@@ -1,10 +1,7 @@
 import Container from 'components/constants/Container';
+import DecoreBoxComponent from 'components/DecoreBoxComponent';
 import {
   MainBox,
-  DecoreBox,
-  Square,
-  SecondSquare,
-  SquareСircle,
   Img,
   BoxForImg,
   BoxForContent,
@@ -16,11 +13,7 @@ const ErrorPageNotFoundComponent = () => {
   return (
     <MainBox>
       <Container>
-        <DecoreBox>
-          <Square />
-          <SecondSquare />
-          <SquareСircle />
-        </DecoreBox>
+        <DecoreBoxComponent />
         <BoxForContent>
           <BoxForImg>
             <Img src="./images/errorPageNotFound/404-page.svg" alt="people" />
