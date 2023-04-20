@@ -1,6 +1,7 @@
-import Container from 'components/constants/Container';
 import {
   MainStyleConponent,
+  DecoreBox,
+  SectionContainer,
   Section,
   SectionTitle,
   Square,
@@ -17,10 +18,12 @@ const ShoppingList = () => {
   return (
     <MainStyleConponent>
       <Section>
-        <Container>
+        <DecoreBox>
           <Square />
           <SecondSquare />
           <SquareСircle />
+        </DecoreBox>
+        <SectionContainer>
           <SectionTitle>Shopping list</SectionTitle>
           <ListTableHeards>
             <ItemTableHeaders>Product</ItemTableHeaders>
@@ -36,7 +39,7 @@ const ShoppingList = () => {
               <input type="checkbox" name="" id="" />
             </Item>
           </List>
-        </Container>
+        </SectionContainer>
       </Section>
     </MainStyleConponent>
   );
