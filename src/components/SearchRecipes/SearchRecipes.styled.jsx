@@ -7,16 +7,16 @@ export const Options = styled.div`
 
   display: flex;
   justify-content: space-between;
-  background-color: grey;
+  background-color: #D9D9D9;
   border-radius: 4px;
 
   position: relative;
 `;
 export const SearchOption = styled.li`
   max-width: 146px;
-  padding: 8px 108px 8px 16px
+  padding: 8px 108px 8px 16px;
   border-radius: 4px;
-`;
+`
 export const SearchOptions = styled.ul`
   position: absolute;
   left: 0;
@@ -24,22 +24,12 @@ export const SearchOptions = styled.ul`
 `;
 
 export const SearchBox = styled.div`
-
-@media ${device.mobile} {
-    margin-left: 24px;
-    margin-right: 24px;
-  }
-
   @media ${device.tablet} {
-    width: 470px
+    width: 470px;
+    
   }
-
-  @media ${device.tablet} {
-    margin-right: 171px;
-    margin-left: 171px;
-  }
-
-  
+  margin-right: auto;
+    margin-left: auto;
   margin-top: 40px;
 
   margin-bottom: 100px;
@@ -71,7 +61,7 @@ export const SearchInput = styled.input`
   border: 1px solid #f0f0f0;
   background: #ffffff;
   border-radius: 24px 44px;
-  width: 100%
+  width: 100%;
 `;
 export const SearchForm = styled.form`
   position: relative;

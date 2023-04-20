@@ -18,7 +18,7 @@ const Dropdown = () => {
         </SearchOptions>
       )}
         {option}
-        <AiOutlineDown fill={"green"}/>
+        <AiOutlineDown fill={"#8baa36"}/>
       </Options>
     </>
   );
