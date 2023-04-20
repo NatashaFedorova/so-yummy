@@ -1,13 +1,36 @@
 import {
     IngImg, IngHead, IngHeadTitleI, IngHeadTitleA, IngHeadTitleN, IngListItem, IngListItemInfo,
-    IngListItemInfoText, IngListItemNumber,
-
-
-    IngListItemInput2, IngListItemLabel2, IngListItemCheckWrap2
-
+    IngListItemInfoText, IngListItemNumber, IngListItemNumberWrap, IngListItemInput,
+    IngListItemLabel, IngListItemCheckWrap
 } from './Recipe.styled';
 
-const RecipeInngredientsList = () => {
+const RecipeInngredientsList = ({ measurre, info }) => {
+
+    const rer = measurre.map(item => item.measure);
+
+    console.log("Info ", info)
+    console.log("measure ", measurre)
+    console.log("measure ARR ", rer)
+
+    // const dataMerge = function (measurre, info) {
+    //     return measurre.map(movie => ({
+    //         ...movie,
+    //         mykey: movie.id.map(id => {
+    //             return info.find(element => element._id === id)?.measure;
+    //         }),
+    //     }));
+    // };
+
+
+
+
+    // const dataMerge2 = function (measurre, info) {
+    //     return measurre.map(movie => ({
+    //         ...movie,
+    //     }));
+    // };
+    // console.log("megr ", dataMerge2())
+
     return (
         <>
             <IngHead>
@@ -23,13 +46,13 @@ const RecipeInngredientsList = () => {
                         <IngImg src="../images/recipeById/image4.png" alt="test-img" />
                         <IngListItemInfoText>Ingredient 1</IngListItemInfoText>
                     </IngListItemInfo>
-                    <div >
+                    <IngListItemNumberWrap >
                         <IngListItemNumber>1 kg</IngListItemNumber>
-                    </div>
-                    <IngListItemCheckWrap2 >
-                        <IngListItemInput2 type="checkbox" id="vehicle4" name="vehicle4" />
-                        <IngListItemLabel2 htmlFor="vehicle4" >  </IngListItemLabel2>
-                    </IngListItemCheckWrap2>
+                    </IngListItemNumberWrap>
+                    <IngListItemCheckWrap >
+                        <IngListItemInput type="checkbox" id="vehicle4" name="vehicle4" />
+                        <IngListItemLabel htmlFor="vehicle4" >  </IngListItemLabel>
+                    </IngListItemCheckWrap>
                 </IngListItem>
 
                 <IngListItem>
@@ -37,13 +60,13 @@ const RecipeInngredientsList = () => {
                         <IngImg src="../images/recipeById/image6.png" alt="test-img" />
                         <IngListItemInfoText>Ingredient 2</IngListItemInfoText>
                     </IngListItemInfo>
-                    <div >
+                    <IngListItemNumberWrap >
                         <IngListItemNumber >4</IngListItemNumber>
-                    </div>
-                    <IngListItemCheckWrap2 >
-                        <IngListItemInput2 type="checkbox" id="vehicle3" name="vehicle3" />
-                        <IngListItemLabel2 htmlFor="vehicle3" >  </IngListItemLabel2>
-                    </IngListItemCheckWrap2>
+                    </IngListItemNumberWrap>
+                    <IngListItemCheckWrap >
+                        <IngListItemInput type="checkbox" id="vehicle3" name="vehicle3" />
+                        <IngListItemLabel htmlFor="vehicle3" >  </IngListItemLabel>
+                    </IngListItemCheckWrap>
                 </IngListItem>
 
                 <IngListItem>
@@ -51,13 +74,13 @@ const RecipeInngredientsList = () => {
                         <IngImg src="../images/recipeById/image10.png" alt="test-img" />
                         <IngListItemInfoText>Ingredient  3</IngListItemInfoText>
                     </IngListItemInfo>
-                    <div >
+                    <IngListItemNumberWrap >
                         <IngListItemNumber >1 Slice</IngListItemNumber>
-                    </div>
-                    <IngListItemCheckWrap2 >
-                        <IngListItemInput2 type="checkbox" id="vehicle2" name="vehicle2" />
-                        <IngListItemLabel2 htmlFor="vehicle2" >  </IngListItemLabel2>
-                    </IngListItemCheckWrap2>
+                    </IngListItemNumberWrap>
+                    <IngListItemCheckWrap >
+                        <IngListItemInput type="checkbox" id="vehicle2" name="vehicle2" />
+                        <IngListItemLabel htmlFor="vehicle2" >  </IngListItemLabel>
+                    </IngListItemCheckWrap>
                 </IngListItem>
             </ul>
 

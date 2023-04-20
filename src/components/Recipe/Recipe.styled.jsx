@@ -14,7 +14,7 @@ export const HeroHead = styled.div`
     text-align: center;
     background-repeat: no-repeat;
     background-size: cover;
-    margin-top: -18px;
+    margin-top: -78px;
 `;
 
 export const HeroTitle = styled.h1`
@@ -45,6 +45,11 @@ export const HeroBtn = styled(DefaultBtn)`
 export const HeroP = styled.p`
     display:flex;
     flex-wrap: wrap;
+    &:before {
+        content: url('../images/recipebyId/clock.svg');
+        margin-top: -3px;
+        padding-right: 7px;
+      }
 `;
 
 
@@ -62,14 +67,14 @@ export const IngHeadTitleI = styled.span`
 color: ${props => props.theme.colors.recipePage.textBtnHover};
 font-size: ${props => props.theme.fontSizes.l};
 font-weight: ${props => props.theme.fontWeight.semiBold};
-width:60%;
+width:70%;
 `;
 
 export const IngHeadTitleN = styled.span`
 color: ${props => props.theme.colors.recipePage.textBtnHover};
 font-size: ${props => props.theme.fontSizes.l};
 font-weight: ${props => props.theme.fontWeight.semiBold};
-width:30%;
+width:20%;
 `;
 
 
@@ -84,7 +89,6 @@ text-align: right;
 export const IngListItem = styled.li`
 display:flex;
 align-items: center;
-justify-content: space-between;
 background-color: ${props => props.theme.colors.recipePage.bgCardIngredient};
 padding: 0px 40px 0px 32px;
 margin-top: 30px;
@@ -94,6 +98,7 @@ border-radius: 8px;
 export const IngListItemInfo = styled.div`
 display:flex;
 align-items: center;
+width: 72%;
 `;
 
 export const IngListItemInfoText = styled.p`
@@ -103,6 +108,11 @@ font-size: ${props => props.theme.fontSizes.xl};
 font-weight: ${props => props.theme.fontWeight.medium};
 `;
 
+
+export const IngListItemNumberWrap = styled.div`
+    width: 13%
+`;
+
 export const IngListItemNumber = styled.p`
 background-color: ${props => props.theme.colors.recipePage.borderBtn};
 color: ${props => props.theme.colors.recipePage.textBtnHover};
@@ -110,6 +120,7 @@ font-size: ${props => props.theme.fontSizes.l};
 font-weight: ${props => props.theme.fontWeight.semiBold};
 border-radius: 4px;
 padding: 5px 8px;
+display: inline-block;
 `;
 
 
@@ -119,44 +130,11 @@ export const IngImg = styled.img`
 `;
 
 export const IngListItemCheckWrap = styled.div`
-
-`;
-
-export const IngListItemLabel = styled.label`
-box-shadow: rgba(126, 126, 126, 0.5) 0px 0px 0px 2px inset;
-border-radius: 4px;
-width: 35px;
-height: 35px;
-cursor: pointer;
 position: relative;
-&:before{
-    content: "";
-    background-image: url('../images/recipebyId/pick.svg');
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    display: block;
-    width: 17px;
-    height: 17px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    transform: translate(-50%, -50%);
-  }
+width: 15%;
+text-align: right;
 `;
-
 export const IngListItemInput = styled.input`
-position: absolute;
-    width: 35px;
-    height: 35px;
-    left: 11px;
-    bottom: 7px;
-    opacity: 0.1;
-`;
-
-export const IngListItemCheckWrap2 = styled.div`
-position: relative;
-`;
-export const IngListItemInput2 = styled.input`
 position: absolute;
 width: 35px;
 height: 35px;
@@ -166,7 +144,7 @@ opacity: 0;
 }
 `;
 
-export const IngListItemLabel2 = styled.label`
+export const IngListItemLabel = styled.label`
 
 &:before{ 
     content: "";

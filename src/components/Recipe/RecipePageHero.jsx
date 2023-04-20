@@ -1,13 +1,13 @@
 
 import { HeroBtn, HeroHead, HeroTitle, HeroInfo, HeroP } from './Recipe.styled';
 
-const RecipePageHero = () => {
+const RecipePageHero = ({ title, time, description }) => {
     return (
         <HeroHead>
-            <HeroTitle>English Breakfast</HeroTitle>
-            <HeroInfo>A hearty breakfast meal consisting of eggs, bacon, sausage, baked beans, grilled tomato, and toast. It is a popular breakfast in the United Kingdom.</HeroInfo>
+            <HeroTitle>{title}</HeroTitle>
+            <HeroInfo>{description}</HeroInfo>
             <HeroBtn>Add to favorite recipes</HeroBtn>
-            <HeroP>40 min</HeroP>
+            <HeroP>{time} min</HeroP>
         </HeroHead>
     );
 };
