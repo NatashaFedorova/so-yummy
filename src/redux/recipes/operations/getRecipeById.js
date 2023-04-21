@@ -19,16 +19,8 @@ export const getRecipeById = createAsyncThunk('recipeById', async (recipeId, thu
   return data;
 })
 
-export const addToFavorite = createAsyncThunk(
-  "addtoFavorite",
-  async (_, thunkAPI) => {
-    try {
-      setTimeout(() => {
-        return console.log(true);
-      }, "6000");
-
-    } catch (err) {
-      return err.message;
-    }
-  }
-);
+export const addToFavorite = createAsyncThunk('favorite', async (recipeId, thunkAPI) => {
+  const { data } = await axios.get(`/recipes/main-page`);
+  return data;
+  // return true
+})

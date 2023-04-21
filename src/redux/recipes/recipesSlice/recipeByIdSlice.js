@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 import { STATUS } from "../../../components/constants/loadingStatus/LoadingStatus";
-import { getRecipeById, addToFavorite } from '../operations/getRecipeById';
+import { getRecipeById } from '../operations/getRecipeById';
+import { addToFavorite } from '../operations/getRecipeById';
 
 
 const handlePending = state => {
@@ -21,9 +22,6 @@ const initState = {
         isLoading: 'init',
         error: null,
     },
-    addtoFavorite: {
-        status: STATUS.idle,
-    }
 };
 
 const recipeByIdSlice = createSlice({
@@ -37,17 +35,23 @@ const recipeByIdSlice = createSlice({
             state.recipeById.items = action.payload;
             state.recipeById.status = STATUS.success;
         },
+
+
+        [addToFavorite.pending]: (state) => {
+            state.recipeById.status = STATUS.loading
+        },
+        [addToFavorite.rejected]: (state) => {
+            state.recipeById.status = STATUS.error;
+        },
+        [addToFavorite.fulfilled](state, action) {
+            state.recipeById.status = STATUS.success;
+        },
+
+
+
     },
 
-    [addToFavorite.pending]: (state) => {
-        state.addtoFavorite.status = STATUS.loading
-    },
-    [addToFavorite.rejected]: (state) => {
-        state.addtoFavorite.status = STATUS.error;
-    },
-    [addToFavorite.fulfilled](state, action) {
-        state.addtoFavorite.status = STATUS.success;
-    },
+
 
 
 });
