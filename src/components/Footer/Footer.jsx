@@ -9,8 +9,8 @@ import { SocialLinks } from './SocialLinks/SocialLinks';
 const Footer = () => {
   return (
     <footer>
-      <div style={{ background: '#22252a' }}>
-        <StyledContainer>
+      <StyledContainer>
+        <div>
           <FooterSection>
             <LogoGroup>
               <LogoFooter />
@@ -20,13 +20,11 @@ const Footer = () => {
             <SubscribeForm />
             <SocialLinks />
           </FooterSection>
-        </StyledContainer>
-      </div>
-      <div>
-        <StyledContainer>
+        </div>
+        <div>
           <CommercionInfo />
-        </StyledContainer>
-      </div>
+        </div>
+      </StyledContainer>
     </footer>
   );
 };

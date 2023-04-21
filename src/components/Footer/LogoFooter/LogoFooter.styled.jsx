@@ -23,6 +23,6 @@ export const StyledGrCafeteria = styled(GrCafeteria)`
   width: 25px;
   height: 25px;
   & path {
-    stroke: green;
+    stroke: #8baa36;
   }
 `;

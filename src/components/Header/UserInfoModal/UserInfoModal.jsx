@@ -16,9 +16,15 @@ import {
 export const UserInfoModal = ({ closeUserInfoModal }) => {
   const [newUserName, setNewUserName] = useState('');
 
+  const onClickBackdrop = e => {
+    if (e.currentTarget === e.target) {
+      closeUserInfoModal();
+    }
+  };
+
   return (
-    <ModalOverlay>
-      <ModalWrapper>
+    <ModalOverlay onClick={onClickBackdrop}>
+      <ModalWrapper onClick={onClickBackdrop}>
         <Modal>
           <ConfigAvatarArea>
             <ConfigAvatarUser />

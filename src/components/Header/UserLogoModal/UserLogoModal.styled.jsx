@@ -3,6 +3,8 @@ import styled from 'styled-components';
 
 export const ModalUser = styled.div`
   position: absolute;
+  z-index: 500;
+
   display: flex;
   flex-direction: column;
   background-color: white;
