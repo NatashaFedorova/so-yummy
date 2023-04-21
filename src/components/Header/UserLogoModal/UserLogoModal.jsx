@@ -1,9 +1,12 @@
 import { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { UserInfoModal } from '../UserInfoModal/UserInfoModal';
 import { HiOutlinePencil } from 'react-icons/hi';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 import { ModalUser, StyledLogoutBtn } from './UserLogoModal.styled';
 import { UserLogoutModal } from '../LogoutModal/LogoutModal';
+
+const modalRoot = document.querySelector('#modal-root');
 
 export const UserLogoModal = ({ showUserLogoModal }) => {
   const [showUserInfoModal, setShowUserInfoModal] = useState(false);
@@ -27,7 +30,7 @@ export const UserLogoModal = ({ showUserLogoModal }) => {
     return null;
   }
 
-  return (
+  return createPortal(
     <>
       <ModalUser>
         <button
@@ -61,6 +64,7 @@ export const UserLogoModal = ({ showUserLogoModal }) => {
           }}
         />
       )}
-    </>
+    </>,
+    modalRoot
   );
 };
