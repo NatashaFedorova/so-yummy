@@ -1,7 +1,7 @@
 
 import { HeroBtn, HeroHead, HeroTitle, HeroInfo, HeroP } from './Recipe.styled';
 import { useState } from "react";
-import Loading from 'components/Loading/Loading';
+//import Loading from 'components/Loading/Loading';
 
 const RecipePageHero = ({ title, time, description, onBtnClick, btnState }) => {
 
@@ -34,7 +34,7 @@ const RecipePageHero = ({ title, time, description, onBtnClick, btnState }) => {
     //console.log(btnState)
     return (
         <>
-            {loader && <Loading />}
+            {loader && <HeroTitle>Тут можливо буде модалка з фотками</HeroTitle>}
             <HeroHead>
                 <HeroTitle>{title}</HeroTitle>
                 <HeroInfo>{description}</HeroInfo>
