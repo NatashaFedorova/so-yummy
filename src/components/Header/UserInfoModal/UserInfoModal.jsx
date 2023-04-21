@@ -1,4 +1,3 @@
-import { HiOutlinePencil } from 'react-icons/hi';
 import { useState } from 'react';
 import {
   ConfigAvatarArea,
@@ -13,6 +12,7 @@ import {
 } from './UserInfoModal.styled';
 import { createPortal } from 'react-dom';
 import { StyledRxPerson } from './UserInfoModal.styled';
+import { StyledHiOutlinePencil } from './UserInfoModal.styled';
 
 const modalRoot = document.querySelector('#modal-root');
 
@@ -42,7 +42,7 @@ export const UserInfoModal = ({ closeUserInfoModal }) => {
                 onChange={event => setNewUserName(event.target.value)}
               />
             </div>
-            <HiOutlinePencil />
+            <StyledHiOutlinePencil />
           </ConfigNameLabel>
           <SendChangeBTN>Save chandes</SendChangeBTN>
           <StyledGrFormClose onClick={closeUserInfoModal} />
