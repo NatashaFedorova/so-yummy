@@ -4,18 +4,23 @@ import { useEffect } from 'react';
 import { useState } from "react";
 
 import Container from 'components/constants/Container';
-//import Loading from 'components/Loading/Loading';
+import { STATUS } from "../constants/loadingStatus/LoadingStatus";
+import Loading from 'components/Loading/Loading';
 import RecipePageHero from './RecipePageHero';
 import RecipeInngredientsList from './RecipeInngredientsList';
 import RecipePreparation from './RecipePreparation';
 
-import { selectRecipeById, selectRecipeByIdStatus } from "../../redux/recipes/selectors/selectRecipeById"
+import { selectRecipeById, selectRecipeByIdStatus, ButtonStatus } from "../../redux/recipes/selectors/selectRecipeById"
 import { getRecipeById, addToFavorite } from '../../redux/recipes/operations/getRecipeById';
 
 const Recipe = () => {
   const dispatch = useDispatch();
 
   const recipeId = "640cd5ac2d9fecf12e88986a";
+
+  const Recipe = useSelector(selectRecipeById)
+  const Status = useSelector(selectRecipeByIdStatus)
+  const StatusBt = useSelector(ButtonStatus)
 
   const [favoriteBtn, setfavoriteBtn] = useState(false);
 
@@ -29,12 +34,12 @@ const Recipe = () => {
     setfavoriteBtn(true)
   }
 
-  const Recipe = useSelector(selectRecipeById)
+  //console.log("Recipe All ", Recipe)
+  console.log("Status for Load ", StatusBt)
 
-  console.log("Recipe All ", Recipe)
-  //console.log("BtnState  ", favoriteBtn)
   return (
     <>
+      {(Status === STATUS.idle || Status === STATUS.loading) && <Loading />}
       {Recipe &&
         (
           <>
@@ -51,7 +56,3 @@ const Recipe = () => {
 };
 
 export default Recipe;
-
-// title={Recipe.title} time={Recipe.time} description={Recipe.description} 
-
-// instructions={Recipe.instructions} img={Recipe.thumb} 

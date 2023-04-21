@@ -2,7 +2,7 @@
 import { HeroBtn, HeroHead, HeroTitle, HeroInfo, HeroP } from './Recipe.styled';
 
 const RecipePageHero = ({ title, time, description, onBtnClick, btnState }) => {
-    //console.log(test)
+    //console.log(btnState)
     return (
         <HeroHead>
             <HeroTitle>{title}</HeroTitle>
