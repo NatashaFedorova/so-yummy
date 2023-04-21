@@ -3,8 +3,10 @@ import { AvatarArea, CustomUserAvatar } from '../UserLogo/UserLogo.styled';
 import { AiFillPlusCircle } from 'react-icons/ai';
 import { GrFormClose } from 'react-icons/gr';
 import { RxPerson } from 'react-icons/rx';
+import { HiOutlinePencil } from 'react-icons/hi';
 
 import DefaultBtn from 'components/constants/DefaultBtn';
+import { device } from 'components/constants/deviceType/deviceType';
 
 export const ModalOverlay = styled.div`
   position: fixed;
@@ -38,11 +40,22 @@ export const Modal = styled.div`
   background: white;
   position: relative;
   border-radius: 30px;
-  width: 500px;
-  height: 425px;
-  padding: 60px 50px;
+  width: 330px;
+  height: 329px;
+
+  padding: 32px 24px;
   flex-direction: column;
   align-items: center;
+  @media${device.tablet} {
+    width: 480px;
+    height: 402px;
+    padding: 50px 40px;
+  }
+  @media${device.desktop} {
+    width: 500px;
+    height: 425px;
+    padding: 60px 50px;
+  }
 `;
 
 export const ConfigAvatarUser = styled(CustomUserAvatar)`
@@ -51,10 +64,15 @@ export const ConfigAvatarUser = styled(CustomUserAvatar)`
 `;
 
 export const ConfigAvatarArea = styled(AvatarArea)`
-  width: 103px;
-  height: 103px;
+  width: 88px;
+  height: 88px;
   position: relative;
-  margin-bottom: 52px;
+  margin-bottom: 54px;
+  @media${device.tablet} {
+    width: 103px;
+    height: 103px;
+    margin-bottom: 50px;
+  }
 `;
 
 export const StyledAiFillPlusCircle = styled(AiFillPlusCircle)`
@@ -70,7 +88,7 @@ export const StyledAiFillPlusCircle = styled(AiFillPlusCircle)`
 export const ConfigNameLabel = styled.label`
   display: flex;
   justify-content: space-between;
-  width: 400px;
+  width: 282px;
   max-height: 60px;
   margin-bottom: 32px;
   padding: 20px 22px;
@@ -78,16 +96,42 @@ export const ConfigNameLabel = styled.label`
   border-radius: 6px;
   & input {
     border: none;
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0px;
+
+    @media${device.tablet} {
+      font-size: 18px;
+      line-height: 27px;
+      letter-spacing: -0.02em;
+    }
+  }
+  @media${device.tablet} {
+    width: 400px;
   }
 `;
 
 export const SendChangeBTN = styled(DefaultBtn)`
-  width: 400px;
+  width: 282px;
   height: 60px;
   background-color: #8baa36;
   border-radius: 6px;
+
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0px;
+
   &:hover {
     color: black;
+  }
+  @media${device.tablet} {
+    width: 400px;
+
+    font-size: 16px;
   }
 `;
 
@@ -102,4 +146,15 @@ export const StyledGrFormClose = styled(GrFormClose)`
 
 export const StyledRxPerson = styled(RxPerson)`
   margin-right: 12px;
+  @media${device.tablet} {
+    width: 24px;
+    height: 24px;
+  }
+`;
+
+export const StyledHiOutlinePencil = styled(HiOutlinePencil)`
+  @media${device.tablet} {
+    width: 24px;
+    height: 24px;
+  }
 `;
