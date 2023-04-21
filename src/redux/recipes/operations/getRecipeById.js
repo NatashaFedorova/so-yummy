@@ -13,9 +13,14 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-axios.defaults.baseURL = "https://t2d-soyammy-backend.onrender.com/api/"
 
 export const getRecipeById = createAsyncThunk('recipeById', async (recipeId, thunkAPI) => {
   const { data } = await axios.get(`/recipes/${recipeId}`);
   return data;
+})
+
+export const addToFavorite = createAsyncThunk('favorite', async (recipeId, thunkAPI) => {
+  const { data } = await axios.get(`/recipes/main-page`);
+  return data;
+  // return true
 })

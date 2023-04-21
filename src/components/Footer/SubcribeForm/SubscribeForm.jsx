@@ -12,11 +12,13 @@ export const SubscribeForm = () => {
         offers, etc.
       </p>
       <label>
-        <StyledHiOutlineMail />
-        <input
-          placeholder="Enter your email adress"
-          onChange={event => setSubscribeEmail(event.target.value)}
-        />
+        <div className="label_box">
+          <StyledHiOutlineMail />
+          <input
+            placeholder="Enter your email adress"
+            onChange={event => setSubscribeEmail(event.target.value)}
+          />
+        </div>
       </label>
       <DefaultBtn disabled={subscribeEmail ? false : true}>
         Subscribe

@@ -12,7 +12,7 @@ export const ModalUser = styled.div`
   border-radius: 8px;
 
   top: 78px;
-  right: 111px;
+  right: 25vw;
 
   font-size: 14px;
   font-weight: 500;

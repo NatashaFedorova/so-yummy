@@ -8,17 +8,23 @@ export const SocialLinksList = styled.ul`
   gap: 18px;
   width: 100%;
   justify-content: center;
+  align-items: center;
   @media ${device.tablet} {
     padding-left: 62px;
   }
   @media ${device.desktop} {
     padding-top: 40px;
   }
+
+  & a {
+    display: flex;
+    align-items: center;
+  }
 `;
 
 export const StyledBsFacebook = styled(BsFacebook)`
-  width: 25px;
-  height: 25px;
+  width: 18px;
+  height: 18px;
   & path {
     fill: #8baa36;
   }
@@ -30,37 +36,37 @@ export const StyledBsFacebook = styled(BsFacebook)`
 `;
 
 export const StyledBsYoutube = styled(BsYoutube)`
-  width: 25px;
-  height: 25px;
+  width: 24px;
+  height: 19px;
+  & path {
+    fill: #8baa36;
+  }
+  @media ${device.tablet} {
+    width: 25px;
+    height: 20px;
+  }
+`;
+
+export const StyledBsTwitter = styled(BsTwitter)`
+  width: 23px;
+  height: 19px;
+  & path {
+    fill: #8baa36;
+  }
+  @media ${device.tablet} {
+    width: 25px;
+    height: 21px;
+  }
+`;
+
+export const StyledBsInstagram = styled(BsInstagram)`
+  width: 17px;
+  height: 17px;
   & path {
     fill: #8baa36;
   }
   @media ${device.tablet} {
     width: 20px;
     height: 20px;
-  }
-`;
-
-export const StyledBsTwitter = styled(BsTwitter)`
-  width: 20px;
-  height: 20px;
-  & path {
-    fill: #8baa36;
-  }
-  @media ${device.tablet} {
-    width: 25px;
-    height: 25px;
-  }
-`;
-
-export const StyledBsInstagram = styled(BsInstagram)`
-  width: 20px;
-  height: 20px;
-  & path {
-    fill: #8baa36;
-  }
-  @media ${device.tablet} {
-    width: 25px;
-    height: 25px;
   }
 `;

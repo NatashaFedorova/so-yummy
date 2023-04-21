@@ -39,7 +39,12 @@ export const LogoGroup = styled.div`
   margin-right: 0;
   margin-bottom: 32px;
 
+  @media ${device.tablet} {
+    margin-bottom: 0;
+    margin-right: 175px;
+  }
   @media ${device.desktop} {
     max-width: 418px;
+    margin-right: 152px;
   }
 `;
