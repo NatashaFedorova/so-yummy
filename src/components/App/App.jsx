@@ -27,7 +27,7 @@ const App = () => {
       <Background>
         {!user ? (
           <Routes>
-            <Route path="/" element={<StartPage />} />
+            <Route index element={<StartPage />} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/signin" element={<SigninPage />} />
           </Routes>
