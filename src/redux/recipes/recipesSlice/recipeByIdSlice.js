@@ -1,19 +1,22 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 import { getRecipeById } from '../operations/getRecipeById';
+
 const handlePending = state => {
-    state.isLoading = true;
+    state.recipeById.isLoading = 'pending';
 };
 
 const handleRejected = (state, action) => {
-    state.isLoading = false;
-    state.error = action.payload;
+    state.recipeById.isLoading = false;
+    state.recipeById.error = action.payload;
 };
 
 const initState = {
-    items: [],
-    isLoading: false,
-    error: null,
+    recipeById: {
+        items: [],
+        isLoading: 'init',
+        error: null,
+    },
 };
 
 const recipeByIdSlice = createSlice({
@@ -24,8 +27,8 @@ const recipeByIdSlice = createSlice({
         [getRecipeById.pending]: handlePending,
         [getRecipeById.rejected]: handleRejected,
         [getRecipeById.fulfilled](state, action) {
-            state.items = action.payload;
-            state.isLoading = true;
+            state.recipeById.items = action.payload;
+            state.recipeById.isLoading = 'load';
         },
     },
 });

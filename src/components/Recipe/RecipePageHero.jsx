@@ -1,12 +1,14 @@
 
 import { HeroBtn, HeroHead, HeroTitle, HeroInfo, HeroP } from './Recipe.styled';
 
-const RecipePageHero = ({ title, time, description }) => {
+const RecipePageHero = ({ title, time, description, onBtnClick, btnState }) => {
+    //console.log(test)
     return (
         <HeroHead>
             <HeroTitle>{title}</HeroTitle>
             <HeroInfo>{description}</HeroInfo>
-            <HeroBtn>Add to favorite recipes</HeroBtn>
+            {btnState ? (<HeroTitle>Resipe Is in Favorite list</HeroTitle>) : (<HeroBtn onClick={onBtnClick}>Add to favorite recipes</HeroBtn>)
+            }
             <HeroP>{time} min</HeroP>
         </HeroHead>
     );

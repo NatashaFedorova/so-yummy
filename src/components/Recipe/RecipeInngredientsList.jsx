@@ -1,7 +1,13 @@
 import {
-    IngImg, IngListItem, IngListItemInfo,
-    IngListItemInfoText, IngListItemNumber, IngListItemNumberWrap, IngListItemInput,
-    IngListItemLabel, IngListItemCheckWrap
+    IngImg,
+    IngListItem,
+    IngListItemInfo,
+    IngListItemInfoText,
+    IngListItemNumber,
+    IngListItemNumberWrap,
+    IngListItemInput,
+    IngListItemLabel,
+    IngListItemCheckWrap
 } from './Recipe.styled';
 
 import RecipeTableHead from '../RecipeTableHead/RecipeTableHead';
