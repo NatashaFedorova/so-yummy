@@ -19,10 +19,10 @@ const RecipePageHero = ({ title, time, description, onBtnClick, btnState }) => {
             console.log(temp)
             if (temp === tmp) {
                 setLoader(true)
-                console.log("WORK")
+                //console.log("WORK")
                 setTimeout(function () {
                     setLoader(false)
-                    console.log("NOT WORK")
+                    //console.log("NOT WORK")
                 }, 5000);
             }
 
