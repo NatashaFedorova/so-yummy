@@ -1,4 +1,3 @@
-import { RxPerson } from 'react-icons/rx';
 import { HiOutlinePencil } from 'react-icons/hi';
 import { useState } from 'react';
 import {
@@ -12,6 +11,10 @@ import {
   StyledAiFillPlusCircle,
   StyledGrFormClose,
 } from './UserInfoModal.styled';
+import { createPortal } from 'react-dom';
+import { StyledRxPerson } from './UserInfoModal.styled';
+
+const modalRoot = document.querySelector('#modal-root');
 
 export const UserInfoModal = ({ closeUserInfoModal }) => {
   const [newUserName, setNewUserName] = useState('');
@@ -22,7 +25,7 @@ export const UserInfoModal = ({ closeUserInfoModal }) => {
     }
   };
 
-  return (
+  return createPortal(
     <ModalOverlay onClick={onClickBackdrop}>
       <ModalWrapper onClick={onClickBackdrop}>
         <Modal>
@@ -33,7 +36,7 @@ export const UserInfoModal = ({ closeUserInfoModal }) => {
 
           <ConfigNameLabel>
             <div>
-              <RxPerson />
+              <StyledRxPerson />
               <input
                 value={newUserName}
                 onChange={event => setNewUserName(event.target.value)}
@@ -45,6 +48,7 @@ export const UserInfoModal = ({ closeUserInfoModal }) => {
           <StyledGrFormClose onClick={closeUserInfoModal} />
         </Modal>
       </ModalWrapper>
-    </ModalOverlay>
+    </ModalOverlay>,
+    modalRoot
   );
 };

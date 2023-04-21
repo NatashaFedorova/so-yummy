@@ -15,6 +15,7 @@ export const SubcribeFormDiv = styled.div`
   }
   @media ${device.desktop} {
     width: 340px;
+    gap: 0;
     flex-direction: column;
     padding: 0;
   }
@@ -48,46 +49,98 @@ export const SubcribeFormDiv = styled.div`
     }
   }
 
-  & label {
+  & .label_box {
     display: flex;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 14px;
     border: 1px solid white;
     border-radius: 6px;
     align-items: center;
+    width: 204px;
+    height: 38px;
 
     margin-bottom: 16px;
     @media ${device.tablet} {
-      margin-bottom: 0;
+      width: 260px;
+      height: 50px;
     }
     @media ${device.desktop} {
       padding-top: 17px;
       padding-bottom: 17px;
+      width: 340px;
+      height: 60px;
     }
   }
 
   & input {
-    font-size: 18px;
+    font-size: 10px;
     font-weight: 400;
-    line-height: 27px;
+    line-height: 15px;
     letter-spacing: -0.02em;
+    text-align: left;
     border: none;
+    padding: 0;
     color: white;
+
+    @media ${device.tablet} {
+      font-size: 14px;
+      line-height: 21px;
+    }
+
+    @media ${device.desktop} {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 27px;
+      letter-spacing: -0.02em;
+      color: white;
+    }
   }
 
   & button {
-    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 204px;
+    height: 38px;
     background-color: #8baa36;
     color: white;
     border-radius: 6px;
     cursor: pointer;
+
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0px;
+    text-align: center;
+
     &:hover {
       color: black;
+    }
+
+    @media${device.tablet} {
+      width: 170px;
+      height: 50px;
+      font-size: 16px;
+      line-height: 18px;
+    }
+    @media${device.desktop} {
+      width: 340px;
+      height: 60px;
+      font-size: 16px;
+      line-height: 18px;
     }
   }
 `;
 
 export const StyledHiOutlineMail = styled(HiOutlineMail)`
-  width: 50px;
-  height: 28px;
+  width: 23px;
+  height: 21px;
+
+  margin-right: 12px;
+
+  @media ${device.tablet} {
+    width: 28px;
+    height: 26px;
+  }
 `;

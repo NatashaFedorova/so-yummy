@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import { AvatarArea, CustomUserAvatar } from '../UserLogo/UserLogo.styled';
 import { AiFillPlusCircle } from 'react-icons/ai';
 import { GrFormClose } from 'react-icons/gr';
+import { RxPerson } from 'react-icons/rx';
+
 import DefaultBtn from 'components/constants/DefaultBtn';
 
 export const ModalOverlay = styled.div`
@@ -96,4 +98,8 @@ export const StyledGrFormClose = styled(GrFormClose)`
   width: 30px;
   height: 30px;
   cursor: pointer;
+`;
+
+export const StyledRxPerson = styled(RxPerson)`
+  margin-right: 12px;
 `;
