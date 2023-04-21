@@ -4,7 +4,6 @@ import { device } from 'components/constants/deviceType/deviceType';
 export const MainBox = styled.main`
   position: relative;
   padding-bottom: 100px;
-  border: 1px solid red;
 `;
 
 export const BoxForContent = styled.div`
