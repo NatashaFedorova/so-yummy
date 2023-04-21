@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import { HiOutlineArrowRight } from 'react-icons/hi';
 
 export const HeroImageWrapper = styled.div`
-  top: 261px;
+  top: 322px;
   position: absolute;
 
   @media ${device.tablet} {
@@ -14,10 +14,10 @@ export const HeroImageWrapper = styled.div`
   }
 
   @media ${device.desktop} {
-    top: -100px;
+    /* top: -100px; */
     left: 73px;
     position: relative;
-    margin-right: auto;
+    /* margin-right: auto; */
   }
 `;
 export const HeroImageDish = styled.img`
@@ -30,7 +30,7 @@ export const HeroImageDish = styled.img`
 
   @media ${device.desktop} {
     width: 578px;
-    margin: 0 auto;
+    /* margin: 0 auto; */
   }
 `;
 
