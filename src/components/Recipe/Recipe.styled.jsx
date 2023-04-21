@@ -53,39 +53,6 @@ export const HeroP = styled.p`
 `;
 
 
-
-export const IngHead = styled.div`
-    display:flex;
-    background-color: ${props => props.theme.colors.recipePage.bdAccent};
-    padding: 30px;
-    margin-top: 30px;
-    border-radius: 8px;
-`;
-
-
-export const IngHeadTitleI = styled.span`
-color: ${props => props.theme.colors.recipePage.textBtnHover};
-font-size: ${props => props.theme.fontSizes.l};
-font-weight: ${props => props.theme.fontWeight.semiBold};
-width:70%;
-`;
-
-export const IngHeadTitleN = styled.span`
-color: ${props => props.theme.colors.recipePage.textBtnHover};
-font-size: ${props => props.theme.fontSizes.l};
-font-weight: ${props => props.theme.fontWeight.semiBold};
-width:20%;
-`;
-
-
-export const IngHeadTitleA = styled.span`
-color: ${props => props.theme.colors.recipePage.textBtnHover};
-font-size: ${props => props.theme.fontSizes.l};
-font-weight: ${props => props.theme.fontWeight.semiBold};
-width:10%;
-text-align: right;
-`;
-
 export const IngListItem = styled.li`
 display:flex;
 align-items: center;
@@ -167,15 +134,22 @@ export const PrepWrap = styled.div`
     display:flex;
     flex-wrap: wrap;
     padding-top: 40px;
+    padding-bottom: 40px;
 `;
 
 export const PrepInfo = styled.div`
     width: 63%;
+    padding-right: 45px;
 `;
 
 export const PrepImg = styled.div`
     width: 37%;
 `;
+
+export const PrepImgImg = styled.img`
+    border-radius: 8px;
+`;
+
 
 export const PrepInfoHead = styled.h2`
 color: ${props => props.theme.colors.recipePage.titleSecondry};
@@ -184,6 +158,11 @@ font-size: ${props => props.theme.fontSizes.xl};
 font-weight: ${props => props.theme.fontWeight.semiBold};
 `;
 
+export const PrepInfoWrap = styled.div`
+display:flex;
+`;
+
+
 export const PrepInfoText = styled.p`
 color: ${props => props.theme.colors.startPage.iconClock};
 font-size: ${props => props.theme.fontSizes.l};
@@ -191,10 +170,18 @@ margin-bottom: ${props => props.theme.fontSizes.s};
 `;
 
 export const PrepInfoSpan = styled.span`
-color: #fff;
 padding: 4px 9px 4px 9px;
 border-radius: 50%;
-font-size: ${props => props.theme.fontSizes.s};
+font-size: ${props => props.theme.fontSizes.xs};
 font-weight: ${props => props.theme.fontWeight.semiBold};
 background-color: ${props => props.theme.colors.recipePage.bgBtnHover};
+color: ${props => props.theme.colors.recipePage.textNumber};
+display: flex;
+align-items: center;
+justify-content: center;
+min-width: 21px;
+min-height: 21px;
+max-width: 22px;
+max-height: 22px;
+margin-right: 14px;
 `;

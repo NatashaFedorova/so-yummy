@@ -13,7 +13,7 @@ import { getRecipeById } from '../../redux/recipes/operations/getRecipeById';
 const Recipe = () => {
   const dispatch = useDispatch();
 
-  const recipeId = "640cd5ac2d9fecf12e889828";
+  const recipeId = "640cd5ac2d9fecf12e88986a";
 
   useEffect(() => {
     dispatch(getRecipeById(recipeId))
@@ -21,7 +21,7 @@ const Recipe = () => {
 
   const Recipe = useSelector(selectRecipeById)
 
-  // console.log("hello2 ", Recipe)
+  console.log("Recipe All ", Recipe)
   return (
     <>
       {Recipe &&
@@ -29,7 +29,7 @@ const Recipe = () => {
           <>
             <RecipePageHero title={Recipe.title} time={Recipe.time} description={Recipe.description} />
             <Container>
-              <RecipeInngredientsList measurre={Recipe.ingredients} info={Recipe.ingredientsData} />
+              <RecipeInngredientsList info={Recipe.ingredients} />
               <RecipePreparation instructions={Recipe.instructions} img={Recipe.thumb} title={Recipe.title} />
             </Container>
           </>

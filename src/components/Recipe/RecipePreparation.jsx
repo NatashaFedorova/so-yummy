@@ -1,4 +1,4 @@
-import { PrepWrap, PrepInfo, PrepImg, PrepInfoHead, PrepInfoText, PrepInfoSpan } from './Recipe.styled';
+import { PrepWrap, PrepInfo, PrepImg, PrepInfoHead, PrepInfoText, PrepInfoSpan, PrepInfoWrap, PrepImgImg } from './Recipe.styled';
 
 const RecipePreparation = ({ instructions, img, title }) => {
 
@@ -9,14 +9,16 @@ const RecipePreparation = ({ instructions, img, title }) => {
         <PrepWrap>
             <PrepInfo>
                 <PrepInfoHead>RecipePreparation</PrepInfoHead>
-
                 {ArrFromInstructions.map((item, index) => (
-                    <PrepInfoText key={item} ><PrepInfoSpan>{index + 1}</PrepInfoSpan> {item}</PrepInfoText>
+                    <PrepInfoWrap key={index}>
+                        <PrepInfoSpan>{index + 1}</PrepInfoSpan>
+                        <PrepInfoText key={item} > {item}</PrepInfoText>
+                    </PrepInfoWrap>
                 ))}
 
             </PrepInfo>
             <PrepImg>
-                <img src={img} alt={title} />
+                <PrepImgImg src={img} alt={title} />
             </PrepImg>
         </PrepWrap>
     );
