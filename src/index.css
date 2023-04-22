@@ -1,5 +1,12 @@
 @import '../node_modules/modern-normalize/modern-normalize.css';
 
+.spanDDD {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  display: inline-block;
+}
+
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
