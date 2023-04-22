@@ -175,7 +175,7 @@ const lightTheme = Object.freeze({
       iconFormHover: '#8baa36',
       iconClose: '#333333',
       // iconCloseHover: '#8baa36',
-      bgInputTextArea: '#d9d9d9',
+      bgInputTextArea: 'rgba(217, 217, 217, .17)',
       textBtnAdd: '#fafafa',
       bgBtnAdd: '#22252a',
       bgBtnAddHover: '#8baa36',
