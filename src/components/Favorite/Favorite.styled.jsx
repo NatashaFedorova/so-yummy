@@ -12,8 +12,8 @@ export const FakeMainPageTitleWrap = styled.div`
   @media ${device.tablet} { 
     padding: 72px 0px 100px;
 
+    background-image: url('${process.env.PUBLIC_URL}/images/decoratedMain/dot-1.svg'), url('${process.env.PUBLIC_URL}/images/decoratedMain/dot-2-2.svg'), url('${process.env.PUBLIC_URL}/images/decoratedMain/dot-3.svg');
     background-size: 14px, 12px, 14px;
-    // background-position: top 21px left 187px, top 91px left 405px, top 34px left 694px;
     background-position: top 21px left 187px, top 91px left 405px, top 34px right 0px;
   }
   @media ${device.desktop} {
@@ -35,9 +35,9 @@ export const FakeMainPageTitle = styled.h1`
   @media ${device.tablet} {font-size: 32px;}
   @media ${device.desktop} {font-size: 44px;}
 `;
-// =====
-export const FavoriteList = styled.ul`
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-`
+export const FavoriteSection = styled.section`
+  padding-bottom: 100px;
+
+  @media ${device.tablet} {padding-bottom: 100px;}
+  // @media ${device.desktop} {padding-bottom: 100px;}
+`;

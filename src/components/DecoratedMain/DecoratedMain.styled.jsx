@@ -68,23 +68,3 @@ export const DecoreLeafsBottom = styled.div`
     background-image: url('${process.env.PUBLIC_URL}/images/decoratedMain/leafs-bottom-desktop.png');
   }
 `;
-
-export const DecoreDots = styled.div`
-  // position: absolute;
-  top: -517px;
-  left: 0;
-
-  width: 588px;
-  height: 852px;
-  // background-image: url('./images/decoratedMain/leafs-top.png');
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  transform: rotateZ(149deg);
-  pointer-events: none;
-`;
-
-// export default DecoreLeafsTop;
-// -mobile
-// -tablet
-// -desktop
