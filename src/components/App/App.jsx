@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import lightTheme from 'components/constants/theme/lightTheme';
 // import darkTheme from 'components/constants/theme/darkTheme';
 import Background from 'components/constants/Background';
+import ScrollToTopComponent from 'components/ScrollToTopComponent';
 import SharedLayout from 'components/SharedLayout';
 import StartPage from 'page/StartPage';
 import RegisterPage from 'page/RegisterPage';
@@ -25,6 +26,7 @@ const App = () => {
   return (
     <ThemeProvider theme={lightTheme}>
       <Background>
+        {user && <ScrollToTopComponent />}
         {!user ? (
           <Routes>
             <Route index element={<StartPage />} />
