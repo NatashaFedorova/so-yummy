@@ -11,13 +11,13 @@ export const HeaderContainer = styled(Container)`
   padding-left: 16px;
   padding-right: 16px;
 
-  @media${device.tablet} {
+  @media ${device.tablet} {
     padding-top: 18px;
     padding-left: 32px;
     padding-right: 32px;
   }
 
-  @media${device.desktop} {
+  @media ${device.desktop} {
     padding-right: 210px;
   }
 `;
