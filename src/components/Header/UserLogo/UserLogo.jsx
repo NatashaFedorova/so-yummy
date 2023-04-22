@@ -5,6 +5,7 @@ import {
   CustomUserAvatar,
   UserInfo,
   UserLogoDiv,
+  UserNameSpan,
 } from './UserLogo.styled';
 
 export const UserLogo = () => {
@@ -34,7 +35,7 @@ export const UserLogo = () => {
           <AvatarArea>
             <CustomUserAvatar />
           </AvatarArea>
-          <p>{`name`}</p>
+          <UserNameSpan>{`name`}</UserNameSpan>
         </UserInfo>
       </UserLogoDiv>
       <UserLogoModal showUserLogoModal={showUserLogoModal} />
