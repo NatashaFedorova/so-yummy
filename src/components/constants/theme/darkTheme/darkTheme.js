@@ -100,7 +100,7 @@ const darkTheme = Object.freeze({
     },
 
     // WelcomePage
-    WelcomePage: {
+    welcomePage: {
       title: '#fafafa',
       text: '#fafafa',
       textButton: '#fafafa',
