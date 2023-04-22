@@ -1,8 +1,12 @@
 import { ThreeCircles } from 'react-loader-spinner';
 import { Box } from './Loading.styled';
 
+import { createPortal } from 'react-dom';
+
+const modalRoot = document.querySelector('#modal-root');
+
 const Loading = () => {
-  return (
+  return createPortal(
     <Box>
       <ThreeCircles
         height="100"
@@ -16,7 +20,8 @@ const Loading = () => {
         innerCircleColor="#22252a"
         middleCircleColor="#F7B700"
       />
-    </Box>
+    </Box>,
+    modalRoot
   );
 };
 
