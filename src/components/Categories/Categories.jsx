@@ -1,7 +1,6 @@
 import * as React from 'react';
 import Container from 'components/constants/Container';
 import CardRecipe from 'components/CardRecipe/CardRecipe';
-// import { useState, useEffect } from 'react';
 import Box from '@mui/material/Box';
 import { useParams } from 'react-router-dom';
 import {
@@ -9,58 +8,67 @@ import {
   CategoryContainer,
   AnimatedLetter,
   CategoryText,
-} from './Category.styled';
-import {
-  Link,
-  CategoryTab,
   CategoryTabs,
-  // MyTabPanel,
-} from './CategoriesMUI.styled';
-import { getCategory, getDishes } from './Data.jsx';
+  CategoryTab,
+} from './Category.styled';
+import { Link } from './CategoriesMUI.styled';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { selectCategory } from '../../redux/recipes/selectors/selectCategoryList';
+import {
+  selectRecipesByCategoryName,
+  selectRecipesIsLoading,
+} from '../../redux/recipes/selectors/selectRecipeByCategoryName';
+import getCategories from 'redux/recipes/operations/getCategory';
+import getRecipesByCategory from 'redux/recipes/operations/getRecipesByCategory';
 import {
   CategoryDefaultSquare,
   CategoryDefaultSquareСircle,
   CategoryDefaultSquareSecond,
 } from './Category.styled';
-
-// http://localhost:3000/so-yummy/categories/1
+import Loading from '../Loading/Loading';
 
 const Categories = () => {
-  const { categoryName: id } = useParams();
-  // if (!useParams()) {
-  //   const defaultId = 1;
-  //   return defaultId;
-  // }
-  // const defaultId = 1;
-  // const myId = id || defaultId;
-  const dishes = getDishes();
-  const categories = getCategory();
-  console.log(id, categories, 'cat', dishes);
-  const categoryIndex = categories.findIndex(item => item.id === Number(id));
-  console.log(categoryIndex);
+  const { categoryName: name } = useParams();
+  const dispatch = useDispatch();
+  const categories = useSelector(selectCategory);
+  const dishes = useSelector(selectRecipesByCategoryName);
+  const isLoad = useSelector(selectRecipesIsLoading);
 
-  const TabPanel = id => {
-    const dishesRender = dishes.filter(item => {
-      // console.log(item, Number(id));
-      return item.id === Number(id);
-    });
-    const dishesFoRender = dishesRender[0].title;
-    if (!dishesFoRender) {
+  useEffect(() => {
+    dispatch(getCategories());
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(getRecipesByCategory(name));
+  }, [name, dispatch]);
+
+  const categoryIndex = categories.findIndex(item => {
+    console.log(name.toLowerCase() === item.toLowerCase());
+    return item.toLowerCase() === name.toLowerCase();
+  });
+
+  const TabPanel = dishes => {
+    if (!dishes) {
       return <div>Have not dishes in Category</div>;
     }
+
     return (
       <>
-        {dishesFoRender.map((item, index) => {
+        {dishes.map(item => {
           return (
-            <Link>
-              <CardRecipe key={index} item={item} />
+            <Link to={`/recipe/${item._id}`}>
+              <CardRecipe key={item._id} item={item} />
             </Link>
           );
         })}
       </>
     );
   };
+
   const categoryText = 'Categories';
+
   return (
     <Container>
       <>
@@ -79,24 +87,23 @@ const Categories = () => {
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
           <CategoryTabs
             value={categoryIndex}
-            // onChange={handleChange}
             aria-label="basic tabs example"
             variant="scrollable"
             scrollButtons="auto"
           >
-            {categories.map(({ name, id }) => {
+            {categories.map((name, index) => {
               return (
                 <CategoryTab
                   label={name}
-                  key={id}
+                  key={index}
                   component={Link}
-                  to={`/categories/${id}`}
+                  to={`/categories/${name}`}
                 />
               );
             })}
           </CategoryTabs>
         </Box>
-        <MyTabPanel>{TabPanel(id)}</MyTabPanel>
+        <MyTabPanel> {isLoad ? <Loading /> : TabPanel(dishes)}</MyTabPanel>
       </>
     </Container>
   );

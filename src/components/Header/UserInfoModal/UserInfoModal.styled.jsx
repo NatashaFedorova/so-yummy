@@ -158,3 +158,8 @@ export const StyledHiOutlinePencil = styled(HiOutlinePencil)`
     height: 24px;
   }
 `;
+
+export const LeftInputDiv = styled.div`
+  display: flex;
+  align-items: center;
+`;
