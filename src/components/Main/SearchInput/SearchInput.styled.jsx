@@ -49,6 +49,12 @@ export const SearchInputField = styled.input`
   font-size: ${props => props.theme.fontSizes.xs};
   line-height: 1.5;
 
+  &:active,
+  &:focus {
+    border: 1px solid
+      ${props => props.theme.colors.mainPage.borderInputSearchHover};
+  }
+
   @media ${device.tablet} {
     font-size: ${props => props.theme.fontSizes.m};
   }
@@ -74,6 +80,10 @@ export const SearchInputButton = styled.button`
   border-radius: ${props => props.theme.radii.btnSpecial};
 
   cursor: pointer;
+
+  &:hover {
+    background-color: ${props => props.theme.colors.mainPage.bgBtnSearchHover};
+  }
 
   @media ${device.tablet} {
     width: 161px;

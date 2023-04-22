@@ -116,6 +116,10 @@ export const HeroImageLink = styled(NavLink)`
   letter-spacing: 0.2px;
 
   color: ${props => props.theme.colors.mainPage.textSecondary};
+
+  &:hover {
+    color: ${props => props.theme.colors.mainPage.titleLinkCategoryHover};
+  }
 `;
 
 export const HeroImageIcon = styled(HiOutlineArrowRight)`

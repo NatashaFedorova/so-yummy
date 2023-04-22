@@ -14,6 +14,7 @@ import {
 // import {themeReducer} from 'redux/theme/themeSlice';
 import { authReducer } from 'redux/auth/authSlice';
 import recipesByIdReducer from 'redux/recipes/recipesSlice/recipeByIdSlice';
+import mainCategoriesSliceReducer from 'redux/recipes/cateroriesSlice/categoriesSlice';
 // import recipesReducer from 'redux/auth/authSlice';
 
 const authPersistConfig = {
@@ -21,6 +22,12 @@ const authPersistConfig = {
   storage,
   whitelist: ['token'],
 };
+
+// const categoryPersistConfig = {
+//   key: 'mainCategories',
+//   storage,
+//   // whitelist:
+// };
 
 // const themePersistConfig = {
 //   key: 'theme',
@@ -31,6 +38,7 @@ export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
     recipedById: recipesByIdReducer,
+    mainCategories: mainCategoriesSliceReducer,
     // recipes: recipesReducer,
     // theme: persistReducer(themePersistConfig, themeReducer),
   },
