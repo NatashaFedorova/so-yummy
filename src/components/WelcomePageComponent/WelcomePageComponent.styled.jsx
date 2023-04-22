@@ -10,7 +10,8 @@ export const WelcomePageSection = styled.section`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url('${process.env.PUBLIC_URL}/images/welcomePage/bg1.webp');
+  background-image: url('${process.env
+    .PUBLIC_URL}/images/welcomePage/bg1.webp');
 `;
 export const WelcomePageContainer = styled.div`
   margin: 0 auto;
@@ -113,8 +114,10 @@ export const WelcomePageNavLinkRegistr = styled(NavLink)`
   color: ${props => props.theme.colors.welcomePage.textButton};
 
   border-radius: 24px 44px;
-  border-color: ${props => props.theme.colors.welcomePage.borderBtnRegistration};
-  background-color: ${props => props.theme.colors.welcomePage.bgBtnRegistration};
+  border-color: ${props =>
+    props.theme.colors.welcomePage.borderBtnRegistration};
+  background-color: ${props =>
+    props.theme.colors.welcomePage.bgBtnRegistration};
   cursor: pointer;
 
   @media ${device.tablet} {
@@ -124,7 +127,7 @@ export const WelcomePageNavLinkRegistr = styled(NavLink)`
     line-height: 24px;
   }
 `;
-export const WelcomePageNavLinkLogin = styled(welcomePageNavLinkRegistr)`
+export const WelcomePageNavLinkLogin = styled(WelcomePageNavLinkRegistr)`
   background-color: ${props => props.theme.colors.welcomePage.bgBtnSignIn};
   border-color: ${props => props.theme.colors.welcomePage.borderBtnSignIn};
   border: 2px solid;
