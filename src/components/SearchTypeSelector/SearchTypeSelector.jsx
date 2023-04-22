@@ -4,14 +4,18 @@ import {
   Options,
   SearchOption,
 } from './SearchTypeSelector.styled';
-import {  useState } from 'react';
+import { useEffect, useState } from 'react';
 import { AiOutlineDown } from 'react-icons/ai';
 
-
-const SearchTypeSelector = () => {
+const SearchTypeSelector = ({ getSearchType }) => {
   const [open, setOpen] = useState(false);
   const [type, setType] = useState('Title');
-
+  useEffect(() => {
+    getSearchType(type);
+  }, [type]);
+  const handleTypeChange = e => {
+    setType(e.currentTarget.textContent);
+  };
   return (
     <SearchWrapper>
       <p>Search by: </p>
@@ -22,20 +26,8 @@ const SearchTypeSelector = () => {
       >
         {open === true && (
           <SearchOptions open={open}>
-            <SearchOption
-              onClick={() => {
-                setType('Title');
-              }}
-            >
-              Title
-            </SearchOption>
-            <SearchOption
-              onClick={() => {
-                setType('Indredients');
-              }}
-            >
-              Indredients
-            </SearchOption>
+            <SearchOption onClick={handleTypeChange}>Title</SearchOption>
+            <SearchOption onClick={handleTypeChange}>Indredients</SearchOption>
           </SearchOptions>
         )}
         {type}

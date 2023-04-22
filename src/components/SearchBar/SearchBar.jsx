@@ -2,13 +2,14 @@ import SearchForm from '../SearchForm/SearchForm';
 import SearchTypeSelector from 'components/SearchTypeSelector/SearchTypeSelector';
 import { useSearchParams } from 'react-router-dom';
 
-const SearchBar = () => {
+const SearchBar = ({getSearchType}) => {
   const [, setSearchParams] = useSearchParams();
 
   const handleSubmit = e => {
     e.preventDefault();
     const value = e.target.input.value;
     if (value === '') {
+      console.log(value);
       setSearchParams({});
       return;
     }
@@ -17,7 +18,7 @@ const SearchBar = () => {
   return (
     <>
       <SearchForm handleSubmit={handleSubmit} />
-      <SearchTypeSelector/>
+      <SearchTypeSelector getSearchType={getSearchType}/>
     </>
   );
 };
