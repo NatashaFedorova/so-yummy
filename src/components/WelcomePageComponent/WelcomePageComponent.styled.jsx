@@ -61,7 +61,7 @@ export const WelcomePageTitle = styled.h1`
   letter-spacing: -0.02em;
   font-feature-settings: 'liga' off;
 
-  color: ${props => props.theme.colors.WelcomePage.title};
+  color: ${props => props.theme.colors.welcomePage.title};
 
   @media ${device.tablet} {
     width: 288px;
@@ -80,7 +80,7 @@ export const WelcomePageText = styled.p`
   text-align: center;
   letter-spacing: -0.02em;
 
-  color: ${props => props.theme.colors.WelcomePage.text};
+  color: ${props => props.theme.colors.welcomePage.text};
 
   @media ${device.tablet} {
     width: 505px;
@@ -110,11 +110,11 @@ export const WelcomePageNavLinkRegistr = styled(NavLink)`
 
   font-size: 14px;
   line-height: 21px;
-  color: ${props => props.theme.colors.WelcomePage.textButton};
+  color: ${props => props.theme.colors.welcomePage.textButton};
 
   border-radius: 24px 44px;
-  border-color: ${props => props.theme.colors.WelcomePage.borderBtnRegistration};
-  background-color: ${props => props.theme.colors.WelcomePage.bgBtnRegistration};
+  border-color: ${props => props.theme.colors.welcomePage.borderBtnRegistration};
+  background-color: ${props => props.theme.colors.welcomePage.bgBtnRegistration};
   cursor: pointer;
 
   @media ${device.tablet} {
@@ -124,8 +124,8 @@ export const WelcomePageNavLinkRegistr = styled(NavLink)`
     line-height: 24px;
   }
 `;
-export const WelcomePageNavLinkLogin = styled(WelcomePageNavLinkRegistr)`
-  background-color: ${props => props.theme.colors.WelcomePage.bgBtnSignIn};
-  border-color: ${props => props.theme.colors.WelcomePage.borderBtnSignIn};
+export const WelcomePageNavLinkLogin = styled(welcomePageNavLinkRegistr)`
+  background-color: ${props => props.theme.colors.welcomePage.bgBtnSignIn};
+  border-color: ${props => props.theme.colors.welcomePage.borderBtnSignIn};
   border: 2px solid;
 `;
