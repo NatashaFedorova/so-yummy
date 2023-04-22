@@ -39,7 +39,7 @@ export const RecipeCard = styled.div`
 
   .title {
     font-size: ${props => props.theme.fontSizes.m};
-    font-weight: bold;
+    font-weight: ${props => props.theme.fontWeight.medium};
     margin: 0;
     transition-duration: 2000ms;
   }
