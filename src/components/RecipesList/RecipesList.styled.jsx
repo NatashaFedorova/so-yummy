@@ -1,4 +1,4 @@
-import { device } from 'components/constants/deviceType/deviceType';
+// import { device } from 'components/constants/deviceType/deviceType';
 import styled from 'styled-components';
 
 export const List = styled.ul`
@@ -22,7 +22,7 @@ export const RecipeTitle = styled.p`
   text-align: start;
   padding: 16px;
   width: 90%;
- 
+
   background-color: #ffffff;
 
   position: absolute;

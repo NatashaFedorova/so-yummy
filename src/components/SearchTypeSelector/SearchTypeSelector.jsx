@@ -10,9 +10,10 @@ import { AiOutlineDown } from 'react-icons/ai';
 const SearchTypeSelector = ({ getSearchType }) => {
   const [open, setOpen] = useState(false);
   const [type, setType] = useState('Title');
+
   useEffect(() => {
     getSearchType(type);
-  }, [type]);
+  }, [type, getSearchType]);
   const handleTypeChange = e => {
     setType(e.currentTarget.textContent);
   };
