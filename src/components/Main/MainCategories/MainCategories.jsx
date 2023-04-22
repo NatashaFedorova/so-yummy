@@ -5,7 +5,10 @@ import * as React from 'react';
 import CardRecipe from '../../CardRecipe/CardRecipe';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { useState, useEffect } from 'react';
+import {
+  // useState,
+  useEffect,
+} from 'react';
 // import Box from '@mui/material/Box';
 // import { useParams } from 'react-router-dom';
 
@@ -13,7 +16,10 @@ import { getRecipesForMain } from 'redux/recipes/selectors/selectCategoriesMain'
 
 import { MyTabPanel } from '../../Categories/Category.styled';
 import { Link } from './MainCategories.styled';
-import { getCategory, getDishes } from '../../Categories/Data';
+import {
+  // getCategory,
+  getDishes,
+} from '../../Categories/Data';
 import getRecipesByCategoryForMainPage from '../../../redux/recipes/operations/getRecipesByCategoryForMainPage';
 
 const MainCategories = () => {
