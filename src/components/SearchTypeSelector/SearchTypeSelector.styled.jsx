@@ -1,4 +1,4 @@
-import { device } from 'components/constants/deviceType/deviceType';
+// import { device } from 'components/constants/deviceType/deviceType';
 import styled from 'styled-components';
 
 export const Options = styled.button`
