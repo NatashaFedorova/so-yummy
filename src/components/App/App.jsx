@@ -6,7 +6,7 @@ import lightTheme from 'components/constants/theme/lightTheme';
 import Background from 'components/constants/Background';
 import ScrollToTopComponent from 'components/ScrollToTopComponent';
 import SharedLayout from 'components/SharedLayout';
-import StartPage from 'page/StartPage';
+import WelcomePage from 'page/WelcomePage';
 import RegisterPage from 'page/RegisterPage';
 import SigninPage from 'page/SigninPage';
 
@@ -29,7 +29,7 @@ const App = () => {
         {user && <ScrollToTopComponent />}
         {!user ? (
           <Routes>
-            <Route index element={<StartPage />} />
+            <Route index element={<WelcomePage />} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/signin" element={<SigninPage />} />
           </Routes>
