@@ -2,7 +2,7 @@ import { device, size } from 'components/constants/deviceType/deviceType';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const StyledSPSection = styled.section`
+export const WelcomePageSection = styled.section`
   display: flex;
   align-items: center;
   min-height: 100vh;
@@ -10,9 +10,10 @@ export const StyledSPSection = styled.section`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url('./images/welcomePage/bg1.webp');
+  background-image: url('${process.env
+    .PUBLIC_URL}/images/welcomePage/bg1.webp');
 `;
-export const StyledSPContainer = styled.div`
+export const WelcomePageContainer = styled.div`
   margin: 0 auto;
   padding: 0 20px;
   width: 100%;
@@ -30,12 +31,12 @@ export const StyledSPContainer = styled.div`
     width: ${size.desktop};
   }
 `;
-export const StyledSPBox = styled.div`
+export const WelcomePageBox = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
 `;
-export const StyledSPLogo = styled.img`
+export const WelcomePageLogo = styled.img`
   width: 54px;
   height: 54px;
   margin-bottom: 28px;
@@ -49,7 +50,7 @@ export const StyledSPLogo = styled.img`
     margin-bottom: 44px;
   }
 `;
-export const StyledSPTitle = styled.h1`
+export const WelcomePageTitle = styled.h1`
   width: 247px;
   height: 24px;
 
@@ -61,7 +62,7 @@ export const StyledSPTitle = styled.h1`
   letter-spacing: -0.02em;
   font-feature-settings: 'liga' off;
 
-  color: ${props => props.theme.colors.startPage.title};
+  color: ${props => props.theme.colors.welcomePage.title};
 
   @media ${device.tablet} {
     width: 288px;
@@ -69,7 +70,7 @@ export const StyledSPTitle = styled.h1`
     font-size: 28px;
   }
 `;
-export const StyledSPText = styled.p`
+export const WelcomePageText = styled.p`
   width: 305px;
   height: 72px;
   margin-bottom: 44px;
@@ -80,7 +81,7 @@ export const StyledSPText = styled.p`
   text-align: center;
   letter-spacing: -0.02em;
 
-  color: ${props => props.theme.colors.startPage.text};
+  color: ${props => props.theme.colors.welcomePage.text};
 
   @media ${device.tablet} {
     width: 505px;
@@ -95,7 +96,7 @@ export const StyledSPText = styled.p`
     margin-bottom: 40px;
   }
 `;
-export const StyledSPNavList = styled.div`
+export const WelcomePageNavList = styled.div`
   display: flex;
   align-items: center;
   gap: 12px;
@@ -104,17 +105,19 @@ export const StyledSPNavList = styled.div`
     gap: 18px;
   }
 `;
-export const StyledSPNavLinkRegistration = styled(NavLink)`
+export const WelcomePageNavLinkRegistr = styled(NavLink)`
   display: inline-block;
   padding: 12px 24px;
 
   font-size: 14px;
   line-height: 21px;
-  color: ${props => props.theme.colors.startPage.textButton};
+  color: ${props => props.theme.colors.welcomePage.textButton};
 
   border-radius: 24px 44px;
-  border-color: ${props => props.theme.colors.startPage.borderBtnRegistration};
-  background-color: ${props => props.theme.colors.startPage.bgBtnRegistration};
+  border-color: ${props =>
+    props.theme.colors.welcomePage.borderBtnRegistration};
+  background-color: ${props =>
+    props.theme.colors.welcomePage.bgBtnRegistration};
   cursor: pointer;
 
   @media ${device.tablet} {
@@ -124,8 +127,8 @@ export const StyledSPNavLinkRegistration = styled(NavLink)`
     line-height: 24px;
   }
 `;
-export const StyledSPNavLinkSignIn = styled(StyledSPNavLinkRegistration)`
-  background-color: ${props => props.theme.colors.startPage.bgBtnSignIn};
-  border-color: ${props => props.theme.colors.startPage.borderBtnSignIn};
+export const WelcomePageNavLinkLogin = styled(WelcomePageNavLinkRegistr)`
+  background-color: ${props => props.theme.colors.welcomePage.bgBtnSignIn};
+  border-color: ${props => props.theme.colors.welcomePage.borderBtnSignIn};
   border: 2px solid;
 `;

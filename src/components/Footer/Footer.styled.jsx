@@ -3,7 +3,9 @@ import Container from 'components/constants/Container';
 import { device } from 'components/constants/deviceType/deviceType';
 
 export const BoxUp = styled.div`
+  position: relative;
   background-color: ${props => props.theme.colors.footer.bgSection};
+  z-index: 1;
 `;
 
 export const BoxDown = styled.div``;

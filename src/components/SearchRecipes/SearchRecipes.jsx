@@ -1,7 +1,7 @@
-import Container from 'components/constants/Container';
+
 import { useState } from 'react';
 import { SearchButton, SearchInput, SearchForm,SearchBox,SearchWrapper } from './SearchRecipes.styled';
-import Dropdown from './SearchDropdown';
+import Dropdown from '../SearchTypeSelector/SearchDropdown';
 const SearchRecipes = () => {
   const [input, setInput] = useState('');
   const handleNameChange = e => {
@@ -9,8 +9,7 @@ const SearchRecipes = () => {
     setInput(value);
   };
   return (
-    <Container>
-      <h1>Search</h1>
+    <>
       <SearchBox>
         <SearchForm>
           <SearchInput
@@ -28,7 +27,7 @@ const SearchRecipes = () => {
         <Dropdown/>
       </SearchWrapper>
       </SearchBox>
-    </Container>
+    </>
   );
 };
 export default SearchRecipes;
