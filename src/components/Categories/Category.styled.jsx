@@ -3,6 +3,14 @@ import {
   DefaultSquare,
   DefaultSquareСircle,
 } from '../../components/constants/DefaultStyleComponents/DefaultStyleComponents';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+
+export const CategoryTabs = styled(Tabs)(({ theme }) => ({
+  '& .MuiTabs-indicator': {
+    backgroundColor: theme.colors.categoriesPage.lineActive,
+  },
+}));
 
 export const CategoryDefaultSquare = styled(DefaultSquare)`
   position: absolute;
@@ -38,7 +46,7 @@ export const CategoryDefaultSquareСircle = styled(DefaultSquareСircle)`
 
 export const CategoryDefaultSquareSecond = styled(DefaultSquare)`
   position: absolute;
-  right: -333px;
+  right: -180px;
   top: -16px;
 
   @media (min-width: 768px) {
@@ -80,21 +88,23 @@ export const CategoryContainer = styled.div`
 export const CategoryText = styled.span`
   font-style: normal;
   font-weight: ${props => props.theme.fontWeight.semiBold};
-  line-height: 44px;
+  line-height: 28px;
   color: ${props => props.theme.colors.categoriesPage.title};
 
   letter-spacing: -0.02em;
   font-feature-settings: 'liga';
   font-family: 'Poppins';
-  font-size: ${props => props.theme.fontSizes.xxxl};
+  font-size: ${props => props.theme.fontSizes.xxl};
   position: relative;
   display: inline-block;
   @media (min-width: 768px) {
     font-size: 32px;
+    line-height: 32px;
   }
 
   @media (min-width: 1200px) {
-    font-size: ${props => props.theme.fontSizes.xxl};
+    font-size: ${props => props.theme.fontSizes.xxxl};
+    line-height: 44px;
   }
 `;
 
@@ -116,4 +126,21 @@ export const AnimatedLetter = styled.span`
   opacity: 0;
 
   animation-delay: ${({ index }) => `${0.1 * index}s`};
+`;
+
+export const CategoryTab = styled(Tab)`
+  font-size: 14px !important;
+  font-family: 'Poppins' !important;
+  color: ${props =>
+    props.theme.colors.categoriesPage.linkNameCategory} !important;
+  padding: 27px;
+  text-transform: none !important;
+  font-weight: ${props => props.theme.fontWeight.regular} !important;
+  &.Mui-selected {
+    color: ${props =>
+      props.theme.colors.categoriesPage.linkNameCategoryHover} !important;
+  }
+  @media (min-width: 768px) {
+    font-size: 18px !important;
+  }
 `;

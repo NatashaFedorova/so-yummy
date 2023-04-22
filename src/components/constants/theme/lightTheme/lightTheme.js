@@ -17,6 +17,11 @@ const lightTheme = Object.freeze({
       accent: '#8baa36',
     },
 
+    btnUp: {
+      colorLeaf: '#8baa36',
+      text: '#fafafa',
+    },
+
     // CardRecipe - small
     cardRecipe: {
       bgbtn: '#ffffff',
@@ -97,8 +102,8 @@ const lightTheme = Object.freeze({
       socIconHover: '#ffffff',
     },
 
-    // StartPage
-    startPage: {
+    // WelcomePage
+    welcomePage: {
       title: '#fafafa',
       text: '#fafafa',
       textButton: '#fafafa',

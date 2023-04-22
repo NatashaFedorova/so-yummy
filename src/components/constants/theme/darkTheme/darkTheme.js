@@ -99,8 +99,8 @@ const darkTheme = Object.freeze({
       socIconHover: '#ffffff',
     },
 
-    // StartPage
-    startPage: {
+    // WelcomePage
+    welcomePage: {
       title: '#fafafa',
       text: '#fafafa',
       textButton: '#fafafa',
@@ -157,6 +157,11 @@ const darkTheme = Object.freeze({
       linkNameCategoryHover: '#8baa36',
       lineActive: '#8baa36',
       line: '#e0e0e0',
+      overlay: '#3e4462',
+      overlayHover: 'rgb(139, 170, 54, 0.3)',
+      overlayHoverAfter: 'rgb(0, 0, 0, 0.5)',
+      gradient: '#a8c163',
+      // '#8baa36',
     },
 
     // AddRecipePage

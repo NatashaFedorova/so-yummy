@@ -1,5 +1,6 @@
-import { FakeMainPageTitle, FakeMainPageTitleWrap, FavoriteList } from "components/Favorite/Favorite.styled";
 import Container from "components/constants/Container/Container.styled";
+import { FakeMainPageTitle, FakeMainPageTitleWrap, FavoriteSection} from "components/Favorite/Favorite.styled";
+import FavoriteList from "components/FavoriteList/FavoriteList";
 
 const FavoritePage = () => {
   return (
@@ -7,9 +8,9 @@ const FavoritePage = () => {
       <FakeMainPageTitleWrap>
         <FakeMainPageTitle>Favorites</FakeMainPageTitle>
       </FakeMainPageTitleWrap>
-      <section>
+      <FavoriteSection >
         <FavoriteList />
-      </section>
+      </FavoriteSection>
     </Container>
   );
 };
