@@ -99,8 +99,8 @@ const darkTheme = Object.freeze({
       socIconHover: '#ffffff',
     },
 
-    // StartPage
-    startPage: {
+    // WelcomePage
+    welcomePage: {
       title: '#fafafa',
       text: '#fafafa',
       textButton: '#fafafa',

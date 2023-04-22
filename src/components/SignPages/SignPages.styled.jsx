@@ -20,20 +20,20 @@ export const SignSectionBg = styled.div`
   width: 100%;
   height: 490px;
 
-  background-image: url('./images/signPages/bg-bottom-mobile.svg');
+  background-image: url('${process.env.PUBLIC_URL}/images/signPages/bg-bottom-mobile.svg');
   background-size: cover;
   background-repeat: no-repeat;
 
   @media ${device.tablet} {
     height: 606px;
 
-    background-image: url('./images/signPages/bg-bottom-tablet.svg');
+    background-image: url('${process.env.PUBLIC_URL}/images/signPages/bg-bottom-tablet.svg');
   }
 
   @media ${device.desktop} {
     height: 325px;
 
-    background-image: url('./images/signPages/bg-bottom-desktop.svg');
+    background-image: url('${process.env.PUBLIC_URL}/images/signPages/bg-bottom-desktop.svg');
   }
 `;
 export const SignContainer = styled.div`
@@ -71,7 +71,9 @@ export const SignBgImg = styled.div`
   height: 250px;
   flex-shrink: 0;
 
-  background-image: url('./images/signPages/order-food-pana-mobile.png');
+  // background-image: url('${process.env.PUBLIC_URL}/images/welcomePage/bg1.webp');
+
+  background-image: url('${process.env.PUBLIC_URL}/images/signPages/order-food-pana-mobile.png');
   background-size: cover;
   background-repeat: no-repeat;
   z-index: 1;
@@ -80,14 +82,14 @@ export const SignBgImg = styled.div`
     width: 409px;
     height: 359px;
 
-    background-image: url('./images/signPages/order-food-pana-tablet.png');
+    background-image: url('${process.env.PUBLIC_URL}/images/signPages/order-food-pana-tablet.png');
   }
 
   @media ${device.desktop} {
     width: 532px;
     height: 469px;
 
-    background-image: url('./images/signPages/order-food-pana-desktop.png');
+    background-image: url('${process.env.PUBLIC_URL}/images/signPages/order-food-pana-desktop.png');
   }
 `;
 export const SignBox = styled.div`

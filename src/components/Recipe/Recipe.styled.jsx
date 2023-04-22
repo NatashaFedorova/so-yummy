@@ -45,7 +45,7 @@ export const HeroTitle = styled.h1`
 `;
 
 export const HeroInfo = styled.p`
-  color: ${props => props.theme.colors.startPage.iconClock};
+  color: ${props => props.theme.colors.welcomePage.iconClock};
   margin-bottom: ${props => props.theme.fontSizes.xl};
 
   @media ${device.mobile} {
@@ -147,7 +147,7 @@ export const PrepInfoWrap = styled.div`
 `;
 
 export const PrepInfoText = styled.p`
-  color: ${props => props.theme.colors.startPage.iconClock};
+  color: ${props => props.theme.colors.welcomePage.iconClock};
   margin-bottom: ${props => props.theme.fontSizes.s};
 
   @media ${device.mobile} {

@@ -102,8 +102,8 @@ const lightTheme = Object.freeze({
       socIconHover: '#ffffff',
     },
 
-    // StartPage
-    startPage: {
+    // WelcomePage
+    welcomePage: {
       title: '#fafafa',
       text: '#fafafa',
       textButton: '#fafafa',
