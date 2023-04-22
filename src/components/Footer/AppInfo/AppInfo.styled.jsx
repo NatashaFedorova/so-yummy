@@ -18,8 +18,10 @@ export const AppInfoList = styled.ul`
   }
 
   @media ${device.desktop} {
-    size: 18px;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
     gap: 12px;
-    width: 418px;
+    width: 404px;
   }
 `;

@@ -3,7 +3,9 @@ import Container from 'components/constants/Container';
 import { device } from 'components/constants/deviceType/deviceType';
 
 export const BoxUp = styled.div`
+  position: relative;
   background-color: ${props => props.theme.colors.footer.bgSection};
+  z-index: 1;
 `;
 
 export const BoxDown = styled.div``;
@@ -37,7 +39,12 @@ export const LogoGroup = styled.div`
   margin-right: 0;
   margin-bottom: 32px;
 
+  @media ${device.tablet} {
+    margin-bottom: 0;
+    margin-right: 175px;
+  }
   @media ${device.desktop} {
     max-width: 418px;
+    margin-right: 152px;
   }
 `;

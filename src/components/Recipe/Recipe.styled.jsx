@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 import DefaultBtn from 'components/constants/DefaultBtn/';
+import { device } from 'components/constants/deviceType/deviceType';
 
 export const HeroHead = styled.div`
     background-image: url('../images/recipebyId/recipebg.png');
+    background-size: cover;
     left: 0px;
     top: 0px;
     width: 100%;
@@ -10,11 +12,22 @@ export const HeroHead = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 164px 202px 32px;
     text-align: center;
     background-repeat: no-repeat;
     background-size: cover;
     margin-top: -78px;
+
+    @media ${device.mobile} {
+      padding: 164px 30px 32px;
+    }
+    @media ${device.tablet} {
+      padding: 164px 130px 32px;
+    }
+    @media ${device.desktop} {
+      padding: 164px 202px 32px;
+    }
+
+
 `;
 
 export const HeroTitle = styled.h1`
@@ -52,7 +65,6 @@ export const HeroP = styled.p`
       }
 `;
 
-
 export const IngListItem = styled.li`
 display:flex;
 align-items: center;
@@ -69,12 +81,25 @@ width: 72%;
 `;
 
 export const IngListItemInfoText = styled.p`
-margin-left: 40px;
-color: ${props => props.theme.colors.recipePage.titleSecondry};
-font-size: ${props => props.theme.fontSizes.xl};
-font-weight: ${props => props.theme.fontWeight.medium};
-`;
 
+color: ${props => props.theme.colors.recipePage.titleSecondry};
+
+font-weight: ${props => props.theme.fontWeight.medium};
+
+@media ${device.mobile} {
+  font-size: ${props => props.theme.fontSizes.xs};
+  margin-left: 20px;
+}
+@media ${device.tablet} {
+  font-size: ${props => props.theme.fontSizes.xl};
+  margin-left: 40px;
+}
+@media ${device.desktop} {
+  font-size: ${props => props.theme.fontSizes.xl};
+  margin-left: 40px;
+}
+
+`;
 
 export const IngListItemNumberWrap = styled.div`
     width: 13%
@@ -92,8 +117,19 @@ display: inline-block;
 
 
 export const IngImg = styled.img`
-    width: 180px;
-    height: 180px;
+
+    @media ${device.mobile} {
+        width: 57px;
+        height: 57px;
+      }
+      @media ${device.tablet} {
+        width: 112px;
+        height: 112px;
+      }
+      @media ${device.desktop} {
+        width: 180px;
+        height: 180px;
+      }
 `;
 
 export const IngListItemCheckWrap = styled.div`
@@ -101,6 +137,7 @@ position: relative;
 width: 15%;
 text-align: right;
 `;
+
 export const IngListItemInput = styled.input`
 position: absolute;
 width: 35px;
@@ -135,15 +172,33 @@ export const PrepWrap = styled.div`
     flex-wrap: wrap;
     padding-top: 40px;
     padding-bottom: 40px;
+
+
+
+
+
 `;
 
 export const PrepInfo = styled.div`
-    width: 63%;
-    padding-right: 45px;
+   
+
+    @media ${device.mobile} {
+        width: 100%;
+        padding-right: 20px;
+      }
+      @media ${device.desktop} {
+        width: 63%;
+        padding-right: 45px;
+      }
 `;
 
 export const PrepImg = styled.div`
-    width: 37%;
+    @media ${device.mobile} {
+        width: 100%;
+      }
+      @media ${device.desktop} {
+        width: 37%;
+      }
 `;
 
 export const PrepImgImg = styled.img`

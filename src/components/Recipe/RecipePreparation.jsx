@@ -1,4 +1,15 @@
-import { PrepWrap, PrepInfo, PrepImg, PrepInfoHead, PrepInfoText, PrepInfoSpan, PrepInfoWrap, PrepImgImg } from './Recipe.styled';
+import {
+    PrepWrap,
+    PrepInfo,
+    PrepImg,
+    PrepInfoHead,
+    PrepInfoText,
+    PrepInfoSpan,
+    PrepInfoWrap,
+    PrepImgImg
+} from './Recipe.styled';
+
+
 
 const RecipePreparation = ({ instructions, img, title }) => {
 

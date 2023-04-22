@@ -5,4 +5,8 @@ export const Box = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 5000;
+  position: absolute;
+  left: calc(50% - 50px);
+  top: 45%;
 `;

@@ -1,3 +1,4 @@
+import { createPortal } from 'react-dom';
 import {
   AgreedBTN,
   ButtonSet,
@@ -8,6 +9,8 @@ import {
   StyledGrFormClose,
 } from './LogoutModal.styled';
 
+const modalRoot = document.querySelector('#modal-root');
+
 export const UserLogoutModal = ({ closeLogoutModal }) => {
   const onClickBackdrop = e => {
     if (e.currentTarget === e.target) {
@@ -15,7 +18,7 @@ export const UserLogoutModal = ({ closeLogoutModal }) => {
     }
   };
 
-  return (
+  return createPortal(
     <ModalOverlay onClick={onClickBackdrop}>
       <ModalWrapper onClick={onClickBackdrop}>
         <Modal>
@@ -27,6 +30,7 @@ export const UserLogoutModal = ({ closeLogoutModal }) => {
           <StyledGrFormClose onClick={closeLogoutModal} />
         </Modal>
       </ModalWrapper>
-    </ModalOverlay>
+    </ModalOverlay>,
+    modalRoot
   );
 };

@@ -5,10 +5,12 @@ import { SubscribeForm } from './SubcribeForm/SubscribeForm';
 import { CommercionInfo } from './ComercionInfo/ComercionInfo';
 import { LogoGroup, BoxUp, BoxDown, StyledContainerUp } from './Footer.styled';
 import { SocialLinks } from './SocialLinks/SocialLinks';
+import { DecoreLeafsTop, DecoreLeafsBottom } from 'components/DecoratedMain/DecoratedMain.styled';
 
 const Footer = () => {
   return (
-    <footer>
+    <footer style={{position: "relative"}}>
+      <DecoreLeafsTop />
       <BoxUp>
         <StyledContainerUp>
           <LogoGroup>
@@ -20,8 +22,9 @@ const Footer = () => {
           <SocialLinks />
         </StyledContainerUp>
       </BoxUp>
-      <BoxDown>
+      <BoxDown style={{position: "relative", overflow: "hidden"}}>
         <CommercionInfo />
+        <DecoreLeafsBottom />
       </BoxDown>
     </footer>
   );

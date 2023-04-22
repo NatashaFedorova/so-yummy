@@ -30,7 +30,7 @@ export const IngHeadTitleI = styled.span`
 export const IngHeadTitleN = styled.span`
     color: ${props => props.theme.colors.recipePage.textBtnHover};
     font-weight: ${props => props.theme.fontWeight.semiBold};
-    width:20%;
+    
 
 @media ${device.mobile} {
     font-size: ${props => props.theme.fontSizes.xs};
@@ -41,6 +41,7 @@ export const IngHeadTitleN = styled.span`
   }
 @media ${device.desktop} {
     font-size: ${props => props.theme.fontSizes.l};
+    width:20%;
   }
 `;
 
