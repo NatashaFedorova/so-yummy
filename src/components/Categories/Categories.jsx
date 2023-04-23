@@ -35,11 +35,12 @@ const Categories = () => {
   const { categoryName: name } = useParams();
   const dispatch = useDispatch();
   const categories = useSelector(selectCategory);
-  const dishes = useSelector(selectRecipesByCategoryName);
+  const dishesElement = useSelector(selectRecipesByCategoryName);
+  const dishes = dishesElement.result;
   const isLoad = useSelector(selectRecipesIsLoading);
   const cardsPerPage = 8;
-  const totalPages = 200;
-
+  const totalPages = dishesElement.totalNumber;
+  console.log(dishes);
   const handlePageChange = page => {
     setCurrentPage(page);
   };

@@ -27,7 +27,7 @@ export const PaginationContainer = styled.div`
     margin-left: 3px;
     margin-right: 3px;
   }
-  div.sc-fnxdBY {
+  div.dlKMQN {
     background: transparent;
   }
 `;
