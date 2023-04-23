@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import device from 'components/constants/Container/Container.styled';
+import { device } from 'components/constants/deviceType/deviceType';
 import { ReactComponent as UserIcon } from './user.svg';
 import { ReactComponent as MailIcon } from './mail.svg';
 import { ReactComponent as LockIcon } from './lock.svg';
