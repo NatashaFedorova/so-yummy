@@ -105,7 +105,7 @@ export const WelcomePageNavList = styled.div`
     gap: 18px;
   }
 `;
-export const WelcomePageNavLinkRegistr = styled(NavLink)`
+export const WelcomePageNavLinkRegister = styled(NavLink)`
   display: inline-block;
   padding: 12px 24px;
 
@@ -127,7 +127,7 @@ export const WelcomePageNavLinkRegistr = styled(NavLink)`
     line-height: 24px;
   }
 `;
-export const WelcomePageNavLinkLogin = styled(WelcomePageNavLinkRegistr)`
+export const WelcomePageNavLinkLogin = styled(WelcomePageNavLinkRegister)`
   background-color: ${props => props.theme.colors.welcomePage.bgBtnSignIn};
   border-color: ${props => props.theme.colors.welcomePage.borderBtnSignIn};
   border: 2px solid;

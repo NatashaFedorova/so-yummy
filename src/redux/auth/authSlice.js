@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-// import { register, logIn, logOut } from './authOperation';
 import { register, logIn, logOut, refreshUser } from './authOperation';
 // import { Notify } from 'notiflix';
 
@@ -20,15 +19,14 @@ export const authSlise = createSlice({
   extraReducers: builder =>
     builder
       .addCase(register.fulfilled, (state, action) => {
-        state.user = action.payload;
-        // state.token = action.payload.token;
+        state.user = action.payload.user
+        state.token = action.payload.token;
         state.isLoggedIn = true;
 
-        console.log('Registration successful!', action.payload);
         alert('Registration successful!');
       })
       .addCase(logIn.fulfilled, (state, action) => {
-        // state.user = action.payload;
+        state.user = action.payload.user;
         state.token = action.payload.token;
         state.isLoggedIn = true;
 
@@ -41,6 +39,12 @@ export const authSlise = createSlice({
 
         alert('Goodbuy USER!')
       })
+      .addCase(refreshUser.fulfilled, (state, action) => {
+        state.user = action.payload;
+        state.isLoggedIn = true;
+        
+        console.log(action.payload);
+      })
       .addCase(logIn.rejected, (state, action) => {
         // Notify.failure('ooops');
           alert('Incorrect email or password! Or maybe the user with this email address is not registered. Try again')
@@ -48,11 +52,6 @@ export const authSlise = createSlice({
       .addCase(register.rejected, (state, action) => {
         alert('Ooops, it fail :)')
       })
-      .addCase(refreshUser.fulfilled, (state, action) => {
-        state.user = action.payload;
-        state.isLoggedIn = true;
-      })
-     
 });
 
 export const authReducer = authSlise.reducer;
