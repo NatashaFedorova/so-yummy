@@ -1,20 +1,16 @@
 import DefaultBtn from 'components/constants/DefaultBtn';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import { selectUser } from 'redux/auth/authSelectors';
-import { subscribe } from 'redux/subcribe/subscribeOperations';
-import { selectSubscribeUser } from 'redux/subcribe/subscribeSelectors';
+import { subscribe } from 'redux/user/userOperation';
+import { selectCurrentUser } from 'redux/user/userSelectors';
 import { StyledHiOutlineMail, SubcribeFormDiv } from './SubscribeForm.styled';
 
 export const SubscribeForm = () => {
-  // const { email } = useSelector(selectUser);
-  const subscribeUser = useSelector(selectSubscribeUser);
+  const { email, subscription } = useSelector(selectCurrentUser);
   const dispatch = useDispatch();
-  const email = 'maxim@outlook.com';
   const [subscribeEmail, setSubscribeEmail] = useState('');
 
   const onSubscribe = () => {
-    console.log('Hello');
     dispatch(subscribe());
   };
 
@@ -35,12 +31,10 @@ export const SubscribeForm = () => {
         </div>
       </label>
       <DefaultBtn
-        disabled={
-          !(subscribeEmail === email) || subscribeUser.subscribe.subscription
-        }
+        disabled={!(subscribeEmail === email) || subscription}
         onClick={onSubscribe}
       >
-        Subscribe
+        {subscription ? `You already subscribe` : `Subscribe`}
       </DefaultBtn>
     </SubcribeFormDiv>
   );

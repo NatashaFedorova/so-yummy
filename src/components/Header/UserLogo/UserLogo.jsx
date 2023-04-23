@@ -4,6 +4,7 @@ import { selectCurrentUser } from 'redux/user/userSelectors';
 import { UserLogoModal } from '../UserLogoModal/UserLogoModal';
 import {
   AvatarArea,
+  CurrentUserAvatar,
   CustomUserAvatar,
   UserInfo,
   UserLogoDiv,
@@ -11,7 +12,7 @@ import {
 } from './UserLogo.styled';
 
 export const UserLogo = () => {
-  const { name } = useSelector(selectCurrentUser);
+  const { name, avatarUrl } = useSelector(selectCurrentUser);
   const [showUserLogoModal, setShowUserLogoModal] = useState(false);
 
   const togglerUserLogoModal = () => {
@@ -36,7 +37,7 @@ export const UserLogo = () => {
       <UserLogoDiv onClick={togglerUserLogoModal}>
         <UserInfo>
           <AvatarArea>
-            <CustomUserAvatar />
+            <CurrentUserAvatar src={avatarUrl} alt={'User avatar'} />
           </AvatarArea>
           <UserNameSpan>{`${name}`}</UserNameSpan>
         </UserInfo>

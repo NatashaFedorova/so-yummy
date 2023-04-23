@@ -5,6 +5,7 @@ import {
 } from './BurgerNavigation.styled';
 
 const pages = [
+  { to: '/categories/beef', title: 'Categories' },
   { to: '/add', title: 'Add receptes' },
   { to: '/my', title: 'My recipes' },
   { to: '/favorite', title: 'Favorites' },
@@ -23,7 +24,7 @@ export const BurgerNavigation = ({ closeBurgerMenuModal }) => {
           {page.title}
         </StyledBurgerLink>
       ))}
-      <StyledBurgerLink to={`/search`}>
+      <StyledBurgerLink to={`/search`} onClick={closeBurgerMenuModal}>
         <FiSearch />
         Search
       </StyledBurgerLink>

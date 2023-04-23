@@ -58,9 +58,9 @@ export const Modal = styled.div`
   }
 `;
 
-export const ConfigAvatarUser = styled(CustomUserAvatar)`
-  width: 47px;
-  height: 47px;
+export const ConfigAvatarUser = styled.img`
+  width: 100%;
+  height: 100%;
 `;
 
 export const ConfigAvatarArea = styled(AvatarArea)`
@@ -75,14 +75,31 @@ export const ConfigAvatarArea = styled(AvatarArea)`
   }
 `;
 
+export const LeftInputDiv = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
 export const StyledAiFillPlusCircle = styled(AiFillPlusCircle)`
   position: absolute;
-  bottom: -7px;
-  right: 14px;
+  top: 75px;
+  left: 185px;
   width: 24px;
   height: 24px;
   color: #8baa36;
   cursor: pointer;
+  @media${device.tablet} {
+    left: 265px;
+    top: 130px;
+  }
+  @media${device.desktop} {
+    top: 150px;
+    left: 270px;
+  }
+`;
+
+export const ChangeImageInput = styled.input`
+  display: none;
 `;
 
 export const ConfigNameLabel = styled.label`
@@ -157,9 +174,4 @@ export const StyledHiOutlinePencil = styled(HiOutlinePencil)`
     width: 24px;
     height: 24px;
   }
-`;
-
-export const LeftInputDiv = styled.div`
-  display: flex;
-  align-items: center;
 `;

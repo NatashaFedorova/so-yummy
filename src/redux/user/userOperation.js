@@ -17,3 +17,13 @@ export const changeUserData = createAsyncThunk(
     }
   }
 );
+
+export const subscribe = createAsyncThunk('/', async (_, thunkAPI) => {
+  try {
+    const res = await axios.post('/subscribe');
+    console.log(res);
+    return res.data;
+  } catch ({ message }) {
+    return thunkAPI.rejectWithValue(message);
+  }
+});

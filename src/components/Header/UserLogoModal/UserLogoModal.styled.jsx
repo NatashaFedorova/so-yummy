@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 export const ModalUser = styled.div`
   position: absolute;
-  z-index: 500;
+  z-index: 5;
 
   display: flex;
   flex-direction: column;
@@ -30,11 +30,12 @@ export const ModalUser = styled.div`
   }
 
   @media${device.tablet} {
-    right: 25vw;
+    right: 20vw;
+    border-color: transparent;
   }
 
   @media${device.desktop} {
-    right: 35vw;
+    right: 20vw;
   }
 `;
 
