@@ -14,7 +14,7 @@ import {
 import { Link } from './CategoriesMUI.styled';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { selectCategory } from '../../redux/recipes/selectors/selectCategoryList';
 import {
   selectRecipesByCategoryName,
@@ -28,21 +28,34 @@ import {
   CategoryDefaultSquareSecond,
 } from './Category.styled';
 import Loading from '../Loading/Loading';
+import { PagePagination } from '../Pagination/Pagination';
 
 const Categories = () => {
+  const [currentPage, setCurrentPage] = useState(1);
   const { categoryName: name } = useParams();
   const dispatch = useDispatch();
   const categories = useSelector(selectCategory);
   const dishes = useSelector(selectRecipesByCategoryName);
   const isLoad = useSelector(selectRecipesIsLoading);
+  const cardsPerPage = 8;
+  const totalPages = 200;
+
+  const handlePageChange = page => {
+    setCurrentPage(page);
+  };
+  console.log(currentPage, name, 'its nsme');
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [name]);
 
   useEffect(() => {
     dispatch(getCategories());
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch(getRecipesByCategory(name));
-  }, [name, dispatch]);
+    dispatch(getRecipesByCategory({ categoryName: name, page: currentPage }));
+  }, [name, dispatch, currentPage]);
 
   const categoryIndex = categories.findIndex(item => {
     console.log(name.toLowerCase() === item.toLowerCase());
@@ -104,6 +117,13 @@ const Categories = () => {
           </CategoryTabs>
         </Box>
         <MyTabPanel> {isLoad ? <Loading /> : TabPanel(dishes)}</MyTabPanel>
+        <PagePagination
+          totalPages={totalPages}
+          cardsPerPage={cardsPerPage}
+          currentPage={currentPage}
+          handlePageChange={handlePageChange}
+        />
+        +
       </>
     </Container>
   );

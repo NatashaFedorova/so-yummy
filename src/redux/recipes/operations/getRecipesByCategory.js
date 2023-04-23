@@ -3,9 +3,12 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 const getRecipesByCategory = createAsyncThunk(
   'recipes/getRecipesByCategory',
-  async (categoryName, thunkAPI) => {
+  async ({ categoryName, page }, thunkAPI) => {
     try {
-      const res = await axios.get(`recipes/category/${categoryName}`);
+      const res = await axios.get(`recipes/category/${categoryName}`,
+        {
+        params: { page: page }
+      });
       console.log(res.data, res, "catName");
       return res.data
     } catch ({ message }) {
