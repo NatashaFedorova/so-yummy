@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { logIn, logOut } from 'redux/auth/authOperation';
+import { logIn } from 'redux/auth/authOperation';
 import {
   AuthForm,
   AuthFormBtnSubmit,
@@ -9,11 +9,9 @@ import {
   AuthFormMailIcon,
   AuthFormTitle,
 } from 'components/SignPages/AuthForm.styled';
-import { useAuth } from 'hooks/useAuth';
 
 const SigninForm = () => {
   const dispatch = useDispatch();
-  const { isLoggedIn } = useAuth();
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -29,8 +27,6 @@ const SigninForm = () => {
     form.reset();
   };
 
-  const handleLogOut = () => dispatch(logOut());
-
   return (
     <AuthForm className="signinForm" id="signinForm" onSubmit={handleSubmit}>
       <AuthFormTitle>Sign In</AuthFormTitle>
@@ -43,7 +39,6 @@ const SigninForm = () => {
         <AuthFormInput type="password" name="password" placeholder="Password" required />
       </AuthFormLabel>
       <AuthFormBtnSubmit type="submit">Sign up</AuthFormBtnSubmit>
-      {isLoggedIn && <button type="button" onClick={handleLogOut} style={{marginTop: 20}}> Logout </button>}
     </AuthForm>
   );
 };

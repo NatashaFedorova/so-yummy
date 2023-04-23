@@ -11,10 +11,9 @@ import RegisterPage from 'page/RegisterPage';
 import SigninPage from 'page/SigninPage';
 
 import { useDispatch } from 'react-redux';
-import { useAuth } from 'hooks/useAuth';
+import useAuth from 'hooks/useAuth';
 import { refreshUser } from 'redux/auth/authOperation';
-import { RestrictedRoute } from 'components/Routes/RestrictedRoute';
-import { PrivateRoute } from 'components/Routes/PrivateRoute';
+import { RestrictedRoute, PrivateRoute } from 'components/Routes';
 import Loading from 'components/Loading/Loading';
 
 const MainPage = lazy(() => import('page/MainPage'));
