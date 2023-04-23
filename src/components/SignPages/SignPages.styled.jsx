@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
-import device from 'components/constants/Container/Container.styled';
+import { device } from 'components/constants/deviceType/deviceType';
 
 export const size = {
   mobile: '375px',
