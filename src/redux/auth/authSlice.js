@@ -42,8 +42,6 @@ export const authSlise = createSlice({
       .addCase(refreshUser.fulfilled, (state, action) => {
         state.user = action.payload;
         state.isLoggedIn = true;
-        
-        console.log(action.payload);
       })
       .addCase(logIn.rejected, (state, action) => {
         // Notify.failure('ooops');
