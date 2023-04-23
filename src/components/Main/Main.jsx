@@ -1,7 +1,6 @@
 import Container from 'components/constants/Container/Container.styled';
 
 import { HeroBackground, SectionRelative, HeroContainer } from './Main.styled';
-// import { NavLink, useNavigate } from 'react-router-dom';
 
 import HeroTitle from './Hero/HeroTitle';
 import HeroImage from './Hero/HeroImage';

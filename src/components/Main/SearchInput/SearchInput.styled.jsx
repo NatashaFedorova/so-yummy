@@ -49,6 +49,8 @@ export const SearchInputField = styled.input`
   font-size: ${props => props.theme.fontSizes.xs};
   line-height: 1.5;
 
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
   &:active,
   &:focus {
     border: 1px solid
@@ -80,6 +82,8 @@ export const SearchInputButton = styled.button`
   border-radius: ${props => props.theme.radii.btnSpecial};
 
   cursor: pointer;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
     background-color: ${props => props.theme.colors.mainPage.bgBtnSearchHover};

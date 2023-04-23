@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+// import { useDispatch } from 'react-redux';
 
 import {
   SearchInputWrapper,
@@ -9,7 +11,7 @@ import {
 
 const SearchInput = () => {
   const [searchValue, setSearchValue] = useState('');
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   // const dispatch = useDispatch();
 
   function handleInputChange(event) {
@@ -20,15 +22,13 @@ const SearchInput = () => {
     event.preventDefault();
     const inputQuery = searchValue.trim().toLowerCase();
     if (inputQuery === '') {
-      return;
-      // setSearchQuery();
+      setSearchValue();
     }
 
     console.log(inputQuery);
 
-    //   setSearchQuery(inputQuery);
-    //   dispatch(changeQuery(searchValue));
-    //   return navigate(`/search?query=${inputQuery}`);
+    setSearchValue(inputQuery);
+    return navigate(`/search?query=${inputQuery}`);
   }
 
   return (

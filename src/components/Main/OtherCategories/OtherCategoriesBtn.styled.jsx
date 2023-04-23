@@ -31,6 +31,9 @@ export const OtherCategoriesLink = styled(NavLink)`
   border: 2px solid
     ${props => props.theme.colors.mainPage.bordertnOtherCategories};
 
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
   &:hover {
     color: ${props => props.theme.colors.mainPage.textOtherCategoriesHover};
     background-color: ${props =>

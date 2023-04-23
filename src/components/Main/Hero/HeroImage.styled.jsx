@@ -14,10 +14,8 @@ export const HeroImageWrapper = styled.div`
   }
 
   @media ${device.desktop} {
-    /* top: -100px; */
     left: 73px;
     position: relative;
-    /* margin-right: auto; */
   }
 `;
 export const HeroImageDish = styled.img`
@@ -30,7 +28,6 @@ export const HeroImageDish = styled.img`
 
   @media ${device.desktop} {
     width: 578px;
-    /* margin: 0 auto; */
   }
 `;
 
@@ -116,6 +113,7 @@ export const HeroImageLink = styled(NavLink)`
   letter-spacing: 0.2px;
 
   color: ${props => props.theme.colors.mainPage.textSecondary};
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
     color: ${props => props.theme.colors.mainPage.titleLinkCategoryHover};
