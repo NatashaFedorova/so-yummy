@@ -1,4 +1,5 @@
 import RestrictedRoute from './RestrictedRoute';
 import PrivateRoute from './PrivateRoute';
+import ErrorRoute from './ErrorRoute';
 
-export { RestrictedRoute, PrivateRoute } 
+export { RestrictedRoute, PrivateRoute, ErrorRoute } 
