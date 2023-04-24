@@ -12,8 +12,28 @@ import {
 const HeroImage = () => {
   return (
     <HeroImageWrapper>
-      <HeroImageDish src="./images/mainPage/heroImage.png" alt="food plate" />
-      <HeroImageArrow src="./images/mainPage/heroArrow.png" alt="green arrow" />
+      <HeroImageDish>
+        <source
+          type="image/webp"
+          srcSet="./images/mainPage/heroImage-webp.webp 1400w,
+          ./images/mainPage/heroImage2xWebp.webp 2800w
+          "
+        />
+        <source
+          type="image/png"
+          srcSet="./images/mainPage/heroImage.png 1400w
+        ./images/mainPage/heroImage2x.png 2800w"
+        />
+        <img src="./images/mainPage/heroImage.png" alt="food plate" />
+      </HeroImageDish>
+      <HeroImageArrow>
+        <source
+          type="image/webp"
+          srcSet="./images/mainPage/heroArrowWepb.webp"
+        />
+        <source type="image/png" srcSet="./images/mainPage/heroArrow.png" />
+        <img src="./images/mainPage/heroArrow.png" alt="green arrow" />
+      </HeroImageArrow>
 
       <HeroImageTextWrapper>
         <HeroImageText>

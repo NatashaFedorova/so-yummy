@@ -18,7 +18,7 @@ export const HeroImageWrapper = styled.div`
     position: relative;
   }
 `;
-export const HeroImageDish = styled.img`
+export const HeroImageDish = styled.picture`
   position: absolute;
   width: 320px;
 
@@ -31,7 +31,7 @@ export const HeroImageDish = styled.img`
   }
 `;
 
-export const HeroImageArrow = styled.img`
+export const HeroImageArrow = styled.picture`
   width: 146px;
   height: 105px;
   position: absolute;
