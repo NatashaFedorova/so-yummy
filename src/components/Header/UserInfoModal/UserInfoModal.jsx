@@ -17,15 +17,19 @@ import {
 import { createPortal } from 'react-dom';
 import { StyledRxPerson } from './UserInfoModal.styled';
 import { StyledHiOutlinePencil } from './UserInfoModal.styled';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { changeUserData } from 'redux/user/userOperation';
-import { selectCurrentUser } from 'redux/user/userSelectors';
+// import { selectCurrentUser } from 'redux/user/userSelectors';
 import { LeftInputDiv } from './UserInfoModal.styled';
+import useAuth from 'hooks/useAuth';
 
 const modalRoot = document.querySelector('#modal-root');
 
 export const UserInfoModal = ({ closeUserInfoModal }) => {
-  const { name, avatarUrl } = useSelector(selectCurrentUser);
+  // const { name, avatarUrl } = useSelector(selectCurrentUser);
+
+  const { user } = useAuth();
+  const {name, avatarUrl} = user;
   const dispath = useDispatch();
   const reader = new FileReader();
 

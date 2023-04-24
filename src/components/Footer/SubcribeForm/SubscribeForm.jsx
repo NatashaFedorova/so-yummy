@@ -1,12 +1,15 @@
 import DefaultBtn from 'components/constants/DefaultBtn';
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { subscribe } from 'redux/user/userOperation';
-import { selectCurrentUser } from 'redux/user/userSelectors';
+// import { selectCurrentUser } from 'redux/user/userSelectors';
 import { StyledHiOutlineMail, SubcribeFormDiv } from './SubscribeForm.styled';
+import useAuth from 'hooks/useAuth';
 
 export const SubscribeForm = () => {
-  const { email, subscription } = useSelector(selectCurrentUser);
+  // const { email, subscription } = useSelector(selectCurrentUser);
+  const { user } = useAuth();
+  const {email, subscription} = user;
   const dispatch = useDispatch();
   const [subscribeEmail, setSubscribeEmail] = useState('');
 
