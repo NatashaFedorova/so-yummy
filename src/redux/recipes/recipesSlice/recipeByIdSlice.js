@@ -2,59 +2,89 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import { STATUS } from "../../../components/constants/loadingStatus/LoadingStatus";
 import { getRecipeById } from '../operations/getRecipeById';
-import { addToFavorite } from '../operations/getRecipeById';
+//import { addRecipeTofavorite } from '../operations/getRecipeById';
+//import { addIngredientToShopList } from '../operations/getRecipeById';
+//import { addToFavorite } from '../operations/getRecipeById';
 
+// const initState = {
+//     status: STATUS.idle,
+//     items: [],
+//     isLoading: 'init',
+//     error: null,
+// };
 
-const handlePending = state => {
-    state.recipeById.status = STATUS.loading;
-};
-
-const handleRejected = (state, action) => {
-    state.recipeById.isLoading = false;
-    state.recipeById.status = STATUS.error;
-    state.recipeById.error = action.payload;
-};
-
-const initState = {
-    recipeById: {
+const recipeByIdSlice = createSlice({
+    name: 'recipeById',
+    initialState: {
         status: STATUS.idle,
         items: [],
         isLoading: 'init',
         error: null,
     },
-};
+    extraReducers: builder =>
+        builder
+            .addCase(getRecipeById.pending, (state) => {
+                state.status = STATUS.loading;
+            })
+            .addCase(getRecipeById.fulfilled, (state, action) => {
+                state.items = action.payload;
+                state.status = STATUS.success;
+            })
+            .addCase(getRecipeById.rejected, (state, action) => {
+                state.status = STATUS.error;
+                state.error = action.payload;
+            })
 
-const recipeByIdSlice = createSlice({
-    name: 'recipeById',
-    initialState: initState,
-    reducers: {},
-    extraReducers: {
-        [getRecipeById.pending]: handlePending,
-        [getRecipeById.rejected]: handleRejected,
-        [getRecipeById.fulfilled](state, action) {
-            state.recipeById.items = action.payload;
-            state.recipeById.status = STATUS.success;
-        },
+})
 
-
-        [addToFavorite.pending]: (state) => {
-            state.recipeById.status = STATUS.loading
-        },
-        [addToFavorite.rejected]: (state) => {
-            state.recipeById.status = STATUS.error;
-        },
-        [addToFavorite.fulfilled](state, action) {
-            state.recipeById.status = STATUS.success;
-        },
-
-
-
-    },
+export const recipesByIdReducer = recipeByIdSlice.reducer;
 
 
 
 
-});
 
-const recipesByIdReducer = recipeByIdSlice.reducer;
-export default recipesByIdReducer;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const recipeByIdSlice = createSlice({
+//     name: 'recipeById',
+//     initialState: initState,
+//     reducers: {},
+//     extraReducers: {
+//         [getRecipeById.pending]: handlePending,
+//         [getRecipeById.rejected]: handleRejected,
+//         [getRecipeById.fulfilled](state, action) {
+//             state.recipeById.items = action.payload;
+//             state.recipeById.status = STATUS.success;
+//         },
+
+
+//         [addToFavorite.pending]: (state) => {
+//             state.recipeById.status = STATUS.loading
+//         },
+//         [addToFavorite.rejected]: (state) => {
+//             state.recipeById.status = STATUS.error;
+//         },
+//         [addToFavorite.fulfilled](state, action) {
+//             state.recipeById.status = STATUS.success;
+//         },
+
+//     },
+
+// });
+
+// const recipesByIdReducer = recipeByIdSlice.reducer;
+// export default recipesByIdReducer;
