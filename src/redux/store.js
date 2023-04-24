@@ -20,6 +20,7 @@ import mainCategoriesSliceReducer from 'redux/recipes/cateroriesSlice/categories
 // import recipesReducer from 'redux/auth/authSlice';
 import { categoryReducer } from './recipes/recipesSlice/categorySlice';
 import { recipeByCategoryReducer } from './recipes/recipesSlice/recipesByCategorySlice';
+import { favoriteReducer } from 'redux/favorite/favoriteSlice';
 const authPersistConfig = {
   key: 'auth',
   storage,
@@ -40,6 +41,7 @@ const authPersistConfig = {
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
+    favorite: favoriteReducer,
     recipedById: recipesByIdReducer,
     users: userReducer,
     recipeByCategorySlice: recipeByCategoryReducer,
