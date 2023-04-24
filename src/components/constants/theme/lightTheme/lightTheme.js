@@ -5,8 +5,8 @@
 const lightTheme = Object.freeze({
   colors: {
     // global
-    background: '#1e1f28',
-    text: '#fafafa',
+    background: '#fafafa',
+    text: '#23262a',
     successState: '#3cbc81',
     warningState: '#f6c23e',
     errorState: '#e74a3b',

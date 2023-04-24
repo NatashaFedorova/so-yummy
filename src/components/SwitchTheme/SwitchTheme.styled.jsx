@@ -17,9 +17,9 @@ export const Button = styled.button`
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   ${props =>
-    props.currentThemeStatus === true
-      ? `background-color: #edefef`
-      : `background-color: #8baa36;`};
+    props.currentThemeStatus
+      ? `background-color: #8baa36`
+      : `background-color: #edefef ;`};
 `;
 
 export const Ellipse = styled.label`
@@ -35,7 +35,7 @@ export const Ellipse = styled.label`
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   ${props =>
-    props.currentThemeStatus === true
-      ? `transform: translateX(-17px)`
-      : `transform: translateX(17px)`};
+    props.currentThemeStatus
+      ? `transform: translateX(17px)`
+      : `transform: translateX(-17px)`};
 `;
