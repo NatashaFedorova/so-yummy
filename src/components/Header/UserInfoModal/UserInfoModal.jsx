@@ -20,7 +20,6 @@ export const UserInfoModal = ({ closeUserInfoModal }) => {
       <ModalWrapper onClick={onClickBackdrop}>
         <Modal>
           <UserFormModal />
-
           <StyledGrFormClose onClick={closeUserInfoModal} />
         </Modal>
       </ModalWrapper>
