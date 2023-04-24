@@ -1,5 +1,9 @@
-import { useState } from 'react';
 import {
+  // useEffect,
+  useState,
+} from 'react';
+import {
+  ChangeImageInput,
   ConfigAvatarArea,
   ConfigAvatarUser,
   ConfigNameLabel,
@@ -14,17 +18,35 @@ import { createPortal } from 'react-dom';
 import { StyledRxPerson } from './UserInfoModal.styled';
 import { StyledHiOutlinePencil } from './UserInfoModal.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { LeftInputDiv } from './UserInfoModal.styled';
 import { changeUserData } from 'redux/user/userOperation';
 import { selectCurrentUser } from 'redux/user/userSelectors';
+import { LeftInputDiv } from './UserInfoModal.styled';
 
 const modalRoot = document.querySelector('#modal-root');
 
 export const UserInfoModal = ({ closeUserInfoModal }) => {
-  const { name } = useSelector(selectCurrentUser);
+  const { name, avatarUrl } = useSelector(selectCurrentUser);
   const dispath = useDispatch();
+  const reader = new FileReader();
 
   const [newUserName, setNewUserName] = useState(`${name}`);
+  const [imageFile, setImageFile] = useState('');
+  const [imageRef, setImageRef] = useState(avatarUrl);
+
+  // const form = document.getElementById('form');
+  // const inputValue = document.getElementById('file-upload');
+
+  const handleFileChange = event => {
+    let file = event.target.files[0];
+    setImageFile(file);
+
+    console.log('imageFile', imageFile); // додано, щоб не коментувати значення, яке не використовується
+
+    reader.onload = event => {
+      setImageRef(event.currentTarget.result);
+    };
+    reader.readAsDataURL(file);
+  };
 
   const onClickBackdrop = e => {
     if (e.currentTarget === e.target) {
@@ -42,9 +64,20 @@ export const UserInfoModal = ({ closeUserInfoModal }) => {
       <ModalWrapper onClick={onClickBackdrop}>
         <Modal>
           <ConfigAvatarArea>
-            <ConfigAvatarUser />
-            <StyledAiFillPlusCircle />
+            <ConfigAvatarUser src={imageRef} alt={'User avatar'} />
           </ConfigAvatarArea>
+          <form id="form" encType="multipart/form-data">
+            <label htmlFor="file-upload" className="custom-file-upload">
+              <StyledAiFillPlusCircle />
+              <ChangeImageInput
+                id="file-upload"
+                type="file"
+                name="image"
+                onChange={handleFileChange}
+                multiple
+              />
+            </label>
+          </form>
 
           <label>
             <ConfigNameLabel>

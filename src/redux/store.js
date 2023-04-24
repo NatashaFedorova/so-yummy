@@ -41,6 +41,7 @@ export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
     recipedById: recipesByIdReducer,
+    users: userReducer,
     recipeByCategorySlice: recipeByCategoryReducer,
     // recipes: recipesReducer,
     // theme: persistReducer(themePersistConfig, themeReducer),

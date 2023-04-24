@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { FiUser } from 'react-icons/fi';
 import { device } from 'components/constants/deviceType/deviceType';
 
 export const UserLogoDiv = styled.div`
@@ -20,6 +19,7 @@ export const AvatarArea = styled.div`
   background-color: #d9d9d9;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 
   @media${device.tablet} {
     width: 44px;
@@ -27,9 +27,7 @@ export const AvatarArea = styled.div`
   }
 `;
 
-export const CustomUserAvatar = styled(FiUser)`
-  color: #c4c4c4;
-`;
+export const CurrentUserAvatar = styled.img``;
 
 export const UserNameSpan = styled.p`
   font-family: Poppins;
