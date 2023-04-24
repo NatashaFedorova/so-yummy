@@ -1,3 +1,2 @@
-export const selectRecipeById = state => state.recipedById.recipeById.items;
-export const selectRecipeByIdStatus = state =>
-  state.recipedById.recipeById.status;
+export const selectRecipeById = state => state.recipedById.items;
+export const selectRecipeByIdStatus = state => state.recipedById.status;
