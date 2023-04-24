@@ -5,7 +5,7 @@ import { UserLogoModal } from '../UserLogoModal/UserLogoModal';
 import {
   AvatarArea,
   CurrentUserAvatar,
-  CustomUserAvatar,
+  // CustomUserAvatar,
   UserInfo,
   UserLogoDiv,
   UserNameSpan,

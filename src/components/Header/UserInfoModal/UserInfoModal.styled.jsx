@@ -1,5 +1,8 @@
 import styled from 'styled-components';
-import { AvatarArea, CustomUserAvatar } from '../UserLogo/UserLogo.styled';
+import {
+  AvatarArea,
+  // CustomUserAvatar
+} from '../UserLogo/UserLogo.styled';
 import { AiFillPlusCircle } from 'react-icons/ai';
 import { GrFormClose } from 'react-icons/gr';
 import { RxPerson } from 'react-icons/rx';

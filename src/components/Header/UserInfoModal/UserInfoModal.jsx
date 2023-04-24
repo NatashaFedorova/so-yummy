@@ -1,4 +1,7 @@
-import { useEffect, useState } from 'react';
+import {
+  // useEffect,
+  useState,
+} from 'react';
 import {
   ChangeImageInput,
   ConfigAvatarArea,
@@ -36,6 +39,9 @@ export const UserInfoModal = ({ closeUserInfoModal }) => {
   const handleFileChange = event => {
     let file = event.target.files[0];
     setImageFile(file);
+
+    console.log('imageFile', imageFile); // додано, щоб не коментувати значення, яке не використовується
+
     reader.onload = event => {
       setImageRef(event.currentTarget.result);
     };

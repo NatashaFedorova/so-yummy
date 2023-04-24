@@ -1,4 +1,4 @@
-import { useAuth } from 'hooks/useAuth';
+import useAuth from 'hooks/useAuth';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { setUser } from 'redux/user/userSlice';
