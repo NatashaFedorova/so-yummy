@@ -1,8 +1,9 @@
 import { lazy, useEffect } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { Routes, Route } from 'react-router-dom';
+import selectStatusTheme from 'redux/theme/selectors';
 import lightTheme from 'components/constants/theme/lightTheme';
-// import darkTheme from 'components/constants/theme/darkTheme';
+import darkTheme from 'components/constants/theme/darkTheme';
 import Background from 'components/constants/Background';
 import ScrollToTopComponent from 'components/ScrollToTopComponent';
 import SharedLayout from 'components/SharedLayout';
@@ -10,7 +11,7 @@ import WelcomePage from 'page/WelcomePage';
 import RegisterPage from 'page/RegisterPage';
 import SigninPage from 'page/SigninPage';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import useAuth from 'hooks/useAuth';
 import { refreshUser } from 'redux/auth/authOperation';
 import { RestrictedRoute, PrivateRoute, ErrorRoute } from 'components/Routes';
@@ -34,16 +35,19 @@ const App = () => {
     dispatch(refreshUser());
   }, [dispatch]);
 
+  const value = useSelector(selectStatusTheme);
+  const theme = value ? darkTheme : lightTheme;
+
   return isRefreshing ? (
     <Loading />
   ) : (
-    <ThemeProvider theme={lightTheme}>
+    <ThemeProvider theme={theme}>
       <Background>
-        { isLoggedIn && <ScrollToTopComponent />}
-        <Routes>
-            <Route path="/" element={ <RestrictedRoute component={WelcomePage} redirectTo="main" /> } />
-            <Route path="/register" element={ <RestrictedRoute component={RegisterPage} redirectTo="/main" /> } />
-            <Route path="/signin" element={ <RestrictedRoute component={SigninPage} redirectTo="/main" /> } />
+        {isLoggedIn && <ScrollToTopComponent />}
+        <Routes>  
+          <Route path="/" element={<RestrictedRoute component={WelcomePage} redirectTo="main" />} />
+          <Route path="/register" element={ <RestrictedRoute component={RegisterPage} redirectTo="/main" />} />
+          <Route path="/signin"  element={  <RestrictedRoute component={SigninPage} redirectTo="/main" /> } />
 
           <Route path="/" element={<SharedLayout /> } >
             <Route path="/main" element={<PrivateRoute component={MainPage} redirectTo="/" /> } />
@@ -58,7 +62,7 @@ const App = () => {
            </Route>
         </Routes>
       </Background>
-    </ThemeProvider> 
+    </ThemeProvider>
   );
 };
 

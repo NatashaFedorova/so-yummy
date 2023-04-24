@@ -7,8 +7,8 @@
 const darkTheme = Object.freeze({
   colors: {
     // global
-    background: '#fafafa',
-    text: '#23262a',
+    background: '#1e1f28',
+    text: '#fafafa',
     successState: '#3cbc81',
     warningState: '#f6c23e',
     errorState: '#e74a3b',
@@ -24,6 +24,11 @@ const darkTheme = Object.freeze({
       bgbtn: '#ffffff',
       textBtn: '#3e4462',
       // textBtnHover: '#8baa36',
+    },
+
+    btnUp: {
+      colorLeaf: '#8baa36',
+      text: '#fafafa',
     },
 
     // userForm - RegisterPage/SigninPage/SubcribeFormFooter

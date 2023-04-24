@@ -2,7 +2,6 @@ import {
   BtnScrollToTopStyle,
   Box,
   IconLeaf,
-  // IconLine,
   Text,
 } from './ScrollToTopComponent.styled';
 
@@ -13,7 +12,6 @@ const ScrollToTopComponent = () => {
       component={
         <Box>
           <IconLeaf />
-          {/* <IconLine /> */}
           <Text>up</Text>
         </Box>
       }

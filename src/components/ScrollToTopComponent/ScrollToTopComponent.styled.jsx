@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import ScrollToTop from 'react-scroll-to-top';
-// import { BsArrowUpShort } from 'react-icons/bs';
 import { GiSolidLeaf } from 'react-icons/gi';
 import { device } from 'components/constants/deviceType/deviceType';
 
@@ -64,31 +63,6 @@ export const IconLeaf = styled(GiSolidLeaf)`
     height: 95px;
   }
 `;
-
-// export const IconLine = styled(BsArrowUpShort)`
-//   position: absolute;
-//   color: ${props => props.theme.colors.btnUp.text};
-//   top: 50%;
-//   left: 50%;
-//   transform: translate(-50%, -50%);
-//   width: 22px;
-//   height: 22px;
-
-//   @media ${device.mobile} {
-//     width: 22px;
-//     height: 22px;
-//   }
-
-//   @media ${device.tablet} {
-//     width: 40px;
-//     height: 40px;
-//   }
-
-//   @media ${device.desktop} {
-//     width: 50px;
-//     height: 50px;
-//   }
-// `;
 
 export const Text = styled.p`
   position: absolute;

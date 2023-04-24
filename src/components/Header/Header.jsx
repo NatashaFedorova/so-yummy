@@ -3,10 +3,11 @@
 // import { useDispatch } from 'react-redux';
 // import { setUser } from 'redux/user/userSlice';
 import { BurgerMenu } from './BurgerMenu/BurgerMenu';
-import { HeaderContainer, HeaderRightDiv } from './Header.styled';
+import { HeaderContainer, HeaderRightDiv, HeaderS } from './Header.styled';
 import { Logo } from './Logo/Logo';
 import { Navigation } from './Navigation/Navigation';
 import { UserLogo } from './UserLogo/UserLogo';
+import SwitchTheme from 'components/SwitchTheme';
 
 const Header = () => {
   // const dispatch = useDispatch();
@@ -16,7 +17,7 @@ const Header = () => {
   //   dispatch(setUser({ name, email, avatarUrl, subscription }));
   // }, [dispatch, name, email, avatarUrl, subscription]);
   return (
-    <header style={{ position: 'absolute' }}>
+    <HeaderS>
       <HeaderContainer>
         <Logo />
         <Navigation />
@@ -24,8 +25,9 @@ const Header = () => {
           <UserLogo />
           <BurgerMenu />
         </HeaderRightDiv>
+        <SwitchTheme />
       </HeaderContainer>
-    </header>
+    </HeaderS>
   );
 };
 
