@@ -13,14 +13,16 @@ import {
 
 // import {themeReducer} from 'redux/theme/themeSlice';
 import { authReducer } from 'redux/auth/authSlice';
-import recipesByIdReducer from 'redux/recipes/recipesSlice/recipeByIdSlice';
+import { recipesByIdReducer } from 'redux/recipes/recipesSlice/recipeByIdSlice';
 import { userReducer } from './user/userSlice';
 // import { subscribeReducer } from './subcribe/subscribeSlice';
-import mainCategoriesSliceReducer from 'redux/recipes/cateroriesSlice/categoriesSlice';
+import mainCategoriesSliceReducer from 'redux/recipes/recipesSlice/categoriesMainSlice';
 // import recipesReducer from 'redux/auth/authSlice';
 import { categoryReducer } from './recipes/recipesSlice/categorySlice';
 import { recipeByCategoryReducer } from './recipes/recipesSlice/recipesByCategorySlice';
+import { recipeToFavoriteReducer } from './recipes/recipesSlice/addRecipeToFavoriteSlice';
 import { favoriteReducer } from 'redux/favorite/favoriteSlice';
+
 const authPersistConfig = {
   key: 'auth',
   storage,
@@ -46,6 +48,7 @@ export const store = configureStore({
     users: userReducer,
     recipeByCategorySlice: recipeByCategoryReducer,
     mainCategories: mainCategoriesSliceReducer,
+    reciteToFavorite: recipeToFavoriteReducer,
     // recipes: recipesReducer,
     // theme: persistReducer(themePersistConfig, themeReducer),
     categories: categoryReducer,

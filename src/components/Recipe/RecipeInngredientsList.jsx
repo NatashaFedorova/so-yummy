@@ -15,6 +15,13 @@ import RecipeTableHead from '../RecipeTableHead/RecipeTableHead';
 const RecipeInngredientsList = ({ info }) => {
   //console.log("INGREDIENT ", info)
 
+  // const AddToShopList = () => {
+  //   const ArrIngredient = {
+  //     recipeId: recipeId,
+  //   }
+  //   dispatch(addIngredientToShopList(ArrIngredient))
+  // }
+
   return (
     <>
       <RecipeTableHead
@@ -33,7 +40,7 @@ const RecipeInngredientsList = ({ info }) => {
               <IngListItemNumber>{item.measure}</IngListItemNumber>
             </IngListItemNumberWrap>
             <IngListItemCheckWrap>
-              <IngListItemInput type="checkbox" id="vehicle4" name="vehicle4" />
+              <IngListItemInput type="checkbox" id="vehicle4" name="vehicle4" checked="true" />
               <IngListItemLabel htmlFor="vehicle4"> </IngListItemLabel>
             </IngListItemCheckWrap>
           </IngListItem>
