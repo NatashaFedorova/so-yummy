@@ -20,7 +20,7 @@ const HeroImage = () => {
           <HeroImageSpan>Delicious and healthy</HeroImageSpan> way to enjoy a
           variety of fresh ingredients in one satisfying meal
         </HeroImageText>
-        <HeroImageLink>
+        <HeroImageLink to="/categories/breakfast">
           See recipes <HeroImageIcon />
         </HeroImageLink>
       </HeroImageTextWrapper>

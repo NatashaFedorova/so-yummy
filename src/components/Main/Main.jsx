@@ -4,6 +4,8 @@ import { HeroBackground, SectionRelative, HeroContainer } from './Main.styled';
 
 import HeroTitle from './Hero/HeroTitle';
 import HeroImage from './Hero/HeroImage';
+import MainCategories from './MainCategories/MainCategories';
+import OtherCategoriesBtn from './OtherCategories/OtherCategoriesBtn';
 
 const Main = () => {
   return (
@@ -16,8 +18,8 @@ const Main = () => {
           </HeroContainer>
         </HeroBackground>
         <Container>
-          {/* <ul></ul>
-          <a href=""></a> */}
+          <MainCategories />
+          <OtherCategoriesBtn />
         </Container>
       </SectionRelative>
     </>

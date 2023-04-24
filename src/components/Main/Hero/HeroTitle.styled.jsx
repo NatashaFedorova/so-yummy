@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-
 import { device } from 'components/constants/deviceType/deviceType';
 
 export const MainPageTitle = styled.h1`

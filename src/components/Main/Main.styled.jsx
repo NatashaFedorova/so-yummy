@@ -23,7 +23,6 @@ export const HeroBackground = styled.div`
     background-image: url(./images/mainPage/heroBG-tablet.png);
     height: 640px;
     margin-bottom: 72px;
-    /* padding: 0 32px; */
     display: flex;
   }
 
@@ -31,8 +30,6 @@ export const HeroBackground = styled.div`
     background-image: url(./images/mainPage/heroBG-desc.png);
     height: 800px;
     margin-bottom: 100px;
-    /* padding: 0 100px; */
-    /* align-items: center; */
   }
 `;
 
@@ -51,10 +48,5 @@ export const HeroContainer = styled(Container)`
 
   @media ${device.desktop} {
     padding-top: 226px;
-    /* justify-content: space-between; */
-    /* width: 1440px;
-
-    padding: 163px 0 0 100px;
-    margin: 0 auto; */
   }
 `;
