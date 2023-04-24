@@ -14,6 +14,8 @@ import {
 // import {themeReducer} from 'redux/theme/themeSlice';
 import { authReducer } from 'redux/auth/authSlice';
 import recipesByIdReducer from 'redux/recipes/recipesSlice/recipeByIdSlice';
+import { userReducer } from './user/userSlice';
+import { subscribeReducer } from './subcribe/subscribeSlice';
 import mainCategoriesSliceReducer from 'redux/recipes/cateroriesSlice/categoriesSlice';
 // import recipesReducer from 'redux/auth/authSlice';
 import { categoryReducer } from './recipes/recipesSlice/categorySlice';
@@ -40,8 +42,6 @@ export const store = configureStore({
     auth: persistReducer(authPersistConfig, authReducer),
     recipedById: recipesByIdReducer,
     recipeByCategorySlice: recipeByCategoryReducer,
-
-    mainCategories: mainCategoriesSliceReducer,
     // recipes: recipesReducer,
     // theme: persistReducer(themePersistConfig, themeReducer),
     categories: categoryReducer,

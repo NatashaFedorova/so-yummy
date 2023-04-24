@@ -6,7 +6,7 @@ import {
   WelcomePageTitle,
   WelcomePageText,
   WelcomePageNavList,
-  WelcomePageNavLinkRegistr,
+  WelcomePageNavLinkRegister,
   WelcomePageNavLinkLogin,
 } from './WelcomePageComponent.styled';
 
@@ -23,9 +23,9 @@ const WelcomePageComponent = () => {
             and retrieve your own recipes at any time.
           </WelcomePageText>
           <WelcomePageNavList>
-            <WelcomePageNavLinkRegistr to="register">
+            <WelcomePageNavLinkRegister to="register">
               Registration
-            </WelcomePageNavLinkRegistr>
+            </WelcomePageNavLinkRegister>
             <WelcomePageNavLinkLogin to="signin">Sign in</WelcomePageNavLinkLogin>
           </WelcomePageNavList>
         </WelcomePageBox>

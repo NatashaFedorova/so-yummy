@@ -8,10 +8,14 @@ import {
   ModalWrapper,
   StyledGrFormClose,
 } from './LogoutModal.styled';
+import { useDispatch } from 'react-redux';
+import { logOut } from 'redux/auth/authOperation';
 
 const modalRoot = document.querySelector('#modal-root');
 
 export const UserLogoutModal = ({ closeLogoutModal }) => {
+  const dispatch = useDispatch();
+  const onLogOutBtnClick = () => dispatch(logOut());
   const onClickBackdrop = e => {
     if (e.currentTarget === e.target) {
       closeLogoutModal();
@@ -24,7 +28,7 @@ export const UserLogoutModal = ({ closeLogoutModal }) => {
         <Modal>
           <p>Are you sure you want to log out?</p>
           <ButtonSet>
-            <AgreedBTN>Log out</AgreedBTN>
+            <AgreedBTN onClick={onLogOutBtnClick}>Log out</AgreedBTN>
             <CancelBTN onClick={closeLogoutModal}>Cancel</CancelBTN>
           </ButtonSet>
           <StyledGrFormClose onClick={closeLogoutModal} />
