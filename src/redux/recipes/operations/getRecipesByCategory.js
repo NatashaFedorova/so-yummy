@@ -9,7 +9,7 @@ const getRecipesByCategory = createAsyncThunk(
         {
         params: { page: page }
       });
-      console.log(res.data, res, "catName");
+      // console.log(res.data, res, "catName");
       return res.data
     } catch ({ message }) {
       return thunkAPI.rejectWithValue(message);

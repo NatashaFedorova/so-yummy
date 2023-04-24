@@ -11,7 +11,7 @@ export const PaginationContainer = styled.div`
   justify-content: center;
   align-items: center;
   height: 55px;
-  background: #fafafa;
+  background: ${props => props.theme.colors.pagination.bg};
   /* width: auto; */
   box-shadow: rgba(135, 135, 135, 0.2) 0px 0px 4px 6px;
   border-radius: 26px;
@@ -20,15 +20,28 @@ export const PaginationContainer = styled.div`
   ul.rc-pagination {
     display: flex;
   }
+
+  li.rc-pagination-jump-next,
+  li.rc-pagination-jump-prev {
+    :after {
+      display: block;
+      content: '•••';
+      color: ${props => props.theme.colors.pagination.text};
+    }
+  }
+
   li.rc-pagination-item-active {
-    background: #ebf3d4;
+    background: ${props => props.theme.colors.pagination.bgActiveBtn};
+    /* ${props => props.theme.colors.pagination.bgActiveBtn} */
     border-radius: 50%;
 
     margin-left: 3px;
     margin-right: 3px;
   }
-  div.dlKMQN {
+
+  li div {
     background: transparent;
+    height: 9px;
   }
 `;
 
@@ -38,14 +51,17 @@ export const PageButton = styled.button`
   height: 27px;
   left: 72px;
   top: 14px;
-  background: ${props => (props.active ? '#EBF3D4' : 'transparent')};
+  background: ${props =>
+    props.active
+      ? `${props => props.theme.colors.pagination.bgAccent}`
+      : 'transparent'};
   box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
   border: none;
   border-radius: 50%;
   /* margin-left: 3px; */
   /* margin-right: 3px; */
   &:hover {
-    background: #ebf3d4;
+    background: ${props => props.theme.colors.pagination.bgAccent};
   }
 `;
 
