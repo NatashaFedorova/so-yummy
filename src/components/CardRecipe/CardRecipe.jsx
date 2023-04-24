@@ -9,8 +9,8 @@ export const CardRecipe = ({ item }) => {
   return (
     <RecipeCard>
       <img src={thumb} alt={title} />
-      <div class="overlay">
-        <h3 class="title">{title}</h3>
+      <div className="overlay">
+        <h3 className="title">{title}</h3>
       </div>
     </RecipeCard>
   );

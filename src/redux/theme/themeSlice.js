@@ -1,12 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const themeInitialState = {
-  status: false,
-};
-
 const themeSlice = createSlice({
   name: 'theme',
-  initialState: themeInitialState,
+  initialState: { status: false },
+
   reducers: {
     changeTheme(state) {
       state.status = !state.status;

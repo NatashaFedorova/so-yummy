@@ -19,6 +19,7 @@ import { selectCategory } from '../../redux/recipes/selectors/selectCategoryList
 import {
   selectRecipesByCategoryName,
   selectRecipesIsLoading,
+  // selectRecipesCountNumber,
 } from '../../redux/recipes/selectors/selectRecipeByCategoryName';
 import getCategories from 'redux/recipes/operations/getCategory';
 import getRecipesByCategory from 'redux/recipes/operations/getRecipesByCategory';
@@ -36,11 +37,11 @@ const Categories = () => {
   const dispatch = useDispatch();
   const categories = useSelector(selectCategory);
   const dishesElement = useSelector(selectRecipesByCategoryName);
-  const dishes = dishesElement.result;
+  const dishes = dishesElement;
   const isLoad = useSelector(selectRecipesIsLoading);
   const cardsPerPage = 8;
-  const totalPages = dishesElement.totalNumber;
-  console.log(dishes);
+  const totalPages = dishesElement.length > 0 ? dishesElement[0].totalCount : 8;
+  // console.log(dishes, totalPages);
   const handlePageChange = page => {
     setCurrentPage(page);
   };
@@ -124,7 +125,6 @@ const Categories = () => {
           currentPage={currentPage}
           handlePageChange={handlePageChange}
         />
-        +
       </>
     </Container>
   );

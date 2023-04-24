@@ -11,15 +11,16 @@ import {
   REGISTER,
 } from 'redux-persist';
 
-// import {themeReducer} from 'redux/theme/themeSlice';
+import { themeReducer } from 'redux/theme/themeSlice';
 import { authReducer } from 'redux/auth/authSlice';
-import recipesByIdReducer from 'redux/recipes/recipesSlice/recipeByIdSlice';
-import { userReducer } from './user/userSlice';
-// import { subscribeReducer } from './subcribe/subscribeSlice';
-import mainCategoriesSliceReducer from 'redux/recipes/cateroriesSlice/categoriesSlice';
+import { recipesByIdReducer } from 'redux/recipes/recipesSlice/recipeByIdSlice';
+import mainCategoriesSliceReducer from 'redux/recipes/recipesSlice/categoriesMainSlice';
 // import recipesReducer from 'redux/auth/authSlice';
 import { categoryReducer } from './recipes/recipesSlice/categorySlice';
 import { recipeByCategoryReducer } from './recipes/recipesSlice/recipesByCategorySlice';
+import { recipeToFavoriteReducer } from './recipes/recipesSlice/addRecipeToFavoriteSlice';
+import { favoriteReducer } from 'redux/favorite/favoriteSlice';
+
 const authPersistConfig = {
   key: 'auth',
   storage,
@@ -32,20 +33,21 @@ const authPersistConfig = {
 //   // whitelist:
 // };
 
-// const themePersistConfig = {
-//   key: 'theme',
-//   storage,
-// };
+const themePersistConfig = {
+  key: 'theme',
+  storage,
+};
 
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
+    favorite: favoriteReducer,
     recipedById: recipesByIdReducer,
-    users: userReducer,
     recipeByCategorySlice: recipeByCategoryReducer,
     mainCategories: mainCategoriesSliceReducer,
+    reciteToFavorite: recipeToFavoriteReducer,
     // recipes: recipesReducer,
-    // theme: persistReducer(themePersistConfig, themeReducer),
+    theme: persistReducer(themePersistConfig, themeReducer),
     categories: categoryReducer,
   },
   middleware: getDefaultMiddleware =>

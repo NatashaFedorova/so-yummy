@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { register, logIn, logOut, refreshUser } from './authOperation';
+import { changeUserData, subscribe } from 'redux/user/userOperation';
 // import { Notify } from 'notiflix';
 
 // Notify.init({
@@ -50,6 +51,26 @@ export const authSlise = createSlice({
       .addCase(register.rejected, (state, action) => {
         alert('Ooops, it fail :)')
       })
+      .addCase(changeUserData.fulfilled, (state, action) => {
+        state.user.name = action.payload.name;
+        state.user.avatarUrl = action.payload.avatarUrl;
+        state.isLoggedIn = true;
+
+        console.log('Change successful!', action.payload);
+        alert('Chamge successful!');
+      })
+      .addCase(changeUserData.rejected, (state, action) => {
+        alert('error');
+      })
+      .addCase(subscribe.fulfilled, (state, action) => {
+        state.user.subscribtion = action.payload;
+
+        console.log('Change successful!', action.payload);
+        alert('Chamge successful!');
+      })
+      .addCase(subscribe.rejected, (state, action) => {
+        alert('error');
+      }),
 });
 
 export const authReducer = authSlise.reducer;

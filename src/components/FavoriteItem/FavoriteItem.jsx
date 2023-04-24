@@ -1,3 +1,6 @@
+import { useDispatch } from 'react-redux';
+import { deleteFavorite } from 'redux/favorite/favoriteOperation';
+
 const {
   StyledFavoriteItem,
   FavoriteImg,
@@ -6,33 +9,41 @@ const {
   FavoriteBoxCenter,
   FavoriteBoxBottom,
   FavoriteTitle,
-  FavoriteBtnDelete,
+  FavoriteDeleteBtn,
+  FavoriteDeleteIcon,
   FavoriteDesc,
   FavoriteTime,
   FavoriteBtnDetails,
 } = require('./FavoriteItem.styled');
 
-const FavoriteItem = () => {
+const FavoriteItem = ({
+  favoriteRecipe: { _id, title, preview, description, instructions, time },
+}) => {
+  const dispatch = useDispatch();
+
   return (
     <StyledFavoriteItem>
-      <FavoriteImg
-        src="./images/temp/favorite-img.jpg"
-        alt=""
-        width={124}
-        height={124}
-      />
+      <FavoriteImg src={preview} alt={title} width={124} height={124} />
       <FavoriteBoxWrap>
         <FavoriteBoxTop>
-          <FavoriteTitle>Salmon Eggs Benedict</FavoriteTitle>
-          <FavoriteBtnDelete type='button'/>
+          <FavoriteTitle>{title}</FavoriteTitle>
+          <FavoriteDeleteBtn
+            type={'button'}
+            title={'Delete'}
+            onClick={() => dispatch(deleteFavorite(_id))}
+          >
+            <FavoriteDeleteIcon />
+          </FavoriteDeleteBtn>
         </FavoriteBoxTop>
         <FavoriteBoxCenter>
           <FavoriteDesc>
-            Salmon eggs are rich in essential nutrients, low in calories, and recommended as part of a healthy diet. Including salmon in a balanced diet can help decrease the chances of heart disease, ease inflammation, and more.           </FavoriteDesc>
+            {description}
+            {instructions}
+          </FavoriteDesc>
         </FavoriteBoxCenter>
         <FavoriteBoxBottom>
-          <FavoriteTime>20 min</FavoriteTime>
-          <FavoriteBtnDetails>See reecipe</FavoriteBtnDetails>
+          <FavoriteTime>{time} min</FavoriteTime>
+          <FavoriteBtnDetails to={`/recipe/${_id}`}>See reecipe</FavoriteBtnDetails>
         </FavoriteBoxBottom>
       </FavoriteBoxWrap>
     </StyledFavoriteItem>
@@ -40,3 +51,5 @@ const FavoriteItem = () => {
 };
 
 export default FavoriteItem;
+
+//    <Link to={`/products/${product.slug}`}>

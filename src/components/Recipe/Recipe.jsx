@@ -1,6 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { useState } from 'react';
+//import { useState } from 'react';
+
+import { useParams } from "react-router-dom";
 
 import Container from 'components/constants/Container';
 import { STATUS } from '../constants/loadingStatus/LoadingStatus';
@@ -14,41 +16,51 @@ import {
   selectRecipeById,
   selectRecipeByIdStatus,
 } from '../../redux/recipes/selectors/selectRecipeById';
+
 import { getRecipeById } from '../../redux/recipes/operations/getRecipeById';
-import { addToFavorite } from '../../redux/recipes/operations/getRecipeById';
+import { addRecipeTofavorite } from '../../redux/recipes/operations/getRecipeById';
 
 const Recipe = () => {
   const dispatch = useDispatch();
 
-  const recipeId = '640cd5ac2d9fecf12e88986a';
+  const { recipeId } = useParams()
+
+  //const recipeId = '640f3c097eca20453198dfae';
+  // const [favoriteBtn, setfavoriteBtn] = useState(false);
+
+  useEffect(() => {
+    dispatch(getRecipeById(recipeId));
+  }, [dispatch, recipeId]);
 
   const Recipe = useSelector(selectRecipeById);
   const Status = useSelector(selectRecipeByIdStatus);
 
-  const [favoriteBtn, setfavoriteBtn] = useState(false);
+  // const addRcpToFavorite = () => {
+  //   dispatch(addToFavorite());
+  //   setfavoriteBtn(true);
+  // };
 
-  useEffect(() => {
-    dispatch(getRecipeById(recipeId));
-  }, [dispatch]);
+  const AddToFavor = () => {
+    const InfoForBackend = {
+      recipeId: recipeId,
+    }
+    dispatch(addRecipeTofavorite(InfoForBackend))
+  }
 
-  const addRcpToFavorite = () => {
-    dispatch(addToFavorite());
-    setfavoriteBtn(true);
-  };
 
   //console.log("Recipe All ", Recipe)
-  //console.log("minHeight: '300px'  ", Status)
-  console.log('Hello');
+  //console.log("Status ?  ", Status)
+
 
   return (
     <>
       {(Status === STATUS.idle || Status === STATUS.loading) && <Loading />}
       <div style={{ minHeight: '500px' }}>
-        {Recipe && (
+        {Status === STATUS.success && (
           <>
             <RecipePageHero
-              btnState={favoriteBtn}
-              onBtnClick={() => addRcpToFavorite()}
+              // btnState={favoriteBtn}
+              onBtnClick={() => AddToFavor()}
               title={Recipe.title}
               time={Recipe.time}
               description={Recipe.description}

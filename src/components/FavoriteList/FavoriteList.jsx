@@ -1,33 +1,19 @@
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import FavoriteItem from 'components/FavoriteItem/FavoriteItem';
 import { StyledFavoriteList } from './FavoriteList.styled';
-// import ContactsItem from '../ContactsItem/ContactsItem';
-// import { List } from './ContactsList.styled';
+import { selectFavoriteItems } from 'redux/favorite/favoriteSelectors';
 
 const FavoriteList = () => {
-  // const contacts = useSelector(state => state.contacts.items);
-  // const filter = useSelector(state => state.filter);
-
-  // const filtredContacts = getFiltredContacts();
-
-  // function getFiltredContacts() {
-  //   const normalizeFilter = filter.toLowerCase();
-
-  //   return contacts.filter(contact =>
-  //     contact.name.toLowerCase().includes(normalizeFilter)
-  //   );
-  // };
+  const items = useSelector(selectFavoriteItems);
+  console.log("items", items);
 
   return (
     <>
       <StyledFavoriteList >
-        <FavoriteItem />
-        <FavoriteItem />
-        <FavoriteItem />
-        {/* {filtredContacts.map(({ id, name, number }) => (
-          <ContactsItem key={id} contact={{ id, name, number }} />
-        ))} */}
+        {items.map(({ _id, title, preview, description, instructions, time }) => (
+          <FavoriteItem key={_id} favoriteRecipe={{ _id, title, preview, description, instructions, time }} />
+        ))}
       </StyledFavoriteList>
     </>
   );

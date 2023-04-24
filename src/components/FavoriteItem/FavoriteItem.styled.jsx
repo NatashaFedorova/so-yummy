@@ -1,4 +1,6 @@
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+import { ReactComponent as Trash } from './trash.svg';
 
 export const StyledFavoriteItem = styled.li`
   display: flex;
@@ -44,12 +46,24 @@ export const FavoriteTitle = styled.h3`
   letter-spacing: -0.24px;
   color: #3E4462; 
 `;
-export const FavoriteBtnDelete = styled.button`
+export const FavoriteDeleteBtn = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   flex: 0 0 38px;
   width: 38px;
   height: 38px;
 
   background: #EBF3D4;
+  border-radius: 4px;
+  cursor: pointer;
+`;
+
+export const FavoriteDeleteIcon = styled(Trash)`
+  flex: 0 0 24px;
+  width: 24px;
+  height: 24px;
+
   border-radius: 4px;
 `;
 
@@ -78,7 +92,10 @@ export const FavoriteTime = styled.span`
   line-height: 1.4;
   letter-spacing: -0.24px;
 `;
-export const FavoriteBtnDetails = styled.button`
+export const FavoriteBtnDetails = styled(NavLink)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 87px;
   height: 27px;
 
@@ -88,4 +105,5 @@ export const FavoriteBtnDetails = styled.button`
 
   border-radius: 24px 44px;
   background: #22252A;
+  cursor: pointer;
 `;
