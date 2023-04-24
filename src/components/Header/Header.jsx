@@ -7,6 +7,7 @@ import { HeaderContainer, HeaderRightDiv } from './Header.styled';
 import { Logo } from './Logo/Logo';
 import { Navigation } from './Navigation/Navigation';
 import { UserLogo } from './UserLogo/UserLogo';
+import SwitchTheme from 'components/SwitchTheme';
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -24,6 +25,7 @@ const Header = () => {
           <UserLogo />
           <BurgerMenu />
         </HeaderRightDiv>
+        <SwitchTheme />
       </HeaderContainer>
     </header>
   );

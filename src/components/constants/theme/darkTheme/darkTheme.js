@@ -26,6 +26,11 @@ const darkTheme = Object.freeze({
       // textBtnHover: '#8baa36',
     },
 
+    btnUp: {
+      colorLeaf: '#8baa36',
+      text: '#fafafa',
+    },
+
     // userForm - RegisterPage/SigninPage/SubcribeFormFooter
     userForm: {
       textForm: '#fafafa',
