@@ -11,7 +11,7 @@ import {
   REGISTER,
 } from 'redux-persist';
 
-// import {themeReducer} from 'redux/theme/themeSlice';
+import { themeReducer } from 'redux/theme/themeSlice';
 import { authReducer } from 'redux/auth/authSlice';
 import { recipesByIdReducer } from 'redux/recipes/recipesSlice/recipeByIdSlice';
 import mainCategoriesSliceReducer from 'redux/recipes/recipesSlice/categoriesMainSlice';
@@ -33,10 +33,10 @@ const authPersistConfig = {
 //   // whitelist:
 // };
 
-// const themePersistConfig = {
-//   key: 'theme',
-//   storage,
-// };
+const themePersistConfig = {
+  key: 'theme',
+  storage,
+};
 
 export const store = configureStore({
   reducer: {
@@ -47,7 +47,7 @@ export const store = configureStore({
     mainCategories: mainCategoriesSliceReducer,
     reciteToFavorite: recipeToFavoriteReducer,
     // recipes: recipesReducer,
-    // theme: persistReducer(themePersistConfig, themeReducer),
+    theme: persistReducer(themePersistConfig, themeReducer),
     categories: categoryReducer,
   },
   middleware: getDefaultMiddleware =>
