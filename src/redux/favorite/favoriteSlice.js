@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { addFavorite, deleteFavorite, getFavorite } from './favoriteOperation';
+import { STATUS } from 'components/constants/loadingStatus/LoadingStatus';
 
 const handlePending = state => {
   state.isLoading = true;
@@ -16,11 +17,13 @@ export const favoriteSlise = createSlice({
     items: [],
     isLoading: false,
     error: null,
+    status: STATUS.idle,
   },
   extraReducers: builder =>
     builder
       .addCase(addFavorite.pending, state => {
         handlePending(state);
+        state.status = STATUS.loading;
       })
       .addCase(getFavorite.pending, state => {
         handlePending(state);
@@ -32,6 +35,7 @@ export const favoriteSlise = createSlice({
         state.isLoading = false;
         state.error = null;
         state.items.push(action.payload);
+        state.status = STATUS.success;
 
         console.log("action.payload", action.payload);
       })
@@ -52,6 +56,10 @@ export const favoriteSlise = createSlice({
         state.items.splice(index, 1);
 
       })
+      .addCase(addFavorite.rejected, (state, action) => {
+        state.status = STATUS.error;
+        state.error = action.payload;
+    })
 });
 
 export const favoriteReducer = favoriteSlise.reducer;
