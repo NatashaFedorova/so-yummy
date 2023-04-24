@@ -8,7 +8,7 @@ export const changeUserSlise = createSlice({
       name: null,
       email: null,
       avatarUrl: null,
-      subscribtion: false,
+      subscription: false,
     },
   },
   reducers: {
@@ -22,17 +22,15 @@ export const changeUserSlise = createSlice({
         state.user = action.payload;
         state.isLoggedIn = true;
 
-        console.log('Change successful!', action.payload);
-        alert('Chamge successful!');
+        alert('Change successful!');
       })
       .addCase(changeUserData.rejected, (state, action) => {
         alert('error');
       })
       .addCase(subscribe.fulfilled, (state, action) => {
-        state.user.subscribtion = action.payload;
+        state.user.subscription = action.payload.subscription;
 
-        console.log('Change successful!', action.payload);
-        alert('Chamge successful!');
+        alert('Change successful!');
       })
       .addCase(subscribe.rejected, (state, action) => {
         alert('error');
