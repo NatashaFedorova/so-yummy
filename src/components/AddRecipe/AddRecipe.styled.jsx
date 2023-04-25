@@ -3,8 +3,17 @@ import { size } from 'components/constants/deviceType/deviceType';
 
 export const AddRecipeSection = styled.section`
   padding: 50px 0 100px 0;
+
   font-family: 'Poppins', sans-serif;
-  background-color: ${props => props.theme.colors.addRecipePage.textBtnAdd};
+  background-color: transparent;
+
+  @media screen and (min-width: ${size.tablet}) {
+    padding: 72px 0 200px 0;
+  }
+
+  @media screen and (min-width: ${size.desktop}) {
+    padding: 100px 0 200px 0;
+  }
 `;
 
 export const InternalWrapper = styled.div`

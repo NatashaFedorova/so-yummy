@@ -4,18 +4,21 @@ import {
   PopularRecipeCardContentWrapper,
   PopularRecipeCardTitle,
   PopularRecipeCardDescr,
+  LinkWrapper,
 } from './PopularRecipeListCard.styled';
 
-const PopularRecipeListCard = ({ url, title, description }) => {
+const PopularRecipeListCard = ({ preview, title, description, _id }) => {
   return (
     <CardWrapper>
-      <PictureWrapper>
-        <img src={url} alt={title} />
-      </PictureWrapper>
-      <PopularRecipeCardContentWrapper>
-        <PopularRecipeCardTitle>{title}</PopularRecipeCardTitle>
-        <PopularRecipeCardDescr>{description}</PopularRecipeCardDescr>
-      </PopularRecipeCardContentWrapper>
+      <LinkWrapper to={`/recipe/${_id}`}>
+        <PictureWrapper>
+          <img src={preview} alt={title} />
+        </PictureWrapper>
+        <PopularRecipeCardContentWrapper>
+          <PopularRecipeCardTitle>{title}</PopularRecipeCardTitle>
+          <PopularRecipeCardDescr>{description}</PopularRecipeCardDescr>
+        </PopularRecipeCardContentWrapper>
+      </LinkWrapper>
     </CardWrapper>
   );
 };
