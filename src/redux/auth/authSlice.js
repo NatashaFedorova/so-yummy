@@ -66,7 +66,6 @@ export const authSlise = createSlice({
         state.user.avatarUrl = action.payload.avatarUrl;
         state.isLoggedIn = true;
 
-        console.log('Change successful!', action.payload);
         alert('Chamge successful!');
       })
       .addCase(changeUserData.rejected, (state, action) => {
@@ -75,7 +74,6 @@ export const authSlise = createSlice({
       .addCase(subscribe.fulfilled, (state, action) => {
         state.user.subscribtion = action.payload.subscription;
 
-        console.log('Change successful!', action.payload);
         alert('Chamge successful!');
       })
       .addCase(subscribe.rejected, (state, action) => {

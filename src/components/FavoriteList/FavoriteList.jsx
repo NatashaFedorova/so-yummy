@@ -6,7 +6,6 @@ import { selectFavoriteItems } from 'redux/favorite/favoriteSelectors';
 
 const FavoriteList = () => {
   const items = useSelector(selectFavoriteItems);
-  console.log("items", items);
 
   return (
     <>
