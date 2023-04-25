@@ -3,7 +3,7 @@ import DefaultBtn from 'components/constants/DefaultBtn/';
 import { device } from 'components/constants/deviceType/deviceType';
 
 export const HeroHead = styled.div`
-  background-image: url('../images/recipebyId/recipebg.png');
+  background-image: url('${process.env.PUBLIC_URL}/images/recipeById/recipebg.png');
   background-size: cover;
   left: 0px;
   top: 0px;
