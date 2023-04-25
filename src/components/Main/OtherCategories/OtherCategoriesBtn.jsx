@@ -8,7 +8,7 @@ import {
 const OtherCategoriesBtn = () => {
   return (
     <OtherCategoriesWrapper>
-      <OtherCategoriesLink to="/categories">
+      <OtherCategoriesLink to="/categories/beef">
         Other categories
       </OtherCategoriesLink>
     </OtherCategoriesWrapper>
