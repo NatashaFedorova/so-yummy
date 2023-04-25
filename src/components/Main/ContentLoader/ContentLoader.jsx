@@ -2,7 +2,7 @@ import React from 'react';
 import ContentLoader from 'react-content-loader';
 
 export const MainContentLoader = props => (
-  <div style={{ width: '100%', border: '1px solid' }}>
+  <div style={{ width: '100%' }}>
     <ContentLoader
       speed={2}
       width={2480}
@@ -27,7 +27,7 @@ export const MainContentLoader = props => (
 );
 
 export const MainContentLoaderTablet = props => (
-  <div style={{ width: '100%', border: '1px solid' }}>
+  <div style={{ width: '100%' }}>
     <ContentLoader
       speed={2}
       width={1536}
@@ -48,7 +48,7 @@ export const MainContentLoaderTablet = props => (
 );
 
 export const MainContentLoaderMobile = props => (
-  <div style={{ width: '100%', border: '1px solid' }}>
+  <div style={{ width: '100%' }}>
     <ContentLoader
       speed={2}
       width={768}
