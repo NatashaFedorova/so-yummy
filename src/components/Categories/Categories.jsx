@@ -116,12 +116,14 @@ const Categories = () => {
           </CategoryTabs>
         </Box>
         <MyTabPanel> {isLoad ? <Loading /> : TabPanel(dishes)}</MyTabPanel>
-        <PagePagination
-          totalPages={totalPages}
-          cardsPerPage={cardsPerPage}
-          currentPage={currentPage}
-          handlePageChange={handlePageChange}
-        />
+        {totalPages > 8 && (
+          <PagePagination
+            totalPages={totalPages}
+            cardsPerPage={cardsPerPage}
+            currentPage={currentPage}
+            handlePageChange={handlePageChange}
+          />
+        )}
       </>
     </Container>
   );

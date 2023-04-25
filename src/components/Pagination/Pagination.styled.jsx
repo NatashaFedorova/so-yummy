@@ -43,6 +43,7 @@ export const PaginationContainer = styled.div`
 `;
 
 export const PageButton = styled.button`
+  cursor: pointer;
   width: 28px;
   height: 27px;
   left: 72px;
