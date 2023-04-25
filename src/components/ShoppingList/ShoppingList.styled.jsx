@@ -142,17 +142,33 @@ export const ShoppingListWrapper = styled.div`
   font-size: 10px;
   line-height: 12px;
   color: #3e4462;
+  margin-top: 50px;
+  margin-bottom: 100px;
 `;
 export const IngredientsTable = styled.div`
   display: flex;
-  width: 359px;
-  height: 50px;
   background-color: rgb(139, 170, 54);
   border-radius: 8px;
   -webkit-box-align: center;
   align-items: center;
-  padding: 10px;
   margin: auto;
+
+  @media ${device.mobile} {
+    width: 359px;
+    height: 50px;
+    padding: 10px;
+    margin-bottom: 32px;
+  }
+  @media ${device.tablet} {
+    width: 704px;
+    padding: 20px 16px;
+    margin-bottom: 50px;
+  }
+  @media ${device.desktop} {
+    width: 1240px;
+    padding: 21px 40px;
+    margin-bottom: 51px;
+  }
 `;
 export const ShoppingListName = styled.p`
   font-weight: 600;
@@ -160,10 +176,40 @@ export const ShoppingListName = styled.p`
   line-height: 18px;
   color: #fafafa;
   margin-right: 167px;
+
+  @media ${device.mobile} {
+    font-size: 12px;
+    line-height: 18px;
+    color: #fafafa;
+    margin-right: 167px;
+  }
+  @media ${device.tablet} {
+    font-size: 18px;
+    line-height: 27px;
+    align-items: center;
+    letter-spacing: 0.03em;
+    margin-right: auto;
+    color: #fafafa;
+  }
+  @media ${device.desktop} {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 27px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.03em;
+
+    color: #fafafa;
+  }
 `;
 
 export const ShoppingListNumber = styled(ShoppingListName)`
-  margin-right: 24px;
+  @media ${device.mobile} {
+    margin-right: 24px;
+  }
+  @media ${device.tablet} {
+    margin-right: 78px;
+  }
 `;
 export const ShoppingListButton = styled(ShoppingListName)`
   margin-right: 0;
@@ -176,36 +222,122 @@ export const ShoppingListImage = styled.div`
   border-radius: 6px;
 `;
 export const IngredientCard = styled.div`
-  width: 343px;
-  height: 70px;
-  background: transparent;
-  margin: auto;
+  @media ${device.mobile} {
+    width: 343px;
+    background: transparent;
+    margin: auto;
+    padding-bottom: 24px;
+  }
+  @media ${device.tablet} {
+    width: 704px;
+  }
+  @media ${device.desktop} {
+    width: 1168px;
+  }
 `;
 export const IngredientsList = styled.ul`
   display: flex;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #e0e0e0;
 `;
 export const IngredientImage = styled.li`
   display: flex;
-  gap: 10px;
+
+  @media ${device.mobile} {
+    gap: 10px;
+  }
+  @media ${device.tablet} {
+    gap: 16px;
+  }
 `;
 export const IngredientImageBackground = styled.li`
-  width: 60px;
-  height: 60px;
   background: #ebf3d4;
   border-radius: 6px;
+  padding: 6px;
+  @media ${device.mobile} {
+    width: 60px;
+    height: 60px;
+  }
+  @media ${device.tablet} {
+    width: 92px;
+    height: 97px;
+  }
+  @media ${device.desktop} {
+    font-size: 44px;
+    line-height: 44px;
+  }
 `;
+export const ShoppingListTitle = styled.h3`
+  color: #001833;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  @media ${device.mobile} {
+    font-size: 28px;
+    line-height: 28px;
+
+    letter-spacing: -0.02em;
+  }
+  @media ${device.tablet} {
+    font-size: 32px;
+    line-height: 32px;
+  }
+`;
+export const IngredientTitle = styled.p`
+  color: #3e4462;
+  @media ${device.mobile} {
+    font-size: 10px;
+    line-height: 12px;
+    color: #3e4462;
+  }
+  @media ${device.tablet} {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+  }
+`;
+
 export const IngredientWeight = styled.li`
-  margin-left: auto;
-  padding: 4px;
-  background: #8baa36;
-  height: fit-content;
-  border-radius: 4px;
+  @media ${device.mobile} {
+    margin-left: auto;
+    padding: 4px;
+    background: #8baa36;
+    height: fit-content;
+    border-radius: 4px;
+    margin-right: 46px;
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 15px;
+
+    text-align: center;
+
+    color: #fafafa;
+  }
+  @media ${device.tablet} {
+    font-size: 18px;
+    line-height: 27px;
+    padding: 4px 8px;
+    margin-right: 110px;
+  }
 `;
 export const IngredientDeleteButton = styled.button`
   background: url(${deleteBtn});
-  border: 0;
-  width: 14px;
-  height: 14px;
-  padding: 0;
+  border: 0px;
+
+  padding: 0px;
   cursor: pointer;
+  @media ${device.mobile} {
+    width: 14px;
+    height: 14px;
+    margin-right: 23px;
+  }
+  @media ${device.tablet} {
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-size: 20px;
+    margin-right: 45px;
+  }
+  @media ${device.desktop} {
+    margin-right: 30px;
+  }
 `;

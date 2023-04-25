@@ -7,22 +7,22 @@ import {
   SecondSquare,
   SquareСircle,
   IngredientsTable,
-  ShoppingListProduct,
-  ShoppingListItem,
   ShoppingListName,
   ShoppingListNumber,
   ShoppingListButton,
   ShoppingListWrapper,
-  ShoppingListImage,
   IngredientCard,
   IngredientsList,
   IngredientImage,
   IngredientImageBackground,
   IngredientWeight,
   IngredientDeleteButton,
+  IngredientTitle,
+  ShoppingListTitle,
 } from './ShoppingList.styled';
-
-const ShoppingList = () => {
+import defaultFood from './default-food.png';
+const ShoppingList = ({}) => {
+  // render
   return (
     <MainStyleConponent>
       <Section>
@@ -32,7 +32,7 @@ const ShoppingList = () => {
           <SquareСircle />
         </DecoreBox>
         <SectionContainer></SectionContainer>
-
+        <ShoppingListTitle>Shopping list</ShoppingListTitle>
         <ShoppingListWrapper>
           <IngredientsTable>
             <ShoppingListName>Product</ShoppingListName>
@@ -43,15 +43,28 @@ const ShoppingList = () => {
             <IngredientsList>
               <IngredientImage>
                 <IngredientImageBackground>
-                  <img />
+                  <img alt="ingredient" src={defaultFood} />
                 </IngredientImageBackground>
-                <p>Lorem</p>
+                <IngredientTitle>Lorem</IngredientTitle>
               </IngredientImage>
 
               <IngredientWeight>500g</IngredientWeight>
-              <li>
-                <IngredientDeleteButton></IngredientDeleteButton>
-              </li>
+
+              <IngredientDeleteButton></IngredientDeleteButton>
+            </IngredientsList>
+          </IngredientCard>
+          <IngredientCard>
+            <IngredientsList>
+              <IngredientImage>
+                <IngredientImageBackground>
+                  <img alt="ingredient" src={defaultFood} />
+                </IngredientImageBackground>
+                <IngredientTitle>Lorem</IngredientTitle>
+              </IngredientImage>
+
+              <IngredientWeight>500g</IngredientWeight>
+
+              <IngredientDeleteButton></IngredientDeleteButton>
             </IngredientsList>
           </IngredientCard>
         </ShoppingListWrapper>
