@@ -32,7 +32,7 @@ export const MainContentLoaderTablet = props => (
       speed={2}
       width={1536}
       //   height={420}
-      viewBox="0 0 768 420"
+      viewBox="0 0 768 450"
       backgroundColor="#d1d1d1"
       foregroundColor="#89aa36"
       {...props}
@@ -53,7 +53,7 @@ export const MainContentLoaderMobile = props => (
       speed={2}
       width={768}
       //   height={420}
-      viewBox="0 0 375 420"
+      viewBox="0 0 375 430"
       backgroundColor="#d1d1d1"
       foregroundColor="#89aa36"
       {...props}
