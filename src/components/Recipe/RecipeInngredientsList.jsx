@@ -1,5 +1,5 @@
-
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+//import { useSelector } from 'react-redux';
 import { useState } from 'react';
 
 import RecipeTableHead from '../RecipeTableHead/RecipeTableHead';
@@ -15,16 +15,13 @@ import {
   IngListItemCheckWrap,
 } from './RecipeInngredientsList.styled';
 
-import { AddIngredientToShopList } from '../../redux/recipes/selectors/selectRecipeById';
+//import { AddIngredientToShopList } from '../../redux/recipes/selectors/selectRecipeById';
 
 import { AddIngredientToShoppingList } from '../../redux/recipes/operations/getRecipeById';
 
-
-
 const RecipeInngredientsList = ({ info }) => {
-
   const dispatch = useDispatch();
-  const isInShopList = useSelector(AddIngredientToShopList);
+  //const isInShopList = useSelector(AddIngredientToShopList);
   const [isChecked, setIsChecked] = useState(false);
 
   // const AddTo = async (Arr) => {
@@ -40,11 +37,10 @@ const RecipeInngredientsList = ({ info }) => {
   //   }
   // }
 
-  const onFormSubmit = (info) => {
-    dispatch(AddIngredientToShoppingList(info))
-    setIsChecked(true)
+  const onFormSubmit = info => {
+    dispatch(AddIngredientToShoppingList(info));
+    setIsChecked(true);
   };
-
 
   //console.log('Check status ', isInShopList)
 
@@ -71,9 +67,17 @@ const RecipeInngredientsList = ({ info }) => {
                 id="vehicle4"
                 name="vehicle4"
                 checked={isChecked}
-                onChange={() => onFormSubmit({ myid: item._id, ttl: item.ttl, _id: item._id, image: item.thb, measure: item.measure })}
+                onChange={() =>
+                  onFormSubmit({
+                    myid: item._id,
+                    ttl: item.ttl,
+                    _id: item._id,
+                    image: item.thb,
+                    measure: item.measure,
+                  })
+                }
               />
-              <IngListItemLabel htmlFor="vehicle4" > </IngListItemLabel>
+              <IngListItemLabel htmlFor="vehicle4"> </IngListItemLabel>
             </IngListItemCheckWrap>
           </IngListItem>
         ))}
@@ -85,4 +89,3 @@ const RecipeInngredientsList = ({ info }) => {
 export default RecipeInngredientsList;
 
 // 640cd5ac2d9fecf12e889855
-
