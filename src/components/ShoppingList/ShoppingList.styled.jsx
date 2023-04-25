@@ -142,8 +142,6 @@ export const ShoppingListWrapper = styled.div`
   font-size: 10px;
   line-height: 12px;
   color: #3e4462;
-  margin-top: 50px;
-  margin-bottom: 100px;
 `;
 export const IngredientsTable = styled.div`
   display: flex;

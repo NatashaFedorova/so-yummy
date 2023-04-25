@@ -1,4 +1,8 @@
 import {
+  FakeMainPageTitle,
+  FakeMainPageTitleWrap,
+} from 'components/Favorite/Favorite.styled';
+import {
   MainStyleConponent,
   DecoreBox,
   SectionContainer,
@@ -18,58 +22,53 @@ import {
   IngredientWeight,
   IngredientDeleteButton,
   IngredientTitle,
-  ShoppingListTitle,
 } from './ShoppingList.styled';
 import defaultFood from './default-food.png';
+import { Container } from '@mui/system';
 const ShoppingList = ({}) => {
   // render
   return (
-    <MainStyleConponent>
-      <Section>
-        <DecoreBox>
-          <Square />
-          <SecondSquare />
-          <SquareСircle />
-        </DecoreBox>
-        <SectionContainer></SectionContainer>
-        <ShoppingListTitle>Shopping list</ShoppingListTitle>
-        <ShoppingListWrapper>
-          <IngredientsTable>
-            <ShoppingListName>Product</ShoppingListName>
-            <ShoppingListNumber>Number</ShoppingListNumber>
-            <ShoppingListButton>Remove</ShoppingListButton>
-          </IngredientsTable>
-          <IngredientCard>
-            <IngredientsList>
-              <IngredientImage>
-                <IngredientImageBackground>
-                  <img alt="ingredient" src={defaultFood} />
-                </IngredientImageBackground>
-                <IngredientTitle>Lorem</IngredientTitle>
-              </IngredientImage>
+    <Container>
+      {/* <ShoppingListTitle>Shopping list</ShoppingListTitle> */}
+      <FakeMainPageTitleWrap style={{ paddingBottom: '72px' }}>
+        <FakeMainPageTitle>Shopping list</FakeMainPageTitle>
+      </FakeMainPageTitleWrap>
+      <ShoppingListWrapper>
+        <IngredientsTable>
+          <ShoppingListName>Product</ShoppingListName>
+          <ShoppingListNumber>Number</ShoppingListNumber>
+          <ShoppingListButton>Remove</ShoppingListButton>
+        </IngredientsTable>
+        <IngredientCard>
+          <IngredientsList>
+            <IngredientImage>
+              <IngredientImageBackground>
+                <img alt="ingredient" src={defaultFood} />
+              </IngredientImageBackground>
+              <IngredientTitle>Lorem</IngredientTitle>
+            </IngredientImage>
 
-              <IngredientWeight>500g</IngredientWeight>
+            <IngredientWeight>500g</IngredientWeight>
 
-              <IngredientDeleteButton></IngredientDeleteButton>
-            </IngredientsList>
-          </IngredientCard>
-          <IngredientCard>
-            <IngredientsList>
-              <IngredientImage>
-                <IngredientImageBackground>
-                  <img alt="ingredient" src={defaultFood} />
-                </IngredientImageBackground>
-                <IngredientTitle>Lorem</IngredientTitle>
-              </IngredientImage>
+            <IngredientDeleteButton></IngredientDeleteButton>
+          </IngredientsList>
+        </IngredientCard>
+        <IngredientCard>
+          <IngredientsList>
+            <IngredientImage>
+              <IngredientImageBackground>
+                <img alt="ingredient" src={defaultFood} />
+              </IngredientImageBackground>
+              <IngredientTitle>Lorem</IngredientTitle>
+            </IngredientImage>
 
-              <IngredientWeight>500g</IngredientWeight>
+            <IngredientWeight>500g</IngredientWeight>
 
-              <IngredientDeleteButton></IngredientDeleteButton>
-            </IngredientsList>
-          </IngredientCard>
-        </ShoppingListWrapper>
-      </Section>
-    </MainStyleConponent>
+            <IngredientDeleteButton></IngredientDeleteButton>
+          </IngredientsList>
+        </IngredientCard>
+      </ShoppingListWrapper>
+    </Container>
   );
 };
 
