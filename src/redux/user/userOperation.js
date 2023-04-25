@@ -7,15 +7,17 @@ export const changeUserData = createAsyncThunk(
   'changeUserData',
   async (credentials, thunkAPI) => {
     try {
-      const headers = {
-        'contetnt-type': 'multipart/form-data',
+      const config = {
+        headers: {
+          'content-type': 'multipart/form-data',
+        },
       };
-
       const res = await axios.patch(
         '/users/changeUserData',
         credentials,
-        headers
+        config
       );
+      console.log(res.data);
       return res.data;
     } catch ({ message }) {
       return thunkAPI.rejectWithValue(message);

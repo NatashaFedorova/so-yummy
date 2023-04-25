@@ -1,11 +1,8 @@
 import { useEffect, useState } from 'react';
-// import { useSelector } from 'react-redux';
-// import { selectCurrentUser } from 'redux/user/userSelectors';
 import { UserLogoModal } from '../UserLogoModal/UserLogoModal';
 import {
   AvatarArea,
   CurrentUserAvatar,
-  // CustomUserAvatar,
   UserInfo,
   UserLogoDiv,
   UserNameSpan,
@@ -13,12 +10,8 @@ import {
 import useAuth from 'hooks/useAuth';
 
 export const UserLogo = () => {
-  // const { name, avatarUrl } = useSelector(selectCurrentUser);
   const { user } = useAuth();
-  const {name, avatarUrl} = user;
-
-  console.log(user);
-
+  const { name, avatarUrl } = user;
 
   const [showUserLogoModal, setShowUserLogoModal] = useState(false);
 
