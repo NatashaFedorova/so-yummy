@@ -15,7 +15,7 @@ export const authSlise = createSlice({
     user: { name: null, email: null },
     token: null,
     isLoggedIn: false,
-    isRefreshing: false,
+    isRefreshing: true,
   },
   extraReducers: builder =>
     builder
@@ -23,15 +23,24 @@ export const authSlise = createSlice({
         state.user = action.payload.user
         state.token = action.payload.token;
         state.isLoggedIn = true;
+        state.isRefreshing = false;
 
         alert('Registration successful!');
+      })
+      .addCase(register.rejected, (state, action) => {
+        alert('Ooops, it fail :)')
       })
       .addCase(logIn.fulfilled, (state, action) => {
         state.user = action.payload.user;
         state.token = action.payload.token;
         state.isLoggedIn = true;
+        state.isRefreshing = false;
 
         alert('Welcome USER!')
+      })
+      .addCase(logIn.rejected, (state, action) => {
+        // Notify.failure('ooops');
+          alert('Incorrect email or password! Or maybe the user with this email address is not registered. Try again')
       })
       .addCase(logOut.fulfilled, state => {
         state.user = { name: null, email: null };
@@ -40,16 +49,17 @@ export const authSlise = createSlice({
 
         alert('Goodbuy USER!')
       })
+      .addCase(refreshUser.pending, (state, action) => {
+        state.isRefreshing = true;
+      })
       .addCase(refreshUser.fulfilled, (state, action) => {
         state.user = action.payload;
         state.isLoggedIn = true;
+        state.isRefreshing = false;
       })
-      .addCase(logIn.rejected, (state, action) => {
-        // Notify.failure('ooops');
-          alert('Incorrect email or password! Or maybe the user with this email address is not registered. Try again')
-      })
-      .addCase(register.rejected, (state, action) => {
-        alert('Ooops, it fail :)')
+      .addCase(refreshUser.rejected, (state, action) => {
+        state.isLoggedIn = false;
+        state.isRefreshing = false;
       })
       .addCase(changeUserData.fulfilled, (state, action) => {
         state.user.name = action.payload.name;
@@ -63,7 +73,7 @@ export const authSlise = createSlice({
         alert('error');
       })
       .addCase(subscribe.fulfilled, (state, action) => {
-        state.user.subscribtion = action.payload;
+        state.user.subscribtion = action.payload.subscription;
 
         console.log('Change successful!', action.payload);
         alert('Chamge successful!');
