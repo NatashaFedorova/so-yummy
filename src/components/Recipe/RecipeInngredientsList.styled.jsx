@@ -123,7 +123,7 @@ export const IngListItemInput = styled.input`
   position: absolute;
   opacity: 0;
   &:checked + label:before {
-    content: url('../images/recipebyId/pick.svg');
+    content: url('${process.env.PUBLIC_URL}/images/recipebyId/pick.svg');
   }
   @media ${device.mobile} {
     width: 18px;

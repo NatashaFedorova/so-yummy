@@ -79,7 +79,7 @@ export const BoxWithPicture = styled.div`
   @media ${device.desktop} {
     width: 558px;
     height: 852px;
-    background: url('./images/bg/spinach-big-up-desktop.png');
+    background: url('${process.env.PUBLIC_URL}/images/bg/spinach-big-up-desktop.png');
     background-repeat: no-repeat;
     background-size: auto;
     left: -214px;

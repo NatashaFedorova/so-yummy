@@ -89,7 +89,7 @@ export const HeroP = styled.p`
   display: flex;
   flex-wrap: wrap;
   &:before {
-    content: url('../images/recipebyId/clock.svg');
+    content: url('${process.env.PUBLIC_URL}/images/recipebyId/clock.svg');
     margin-top: -3px;
     padding-right: 7px;
   }

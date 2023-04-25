@@ -10,8 +10,7 @@ export const WelcomePageSection = styled.section`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url('${process.env
-    .PUBLIC_URL}/images/welcomePage/bg1.webp');
+  background-image: url('${process.env.PUBLIC_URL}/images/welcomePage/bg1.webp');
 `;
 export const WelcomePageContainer = styled.div`
   margin: 0 auto;
