@@ -1,4 +1,3 @@
-// import 'rc-pagination/dist/rc-pagination.css';
 import styled from 'styled-components';
 
 export const ContainerForAline = styled.div`
@@ -12,7 +11,6 @@ export const PaginationContainer = styled.div`
   align-items: center;
   height: 55px;
   background: ${props => props.theme.colors.pagination.bg};
-  /* width: auto; */
   box-shadow: rgba(135, 135, 135, 0.2) 0px 0px 4px 6px;
   border-radius: 26px;
   margin-left: auto;
@@ -32,7 +30,6 @@ export const PaginationContainer = styled.div`
 
   li.rc-pagination-item-active {
     background: ${props => props.theme.colors.pagination.bgActiveBtn};
-    /* ${props => props.theme.colors.pagination.bgActiveBtn} */
     border-radius: 50%;
 
     margin-left: 3px;
@@ -45,7 +42,6 @@ export const PaginationContainer = styled.div`
   }
 `;
 
-// Створення стилізованого компонента кнопки пагінації
 export const PageButton = styled.button`
   width: 28px;
   height: 27px;
@@ -65,7 +61,6 @@ export const PageButton = styled.button`
   }
 `;
 
-// Створення стилізованого компонента бігунка пагінації
 export const Slider = styled.div`
   width: 15px;
   height: 15px;

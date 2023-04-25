@@ -19,7 +19,6 @@ import { selectCategory } from '../../redux/recipes/selectors/selectCategoryList
 import {
   selectRecipesByCategoryName,
   selectRecipesIsLoading,
-  // selectRecipesCountNumber,
 } from '../../redux/recipes/selectors/selectRecipeByCategoryName';
 import getCategories from 'redux/recipes/operations/getCategory';
 import getRecipesByCategory from 'redux/recipes/operations/getRecipesByCategory';
@@ -41,11 +40,10 @@ const Categories = () => {
   const isLoad = useSelector(selectRecipesIsLoading);
   const cardsPerPage = 8;
   const totalPages = dishesElement.length > 0 ? dishesElement[0].totalCount : 8;
-  // console.log(dishes, totalPages);
+
   const handlePageChange = page => {
     setCurrentPage(page);
   };
-  console.log(currentPage, name, 'its nsme');
 
   useEffect(() => {
     setCurrentPage(1);
@@ -60,7 +58,6 @@ const Categories = () => {
   }, [name, dispatch, currentPage]);
 
   const categoryIndex = categories.findIndex(item => {
-    console.log(name.toLowerCase() === item.toLowerCase());
     return item.toLowerCase() === name.toLowerCase();
   });
 
@@ -106,11 +103,11 @@ const Categories = () => {
             variant="scrollable"
             scrollButtons="auto"
           >
-            {categories.map((name, index) => {
+            {categories.map(name => {
               return (
                 <CategoryTab
                   label={name}
-                  key={index}
+                  key={name}
                   component={Link}
                   to={`/categories/${name}`}
                 />
