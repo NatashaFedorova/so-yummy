@@ -9,7 +9,6 @@ const SearchBar = ({getSearchType}) => {
     e.preventDefault();
     const value = e.target.input.value;
     if (value === '') {
-      console.log(value);
       setSearchParams({});
       return;
     }

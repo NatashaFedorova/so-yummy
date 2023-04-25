@@ -1,10 +1,17 @@
-// import { device } from 'components/constants/deviceType/deviceType';
+import { device } from 'components/constants/deviceType/deviceType';
 import styled from 'styled-components';
 
 export const List = styled.ul`
   display: flex;
   flex-wrap: wrap;
   gap: 28px;
+  @media ${device.tablet} {
+    display: grid ;
+    grid-template-columns: 1fr 1fr;
+  }
+  @media ${device.desktop} {
+    grid-template-columns: repeat(4, 1fr);
+  }
 `;
 
 export const RecipeCard = styled.li`
