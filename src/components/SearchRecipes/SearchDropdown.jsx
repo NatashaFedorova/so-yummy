@@ -1,6 +1,6 @@
 import { SearchOptions, Options, SearchOption } from './SearchRecipes.styled';
 import { useState } from 'react';
-import { AiOutlineDown } from "react-icons/ai";
+import { AiOutlineDown } from 'react-icons/ai';
 const Dropdown = () => {
   const [option, setOption] = useState('Title');
   const [open, setOpen] = useState(false);
@@ -12,13 +12,25 @@ const Dropdown = () => {
         }}
       >
         {open === true && (
-        <SearchOptions open={open}>
-          <SearchOption onClick={() => {setOption('Title')}}>Title</SearchOption>
-          <SearchOption onClick={() => {setOption('Indredients')}}>Indredients</SearchOption>
-        </SearchOptions>
-      )}
+          <SearchOptions open={open}>
+            <SearchOption
+              onClick={() => {
+                setOption('Title');
+              }}
+            >
+              Title
+            </SearchOption>
+            <SearchOption
+              onClick={() => {
+                setOption('Indredients');
+              }}
+            >
+              Indredients
+            </SearchOption>
+          </SearchOptions>
+        )}
         {option}
-        <AiOutlineDown fill={"#8baa36"}/>
+        <AiOutlineDown fill={'#8baa36'} />
       </Options>
     </>
   );
