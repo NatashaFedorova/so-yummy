@@ -1,4 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { STATUS } from 'components/constants/loadingStatus/LoadingStatus';
+import {
+  addFavorite,
+  deleteFavorite,
+  getFavorite,
+} from 'redux/favorite/favoriteOperation';
 
 export const myRecipesSlice = createSlice({
   name: 'myrecipes',
@@ -22,21 +28,16 @@ export const myRecipesSlice = createSlice({
       .addCase(addFavorite.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        
       })
       .addCase(getFavorite.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        
       })
       .addCase(deleteFavorite.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-      
       })
-      .addCase(addFavorite.rejected, (state, action) => {
-      
-      })
+      .addCase(addFavorite.rejected, (state, action) => {}),
 });
 
 export const favoriteReducer = myRecipesSlice.reducer;
