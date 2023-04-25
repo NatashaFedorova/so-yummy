@@ -3,6 +3,10 @@ import { device } from 'components/constants/deviceType/deviceType';
 import Container from 'components/constants/Container';
 
 export const HeroBackground = styled.div`
+  position: relative;
+  top: -58px;
+  left: 0;
+
   background-image: url('${process.env.PUBLIC_URL}/images/mainPage/heroBG-mobile-webp.webp');
 
   background-image: image-set(
@@ -19,6 +23,8 @@ export const HeroBackground = styled.div`
   margin-bottom: 64px;
 
   @media ${device.tablet} {
+    top: -62px;
+    
     background-image: url('${process.env.PUBLIC_URL}/images/mainPage/heroBG-tablet-webp.webp');
 
     background-image: image-set(

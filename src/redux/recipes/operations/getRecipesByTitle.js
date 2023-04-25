@@ -1,14 +1,15 @@
-// import axios from 'axios';
-import { createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
 
-const getRecipesByTitle = createAsyncThunk(
-  '',
-  async (credentials, thunkAPI) => {
-    try {
-    } catch ({ message }) {
-      return thunkAPI.rejectWithValue(message);
-    }
+const getRecepiesByTitle = async (query, page) => {
+  try {
+    const response = await axios(
+      `https://t2d-soyammy-backend.onrender.com/api/recipes/search?title=${query}&page=${page}&limit=8`
+    );
+    const data = response.data;
+    return data;
+  } catch (error) {
+    console.log(error);
   }
-);
+};
 
-export default getRecipesByTitle;
+export default getRecepiesByTitle;
