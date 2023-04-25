@@ -44,22 +44,69 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <Background>
         {isLoggedIn && <ScrollToTopComponent />}
-        <Routes>  
-          <Route path="/" element={<RestrictedRoute component={WelcomePage} redirectTo="main" />} />
-          <Route path="/register" element={ <RestrictedRoute component={RegisterPage} redirectTo="/main" />} />
-          <Route path="/signin"  element={  <RestrictedRoute component={SigninPage} redirectTo="/main" /> } />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <RestrictedRoute component={WelcomePage} redirectTo="main" />
+            }
+          />
+          <Route
+            path="/register"
+            element={
+              <RestrictedRoute component={RegisterPage} redirectTo="/main" />
+            }
+          />
+          <Route
+            path="/signin"
+            element={
+              <RestrictedRoute component={SigninPage} redirectTo="/main" />
+            }
+          />
 
-          <Route path="/" element={<SharedLayout /> } >
-            <Route path="/main" element={<PrivateRoute component={MainPage} redirectTo="/" /> } />
-            <Route path="/categories/:categoryName"element={<PrivateRoute component={CategoriesPage} redirectTo="/" /> } />
-            <Route path="/add" element={<PrivateRoute component={AddRecipePage} redirectTo="/" /> } />
-            <Route path="/favorite" element={<PrivateRoute component={FavoritePage} redirectTo="/" /> } />
-            <Route path="/recipe/:recipeId" element={<PrivateRoute component={RecipePage} redirectTo="/" /> } />
-            <Route path="/my" element={<PrivateRoute component={MyRecipesPage} redirectTo="/" /> } />
-            <Route path="/search" element={<PrivateRoute component={SearchPage} redirectTo="/" /> } />
-            <Route path="/shopping-list" element={<PrivateRoute component={ShoppingListPage} redirectTo="/" /> } />
-            <Route path="*" element={ <ErrorRoute /> } />
-           </Route>
+          <Route path="/" element={<SharedLayout />}>
+            <Route
+              path="/main"
+              element={<PrivateRoute component={MainPage} redirectTo="/" />}
+            />
+            <Route
+              path="/categories/:categoryName"
+              element={
+                <PrivateRoute component={CategoriesPage} redirectTo="/" />
+              }
+            />
+            <Route
+              path="/add"
+              element={
+                <PrivateRoute component={AddRecipePage} redirectTo="/" />
+              }
+            />
+            <Route
+              path="/favorite"
+              element={<PrivateRoute component={FavoritePage} redirectTo="/" />}
+            />
+            <Route
+              path="/recipe/:recipeId"
+              element={<PrivateRoute component={RecipePage} redirectTo="/" />}
+            />
+            <Route
+              path="/my"
+              element={
+                <PrivateRoute component={MyRecipesPage} redirectTo="/" />
+              }
+            />
+            <Route
+              path="/search"
+              element={<PrivateRoute component={SearchPage} redirectTo="/" />}
+            />
+            <Route
+              path="/shopping-list"
+              element={
+                <PrivateRoute component={ShoppingListPage} redirectTo="/" />
+              }
+            />
+            <Route path="*" element={<ErrorRoute />} />
+          </Route>
         </Routes>
       </Background>
     </ThemeProvider>

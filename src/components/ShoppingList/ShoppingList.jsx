@@ -1,73 +1,67 @@
 import {
-  MainStyleConponent,
-  DecoreBox,
-  SectionContainer,
-  Section,
-  SectionTitle,
-  Square,
-  SecondSquare,
-  SquareСircle,
-  ListTableHeards,
-  ItemTableHeaders,
-  Box,
-  List,
-  Item,
+  FakeMainPageTitle,
+  FakeMainPageTitleWrap,
+} from 'components/Favorite/Favorite.styled';
+import {
+  IngredientsTable,
+  ShoppingListName,
+  ShoppingListNumber,
+  ShoppingListButton,
+  ShoppingListWrapper,
+  IngredientCard,
+  IngredientsList,
+  IngredientImage,
+  IngredientImageBackground,
+  IngredientWeight,
+  IngredientDeleteButton,
+  IngredientTitle,
 } from './ShoppingList.styled';
-
+import defaultFood from './default-food.png';
+import { Container } from '@mui/system';
 const ShoppingList = () => {
+  // render
   return (
-    <MainStyleConponent>
-      <Section>
-        <DecoreBox>
-          <Square />
-          <SecondSquare />
-          <SquareСircle />
-        </DecoreBox>
-        <SectionContainer>
-          <SectionTitle>Shopping list</SectionTitle>
-          <ListTableHeards>
-            <ItemTableHeaders>Product</ItemTableHeaders>
-            <Box>
-              <ItemTableHeaders>Number</ItemTableHeaders>
-              <ItemTableHeaders>Remove</ItemTableHeaders>
-            </Box>
-          </ListTableHeards>
-          <List>
-            <Item>
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <div
-                  style={{
-                    display: 'flex',
-                    gap: '16px',
-                    alignItems: 'flex-start',
-                  }}
-                >
-                  <div
-                    style={{
-                      width: '60px',
-                      height: '60px',
-                      background: '#8baa36',
-                    }}
-                  ></div>
-                  <p>Salmon</p>
-                </div>
-                <div
-                  style={{
-                    display: 'flex',
-                    gap: '174px',
-                    alignItems: 'flex-start',
-                    marginRight: '28px',
-                  }}
-                >
-                  <p>400 g</p>
-                  <button type="button">x</button>
-                </div>
-              </div>
-            </Item>
-          </List>
-        </SectionContainer>
-      </Section>
-    </MainStyleConponent>
+    <Container>
+      {/* <ShoppingListTitle>Shopping list</ShoppingListTitle> */}
+      <FakeMainPageTitleWrap style={{ paddingBottom: '72px' }}>
+        <FakeMainPageTitle>Shopping list</FakeMainPageTitle>
+      </FakeMainPageTitleWrap>
+      <ShoppingListWrapper>
+        <IngredientsTable>
+          <ShoppingListName>Product</ShoppingListName>
+          <ShoppingListNumber>Number</ShoppingListNumber>
+          <ShoppingListButton>Remove</ShoppingListButton>
+        </IngredientsTable>
+        <IngredientCard>
+          <IngredientsList>
+            <IngredientImage>
+              <IngredientImageBackground>
+                <img alt="ingredient" src={defaultFood} />
+              </IngredientImageBackground>
+              <IngredientTitle>Lorem</IngredientTitle>
+            </IngredientImage>
+
+            <IngredientWeight>500g</IngredientWeight>
+
+            <IngredientDeleteButton></IngredientDeleteButton>
+          </IngredientsList>
+        </IngredientCard>
+        <IngredientCard>
+          <IngredientsList>
+            <IngredientImage>
+              <IngredientImageBackground>
+                <img alt="ingredient" src={defaultFood} />
+              </IngredientImageBackground>
+              <IngredientTitle>Lorem</IngredientTitle>
+            </IngredientImage>
+
+            <IngredientWeight>500g</IngredientWeight>
+
+            <IngredientDeleteButton></IngredientDeleteButton>
+          </IngredientsList>
+        </IngredientCard>
+      </ShoppingListWrapper>
+    </Container>
   );
 };
 
