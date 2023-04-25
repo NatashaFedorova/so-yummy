@@ -3,13 +3,6 @@ import {
   FakeMainPageTitleWrap,
 } from 'components/Favorite/Favorite.styled';
 import {
-  MainStyleConponent,
-  DecoreBox,
-  SectionContainer,
-  Section,
-  Square,
-  SecondSquare,
-  SquareСircle,
   IngredientsTable,
   ShoppingListName,
   ShoppingListNumber,
@@ -25,7 +18,7 @@ import {
 } from './ShoppingList.styled';
 import defaultFood from './default-food.png';
 import { Container } from '@mui/system';
-const ShoppingList = ({}) => {
+const ShoppingList = () => {
   // render
   return (
     <Container>

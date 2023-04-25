@@ -1,9 +1,7 @@
 // ${props => props.theme.colors.text}
 import styled from 'styled-components';
-import bgImage from './shopping-list-background.png';
 import deleteBtn from './deleteBtn.svg';
 import {
-  DefaultSectionTitle,
   DefaultSquare,
   DefaultSquareСircle,
 } from 'components/constants/DefaultStyleComponents/DefaultStyleComponents';
@@ -336,6 +334,6 @@ export const IngredientDeleteButton = styled.button`
     margin-right: 45px;
   }
   @media ${device.desktop} {
-    margin-right: 30px;
+    margin-right: 0;
   }
 `;
