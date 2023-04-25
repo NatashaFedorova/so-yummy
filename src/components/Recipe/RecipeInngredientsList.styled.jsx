@@ -122,6 +122,7 @@ export const IngListItemCheckWrap = styled.div`
 export const IngListItemInput = styled.input`
   position: absolute;
   opacity: 0;
+  cursor: pointer;
   &:checked + label:before {
     content: url('${process.env.PUBLIC_URL}/images/recipebyId/pick.svg');
   }
