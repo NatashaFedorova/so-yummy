@@ -17,7 +17,12 @@ import {
 } from './MainCategories.styled';
 
 import MainCategoriesList from '../MainCategoriesList/MainCategoriesList';
-import Loading from '../../Loading/Loading';
+// import Loading from '../../Loading/Loading';
+import {
+  MainContentLoader,
+  MainContentLoaderTablet,
+  MainContentLoaderMobile,
+} from '../ContentLoader/ContentLoader';
 
 import getRecipesByCategoryForMainPage from '../../../redux/recipes/operations/getRecipesByCategoryForMainPage';
 
@@ -44,17 +49,30 @@ const MainCategories = () => {
 
   return (
     <ul>
-      {mainStatus === 'idle' && <Loading />}
+      {mainStatus === 'idle' &&
+        (desktopScreen ? (
+          <MainContentLoader />
+        ) : tabletScreen ? (
+          <MainContentLoaderTablet />
+        ) : (
+          <MainContentLoaderMobile />
+        ))}
 
       {mainStatus === 'loading' ? (
-        <Loading />
+        desktopScreen ? (
+          <MainContentLoader />
+        ) : tabletScreen ? (
+          <MainContentLoaderTablet />
+        ) : (
+          <MainContentLoaderMobile />
+        )
       ) : (
         mainRecipes
           ?.filter(({ recipes }) => recipes.length >= 4)
           .slice(0, 4)
           .map(({ _id, recipes }) => (
             <MainCategoriesRow key={_id}>
-              <MainCategoriesTitle to={`/category/${_id}`}>
+              <MainCategoriesTitle to={`/categories/${_id}`}>
                 {_id}
               </MainCategoriesTitle>
               <MainCategoriesList
@@ -62,7 +80,7 @@ const MainCategories = () => {
                 cardsOnScreen={cardsOnScreen}
               />
               <MainCategoriesBtnWrapper>
-                <MainCategoriesBtn to={`/category/${_id}`}>
+                <MainCategoriesBtn to={`/categories/${_id}`}>
                   See all
                 </MainCategoriesBtn>
               </MainCategoriesBtnWrapper>
