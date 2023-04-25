@@ -2,22 +2,16 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import { STATUS } from "../../../components/constants/loadingStatus/LoadingStatus";
 import { getRecipeById } from '../operations/getRecipeById';
-//import { addRecipeTofavorite } from '../operations/getRecipeById';
+import { AddIngredientToShoppingList } from '../operations/getRecipeById';
 //import { addIngredientToShopList } from '../operations/getRecipeById';
 //import { addToFavorite } from '../operations/getRecipeById';
-
-// const initState = {
-//     status: STATUS.idle,
-//     items: [],
-//     isLoading: 'init',
-//     error: null,
-// };
 
 const recipeByIdSlice = createSlice({
     name: 'recipeById',
     initialState: {
         status: STATUS.idle,
         items: [],
+        shopList: [],
         isLoading: 'init',
         error: null,
     },
@@ -31,6 +25,19 @@ const recipeByIdSlice = createSlice({
                 state.status = STATUS.success;
             })
             .addCase(getRecipeById.rejected, (state, action) => {
+                state.status = STATUS.error;
+                state.error = action.payload;
+            })
+
+            /////
+            .addCase(AddIngredientToShoppingList.pending, (state) => {
+                state.status = STATUS.loading;
+            })
+            .addCase(AddIngredientToShoppingList.fulfilled, (state, action) => {
+                state.shopList = action.payload;
+                state.status = STATUS.success;
+            })
+            .addCase(AddIngredientToShoppingList.rejected, (state, action) => {
                 state.status = STATUS.error;
                 state.error = action.payload;
             })

@@ -46,15 +46,15 @@ export const favoriteSlise = createSlice({
         state.isLoading = false;
         state.error = null;
         const index = state.items.findIndex(
-            recipe => recipe.id === action.payload.id
-          );
-        
+          recipe => recipe.id === action.payload.id
+        );
+
         state.items.splice(index, 1);
       })
       .addCase(addFavorite.rejected, (state, action) => {
         state.status = STATUS.error;
         state.error = action.payload;
-    })
+      })
 });
 
 export const favoriteReducer = favoriteSlise.reducer;
