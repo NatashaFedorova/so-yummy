@@ -10,27 +10,13 @@ export const getRecipeById = createAsyncThunk('recipeById/getRecipeById', async 
   } catch (err) {
     return thunkAPI.rejectWithValue(err.message);
   }
-
 })
-// export default getRecipeById;
 
-// export const addIngredientToShopList = createAsyncThunk(
-//   "recipeById/addToShopList",
-//   async (ArrIngredient, thunkAPI) => {
-//     try {
-//       const response = await axios.post("/shoppinglist", ArrIngredient);
-//       return response.data;
-//     } catch (err) {
-//       return thunkAPI.rejectWithValue(err.message);
-//     }
-//   }
-// );
-
-export const addRecipeTofavorite = createAsyncThunk(
-  "recipeById/addRcpToFavorite",
-  async (IdRecept, thunkAPI) => {
+export const AddIngredientToShoppingList = createAsyncThunk(
+  "recipeById/addToShoppingList",
+  async (Items, thunkAPI) => {
     try {
-      const response = await axios.put("/ownrecipes/favorite", IdRecept);
+      const response = await axios.post("/shoppinglist", Items);
       return response.data;
     } catch (err) {
       return thunkAPI.rejectWithValue(err.message);
