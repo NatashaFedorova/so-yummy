@@ -17,6 +17,11 @@ const lightTheme = Object.freeze({
       accent: '#8baa36',
     },
 
+    btnUp: {
+      colorLeaf: '#8baa36',
+      text: '#fafafa',
+    },
+
     // CardRecipe - small
     cardRecipe: {
       bgbtn: '#ffffff',
@@ -97,8 +102,8 @@ const lightTheme = Object.freeze({
       socIconHover: '#ffffff',
     },
 
-    // StartPage
-    startPage: {
+    // WelcomePage
+    welcomePage: {
       title: '#fafafa',
       text: '#fafafa',
       textButton: '#fafafa',
@@ -138,9 +143,10 @@ const lightTheme = Object.freeze({
       titleLinkCategoryHover: '#8baa36',
       textBtnSeeAll: '#fafafa',
       bgBtnSeeAll: '#8baa36',
-      // borderBtnSeeAll: '#8baa36',
-      // textBtnSeeAllHover: '#8baa36',
-      // bgBtnSeeAllHover: '#fafafa',
+      bgBtnSeeAllBorder: 'transparent',
+      borderBtnSeeAllHover: '#8baa36',
+      textBtnSeeAllHover: '#22252a',
+      bgBtnSeeAllHover: '#fafafa',
       textBtnOtherCategories: '#22252a',
       bgBtnOtherCategories: 'transparent',
       bordertnOtherCategories: '#8baa36',
@@ -175,7 +181,7 @@ const lightTheme = Object.freeze({
       iconFormHover: '#8baa36',
       iconClose: '#333333',
       // iconCloseHover: '#8baa36',
-      bgInputTextArea: '#d9d9d9',
+      bgInputTextArea: 'rgba(217, 217, 217, .17)',
       textBtnAdd: '#fafafa',
       bgBtnAdd: '#22252a',
       bgBtnAddHover: '#8baa36',

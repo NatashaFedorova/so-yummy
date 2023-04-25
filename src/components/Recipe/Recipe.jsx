@@ -1,46 +1,91 @@
-
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
+//import { useState } from 'react';
+
+import { useParams } from "react-router-dom";
 
 import Container from 'components/constants/Container';
+import { STATUS } from '../constants/loadingStatus/LoadingStatus';
+import Loading from 'components/Loading/Loading';
+
 import RecipePageHero from './RecipePageHero';
 import RecipeInngredientsList from './RecipeInngredientsList';
 import RecipePreparation from './RecipePreparation';
 
-import { selectRecipeById } from "../../redux/recipes/selectors/selectRecipeById"
+import {
+  selectRecipeById,
+  selectRecipeByIdStatus,
+} from '../../redux/recipes/selectors/selectRecipeById';
+
 import { getRecipeById } from '../../redux/recipes/operations/getRecipeById';
+import { addRecipeTofavorite } from '../../redux/recipes/operations/getRecipeById';
 
 const Recipe = () => {
   const dispatch = useDispatch();
 
-  const recipeId = "640cd5ac2d9fecf12e889828";
+  const { recipeId } = useParams()
+
+  //const recipeId = '640f3c097eca20453198dfae';
+  // const [favoriteBtn, setfavoriteBtn] = useState(false);
 
   useEffect(() => {
-    dispatch(getRecipeById(recipeId))
-  }, [dispatch])
+    dispatch(getRecipeById(recipeId));
+  }, [dispatch, recipeId]);
 
-  const Recipe = useSelector(selectRecipeById)
+  const Recipe = useSelector(selectRecipeById);
+  const Status = useSelector(selectRecipeByIdStatus);
 
-  // console.log("hello2 ", Recipe)
+  // const addRcpToFavorite = () => {
+  //   dispatch(addToFavorite());
+  //   setfavoriteBtn(true);
+  // };
+
+  const AddToFavor = () => {
+    const InfoForBackend = {
+      recipeId: recipeId,
+    }
+    dispatch(addRecipeTofavorite(InfoForBackend))
+  }
+
+
+  //console.log("Recipe All ", Recipe)
+  //console.log("Status ?  ", Status)
+
+
   return (
     <>
-      {Recipe &&
-        (
+      {(Status === STATUS.idle || Status === STATUS.loading) && <Loading />}
+      <div style={{ minHeight: '500px' }}>
+        {Status === STATUS.success && (
           <>
-            <RecipePageHero title={Recipe.title} time={Recipe.time} description={Recipe.description} />
+            <RecipePageHero
+              // btnState={favoriteBtn}
+              onBtnClick={() => AddToFavor()}
+              title={Recipe.title}
+              time={Recipe.time}
+              description={Recipe.description}
+            />
             <Container>
-              <RecipeInngredientsList measurre={Recipe.ingredients} info={Recipe.ingredientsData} />
-              <RecipePreparation instructions={Recipe.instructions} img={Recipe.thumb} title={Recipe.title} />
+              <RecipeInngredientsList info={Recipe.ingredients} />
+              <RecipePreparation
+                instructions={Recipe.instructions}
+                img={Recipe.thumb}
+                title={Recipe.title}
+              />
             </Container>
           </>
-        )
-      }
+        )}
+      </div>
     </>
   );
 };
 
 export default Recipe;
 
-// title={Recipe.title} time={Recipe.time} description={Recipe.description} 
+// loader extra styles{
 
-// instructions={Recipe.instructions} img={Recipe.thumb} 
+//   z-index: 5000;
+//   position: absolute;
+//   left: calc(50% - 50px);
+//   top: 45%;
+// }

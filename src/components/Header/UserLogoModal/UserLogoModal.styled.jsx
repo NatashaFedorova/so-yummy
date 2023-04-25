@@ -1,16 +1,20 @@
 import DefaultBtn from 'components/constants/DefaultBtn';
+import { device } from 'components/constants/deviceType/deviceType';
 import styled from 'styled-components';
 
 export const ModalUser = styled.div`
   position: absolute;
+  z-index: 5;
+
   display: flex;
   flex-direction: column;
   background-color: white;
   padding: 18px;
   border-radius: 8px;
+  border: 1px solid #8baa36;
 
   top: 78px;
-  right: 111px;
+  right: 15vw;
 
   font-size: 14px;
   font-weight: 500;
@@ -24,6 +28,15 @@ export const ModalUser = styled.div`
     display: flex;
     justify-content: space-between;
   }
+
+  @media${device.tablet} {
+    right: 20vw;
+    border-color: transparent;
+  }
+
+  @media${device.desktop} {
+    right: 20vw;
+  }
 `;
 
 export const StyledLogoutBtn = styled(DefaultBtn)`
@@ -32,6 +45,14 @@ export const StyledLogoutBtn = styled(DefaultBtn)`
   background-color: #8baa36;
   color: white;
   padding: 12px 32px;
+
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: 0em;
+  text-align: left;
+
   &:hover {
     color: black;
   }

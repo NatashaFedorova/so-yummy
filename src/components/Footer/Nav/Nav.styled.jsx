@@ -1,3 +1,4 @@
+import { device } from 'components/constants/deviceType/deviceType';
 import { NavLink } from 'react-router-dom/dist';
 import styled from 'styled-components';
 
@@ -7,12 +8,31 @@ export const FooterNav = styled.nav`
   flex-direction: column;
   gap: 14px;
   color: white;
-  margin-right: 205px;
+  margin-right: 0;
+  margin-bottom: 32px;
+  align-items: center;
+  @media ${device.tablet} {
+    margin-right: auto;
+    gap: 20px;
+    align-items: normal;
+  }
+  @media ${device.desktop} {
+    margin-right: 205px;
+  }
 `;
 
 export const StyledNavLink = styled(NavLink)`
   color: white;
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: -0.02em;
+
   &:hover {
     color: #8baa36;
+  }
+
+  @media ${device.tablet} {
   }
 `;

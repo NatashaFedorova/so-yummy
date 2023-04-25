@@ -1,10 +1,16 @@
-// import axios from 'axios';
+import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 const getRecipesByCategory = createAsyncThunk(
-  '',
-  async (credentials, thunkAPI) => {
+  'recipes/getRecipesByCategory',
+  async ({ categoryName, page }, thunkAPI) => {
     try {
+      const res = await axios.get(`recipes/category/${categoryName}`,
+        {
+        params: { page: page }
+      });
+      // console.log(res.data, res, "catName");
+      return res.data
     } catch ({ message }) {
       return thunkAPI.rejectWithValue(message);
     }

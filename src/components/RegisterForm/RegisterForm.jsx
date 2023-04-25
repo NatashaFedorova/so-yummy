@@ -30,19 +30,19 @@ const RegisterForm = () => {
   };
 
   return (
-    <AuthForm id="registerForm" onSubmit={handleSubmit}>
+    <AuthForm id="registerForm" onSubmit={handleSubmit} >
       <AuthFormTitle>Registration</AuthFormTitle>
       <AuthFormLabel>
         <AuthFormUserIcon />
-        <AuthFormInput type="text" name="name" placeholder="Name" required />
+        <AuthFormInput type="text" name="name" placeholder="Name" required autoComplete="off" />
       </AuthFormLabel>
       <AuthFormLabel>
         <AuthFormMailIcon />
-        <AuthFormInput type="email" name="email" placeholder="Email" required />
+        <AuthFormInput type="email" name="email" placeholder="Email" required autoComplete="off" />
       </AuthFormLabel>
       <AuthFormLabel>
         <AuthFormLockIcon />
-        <AuthFormInput type="password" name="password" placeholder="Password" required />
+        <AuthFormInput type="password" name="password" placeholder="Password" required  autoComplete="new-password"/>
       </AuthFormLabel>
       <AuthFormBtnSubmit type="submit">Sign up</AuthFormBtnSubmit>
     </AuthForm>

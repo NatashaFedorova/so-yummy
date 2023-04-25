@@ -16,7 +16,10 @@ const ErrorPageNotFoundComponent = () => {
         <DecoreBoxComponent />
         <BoxForContent>
           <BoxForImg>
-            <Img src="./images/errorPageNotFound/404-page.svg" alt="people" />
+            <Img
+              src={`${process.env.PUBLIC_URL}/images/errorPageNotFound/404-page.svg`}
+              alt="people"
+            />
           </BoxForImg>
           <Text>
             <PartText>We are sorry,</PartText>

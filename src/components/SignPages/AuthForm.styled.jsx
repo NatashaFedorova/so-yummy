@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import device from 'components/constants/Container/Container.styled';
+import { device } from 'components/constants/deviceType/deviceType';
 import { ReactComponent as UserIcon } from './user.svg';
 import { ReactComponent as MailIcon } from './mail.svg';
 import { ReactComponent as LockIcon } from './lock.svg';
@@ -108,7 +108,7 @@ export const AuthFormInput = styled.input`
   opacity: 0.8;
   border: 1px solid;
   border-radius: 6px;
-  border-color: ${props => props.theme.colors.startPage.borderBtnSignIn};
+  border-color: ${props => props.theme.colors.welcomePage.borderBtnSignIn};
   border-color: currentColor;
 
   @media ${device.tablet} {

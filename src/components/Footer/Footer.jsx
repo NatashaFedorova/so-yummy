@@ -3,14 +3,16 @@ import { AppInfo } from './AppInfo/AppInfo';
 import { Nav } from './Nav/Nav';
 import { SubscribeForm } from './SubcribeForm/SubscribeForm';
 import { CommercionInfo } from './ComercionInfo/ComercionInfo';
-import { FooterSection, LogoGroup, StyledContainer } from './Footer.styled';
+import { LogoGroup, BoxUp, BoxDown, StyledContainerUp } from './Footer.styled';
 import { SocialLinks } from './SocialLinks/SocialLinks';
+import { DecoreLeafsTop, DecoreLeafsBottom } from 'components/DecoratedMain/DecoratedMain.styled';
 
 const Footer = () => {
   return (
-    <footer>
-      <StyledContainer>
-        <FooterSection>
+    <footer style={{position: "relative"}}>
+      <DecoreLeafsTop />
+      <BoxUp>
+        <StyledContainerUp>
           <LogoGroup>
             <LogoFooter />
             <AppInfo />
@@ -18,9 +20,12 @@ const Footer = () => {
           <Nav />
           <SubscribeForm />
           <SocialLinks />
-        </FooterSection>
+        </StyledContainerUp>
+      </BoxUp>
+      <BoxDown style={{position: "relative", overflow: "hidden"}}>
         <CommercionInfo />
-      </StyledContainer>
+        <DecoreLeafsBottom />
+      </BoxDown>
     </footer>
   );
 };

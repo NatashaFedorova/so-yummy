@@ -11,10 +11,15 @@ import {
   REGISTER,
 } from 'redux-persist';
 
-// import {themeReducer} from 'redux/theme/themeSlice';
+import { themeReducer } from 'redux/theme/themeSlice';
 import { authReducer } from 'redux/auth/authSlice';
-import recipesByIdReducer from 'redux/recipes/recipesSlice/recipeByIdSlice';
+import { recipesByIdReducer } from 'redux/recipes/recipesSlice/recipeByIdSlice';
+import mainCategoriesSliceReducer from 'redux/recipes/recipesSlice/categoriesMainSlice';
 // import recipesReducer from 'redux/auth/authSlice';
+import { categoryReducer } from './recipes/recipesSlice/categorySlice';
+import { recipeByCategoryReducer } from './recipes/recipesSlice/recipesByCategorySlice';
+import { recipeToFavoriteReducer } from './recipes/recipesSlice/addRecipeToFavoriteSlice';
+import { favoriteReducer } from 'redux/favorite/favoriteSlice';
 
 const authPersistConfig = {
   key: 'auth',
@@ -22,17 +27,28 @@ const authPersistConfig = {
   whitelist: ['token'],
 };
 
-// const themePersistConfig = {
-//   key: 'theme',
+// const categoryPersistConfig = {
+//   key: 'mainCategories',
 //   storage,
+//   // whitelist:
 // };
+
+const themePersistConfig = {
+  key: 'theme',
+  storage,
+};
 
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
-    recipeById: recipesByIdReducer,
+    favorite: favoriteReducer,
+    recipedById: recipesByIdReducer,
+    recipeByCategorySlice: recipeByCategoryReducer,
+    mainCategories: mainCategoriesSliceReducer,
+    reciteToFavorite: recipeToFavoriteReducer,
     // recipes: recipesReducer,
-    // theme: persistReducer(themePersistConfig, themeReducer),
+    theme: persistReducer(themePersistConfig, themeReducer),
+    categories: categoryReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

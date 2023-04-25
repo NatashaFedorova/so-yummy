@@ -1,8 +1,15 @@
 import styled from 'styled-components';
-import { AvatarArea, CustomUserAvatar } from '../UserLogo/UserLogo.styled';
+import {
+  AvatarArea,
+  // CustomUserAvatar
+} from '../UserLogo/UserLogo.styled';
 import { AiFillPlusCircle } from 'react-icons/ai';
 import { GrFormClose } from 'react-icons/gr';
+import { RxPerson } from 'react-icons/rx';
+import { HiOutlinePencil } from 'react-icons/hi';
+
 import DefaultBtn from 'components/constants/DefaultBtn';
+import { device } from 'components/constants/deviceType/deviceType';
 
 export const ModalOverlay = styled.div`
   position: fixed;
@@ -11,8 +18,7 @@ export const ModalOverlay = styled.div`
   z-index: 1040;
   width: 100vw;
   height: 100vh;
-  background-color: #000;
-  opacity: 0.5;
+  background-color: rgba(0, 0, 0, 0.5);
 `;
 
 export const ModalWrapper = styled.div`
@@ -37,38 +43,72 @@ export const Modal = styled.div`
   background: white;
   position: relative;
   border-radius: 30px;
-  width: 500px;
-  height: 425px;
-  padding: 60px 50px;
+  width: 330px;
+  height: 329px;
+
+  padding: 32px 24px;
   flex-direction: column;
   align-items: center;
+  @media${device.tablet} {
+    width: 480px;
+    height: 402px;
+    padding: 50px 40px;
+  }
+  @media${device.desktop} {
+    width: 500px;
+    height: 425px;
+    padding: 60px 50px;
+  }
 `;
 
-export const ConfigAvatarUser = styled(CustomUserAvatar)`
-  width: 47px;
-  height: 47px;
+export const ConfigAvatarUser = styled.img`
+  width: 100%;
+  height: 100%;
 `;
 
 export const ConfigAvatarArea = styled(AvatarArea)`
-  width: 103px;
-  height: 103px;
+  width: 88px;
+  height: 88px;
   position: relative;
-  margin-bottom: 52px;
+  margin-bottom: 54px;
+  @media${device.tablet} {
+    width: 103px;
+    height: 103px;
+    margin-bottom: 50px;
+  }
+`;
+
+export const LeftInputDiv = styled.div`
+  display: flex;
+  align-items: center;
 `;
 
 export const StyledAiFillPlusCircle = styled(AiFillPlusCircle)`
   position: absolute;
-  bottom: -7px;
-  right: 14px;
+  top: 75px;
+  left: 185px;
   width: 24px;
   height: 24px;
   color: #8baa36;
+  cursor: pointer;
+  @media${device.tablet} {
+    left: 265px;
+    top: 130px;
+  }
+  @media${device.desktop} {
+    top: 150px;
+    left: 270px;
+  }
+`;
+
+export const ChangeImageInput = styled.input`
+  display: none;
 `;
 
 export const ConfigNameLabel = styled.label`
   display: flex;
   justify-content: space-between;
-  width: 400px;
+  width: 282px;
   max-height: 60px;
   margin-bottom: 32px;
   padding: 20px 22px;
@@ -76,16 +116,42 @@ export const ConfigNameLabel = styled.label`
   border-radius: 6px;
   & input {
     border: none;
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0px;
+
+    @media${device.tablet} {
+      font-size: 18px;
+      line-height: 27px;
+      letter-spacing: -0.02em;
+    }
+  }
+  @media${device.tablet} {
+    width: 400px;
   }
 `;
 
 export const SendChangeBTN = styled(DefaultBtn)`
-  width: 400px;
+  width: 282px;
   height: 60px;
   background-color: #8baa36;
   border-radius: 6px;
+
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0px;
+
   &:hover {
     color: black;
+  }
+  @media${device.tablet} {
+    width: 400px;
+
+    font-size: 16px;
   }
 `;
 
@@ -95,4 +161,20 @@ export const StyledGrFormClose = styled(GrFormClose)`
   right: 20px;
   width: 30px;
   height: 30px;
+  cursor: pointer;
+`;
+
+export const StyledRxPerson = styled(RxPerson)`
+  margin-right: 12px;
+  @media${device.tablet} {
+    width: 24px;
+    height: 24px;
+  }
+`;
+
+export const StyledHiOutlinePencil = styled(HiOutlinePencil)`
+  @media${device.tablet} {
+    width: 24px;
+    height: 24px;
+  }
 `;

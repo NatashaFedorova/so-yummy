@@ -2,6 +2,7 @@ import { FiSearch } from 'react-icons/fi';
 import { HeaderNavigation, StyledNavigationLink } from './Navigation.styled';
 
 const pages = [
+  { to: '/categories/beef', title: 'Categories' },
   { to: '/add', title: 'Add receptes' },
   { to: '/my', title: 'My recipes' },
   { to: '/favorite', title: 'Favorites' },

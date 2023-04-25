@@ -9,7 +9,6 @@ import {
   AuthFormMailIcon,
   AuthFormTitle,
 } from 'components/SignPages/AuthForm.styled';
-import { logOut } from 'redux/auth/authOperation';
 
 const SigninForm = () => {
   const dispatch = useDispatch();
@@ -28,8 +27,6 @@ const SigninForm = () => {
     form.reset();
   };
 
-  const handleLogOut = () => dispatch(logOut());
-
   return (
     <AuthForm className="signinForm" id="signinForm" onSubmit={handleSubmit}>
       <AuthFormTitle>Sign In</AuthFormTitle>
@@ -42,7 +39,6 @@ const SigninForm = () => {
         <AuthFormInput type="password" name="password" placeholder="Password" required />
       </AuthFormLabel>
       <AuthFormBtnSubmit type="submit">Sign up</AuthFormBtnSubmit>
-      <button type="button" onClick={handleLogOut} style={{marginTop: 20}}> Logout </button>
     </AuthForm>
   );
 };
