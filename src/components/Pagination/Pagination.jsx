@@ -6,13 +6,20 @@ import {
   Slider,
   ContainerForAline,
 } from './Pagination.styled';
-
+import { animateScroll } from 'react-scroll';
 export const PagePagination = ({
   cardsPerPage,
   totalPages,
   currentPage,
   handlePageChange,
 }) => {
+  const scrollToTop = () => {
+    animateScroll.scrollToTop();
+  };
+  const handlePageButtonClick = page => {
+    scrollToTop();
+    handlePageChange(page);
+  };
   return (
     <ContainerForAline>
       <PaginationContainer>
@@ -27,7 +34,7 @@ export const PagePagination = ({
             if (type === 'page') {
               return (
                 <PageButton
-                  onClick={() => handlePageChange(page)}
+                  onClick={() => handlePageButtonClick(page)}
                   active={element.props.active}
                 >
                   {page}
