@@ -36,15 +36,11 @@ export const favoriteSlise = createSlice({
         state.error = null;
         state.items.push(action.payload);
         state.status = STATUS.success;
-
-        console.log("action.payload", action.payload);
       })
       .addCase(getFavorite.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
         state.items = action.payload;
-
-        console.log("action.payload", action.payload);
       })
       .addCase(deleteFavorite.fulfilled, (state, action) => {
         state.isLoading = false;
@@ -54,7 +50,6 @@ export const favoriteSlise = createSlice({
           );
         
         state.items.splice(index, 1);
-
       })
       .addCase(addFavorite.rejected, (state, action) => {
         state.status = STATUS.error;

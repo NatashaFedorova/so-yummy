@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { deleteFavorite } from 'redux/favorite/favoriteOperation';
+import { deleteFavorite, getFavorite } from 'redux/favorite/favoriteOperation';
 
 const {
   StyledFavoriteItem,
@@ -17,9 +17,14 @@ const {
 } = require('./FavoriteItem.styled');
 
 const FavoriteItem = ({
-  favoriteRecipe: { _id, title, preview, description, instructions, time },
+  favoriteRecipe: { _id, title, preview, description, time },
 }) => {
   const dispatch = useDispatch();
+
+  const handleClick = async () => {
+    await dispatch(deleteFavorite(_id));
+    await dispatch(getFavorite());
+  };
 
   return (
     <StyledFavoriteItem>
@@ -30,16 +35,13 @@ const FavoriteItem = ({
           <FavoriteDeleteBtn
             type={'button'}
             title={'Delete'}
-            onClick={() => dispatch(deleteFavorite(_id))}
+            onClick={handleClick}
           >
             <FavoriteDeleteIcon />
           </FavoriteDeleteBtn>
         </FavoriteBoxTop>
         <FavoriteBoxCenter>
-          <FavoriteDesc>
-            {description}
-            {instructions}
-          </FavoriteDesc>
+          <FavoriteDesc>{description}</FavoriteDesc>
         </FavoriteBoxCenter>
         <FavoriteBoxBottom>
           <FavoriteTime>{time} min</FavoriteTime>
@@ -51,5 +53,3 @@ const FavoriteItem = ({
 };
 
 export default FavoriteItem;
-
-//    <Link to={`/products/${product.slug}`}>

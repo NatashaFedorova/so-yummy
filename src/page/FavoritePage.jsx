@@ -7,14 +7,27 @@ import FavoriteList from "components/FavoriteList/FavoriteList";
 import Loading from "components/Loading/Loading";
 import { selectFavoriteIsLoading } from 'redux/favorite/favoriteSelectors';
 import { getFavorite } from 'redux/favorite/favoriteOperation';
+// import { PagePagination } from 'components/Pagination/Pagination';
 
 const FavoritePage = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectFavoriteIsLoading);
+  // const [currentPage, setCurrentPage] = useState(1);
+  // const favoriteItems = useSelector(selectFavoriteItems);
+  // const cardsPerPage = 4;
+  // const totalPages = favoriteItems.length > 0 ? favoriteItems[0].totalCount : 8;
+
+  // const handlePageChange = page => {
+  //   setCurrentPage(page);
+  // };
 
   useEffect(() => {
     dispatch(getFavorite());
   }, [dispatch]);
+
+  // useEffect(() => {
+  //   dispatch(getRecipesByCategory({ categoryName: name, page: currentPage }));
+  // }, [name, dispatch, currentPage]);
 
   return (
     <>
@@ -25,6 +38,12 @@ const FavoritePage = () => {
         </FakeMainPageTitleWrap>
         <FavoriteSection >
           <FavoriteList />
+          {/* <PagePagination
+            totalPages={totalPages}
+            cardsPerPage={cardsPerPage}
+            currentPage={currentPage}
+            handlePageChange={handlePageChange}
+          /> */}
         </FavoriteSection>
       </Container>
     </>
