@@ -69,7 +69,7 @@ export const SearchInputButton = styled.button`
 
   position: absolute;
   top: -1px;
-  right: -1px;
+  right: -2px;
 
   background-color: ${props => props.theme.colors.mainPage.bgBtnSearch};
   color: ${props => props.theme.colors.mainPage.textBtnSearch};
@@ -98,7 +98,7 @@ export const SearchInputButton = styled.button`
 
   @media ${device.desktop} {
     width: 161px;
-    height: 70px;
+    height: 71px;
 
     font-size: ${props => props.theme.fontSizes.m};
   }
