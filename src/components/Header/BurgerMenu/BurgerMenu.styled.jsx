@@ -4,6 +4,7 @@ import { device } from 'components/constants/deviceType/deviceType';
 
 export const BurgerMenuDiv = styled.div`
   margin-left: 27px;
+  cursor: pointer;
 
   @media${device.tablet} {
     margin-left: 54px;

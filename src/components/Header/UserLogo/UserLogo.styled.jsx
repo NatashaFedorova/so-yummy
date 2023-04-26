@@ -9,6 +9,7 @@ export const UserInfo = styled.div`
   display: flex;
   gap: 14px;
   align-items: center;
+  cursor: pointer;
 `;
 
 export const AvatarArea = styled.div`

@@ -3,12 +3,16 @@ import { createPortal } from 'react-dom';
 import { UserInfoModal } from '../UserInfoModal/UserInfoModal';
 import { HiOutlinePencil } from 'react-icons/hi';
 import { AiOutlineArrowRight } from 'react-icons/ai';
-import { ModalUser, StyledLogoutBtn } from './UserLogoModal.styled';
+import {
+  ModalOverlay,
+  ModalUser,
+  StyledLogoutBtn,
+} from './UserLogoModal.styled';
 import { UserLogoutModal } from '../LogoutModal/LogoutModal';
 
 const modalRoot = document.querySelector('#modal-root');
 
-export const UserLogoModal = ({ showUserLogoModal }) => {
+export const UserLogoModal = ({ showUserLogoModal, closeUserLogoModal }) => {
   const [showUserInfoModal, setShowUserInfoModal] = useState(false);
   const [showLogoutModal, setShowLogoutModal] = useState(false);
 
@@ -16,6 +20,12 @@ export const UserLogoModal = ({ showUserLogoModal }) => {
     if ((e.charCode || e.keyCode) === 27) {
       setShowUserInfoModal(false);
       setShowLogoutModal(false);
+    }
+  };
+
+  const onClickBackdrop = e => {
+    if (e.currentTarget === e.target) {
+      closeUserLogoModal();
     }
   };
 
@@ -31,7 +41,7 @@ export const UserLogoModal = ({ showUserLogoModal }) => {
   }
 
   return createPortal(
-    <>
+    <ModalOverlay onClick={onClickBackdrop}>
       <ModalUser>
         <button
           onClick={() => {
@@ -64,7 +74,7 @@ export const UserLogoModal = ({ showUserLogoModal }) => {
           }}
         />
       )}
-    </>,
+    </ModalOverlay>,
     modalRoot
   );
 };

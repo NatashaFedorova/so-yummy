@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { HiOutlineMail } from 'react-icons/hi';
 import { device } from 'components/constants/deviceType/deviceType';
+import DefaultBtn from 'components/constants/DefaultBtn';
 
 export const SubcribeFormDiv = styled.div`
   display: flex;
@@ -19,8 +20,8 @@ export const SubcribeFormDiv = styled.div`
     flex-direction: column;
     padding: 0;
   }
-
-  & h3 {
+`;
+export const SubscriptionTitle = styled.h3`
     font-size: 18px;
     font-weight: 700;
     line-height: 27px;
@@ -33,8 +34,8 @@ export const SubcribeFormDiv = styled.div`
       margin-bottom: 14px;
     }
   }
-
-  & p {
+`;
+export const SubscriptionInfo = styled.p`
     font-size: 14px;
     font-weight: 400;
     line-height: 18px;
@@ -48,8 +49,8 @@ export const SubcribeFormDiv = styled.div`
       margin-bottom: 28px;
     }
   }
-
-  & .label_box {
+`;
+export const SubscriptionLabel = styled.label`
     display: flex;
     padding: 14px;
     border: 1px solid white;
@@ -70,8 +71,8 @@ export const SubcribeFormDiv = styled.div`
       height: 60px;
     }
   }
-
-  & input {
+`;
+export const SubscriptionInput = styled.input`
     font-size: 10px;
     font-weight: 400;
     line-height: 15px;
@@ -94,8 +95,8 @@ export const SubcribeFormDiv = styled.div`
       color: white;
     }
   }
-
-  & button {
+`;
+export const SubscriptionButton = styled(DefaultBtn)`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -143,4 +144,8 @@ export const StyledHiOutlineMail = styled(HiOutlineMail)`
     width: 28px;
     height: 26px;
   }
+`;
+
+export const ErrorMailMassege = styled.p`
+  color: red;
 `;
