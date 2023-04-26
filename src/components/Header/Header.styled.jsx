@@ -1,4 +1,5 @@
 import Container from 'components/constants/Container';
+import { device } from 'components/constants/deviceType/deviceType';
 import styled from 'styled-components';
 
 export const HeaderS = styled.header`
@@ -22,4 +23,16 @@ export const HeaderContainer = styled(Container)`
 export const HeaderRightDiv = styled.div`
   display: flex;
   align-items: center;
+`;
+
+export const RightDivSwitcher = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 50px;
+`;
+export const HeaderSwitchDiv = styled.div`
+  display: none;
+  @media${device.desktop} {
+    display: flex;
+  }
 `;

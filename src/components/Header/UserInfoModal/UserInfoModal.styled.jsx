@@ -108,6 +108,7 @@ export const ChangeImageInput = styled.input`
 export const ConfigNameLabel = styled.label`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 282px;
   max-height: 60px;
   margin-bottom: 32px;

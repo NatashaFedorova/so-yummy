@@ -2,6 +2,16 @@ import DefaultBtn from 'components/constants/DefaultBtn';
 import { device } from 'components/constants/deviceType/deviceType';
 import styled from 'styled-components';
 
+export const ModalOverlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1040;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+`;
+
 export const ModalUser = styled.div`
   position: absolute;
   z-index: 5;
