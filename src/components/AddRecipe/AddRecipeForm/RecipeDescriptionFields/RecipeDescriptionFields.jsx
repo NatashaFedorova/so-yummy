@@ -179,7 +179,6 @@ const RecipeDescriptionField = ({
         ref={addFileInput}
         name="recipe-picture"
         accept="image/png, image/gif, image/jpeg, image/svg"
-        required
       />
       <InputsWrapper>
         <InputWrapper>
@@ -192,6 +191,7 @@ const RecipeDescriptionField = ({
             onChange={inputHandleChange}
             value={initialDataState.title}
             required
+            pattern="^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$"
           />
         </InputWrapper>
         <InputWrapper>
@@ -203,6 +203,7 @@ const RecipeDescriptionField = ({
             name="description"
             onChange={inputHandleChange}
             required
+            pattern="^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$"
           />
         </InputWrapper>
         <InputWrapper>
@@ -215,6 +216,7 @@ const RecipeDescriptionField = ({
             styles={colorStyles}
             onChange={handleChange}
             required
+            pattern="^[a-zA-Z]+$"
           />
         </InputWrapper>
         <InputWrapper>
@@ -228,6 +230,7 @@ const RecipeDescriptionField = ({
             isSearchable={false}
             onChange={handleChange}
             required
+            pattern="^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$"
           />
         </InputWrapper>
       </InputsWrapper>
