@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
 import SecondaryTitle from 'components/AddRecipe/SecondaryTitle/SecondaryTitle';
 import IngredientInput from './IngredientInput';
@@ -14,12 +13,9 @@ import {
   SelectWrapper,
   TopWrapper,
 } from './RecipeIngredientsFields.styled';
-import {
-  initialIngredients,
-  quantities,
-} from 'components/AddRecipe/helpers/vars';
+import { quantities } from 'components/AddRecipe/helpers/vars';
 import { useSelector } from 'react-redux';
-import { nanoid } from 'nanoid';
+import { selectIngredients } from 'redux/recipes/selectors/addRecipeSelectors';
 
 export const colorStyles = {
   control: styles => ({
@@ -50,51 +46,18 @@ export const colorStyles = {
   },
 };
 
-const RecipeIngredientsFields = () => {
-  const [ingredients, setIngredients] = useState(initialIngredients);
-  const initialOption = useSelector(state => state.addRecipe.ingredients);
+const RecipeIngredientsFields = ({
+  ingredients,
+  incrementHandler,
+  decrementHandler,
+  deleteHandler,
+  changeHandler,
+  changeIngredientHandler,
+}) => {
+  const initialOption = useSelector(selectIngredients);
 
-  const incrementHandler = () => {
-    return setIngredients(prevCount => [
-      ...prevCount,
-      {
-        id: nanoid(),
-        ingredient: '',
-        quantity: '',
-      },
-    ]);
-  };
-
-  const decrementHandler = () => {
-    const tmp = [...ingredients];
-    if (tmp.length === 1) {
-      alert('Sorry, you need to add at least one ingredient');
-      return;
-    }
-    tmp.splice(ingredients.length - 1, 1);
-    return setIngredients(tmp);
-  };
-
-  const deleteHandler = event => {
-    console.log('hallo');
-    const newIngredients = ingredients.filter(item => {
-      return item.id.toString() !== event.target.closest('li').id.toString();
-    });
-
-    setIngredients(newIngredients);
-  };
-
-  const changeHandler = (id, content) => {
-    const changedIngredients = ingredients.map(item => {
-      if (id === item.id) {
-        return { ...item, quantity: content };
-      }
-
-      return item;
-    });
-
-    setIngredients(changedIngredients);
-    console.log(changedIngredients);
+  const handleChange = (selectedOption, actionMeta) => {
+    changeIngredientHandler(actionMeta.name, selectedOption._id);
   };
 
   return (
@@ -113,16 +76,19 @@ const RecipeIngredientsFields = () => {
       </TopWrapper>
 
       <RecipeIngredientsList>
-        {ingredients.map((item, index) => {
+        {ingredients.map(item => {
           return (
-            <ListItem key={index + 100} id={item.id}>
+            <ListItem key={item.id} id={item.id}>
               <SelectWrapper>
                 <NewSelect
+                  onChange={handleChange}
                   placeholder="ingredient"
                   id={item.id}
                   type="text"
+                  name={item.id}
                   options={initialOption}
                   styles={colorStyles}
+                  required
                 />
                 <IngredientInput
                   value={item.quantity}

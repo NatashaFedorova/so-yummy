@@ -19,6 +19,7 @@ import { ModalWindow } from 'components/AddRecipe/Modal/Modal';
 import { size } from 'components/constants/deviceType/deviceType';
 import useTime from 'components/AddRecipe/hooks/hooks';
 import { useSelector } from 'react-redux';
+import { selectCategories } from 'redux/recipes/selectors/addRecipeSelectors';
 
 export const cutWidth = width => {
   const newValue = width.toString().replace('px', '').trim();
@@ -67,7 +68,11 @@ export const colorStyles = {
   }),
 };
 
-const RecipeDescriptionField = () => {
+const RecipeDescriptionField = ({
+  photo,
+  changeHandler: dataChangeHandler,
+  initialDataState,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const [photoUrl, setPhotoUrl] = useState(
@@ -77,11 +82,10 @@ const RecipeDescriptionField = () => {
   const [isOver, setIsOver] = useState(false);
   const [dragText, setDragText] = useState('Drag & Drop Picture here');
 
-  const photo = useRef(null);
   const addFileInput = useRef(null);
 
   const { initialData } = useTime(5, 120, 5);
-  const categories = useSelector(state => state.addRecipe.categories);
+  const categories = useSelector(selectCategories);
 
   const clickHandler = () => {
     if (Number(document.documentElement.clientWidth) < cutWidth(size.desktop)) {
@@ -145,6 +149,20 @@ const RecipeDescriptionField = () => {
     fileReader.readAsDataURL(photo.current);
   };
 
+  const inputHandleChange = event => {
+    dataChangeHandler(event.target.name, event.target.value);
+  };
+
+  const handleChange = (selectedOption, actionMeta) => {
+    if (actionMeta.name === 'category') {
+      dataChangeHandler(actionMeta.name, selectedOption.value);
+    }
+
+    if (actionMeta.name === 'time') {
+      dataChangeHandler(actionMeta.name, selectedOption.label);
+    }
+  };
+
   return (
     <RecipeDescrWrapper>
       <PictureThumb
@@ -160,16 +178,32 @@ const RecipeDescriptionField = () => {
         onChange={changeHandler}
         ref={addFileInput}
         name="recipe-picture"
-        accept="image/png, image/gif, image/jpeg, image/webp"
+        accept="image/png, image/gif, image/jpeg, image/svg"
+        required
       />
       <InputsWrapper>
         <InputWrapper>
-          <Label>Enter item title</Label>
-          <TextInput type="text" placeholder=" " name="title" />
+          <Label htmlFor="title">Enter item title</Label>
+          <TextInput
+            id="title"
+            type="text"
+            placeholder=" "
+            name="title"
+            onChange={inputHandleChange}
+            value={initialDataState.title}
+            required
+          />
         </InputWrapper>
         <InputWrapper>
-          <Label>Enter about recipe</Label>
-          <TextInput type="text" placeholder=" " name="about" />
+          <Label htmlFor="description">Enter about recipe</Label>
+          <TextInput
+            id="description"
+            type="text"
+            placeholder=" "
+            name="description"
+            onChange={inputHandleChange}
+            required
+          />
         </InputWrapper>
         <InputWrapper>
           <Label>Category</Label>
@@ -179,6 +213,8 @@ const RecipeDescriptionField = () => {
             id="category"
             options={categories}
             styles={colorStyles}
+            onChange={handleChange}
+            required
           />
         </InputWrapper>
         <InputWrapper>
@@ -190,6 +226,8 @@ const RecipeDescriptionField = () => {
             id="time"
             styles={colorStyles}
             isSearchable={false}
+            onChange={handleChange}
+            required
           />
         </InputWrapper>
       </InputsWrapper>
