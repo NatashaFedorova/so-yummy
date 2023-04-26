@@ -17,17 +17,13 @@ import {
 } from './RecipeDescriptionFields.styled';
 import { ModalWindow } from 'components/AddRecipe/Modal/Modal';
 import { size } from 'components/constants/deviceType/deviceType';
+import useTime from 'components/AddRecipe/hooks/hooks';
+import { useSelector } from 'react-redux';
 
 export const cutWidth = width => {
   const newValue = width.toString().replace('px', '').trim();
   return Number(newValue);
 };
-
-const initialOption = [
-  { value: 'baloon', label: 'baloon', id: 1 },
-  { value: 'hallo', label: 'hallo', id: 2 },
-  { value: 'owww', label: 'owww', id: 3 },
-];
 
 export const colorStyles = {
   control: (styles, { isFocused }) => ({
@@ -57,12 +53,23 @@ export const colorStyles = {
       lineHeight: 1.5,
     };
   },
+  menu: styles => ({
+    ...styles,
+    right: 0,
+    width: 150,
+    height: 230,
+    padding: '8px 8px 8px 14px',
+    alignSelf: 'flex-end',
+  }),
+  menuList: styles => ({
+    ...styles,
+    height: '100%',
+  }),
 };
 
 const RecipeDescriptionField = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const photo = useRef(null);
   const [photoUrl, setPhotoUrl] = useState(
     'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=='
   );
@@ -70,7 +77,11 @@ const RecipeDescriptionField = () => {
   const [isOver, setIsOver] = useState(false);
   const [dragText, setDragText] = useState('Drag & Drop Picture here');
 
+  const photo = useRef(null);
   const addFileInput = useRef(null);
+
+  const { initialData } = useTime(5, 120, 5);
+  const categories = useSelector(state => state.addRecipe.categories);
 
   const clickHandler = () => {
     if (Number(document.documentElement.clientWidth) < cutWidth(size.desktop)) {
@@ -166,7 +177,7 @@ const RecipeDescriptionField = () => {
             placeholder=" "
             name="category"
             id="category"
-            options={initialOption}
+            options={categories}
             styles={colorStyles}
           />
         </InputWrapper>
@@ -174,7 +185,7 @@ const RecipeDescriptionField = () => {
           <Label>Cooking time</Label>
           <UpdatedSelect
             placeholder=" "
-            options={initialOption}
+            options={initialData}
             name="time"
             id="time"
             styles={colorStyles}

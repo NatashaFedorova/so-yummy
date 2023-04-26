@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
 import SecondaryTitle from 'components/AddRecipe/SecondaryTitle/SecondaryTitle';
+import IngredientInput from './IngredientInput';
 import { DeleteButton } from 'components/AddRecipe/IconBtn/IconBtn.styled';
 import {
   CounterValue,
@@ -11,21 +12,14 @@ import {
   RecipeIngredientsList,
   RecipeIngredientsWrapper,
   SelectWrapper,
-  SmallSelect,
   TopWrapper,
 } from './RecipeIngredientsFields.styled';
-
-const initialIngredients = [
-  { id: '12', ingredient: 'potato', weight: '2kg' },
-  { id: '13', ingredient: 'cucumber', weight: '9kg' },
-  { id: '14', ingredient: 'tomato', weight: '1kg' },
-];
-
-const initialOption = [
-  { value: 'baloon', label: 'baloon', id: 1 },
-  { value: 'hallo', label: 'hallo', id: 2 },
-  { value: 'owww', label: 'owww', id: 3 },
-];
+import {
+  initialIngredients,
+  quantities,
+} from 'components/AddRecipe/helpers/vars';
+import { useSelector } from 'react-redux';
+import { nanoid } from 'nanoid';
 
 export const colorStyles = {
   control: styles => ({
@@ -58,14 +52,15 @@ export const colorStyles = {
 
 const RecipeIngredientsFields = () => {
   const [ingredients, setIngredients] = useState(initialIngredients);
+  const initialOption = useSelector(state => state.addRecipe.ingredients);
 
   const incrementHandler = () => {
     return setIngredients(prevCount => [
       ...prevCount,
       {
-        id: prevCount.length + 100,
+        id: nanoid(),
         ingredient: '',
-        weight: '',
+        quantity: '',
       },
     ]);
   };
@@ -81,11 +76,25 @@ const RecipeIngredientsFields = () => {
   };
 
   const deleteHandler = event => {
-    setIngredients(
-      ingredients.filter(item => {
-        return Number(item.id) !== Number(event.target.closest('li').id);
-      })
-    );
+    console.log('hallo');
+    const newIngredients = ingredients.filter(item => {
+      return item.id.toString() !== event.target.closest('li').id.toString();
+    });
+
+    setIngredients(newIngredients);
+  };
+
+  const changeHandler = (id, content) => {
+    const changedIngredients = ingredients.map(item => {
+      if (id === item.id) {
+        return { ...item, quantity: content };
+      }
+
+      return item;
+    });
+
+    setIngredients(changedIngredients);
+    console.log(changedIngredients);
   };
 
   return (
@@ -104,25 +113,22 @@ const RecipeIngredientsFields = () => {
       </TopWrapper>
 
       <RecipeIngredientsList>
-        {ingredients.map(item => {
+        {ingredients.map((item, index) => {
           return (
-            <ListItem id={item.id} key={item.weight}>
+            <ListItem key={index + 100} id={item.id}>
               <SelectWrapper>
                 <NewSelect
-                  type="text"
-                  placeholder={item.ingredient}
-                  options={initialOption}
-                  name="ingredient"
+                  placeholder="ingredient"
                   id={item.id}
+                  type="text"
+                  options={initialOption}
                   styles={colorStyles}
                 />
-                <SmallSelect
-                  type="text"
-                  placeholder={item.weight}
-                  options={initialOption}
-                  name="weight"
+                <IngredientInput
+                  value={item.quantity}
+                  onChange={changeHandler}
+                  ingredients={quantities}
                   id={item.id}
-                  styles={colorStyles}
                 />
               </SelectWrapper>
               <DeleteButton type="button" onClick={deleteHandler}>

@@ -12,6 +12,7 @@ const darkTheme = Object.freeze({
     successState: '#3cbc81',
     warningState: '#f6c23e',
     errorState: '#e74a3b',
+    textDefaultBtn: '#fafafa',
 
     // decoreElements
     decoreElements: {
@@ -19,16 +20,16 @@ const darkTheme = Object.freeze({
       accent: '#8baa36',
     },
 
-    // CardRecipe - small
-    cardRecipe: {
-      bgbtn: '#ffffff',
-      textBtn: '#3e4462',
-      // textBtnHover: '#8baa36',
+    btnUp: {
+      colorLeaf: '#f7ba00',
+      text: '#fafafa',
     },
 
-    btnUp: {
-      colorLeaf: '#8baa36',
-      text: '#fafafa',
+    // CardRecipe - small
+    cardRecipe: {
+      bgbtn: '#2a2c36',
+      textBtn: '#fafafa',
+      // textBtnHover: '#8baa36',
     },
 
     // userForm - RegisterPage/SigninPage/SubcribeFormFooter
@@ -46,17 +47,17 @@ const darkTheme = Object.freeze({
 
     // Modal
     modal: {
-      text: '#23262a',
-      textForm: 'rgba(35, 38, 42, .8)',
-      iconPersonForm: 'rgba(35, 38, 42, .8)',
-      iconPen: '#23262a',
-      iconClose: '#333333',
+      text: '#fafafa',
+      textForm: 'rgba(250, 250, 250, .8)',
+      iconPersonForm: '#fafafa',
+      iconPen: 'rgba(250, 250, 250, .8)',
+      iconClose: '#fafafa',
       iconPersonPhotoUser: '#c4c4c4',
       bgUnderPhotoUser: '#d9d9d9',
       // iconHover: '#8baa36',
-      border: 'rgba(35, 38, 42, .8)',
+      border: 'rgba(250, 250, 250, .3)',
       // borderHover: '#23262a',
-      bg: '#fafafa',
+      bg: '#2a2c36',
       bgBtn: '#8baa36',
       textBtn: '#fafafa',
       iconBtn: '#fafafa',
@@ -68,20 +69,21 @@ const darkTheme = Object.freeze({
 
     // pagination
     pagination: {
-      text: '#656565',
-      bg: '#fafafa',
-      icon: 'rgba(169, 169, 169, .73)',
-      textActiveBtn: '#22252a',
-      bgActiveBtn: '#ebf3d4',
+      text: 'rgba(250, 250, 250, .6)',
+      bg: '##2a2c36',
+      icon: 'rgba(250, 250, 250, .6)',
+      textActiveBtn: '#fafafa',
+      bgActiveBtn: '#8baa36',
     },
 
     // header
     header: {
-      textMain: '#23262a',
+      textMain: '#fafafa',
       textSecondary: '#22252a',
-      iconMenu: '#22252a',
-      iconSearch: '#22252a',
+      iconMenu: '#fafafa',
+      iconSearch: '#fafafa',
       bgAccent: '#ebf3d4',
+      accent: '#8baa36',
       // iconMenuHover: '#8baa36',
       // iconSearchHover: '#8baa36',
     },
@@ -89,19 +91,23 @@ const darkTheme = Object.freeze({
     // BurgerMenu
     burgerMenu: {
       colorAccent: '#8baa36',
-      bg: '#ebf3d4',
-      text: '#22252a',
-      iconIconClose: '#22252a',
-      // iconCloseHover: '#8baa36',
+      bg: '#1e1f28',
+      text: '#fafafa',
+      iconIconClose: '#fafafa',
+      iconCloseHover: '#8baa36',
     },
 
     // footer
     footer: {
       text: '#fafafa',
-      textSecondary: 'rgba(34, 37, 42, .5)',
-      bgSection: '#22252a',
-      socIcon: '#8baa36',
-      socIconHover: '#ffffff',
+      textSecondary: 'rgba(250, 250, 250, .5)',
+      border: '#fafafa',
+      textSubcribeBtn: '#fafafa',
+      textSubcribeBtnHover: '#8baa36',
+      bgSubcribeBtn: '#1e1f28',
+      bgSection: '#8baa36',
+      socIcon: '#fafafa',
+      socIconHover: '#1e1f28',
     },
 
     // WelcomePage
@@ -128,27 +134,28 @@ const darkTheme = Object.freeze({
     // MainPage
     mainPage: {
       bgAccent: '#ebf3d4',
-      textMain: '#23262a',
-      textSecondary: '#3e4462',
+      textMain: '#fafafa',
+      textSecondary: '#fafafa',
       textAccent: '#8baa36',
       generalTitleAccent: '#8baa36',
-      generalTitleMain: '#22252a',
-      bgInput: '#f0f0f0',
-      placeholderInputSearch: '#bdbdbd',
-      borderInputSearch: '#bdbdbd',
-      borderInputSearchHover: 'rgba(35, 38, 42, .2)',
-      textInputSearchForm: '#23262a',
+      generalTitleMain: '#fafafa',
+      bgInput: 'transparent',
+      placeholderInputSearch: 'rgba(250, 250, 250, .5)',
+      borderInputSearch: 'rgba(250, 250, 250, 0.5)',
+      borderInputSearchHover: 'rgba(250, 250, 250, 0.5)',
+      textInputSearchForm: '#fafafa',
       textBtnSearch: '#fafafa',
       bgBtnSearch: '#22252a',
       bgBtnSearchHover: '#8baa36',
-      titleLinkCategory: '#001833',
+      titleLinkCategory: '#fafafa',
       titleLinkCategoryHover: '#8baa36',
       textBtnSeeAll: '#fafafa',
       bgBtnSeeAll: '#8baa36',
-      // borderBtnSeeAll: '#8baa36',
-      // textBtnSeeAllHover: '#8baa36',
-      // bgBtnSeeAllHover: '#fafafa',
-      textBtnOtherCategories: '#22252a',
+      bgBtnSeeAllBorder: 'transparent',
+      borderBtnSeeAllHover: '#8baa36',
+      textBtnSeeAllHover: '#22252a',
+      bgBtnSeeAllHover: '#fafafa',
+      textBtnOtherCategories: '#fafafa',
       bgBtnOtherCategories: 'transparent',
       bordertnOtherCategories: '#8baa36',
       textOtherCategoriesHover: '#fafafa',
@@ -157,72 +164,73 @@ const darkTheme = Object.freeze({
 
     // CategoriesPage
     categoriesPage: {
-      title: '#001833',
-      linkNameCategory: '#bdbdbd',
+      title: '#fafafa',
+      linkNameCategory: 'rgba(250, 250, 250, .6)',
       linkNameCategoryHover: '#8baa36',
       lineActive: '#8baa36',
-      line: '#e0e0e0',
+      line: 'rgba(250, 250, 250, .2)',
       overlay: '#3e4462',
       overlayHover: 'rgb(139, 170, 54, 0.3)',
       overlayHoverAfter: 'rgb(0, 0, 0, 0.5)',
       gradient: '#a8c163',
-      // '#8baa36',
     },
 
     // AddRecipePage
     addRecipePage: {
-      title: '#001833',
-      titleSecondary: '#3e4462',
-      text: '#7e7e7e',
+      title: '#fafafa',
+      titleSecondary: '#fafafa',
+      text: 'rgba(250, 250, 250, .6)',
       bdUnderImage: '#8baa36',
       iconDefaultImage: '#fafafa',
-      textForm: '#23262a',
-      labelForm: '#000000',
-      textNumberForm: '#333333',
-      iconForm: 'rgba(51, 51, 51, .3)',
-      iconFormHover: '#8baa36',
-      iconClose: '#333333',
+      borderForm: '#d9d9d9',
+      textForm: '#fafafa',
+      labelForm: '#fafafa',
+      textNumberForm: '#fafafa',
+      iconForm: '#8baa36',
+      iconFormHover: '#fafafa',
+      iconClose: '#fafafa',
       // iconCloseHover: '#8baa36',
-      bgInputTextArea: '#d9d9d9',
+      bgInputTextArea: 'transparent',
       textBtnAdd: '#fafafa',
-      bgBtnAdd: '#22252a',
-      bgBtnAddHover: '#8baa36',
+      bgBtnAdd: '#8baa36',
+      bgBtnAddHover: 'transparent',
       //   accentForm: '#8baa36',
-      placeholderForm: 'rgba(0, 0, 0, .5)',
-      socIcon: '#8baa36',
-      socIconHover: '#1e1f28',
-      line: '#e0e0e0',
+      placeholderForm: 'rgba(250, 250, 250, .6)',
+      socIcon: '#fafafa',
+      socIconHover: '#8baa36',
+      line: '#fafafa',
       lineSecondary: '#707070',
     },
 
     // FavoritePage
     favoritePage: {
-      title: '#001833',
-      titleSecondary: '#3e4462',
-      text: '#23262a',
-      iconBtnRemove: '#22252a',
-      bgBtnRemove: '#ebf3d4',
+      title: '#fafafa',
+      titleSecondary: '#fafafa',
+      text: 'rgba(250, 250, 250, .6)',
+      iconBtnRemove: '#fafafa',
+      bgBtnRemove: '#1e1f28',
       // iconBtnRemoveHover: '#fafafa',
       // bgBtnRemoveHover: '#8baa36',
       textBtnAboutRecipe: '#fafafa',
-      bgBtnAboutRecipe: '#22252a',
-      bgBtnAboutRecipeHover: '#8baa36',
-      bgCardRecipe: '#ffffff',
+      bgBtnAboutRecipe: '#8baa36',
+      bgBtnAboutRecipeHover: 'transparent',
+      bgCardRecipe: '#2a2c36',
     },
 
-    // // RecipePage
+    // RecipePage
     recipePage: {
       title: '#8baa36',
-      titleSecondry: '#3e4462',
+      text: '#23262a',
+      titleSecondry: '#fafafa',
       textSecondary: '#fafafa',
-      textThird: 'rgba(0, 0, 0, 0.8)',
+      textThird: '#fafafa',
       iconClock: '#23262a',
       bgCheckBox: 'transparent',
       iconCheckBox: '#8baa36',
-      borderCheckBox: 'rgba(126, 126, 126, 0.5)',
+      borderCheckBox: 'rgba(250, 250, 250, .5)',
       // borderCheckBoxHover: '#8baa36',
       bdAccent: '#8baa36',
-      bgCardIngredient: '#ebf3d4',
+      bgCardIngredient: '#2a2c36;',
       bgBtn: 'transparent',
       textBtn: '#23262a',
       borderBtn: '#8baa36',
@@ -232,30 +240,32 @@ const darkTheme = Object.freeze({
       bgNumber: '#8baa36',
     },
 
-    // // MyRecipesPage
+    // MyRecipesPage
     myRecipesPage: {
-      title: '#001833',
-      titleSecondary: '#3e4462',
-      text: '#23262a',
+      title: '#fafafa',
+      titleSecondary: '#fafafa',
+      text: 'rgba(250, 250, 250, .6)',
       iconBtnRemove: '#fafafa',
-      bgBtnRemove: '#8baa36',
+      bgBtnRemove: '#1e1f28',
       // borderBtnRemove: '#8baa36',
       // iconBtnRemoveHover: '#8baa36',
       // bgBtnRemoveHover: 'transparent',
       textBtnAboutRecipe: '#fafafa',
       bgBtnAboutRecipe: '#8baa36',
-      bgBtnAboutRecipeHover: '#22252a',
-      bgCardRecipe: '#ffffff',
+      textBtnAboutRecipeHover: '#22252a',
+      bgCardRecipe: '#2a2c36',
     },
 
     // SearchPage
     searchPage: {
-      title: '#001833',
-      textSecondary: '#000000',
-      textInput: '#3e4462',
+      title: '#fafafa',
+      text: '#001833',
+      textInput: '#fafafa',
+      textSelect: 'rgba(0, 0, 0, .5)',
+      placeholder: 'rgba(250, 250, 250, 0.5)',
       icon: '#8baa36',
-      bgInput: '#ffffff',
-      borderInput: '#f0f0f0',
+      bgInput: 'transparent',
+      borderInput: 'rgba(250, 250, 250, 0.5)',
       borderInputHover: 'rgba(35, 38, 42, .2)',
       bgBtnSearch: '#8baa36',
       textBtnSearch: '#fafafa',
@@ -264,18 +274,20 @@ const darkTheme = Object.freeze({
 
     // ShoppingListPage
     shoppingListPage: {
-      title: '#001833',
-      titleSecondary: '#3e4462',
+      title: '#fafafa',
+      titleSecondary: '#fafafa',
       textSecondary: '#fafafa',
       bgAccent: '#8baa36',
-      icon: '#333333',
+      icon: '#fafafa',
       // iconHover: '#8baa36',
+
+      line: 'rgba(250, 250, 250, .3)',
     },
 
-    // // errorPageNotFound - 404
+    // errorPageNotFound - 404
     errorPageNotFound: {
-      text: '#000000',
-      textSecondary: 'rgba(0, 0, 0, .5)',
+      text: '#fafafa',
+      textSecondary: 'rgba(250, 250, 250, .5)',
     },
   },
 
@@ -299,8 +311,9 @@ const darkTheme = Object.freeze({
     m: '16px',
     l: '18px',
     xl: '24px',
-    xxl: '44px',
-    xxxl: '28px',
+    xxl: '28px',
+    xxxl: '44px',
+    sectionTitleTablet: '32px',
     generalTitle: '100px',
   },
   fontWeight: {

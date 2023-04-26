@@ -5,15 +5,20 @@ import { device } from 'components/constants/deviceType/deviceType';
 export const HeaderNavigation = styled.nav`
   display: none;
 
-  @media${device.desktop} {
+  @media ${device.desktop} {
     display: flex;
     gap: 30px;
   }
 `;
 
 export const StyledNavigationLink = styled(NavLink)`
-  color: black;
+  color: ${props => props.theme.colors.header.textMain};
+
+  &.active {
+    color: ${props => props.theme.colors.header.accent};
+  }
+
   &:hover {
-    color: #8baa36;
+    color: ${props => props.theme.colors.header.accent};
   }
 `;

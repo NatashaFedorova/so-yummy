@@ -20,6 +20,7 @@ import { categoryReducer } from './recipes/recipesSlice/categorySlice';
 import { recipeByCategoryReducer } from './recipes/recipesSlice/recipesByCategorySlice';
 //import { recipeToFavoriteReducer } from './recipes/recipesSlice/addRecipeToFavoriteSlice';
 import { favoriteReducer } from 'redux/favorite/favoriteSlice';
+import { addRecipeReducer } from './recipes/recipesSlice/addRecipeSlice';
 
 const authPersistConfig = {
   key: 'auth',
@@ -49,6 +50,7 @@ export const store = configureStore({
     // recipes: recipesReducer,
     theme: persistReducer(themePersistConfig, themeReducer),
     categories: categoryReducer,
+    addRecipe: addRecipeReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

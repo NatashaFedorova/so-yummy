@@ -28,7 +28,7 @@ const SearchInput = () => {
     console.log(inputQuery);
 
     setSearchValue(inputQuery);
-    return navigate(`/search?query=${inputQuery}`);
+    return navigate(`/search?filter=${inputQuery}`);
   }
 
   return (
