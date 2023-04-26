@@ -43,7 +43,7 @@ const SigninForm = () => {
           required
         />
       </AuthFormLabel>
-      <AuthFormBtnSubmit type="submit">Sign in</AuthFormBtnSubmit>
+      <AuthFormBtnSubmit type="submit">Sign up</AuthFormBtnSubmit>
     </AuthForm>
   );
 };
