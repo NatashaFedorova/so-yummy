@@ -28,17 +28,13 @@ const RecipeInngredientsList = ({ info, recId, shopList }) => {
 
   const onHandleChange = async info => {
     await dispatch(AddIngredientToShoppingList(info));
-    await dispatch(refreshUser())
+    await dispatch(refreshUser());
   };
 
   const isInShopingList = shopList
     .filter(value => value.recipeID === recId)
     .flatMap(item => item.ingredientId);
 
-  // console.log('is resipe in true ', isInShopingList);
-  // console.log('Check status ', isInShopList);
-  // console.log('Is User ?  ', shopList);
-  // console.log('from userInfo ', userInfo);
   // console.log('recipe Id  ', recId);
 
   return (
@@ -85,4 +81,3 @@ const RecipeInngredientsList = ({ info, recId, shopList }) => {
 };
 
 export default RecipeInngredientsList;
-
