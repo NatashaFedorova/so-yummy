@@ -1,7 +1,6 @@
 import { useState } from 'react';
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import {
-  // ErrorMailMassege,
   StyledHiOutlineMail,
   SubcribeFormDiv,
   SubscriptionButton,
@@ -16,14 +15,15 @@ import { subscribe } from 'redux/user/userOperation';
 export const SubscribeForm = () => {
   const { user } = useAuth();
   const { email, subscription } = user;
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const [subscribeEmail, setSubscribeEmail] = useState('');
   const [wrongEmail, setWrongEmail] = useState(false);
 
   const onSubscribe = () => {
+    setSubscribeEmail('');
     if (subscribeEmail === email) {
       setWrongEmail(false);
-      // dispatch(subscribe());
+      dispatch(subscribe());
     } else {
       setWrongEmail(true);
     }
@@ -46,6 +46,7 @@ export const SubscribeForm = () => {
         <StyledHiOutlineMail />
         <SubscriptionInput
           disabled={subscribe && 'disabled'}
+          value={subscribeEmail}
           placeholder={
             subscription ? 'You already subscribe' : 'Enter your email adress'
           }
@@ -53,7 +54,7 @@ export const SubscribeForm = () => {
         />
       </SubscriptionLabel>
       <SubscriptionButton
-        disabled={subscribe}
+        disabled={subscribe && 'disabled'}
         onClick={onSubscribe}
         style={
           wrongEmail ? { background: 'red' } : { backgroundColor: '#8baa36' }
