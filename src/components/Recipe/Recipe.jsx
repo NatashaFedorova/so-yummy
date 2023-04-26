@@ -20,12 +20,9 @@ import {
 //import { selectFavoriteItems } from '../../redux/favorite/favoriteSelectors';
 
 import { getRecipeById } from '../../redux/recipes/operations/getRecipeById';
-import {
-  // addFavorite,
-  getFavorite,
-} from '../../redux/favorite/favoriteOperation';
+import { addFavorite } from '../../redux/favorite/favoriteOperation';
 
-//import { selectUser } from '../../redux/auth/authSelectors';
+import { selectUser } from '../../redux/auth/authSelectors';
 
 const Recipe = () => {
   const dispatch = useDispatch();
@@ -36,39 +33,29 @@ const Recipe = () => {
   const Recipe = useSelector(selectRecipeById);
   const Status = useSelector(selectRecipeByIdStatus);
   //const FavoritesList = useSelector(selectFavoriteItems);
-  //const { id } = useSelector(selectUser);
-
+  const { id, shoppingList } = useSelector(selectUser);
   useEffect(() => {
     dispatch(getRecipeById(recipeId));
   }, [dispatch, recipeId]);
 
-  useEffect(() => {
-    dispatch(getFavorite());
-  }, [dispatch]);
+  const addRcpToFavorite = async () => {
+    await dispatch(addFavorite(recipeId));
+    await dispatch(getRecipeById(recipeId));
+    //await setIsRecipeFavorite(true);
+  };
 
-  // const addRcpToFavorite = () => {
-  //   dispatch(addFavorite(recipeId));
-  //   setIsRecipeFavorite(true);
-  // };
+  const isRecipeFavor = Recipe.favorites;
+  let ButtonState = Recipe.favorites;
 
-  // const AddRecipeStatus = () => {
-  //   const hasRecipeFavorites = FavoritesList
-  //     .find(recipe => recipe._id === recipeId)
-  //   if (hasRecipeFavorites) {
-  //     const isTrue = hasRecipeFavorites.favorites.flatMap(item => item.userId).some(value => value === id);
-  //     return isTrue
-  //   }
-  //   else {
-  //     return false
-  //   }
-  // }
+  if (isRecipeFavor) {
+    const hasRecipeFavorites = isRecipeFavor
+      .flatMap(item => item.userId)
+      .some(value => value === id);
+    // console.log('is resipe in true ', hasRecipeFavorites);
+    ButtonState = hasRecipeFavorites;
+  }
 
-  // useEffect(() => {
-  //   setIsRecipeFavorite(AddRecipeStatus());
-  // }, [FavoritesList]);
-
-  //console.log("Arr of recipes with Favorite ", FavoritesList)
-  console.log('is hier Favorites fild', Recipe);
+  //console.log('is hier Favorites fild', Recipe);
 
   return (
     <>
@@ -77,14 +64,18 @@ const Recipe = () => {
         {Status === STATUS.success && (
           <>
             <RecipePageHero
-              //btnState={isRecipeFavorite}
-              //onBtnClick={() => addRcpToFavorite(recipeId)}
+              btnState={ButtonState}
+              onBtnClick={() => addRcpToFavorite(recipeId)}
               title={Recipe.title}
               time={Recipe.time}
               description={Recipe.description}
             />
             <Container>
-              <RecipeInngredientsList info={Recipe.ingredients} />
+              <RecipeInngredientsList
+                info={Recipe.ingredients}
+                recId={recipeId}
+                shopList={shoppingList}
+              />
               <RecipePreparation
                 instructions={Recipe.instructions}
                 img={Recipe.thumb}
