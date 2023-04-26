@@ -26,7 +26,7 @@ export const authSlise = createSlice({
         state.isLoggedIn = true;
         state.isRefreshing = false;
 
-        alert('Registration successful!');
+        Notify.success('Registration successful!');
       })
       .addCase(register.rejected, (state, action) => {
         Notify.failure('Incorrect email or password! Or maybe the user with this email address is not registered. Try again');
@@ -42,7 +42,6 @@ export const authSlise = createSlice({
       })
       .addCase(logIn.rejected, (state, action) => {
         Notify.failure('Incorrect email or password! Or maybe the user with this email address is not registered. Try again');
-          // alert('Incorrect email or password! Or maybe the user with this email address is not registered. Try again')
       })
       .addCase(logOut.fulfilled, state => {
         state.user = { name: null, email: null };
@@ -50,7 +49,6 @@ export const authSlise = createSlice({
         state.isLoggedIn = false;
 
         Notify.info(`Goodbuy!`);
-        // Notify.info(`Goodbuy ${state.user.name}!`);
       })
       .addCase(refreshUser.pending, (state, action) => {
         state.isRefreshing = true;
@@ -68,19 +66,17 @@ export const authSlise = createSlice({
         state.user.name = action.payload.name;
         state.user.avatarUrl = action.payload.avatarUrl;
         state.isLoggedIn = true;
-
-        alert('Chamge successful!');
+        Notify.success('Changes successful');
       })
       .addCase(changeUserData.rejected, (state, action) => {
-        alert('error');
+        Notify.failure('Error');
       })
       .addCase(subscribe.fulfilled, (state, action) => {
         state.user.subscribtion = action.payload.subscription;
-
-        alert('Chamge successful!');
+        Notify.success('Changes successful');
       })
       .addCase(subscribe.rejected, (state, action) => {
-        alert('error');
+        Notify.failure('Error');
       }),
 });
 
