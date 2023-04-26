@@ -16,42 +16,30 @@ import {
 } from './RecipeInngredientsList.styled';
 
 //import { IsIngredientToShopList } from '../../redux/recipes/selectors/selectRecipeById';
-
+import { refreshUser } from '../../redux/auth/authOperation';
 import { AddIngredientToShoppingList } from '../../redux/recipes/operations/getRecipeById';
 //import { selectUser } from '../../redux/auth/authSelectors';
 
 const RecipeInngredientsList = ({ info, recId, shopList }) => {
   const dispatch = useDispatch();
-  // const isInShopList = useSelector(IsIngredientToShopList);
+  //const isInShopList = useSelector(IsIngredientToShopList);
   // const [isChecked, setIsChecked] = useState(false);
-
   //const userInfo = useSelector(selectUser);
-  // const AddTo = async (Arr) => {
 
-  //   try {
-  //     await dispatch(AddIngredientToShopList(Arr))
-  //     setIsChecked(true)
-  //   }
-  //   catch (error) {
-  //     console.log(error);
-  //     //   dispatch(AddIngredientToShopList(Arr));
-  //     //   //setIsChecked(true)
-  //   }
-  // }
-
-  const onFormSubmit = async info => {
+  const onHandleChange = async info => {
     await dispatch(AddIngredientToShoppingList(info));
-    // await setIsChecked(true);
+    await dispatch(refreshUser())
   };
 
-  //const hasRecipeFavorites = shopList.filter(value => value.recipeID === recId);
+  const isInShopingList = shopList
+    .filter(value => value.recipeID === recId)
+    .flatMap(item => item.ingredientId);
 
-  //console.log('is resipe in true ', hasRecipeFavorites);
-
-  //console.log('Check status ', isInShopList);
-  //console.log('Is User ?  ', shopList);
-  //console.log('from userInfo ', userInfo);
-  //console.log('recipe Id  ', recId);
+  // console.log('is resipe in true ', isInShopingList);
+  // console.log('Check status ', isInShopList);
+  // console.log('Is User ?  ', shopList);
+  // console.log('from userInfo ', userInfo);
+  // console.log('recipe Id  ', recId);
 
   return (
     <>
@@ -75,9 +63,9 @@ const RecipeInngredientsList = ({ info, recId, shopList }) => {
                 type="checkbox"
                 id="vehicle4"
                 name="vehicle4"
-                //  checked={isChecked}
+                checked={isInShopingList.some(value => value === item._id)}
                 onChange={() =>
-                  onFormSubmit({
+                  onHandleChange({
                     ingredientId: item._id,
                     title: item.ttl,
                     _id: item._id,
@@ -98,4 +86,3 @@ const RecipeInngredientsList = ({ info, recId, shopList }) => {
 
 export default RecipeInngredientsList;
 
-// 640cd5ac2d9fecf12e889855

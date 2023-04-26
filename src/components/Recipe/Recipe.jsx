@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 //import { useState } from 'react';
-
 import { useParams } from 'react-router-dom';
 
 import Container from 'components/constants/Container';
@@ -17,8 +16,6 @@ import {
   selectRecipeByIdStatus,
 } from '../../redux/recipes/selectors/selectRecipeById';
 
-//import { selectFavoriteItems } from '../../redux/favorite/favoriteSelectors';
-
 import { getRecipeById } from '../../redux/recipes/operations/getRecipeById';
 import { addFavorite } from '../../redux/favorite/favoriteOperation';
 
@@ -32,8 +29,8 @@ const Recipe = () => {
 
   const Recipe = useSelector(selectRecipeById);
   const Status = useSelector(selectRecipeByIdStatus);
-  //const FavoritesList = useSelector(selectFavoriteItems);
   const { id, shoppingList } = useSelector(selectUser);
+
   useEffect(() => {
     dispatch(getRecipeById(recipeId));
   }, [dispatch, recipeId]);
@@ -51,7 +48,6 @@ const Recipe = () => {
     const hasRecipeFavorites = isRecipeFavor
       .flatMap(item => item.userId)
       .some(value => value === id);
-    // console.log('is resipe in true ', hasRecipeFavorites);
     ButtonState = hasRecipeFavorites;
   }
 
@@ -91,13 +87,4 @@ const Recipe = () => {
 
 export default Recipe;
 
-//Favorite
-//640cd5ac2d9fecf12e889826
-//640cd5ac2d9fecf12e889864
 
-/////
-//nofavorite
-//640cd5ac2d9fecf12e889838
-
-//formTEST
-//640cd5ac2d9fecf12e889809

@@ -1,4 +1,4 @@
-import { HeroBtn, HeroHead, HeroTitle, HeroInfo, HeroP } from './Recipe.styled';
+import { HeroBtn, HeroHead, HeroTitle, HeroInfo, HeroP } from './RecipePageHero.styled';
 
 const RecipePageHero = ({ title, time, description, onBtnClick, btnState }) => {
   return (
