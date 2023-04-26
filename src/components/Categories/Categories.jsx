@@ -29,7 +29,7 @@ import {
 } from './Category.styled';
 import Loading from '../Loading/Loading';
 import { PagePagination } from '../Pagination/Pagination';
-import { CategoryContentLoad } from './CategoryContentLoad';
+// import { CategoryContentLoad } from './CategoryContentLoad';
 // import { useMediaQuery } from 'react-responsive';
 
 const Categories = () => {
