@@ -13,6 +13,12 @@ export const RecipeCard = styled.div`
     height: auto;
   }
 
+  &:hover {
+    opacity: 1;
+    scale: 1.03;
+    transition-duration: 2000ms;
+  }
+
   .overlay {
     position: absolute;
     bottom: 24px;
@@ -20,6 +26,7 @@ export const RecipeCard = styled.div`
     left: 16px;
     right: 16px;
     padding: 16px;
+    background-image: none;
     background-color: ${props => props.theme.colors.cardRecipe.bgbtn};
     color: ${props => props.theme.colors.categoriesPage.overlay};
     font-family: 'Poppins';
@@ -27,14 +34,14 @@ export const RecipeCard = styled.div`
     font-weight: ${props => props.theme.fontWeight.medium};
     font-size: ${props => props.theme.fontSizes.m};
     line-height: 20px;
-
+    opacity: 1;
     transition-duration: 2000ms;
   }
 
-  &:hover {
-    opacity: 1;
-    scale: 1.03;
-    transition-duration: 2000ms;
+  &:hover .overlay {
+    z-index: 2;
+    background-image: linear-gradient(to left, #a8c163, transparent);
+    /* transition: background-image 2s ease-in-out; */
   }
 
   .title {
@@ -44,7 +51,11 @@ export const RecipeCard = styled.div`
     transition-duration: 2000ms;
   }
 
-  &:hover::after {
+  &:hover .title {
+    scale: 1.03;
+  }
+
+  &::after {
     content: '';
     position: absolute;
     top: 0;
@@ -52,23 +63,14 @@ export const RecipeCard = styled.div`
     right: 0;
     bottom: 0;
     background-color: ${props =>
-      props.theme.colors.categoriesPage.overlayHover};
+      props.theme.colors.categoriesPage.overlayHoverAfter};
     z-index: 1;
     opacity: 0;
-
-    transition: opacity 1000ms ease, background-color 1000ms ease 2500ms;
+    transition: opacity 500ms ease;
   }
 
   &:hover::after {
     opacity: 1;
-    background-color: ${props =>
-      props.theme.colors.categoriesPage.overlayHoverAfter};
-  }
-  &:hover .overlay {
-    z-index: 2;
-    background-image: linear-gradient(to left, #a8c163, transparent);
-  }
-  &:hover .title {
-    scale: 1.03;
+    transition: opacity 500ms ease;
   }
 `;

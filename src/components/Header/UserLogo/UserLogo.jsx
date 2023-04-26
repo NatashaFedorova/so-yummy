@@ -31,7 +31,6 @@ export const UserLogo = () => {
       document.body.removeEventListener('keydown', closeOnESCLogoModal);
     };
   }, []);
-
   return (
     <>
       <UserLogoDiv onClick={togglerUserLogoModal}>
@@ -42,7 +41,10 @@ export const UserLogo = () => {
           <UserNameSpan>{`${name}`}</UserNameSpan>
         </UserInfo>
       </UserLogoDiv>
-      <UserLogoModal showUserLogoModal={showUserLogoModal} />
+      <UserLogoModal
+        showUserLogoModal={showUserLogoModal}
+        closeUserLogoModal={() => setShowUserLogoModal(false)}
+      />
     </>
   );
 };

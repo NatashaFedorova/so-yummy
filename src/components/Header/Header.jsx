@@ -3,7 +3,13 @@
 // import { useDispatch } from 'react-redux';
 // import { setUser } from 'redux/user/userSlice';
 import { BurgerMenu } from './BurgerMenu/BurgerMenu';
-import { HeaderContainer, HeaderRightDiv, HeaderS } from './Header.styled';
+import {
+  HeaderContainer,
+  HeaderRightDiv,
+  HeaderS,
+  HeaderSwitchDiv,
+  RightDivSwitcher,
+} from './Header.styled';
 import { Logo } from './Logo/Logo';
 import { Navigation } from './Navigation/Navigation';
 import { UserLogo } from './UserLogo/UserLogo';
@@ -21,11 +27,15 @@ const Header = () => {
       <HeaderContainer>
         <Logo />
         <Navigation />
-        <HeaderRightDiv>
-          <UserLogo />
-          <BurgerMenu />
-        </HeaderRightDiv>
-        <SwitchTheme />
+        <RightDivSwitcher>
+          <HeaderRightDiv>
+            <UserLogo />
+            <BurgerMenu />
+          </HeaderRightDiv>
+          <HeaderSwitchDiv>
+            <SwitchTheme />
+          </HeaderSwitchDiv>
+        </RightDivSwitcher>
       </HeaderContainer>
     </HeaderS>
   );

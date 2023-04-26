@@ -7,6 +7,7 @@ import {
   ContainerForAline,
 } from './Pagination.styled';
 import { animateScroll } from 'react-scroll';
+
 export const PagePagination = ({
   cardsPerPage,
   totalPages,

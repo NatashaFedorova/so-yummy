@@ -8,17 +8,16 @@ const SharedLayout = () => {
   return (
     <>
       <Header />
-        <main style={{flexGrow: "1", zIndex: "1"}}>
-          <Suspense fallback={<Loading />}>
-            <Outlet />
-          </Suspense>
-        </main> 
+      <main style={{ flexGrow: '1', zIndex: '1' }}>
+        <Suspense fallback={<Loading />}>
+          <Outlet />
+        </Suspense>
+      </main>
       <Footer />
     </>
   );
 };
 
 export default SharedLayout;
-
 
 // style={{position: "relative"}}

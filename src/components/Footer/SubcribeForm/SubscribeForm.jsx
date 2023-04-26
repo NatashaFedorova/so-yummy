@@ -1,44 +1,67 @@
-import DefaultBtn from 'components/constants/DefaultBtn';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { subscribe } from 'redux/user/userOperation';
-// import { selectCurrentUser } from 'redux/user/userSelectors';
-import { StyledHiOutlineMail, SubcribeFormDiv } from './SubscribeForm.styled';
+import {
+  StyledHiOutlineMail,
+  SubcribeFormDiv,
+  SubscriptionButton,
+  SubscriptionInfo,
+  SubscriptionInput,
+  SubscriptionLabel,
+  SubscriptionTitle,
+} from './SubscribeForm.styled';
 import useAuth from 'hooks/useAuth';
+import { subscribe } from 'redux/user/userOperation';
 
 export const SubscribeForm = () => {
-  // const { email, subscription } = useSelector(selectCurrentUser);
   const { user } = useAuth();
-  const {email, subscription} = user;
+  const { email, subscription } = user;
   const dispatch = useDispatch();
   const [subscribeEmail, setSubscribeEmail] = useState('');
+  const [wrongEmail, setWrongEmail] = useState(false);
 
   const onSubscribe = () => {
-    dispatch(subscribe());
+    setSubscribeEmail('');
+    if (subscribeEmail === email) {
+      setWrongEmail(false);
+      dispatch(subscribe());
+    } else {
+      setWrongEmail(true);
+    }
   };
 
   return (
     <SubcribeFormDiv>
-      <h3>Subscribe to our Newsletter</h3>
-      <p>
+      <SubscriptionTitle>Subscribe to our Newsletter</SubscriptionTitle>
+      <SubscriptionInfo>
         Subscribe up to our newsletter. Be in touch with latest news and special
         offers, etc.
-      </p>
-      <label>
-        <div className="label_box">
-          <StyledHiOutlineMail />
-          <input
-            placeholder="Enter your email adress"
-            onChange={event => setSubscribeEmail(event.target.value)}
-          />
-        </div>
-      </label>
-      <DefaultBtn
-        disabled={!(subscribeEmail === email) || subscription}
-        onClick={onSubscribe}
+      </SubscriptionInfo>
+      <SubscriptionLabel
+        style={
+          wrongEmail
+            ? { color: 'red', borderColor: 'red' }
+            : { color: 'currentColor', borderColor: 'currentColor' }
+        }
       >
-        {subscription ? `You already subscribe` : `Subscribe`}
-      </DefaultBtn>
+        <StyledHiOutlineMail />
+        <SubscriptionInput
+          disabled={subscribe && 'disabled'}
+          value={subscribeEmail}
+          placeholder={
+            subscription ? 'You already subscribe' : 'Enter your email adress'
+          }
+          onChange={event => setSubscribeEmail(event.target.value)}
+        />
+      </SubscriptionLabel>
+      <SubscriptionButton
+        disabled={subscribe && 'disabled'}
+        onClick={onSubscribe}
+        style={
+          wrongEmail ? { background: 'red' } : { backgroundColor: '#8baa36' }
+        }
+      >
+        {wrongEmail ? 'Wrong Email' : 'Subscribe'}
+      </SubscriptionButton>
     </SubcribeFormDiv>
   );
 };

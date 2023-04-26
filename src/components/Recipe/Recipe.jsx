@@ -18,7 +18,7 @@ import {
 
 import { getRecipeById } from '../../redux/recipes/operations/getRecipeById';
 import { addFavorite } from '../../redux/favorite/favoriteOperation';
-
+import { refreshUser } from '../../redux/auth/authOperation';
 import { selectUser } from '../../redux/auth/authSelectors';
 
 const Recipe = () => {
@@ -38,8 +38,11 @@ const Recipe = () => {
   const addRcpToFavorite = async () => {
     await dispatch(addFavorite(recipeId));
     await dispatch(getRecipeById(recipeId));
+    await dispatch(refreshUser());
     //await setIsRecipeFavorite(true);
   };
+
+  const removeRcpFromFavorite = async () => {};
 
   const isRecipeFavor = Recipe.favorites;
   let ButtonState = Recipe.favorites;
@@ -61,7 +64,8 @@ const Recipe = () => {
           <>
             <RecipePageHero
               btnState={ButtonState}
-              onBtnClick={() => addRcpToFavorite(recipeId)}
+              onBtnClickAdd={() => addRcpToFavorite(recipeId)}
+              onBtnClickRemove={() => removeRcpFromFavorite(recipeId)}
               title={Recipe.title}
               time={Recipe.time}
               description={Recipe.description}
@@ -86,5 +90,3 @@ const Recipe = () => {
 };
 
 export default Recipe;
-
-
