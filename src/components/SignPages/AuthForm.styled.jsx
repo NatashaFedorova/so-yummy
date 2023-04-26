@@ -4,6 +4,9 @@ import { device } from 'components/constants/deviceType/deviceType';
 import { ReactComponent as UserIcon } from './user.svg';
 import { ReactComponent as MailIcon } from './mail.svg';
 import { ReactComponent as LockIcon } from './lock.svg';
+import { ReactComponent as RedIcon } from './red.svg';
+import { ReactComponent as YellowIcon } from './yellow.svg';
+import { ReactComponent as GreenIcon } from './green.svg';
 
 export const AuthForm = styled.form`
   display: flex;
@@ -45,10 +48,7 @@ export const AuthFormTitle = styled.h1`
 `;
 export const AuthFormLabel = styled.label`
   position: relative;
-
   margin-bottom: 12px;
-
-  // color: green;
 
   :last-of-type {
     margin-bottom: 28px;
@@ -61,55 +61,128 @@ export const AuthFormLabel = styled.label`
       margin-bottom: 50px;
     }
   }
+
+  &:hover, &:focus {
+    color: blue;
+  }
+
+  &.red {
+    svg {
+      color: #E74A3B;
+    };
+    input {
+      border-color: #E74A3B;
+      opacity: 1;
+    };
+  };
+
+  &.yellow {
+    svg {
+      color: #F6C23E;
+    };
+    input {
+      border-color: #F6C23E;
+      opacity: 1;
+    };
+  };
+
+  &.green {
+    svg {
+      color: #3CBC81;
+    };
+    input {
+      border-color: #3CBC81;
+      opacity: 1;
+    };
+  }
 `;
-export const AuthFormUserIcon = styled(UserIcon)`
+
+export const AuthFormIconUser = styled(UserIcon)`
   position: absolute;
   top: 50%;
   left: 18px;
   width: 18px;
   height: 18px;
 
-  // color: inherit;
-  // color: red;
-
+  color: #ffffff;
+  opacity: 0.8;
   transform: translateY(-50%);
 `;
-export const AuthFormMailIcon = styled(MailIcon)`
+export const AuthFormIconMail = styled(MailIcon)`
   position: absolute;
   top: 50%;
   left: 18px;
   width: 18px;
   height: 18px;
 
-  color: inherit;
-
+  color: #ffffff;
+  opacity: 0.8;
   transform: translateY(-50%);
 `;
-export const AuthFormLockIcon = styled(LockIcon)`
+export const AuthFormIconLock = styled(LockIcon)`
   position: absolute;
   top: 50%;
   left: 18px;
   width: 18px;
   height: 18px;
 
-  color: inherit;
-
+  color: #ffffff;
+  opacity: 0.8;
   transform: translateY(-50%);
 `;
+export const AuthFormIconRed = styled(RedIcon)`
+  position: absolute;
+  top: 50%;
+  right: 18px;
+  width: 18px;
+  height: 18px;
+
+  color: #E74A3B;
+  transform: translateY(-50%);
+`;
+export const AuthFormIconYellow = styled(YellowIcon)`
+  position: absolute;
+  top: 50%;
+  right: 18px;
+  width: 18px;
+  height: 18px;
+
+  color: #F6C23E;
+  transform: translateY(-50%);
+`;
+export const AuthFormIconGreen = styled(GreenIcon)`
+  position: absolute;
+  top: 50%;
+  right: 18px;
+  width: 18px;
+  height: 18px;
+
+  color: #3CBC81;
+  transform: translateY(-50%);
+`;
+
 export const AuthFormInput = styled.input`
   width: 100%;
   padding: 12px 14px 12px 40px;
 
-  color: inherit;
+  color: #ffffff;
   font-size: 14px;
   line-height: 1.5;
   letter-spacing: -0.02em;
 
-  opacity: 0.8;
   border: 1px solid;
   border-radius: 6px;
-  border-color: ${props => props.theme.colors.welcomePage.borderBtnSignIn};
-  border-color: currentColor;
+  border-color: #ffffff;
+  opacity: 0.3;
+
+  &::placeholder {
+    color: #ffffff;
+    opacity: 0.8;
+  }
+
+  &:hover, &:focus {
+    opacity: 1;
+  }
 
   @media ${device.tablet} {
     padding: 16px 18px 16px 50px;
@@ -118,6 +191,18 @@ export const AuthFormInput = styled.input`
     line-height: 27px;
   }
 `;
+export const AuthFormValidaMsg = styled.p`
+  position: absolute;
+  // bottom: -24px;
+  bottom: -21px;
+  
+  left: 0px;
+
+  color: #E74A3B;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: center;
+`;
 export const AuthFormBtnSubmit = styled.button`
   height: 60px;
 
@@ -125,4 +210,7 @@ export const AuthFormBtnSubmit = styled.button`
 
   border-radius: 6px;
   background-color: ${props => props.theme.colors.userForm.bgBtn};
+  cursor: pointer;
+
+  :disabled {color: transparent}
 `;

@@ -1,13 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { register, logIn, logOut, refreshUser } from './authOperation';
 import { changeUserData, subscribe } from 'redux/user/userOperation';
-// import { Notify } from 'notiflix';
+import { Notify } from 'notiflix';
 
-// Notify.init({
-//   width: '720px',
-//   closeButton: false,
-//   timeout: 5000,
-// });
+Notify.init({
+  position: "center-top",
+  width: '340px',
+  closeButton: false,
+  timeout: 4000,
+});
 
 export const authSlise = createSlice({
   name: 'auth',
@@ -25,10 +26,11 @@ export const authSlise = createSlice({
         state.isLoggedIn = true;
         state.isRefreshing = false;
 
-        alert('Registration successful!');
+        Notify.success('Registration successful!');
       })
       .addCase(register.rejected, (state, action) => {
-        alert('Ooops, it fail :)')
+        Notify.failure('Incorrect email or password! Or maybe the user with this email address is not registered. Try again');
+
       })
       .addCase(logIn.fulfilled, (state, action) => {
         state.user = action.payload.user;
@@ -36,18 +38,17 @@ export const authSlise = createSlice({
         state.isLoggedIn = true;
         state.isRefreshing = false;
 
-        alert('Welcome USER!')
+        Notify.success(`Welcome ${action.payload.user.name}!`);
       })
       .addCase(logIn.rejected, (state, action) => {
-        // Notify.failure('ooops');
-          alert('Incorrect email or password! Or maybe the user with this email address is not registered. Try again')
+        Notify.failure('Incorrect email or password! Or maybe the user with this email address is not registered. Try again');
       })
       .addCase(logOut.fulfilled, state => {
         state.user = { name: null, email: null };
         state.token = null;
         state.isLoggedIn = false;
 
-        alert('Goodbuy USER!')
+        Notify.info(`Goodbuy!`);
       })
       .addCase(refreshUser.pending, (state, action) => {
         state.isRefreshing = true;
@@ -65,19 +66,17 @@ export const authSlise = createSlice({
         state.user.name = action.payload.name;
         state.user.avatarUrl = action.payload.avatarUrl;
         state.isLoggedIn = true;
-
-        alert('Chamge successful!');
+        Notify.success('Changes successful');
       })
       .addCase(changeUserData.rejected, (state, action) => {
-        alert('error');
+        Notify.failure('Error');
       })
       .addCase(subscribe.fulfilled, (state, action) => {
         state.user.subscribtion = action.payload.subscription;
-
-        alert('Chamge successful!');
+        Notify.success('Changes successful');
       })
       .addCase(subscribe.rejected, (state, action) => {
-        alert('error');
+        Notify.failure('Error');
       }),
 });
 
