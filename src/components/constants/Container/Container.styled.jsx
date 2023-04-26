@@ -5,15 +5,15 @@ const Container = styled.div`
   margin: 0 auto;
   @media ${device.mobile} {
     width: ${size.mobile};
-    padding: 0 16px;
+    padding: 0 ${props => props.theme.spacing(4)};
   }
   @media ${device.tablet} {
     width: ${size.tablet};
-    padding: 0 32px;
+    padding: 0 ${props => props.theme.spacing(8)};
   }
   @media ${device.desktop} {
     width: ${size.desktop};
-    padding: 0 100px;
+    padding: 0 ${props => props.theme.spacing(25)};
   }
 `;
 

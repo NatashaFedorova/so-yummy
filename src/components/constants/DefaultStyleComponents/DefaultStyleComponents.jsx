@@ -1,6 +1,6 @@
 // ${props => props.theme.colors.text}
 import styled from 'styled-components';
-import { device } from '../deviceType/deviceType';
+import { device, size } from '../deviceType/deviceType';
 
 export const DefaultSquare = styled.div`
   background: ${props => props.theme.colors.decoreElements.accent};
@@ -40,13 +40,13 @@ export const DecoreBoxForBg = styled.div`
   margin: 0 auto;
 
   @media ${device.mobile} {
-    width: 375px;
+    width: ${size.mobile};
   }
   @media ${device.tablet} {
-    width: 768px;
+    width: ${size.tablet};
   }
   @media ${device.desktop} {
-    width: 1440px;
+    width: ${size.desktop};
   }
 `;
 
@@ -79,7 +79,8 @@ export const BoxWithPicture = styled.div`
   @media ${device.desktop} {
     width: 558px;
     height: 852px;
-    background: url('${process.env.PUBLIC_URL}/images/bg/spinach-big-up-desktop.png');
+    background: url('${process.env
+      .PUBLIC_URL}/images/bg/spinach-big-up-desktop.png');
     background-repeat: no-repeat;
     background-size: auto;
     left: -214px;

@@ -10,6 +10,7 @@ const lightTheme = Object.freeze({
     successState: '#3cbc81',
     warningState: '#f6c23e',
     errorState: '#e74a3b',
+    textDefaultBtn: '#fafafa',
 
     // decoreElements
     decoreElements: {
@@ -80,6 +81,7 @@ const lightTheme = Object.freeze({
       iconMenu: '#22252a',
       iconSearch: '#22252a',
       bgAccent: '#ebf3d4',
+      accent: '#8baa36',
       // iconMenuHover: '#8baa36',
       // iconSearchHover: '#8baa36',
     },
@@ -90,13 +92,17 @@ const lightTheme = Object.freeze({
       bg: '#ebf3d4',
       text: '#22252a',
       iconIconClose: '#22252a',
-      // iconCloseHover: '#8baa36',
+      iconCloseHover: '#8baa36',
     },
 
     // footer
     footer: {
       text: '#fafafa',
       textSecondary: 'rgba(34, 37, 42, .5)',
+      border: '#fafafa',
+      textSubcribeBtn: '#fafafa',
+      textSubcribeBtnHover: '#22252a',
+      bgSubcribeBtn: '#8baa36',
       bgSection: '#22252a',
       socIcon: '#8baa36',
       socIconHover: '#ffffff',
@@ -174,6 +180,7 @@ const lightTheme = Object.freeze({
       text: '#7e7e7e',
       bdUnderImage: '#8baa36',
       iconDefaultImage: '#fafafa',
+      borderForm: '#d9d9d9',
       textForm: '#23262a',
       labelForm: '#000000',
       textNumberForm: '#333333',
@@ -211,6 +218,7 @@ const lightTheme = Object.freeze({
     // RecipePage
     recipePage: {
       title: '#8baa36',
+      text: '#23262a',
       titleSecondry: '#3e4462',
       textSecondary: '#fafafa',
       textThird: 'rgba(0, 0, 0, 0.8)',
@@ -242,23 +250,25 @@ const lightTheme = Object.freeze({
       // bgBtnRemoveHover: 'transparent',
       textBtnAboutRecipe: '#fafafa',
       bgBtnAboutRecipe: '#8baa36',
-      bgBtnAboutRecipeHover: '#22252a',
+      textBtnAboutRecipeHover: '#22252a',
       bgCardRecipe: '#ffffff',
     },
 
     // SearchPage
-    searchPage: {
-      title: '#001833',
-      textSecondary: '#000000',
-      textInput: '#3e4462',
-      icon: '#8baa36',
-      bgInput: '#ffffff',
-      borderInput: '#f0f0f0',
-      borderInputHover: 'rgba(35, 38, 42, .2)',
-      bgBtnSearch: '#8baa36',
-      textBtnSearch: '#fafafa',
-      bgBtnSearchHover: '#22252a',
-    },
+    // searchPage: {
+    //   title: '#001833',
+    //   text: '#001833',
+    //   textInput: '#3e4462',
+    //   textSelect: 'rgba(0, 0, 0, .5)',
+    //   placeholderInput: ' #bdbdbd',
+    //   icon: '#8baa36',
+    //   bgInput: '#ffffff',
+    //   borderInput: '#f0f0f0',
+    //   borderInputHover: 'rgba(35, 38, 42, .2)',
+    //   bgBtnSearch: '#8baa36',
+    //   textBtnSearch: '#fafafa',
+    //   bgBtnSearchHover: '#22252a',
+    // },
 
     // ShoppingListPage
     shoppingListPage: {
@@ -268,6 +278,7 @@ const lightTheme = Object.freeze({
       bgAccent: '#8baa36',
       icon: '#333333',
       // iconHover: '#8baa36',
+      line: '#e0e0e0',
     },
 
     // errorPageNotFound - 404

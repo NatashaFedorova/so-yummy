@@ -45,7 +45,7 @@ export const HeroTitle = styled.h1`
 `;
 
 export const HeroInfo = styled.p`
-  color: ${props => props.theme.colors.welcomePage.iconClock};
+  color: ${props => props.theme.colors.recipePage.iconClock};
   margin-bottom: ${props => props.theme.fontSizes.xl};
 
   @media ${device.mobile} {
