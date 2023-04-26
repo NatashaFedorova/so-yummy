@@ -139,7 +139,7 @@ const darkTheme = Object.freeze({
       textAccent: '#8baa36',
       generalTitleAccent: '#8baa36',
       generalTitleMain: '#fafafa',
-      bgInput: 'transparent',
+      bgInput: '#2a2c36',
       placeholderInputSearch: 'rgba(250, 250, 250, .5)',
       borderInputSearch: 'rgba(250, 250, 250, 0.5)',
       borderInputSearchHover: 'rgba(250, 250, 250, 0.5)',
@@ -160,6 +160,7 @@ const darkTheme = Object.freeze({
       bordertnOtherCategories: '#8baa36',
       textOtherCategoriesHover: '#fafafa',
       bgOtherCategoriesHover: '#8baa36',
+      bgPlateTextWrapper: '#2a2c36',
     },
 
     // CategoriesPage
