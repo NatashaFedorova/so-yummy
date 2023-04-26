@@ -9,7 +9,14 @@ export const quantities = [
 ];
 
 export const initialIngredients = [
-  { id: nanoid(), ingredient: '', quantity: '' },
-  { id: nanoid(), ingredient: '', quantity: '' },
-  { id: nanoid(), ingredient: '', quantity: '' },
+  { id: nanoid(), _id: '', quantity: '' },
+  { id: nanoid(), _id: '', quantity: '' },
+  { id: nanoid(), _id: '', quantity: '' },
 ];
+
+export const initialValues = {
+  title: '',
+  description: '',
+  time: '',
+  category: '',
+};

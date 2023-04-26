@@ -52,6 +52,7 @@ const IngredientInput = ({ ingredients, id, onChange, value }) => {
         id={id}
         type="text"
         placeholder="quantity"
+        required
         onBlur={() => {
           setTimeout(() => {
             setIsOpen(false);

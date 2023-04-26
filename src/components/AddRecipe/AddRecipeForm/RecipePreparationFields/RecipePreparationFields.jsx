@@ -5,20 +5,18 @@ import {
   Textarea,
 } from './RecipePreparationFields.styled';
 
-const RecipePreparationFields = () => {
-  const textareaChangeHandler = event => {
-    console.log(event.target.value.split('\n'));
-  };
-
+const RecipePreparationFields = ({ value, onChange }) => {
   return (
     <RecipePreparationFieldsWrapper>
       <SecondaryTitle>Recipe Preparation</SecondaryTitle>
       <Textarea
-        onChange={textareaChangeHandler}
+        onChange={onChange}
+        value={value.join('\n')}
         name="preparation"
         cols="30"
         rows="10"
         placeholder="Enter recipe"
+        required
       ></Textarea>
       <SubmitButtom type="submit">Add</SubmitButtom>
     </RecipePreparationFieldsWrapper>

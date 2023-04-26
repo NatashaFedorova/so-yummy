@@ -12,11 +12,14 @@ import PopularRecipeListCard from './PopularRecipeListCard/PopularRecipeListCard
 import { size } from 'components/constants/deviceType/deviceType';
 import { cutWidth } from '../AddRecipeForm/RecipeDescriptionFields/RecipeDescriptionFields';
 import { useSelector } from 'react-redux';
+import {
+  selectPopularReceipts,
+  selectPopularReceiptsError,
+} from 'redux/recipes/selectors/addRecipeSelectors';
 
 const PopularRecipe = () => {
-  const receipts = useSelector(state => state.addRecipe.receipts);
-
-  const error = useSelector(state => state.addRecipe.receiptsError);
+  const receipts = useSelector(selectPopularReceipts);
+  const error = useSelector(selectPopularReceiptsError);
   let cardsOnScreen = 4;
 
   const mobileScreen = useMediaQuery({
