@@ -21,7 +21,7 @@ const darkTheme = Object.freeze({
     },
 
     btnUp: {
-      colorLeaf: '#8baa36',
+      colorLeaf: '#f7ba00',
       text: '#fafafa',
     },
 
