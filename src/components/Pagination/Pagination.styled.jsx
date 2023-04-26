@@ -3,7 +3,11 @@ import styled from 'styled-components';
 export const ContainerForAline = styled.div`
   display: flex;
   justify-content: center;
-  padding: 20px;
+  /* padding: 20px; */
+  margin-bottom: 200px;
+  @media (min-width: 768px) {
+    margin-bottom: 100px;
+  }
 `;
 export const PaginationContainer = styled.div`
   display: inline-flex;
@@ -48,6 +52,7 @@ export const PageButton = styled.button`
   height: 27px;
   left: 72px;
   top: 14px;
+  color: ${props => props.theme.colors.pagination.text};
   background: ${props =>
     props.active
       ? `${props => props.theme.colors.pagination.bgAccent}`
