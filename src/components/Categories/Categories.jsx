@@ -29,6 +29,8 @@ import {
 } from './Category.styled';
 import Loading from '../Loading/Loading';
 import { PagePagination } from '../Pagination/Pagination';
+import { CategoryContentLoad } from './CategoryContentLoad';
+// import { useMediaQuery } from 'react-responsive';
 
 const Categories = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -40,6 +42,15 @@ const Categories = () => {
   const isLoad = useSelector(selectRecipesIsLoading);
   const cardsPerPage = 8;
   const totalPages = dishesElement.length > 0 ? dishesElement[0].totalCount : 8;
+
+  // const desktopScreen = useMediaQuery({ minWidth: 1440 });
+  // const tabletScreen = useMediaQuery({ minWidth: 768, maxWidth: 1439 });
+  // let cardsOnScreen = null;
+  // desktopScreen === true
+  //   ? (cardsOnScreen = 4)
+  //   : tabletScreen === true
+  //   ? (cardsOnScreen = 2)
+  //   : (cardsOnScreen = 1);
 
   const handlePageChange = page => {
     setCurrentPage(page);
@@ -115,7 +126,7 @@ const Categories = () => {
             })}
           </CategoryTabs>
         </Box>
-        <MyTabPanel> {isLoad ? <Loading /> : TabPanel(dishes)}</MyTabPanel>
+        <MyTabPanel>{isLoad ? <Loading /> : TabPanel(dishes)}</MyTabPanel>
         {totalPages > 8 && (
           <PagePagination
             totalPages={totalPages}

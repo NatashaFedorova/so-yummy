@@ -1,6 +1,6 @@
 import { lazy, useEffect } from 'react';
 import { ThemeProvider } from 'styled-components';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import selectStatusTheme from 'redux/theme/selectors';
 import lightTheme from 'components/constants/theme/lightTheme';
 import darkTheme from 'components/constants/theme/darkTheme';
@@ -16,6 +16,7 @@ import useAuth from 'hooks/useAuth';
 import { refreshUser } from 'redux/auth/authOperation';
 import { RestrictedRoute, PrivateRoute, ErrorRoute } from 'components/Routes';
 import Loading from 'components/Loading/Loading';
+import { animateScroll } from 'react-scroll';
 
 const MainPage = lazy(() => import('page/MainPage'));
 const CategoriesPage = lazy(() => import('page/CategoriesPage'));
@@ -30,6 +31,13 @@ const ShoppingListPage = lazy(() => import('page/ShoppingListPage'));
 const App = () => {
   const dispatch = useDispatch();
   const { isRefreshing, isLoggedIn } = useAuth();
+  const location = useLocation();
+  console.log(location);
+
+  useEffect(() => {
+    console.log(location);
+    animateScroll.scrollToTop();
+  }, [location]);
 
   useEffect(() => {
     dispatch(refreshUser());
