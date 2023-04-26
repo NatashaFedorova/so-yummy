@@ -55,8 +55,7 @@ export const HeroImageArrow = styled.picture`
 
 export const HeroImageTextWrapper = styled.div`
   position: absolute;
-  background-color: ${props =>
-    props.theme.colors.mainPage.textOtherCategoriesHover};
+  background-color: ${props => props.theme.colors.mainPage.bgPlateTextWrapper};
 
   border-radius: 8px;
   padding: 8px;
