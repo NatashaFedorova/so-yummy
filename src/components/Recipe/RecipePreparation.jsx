@@ -7,7 +7,7 @@ import {
   PrepInfoSpan,
   PrepInfoWrap,
   PrepImgImg,
-} from './Recipe.styled';
+} from './RecipePreparation.styled';
 
 const RecipePreparation = ({ instructions, img, title }) => {
   const ArrFromInstructions = instructions.split('. ');

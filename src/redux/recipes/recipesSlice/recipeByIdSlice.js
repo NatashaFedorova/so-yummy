@@ -2,7 +2,10 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import { STATUS } from "../../../components/constants/loadingStatus/LoadingStatus";
 import { getRecipeById } from '../operations/getRecipeById';
-import { AddIngredientToShoppingList } from '../operations/getRecipeById';
+import {
+    AddIngredientToShoppingList,
+    //RemoveIngredientFromShoppingList 
+} from '../operations/getRecipeById';
 //import { addIngredientToShopList } from '../operations/getRecipeById';
 //import { addToFavorite } from '../operations/getRecipeById';
 
@@ -41,7 +44,20 @@ const recipeByIdSlice = createSlice({
                 state.status = STATUS.error;
                 state.error = action.payload;
             })
-
+    ////
+    // .addCase(RemoveIngredientFromShoppingList.pending, (state) => {
+    //     state.status = STATUS.loading;
+    // })
+    // .addCase(RemoveIngredientFromShoppingList.fulfilled, (state, action) => {
+    //     const index = state.items.findIndex(
+    //         ingredient => ingredient._id === action.payload.id
+    //     );
+    //     state.status = STATUS.success;
+    // })
+    // .addCase(RemoveIngredientFromShoppingList.rejected, (state, action) => {
+    //     state.status = STATUS.error;
+    //     state.error = action.payload;
+    // })
 })
 
 export const recipesByIdReducer = recipeByIdSlice.reducer;
