@@ -1,13 +1,22 @@
 import { size } from 'components/constants/deviceType/deviceType';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const CardWrapper = styled.li`
   display: flex;
-  gap: ${props => props.theme.spacing(3)};
+
   padding-bottom: 13px;
   padding-right: 14px;
   border-bottom: ${props => props.theme.borders.normal};
   border-color: rgba(112, 112, 112, 0.17);
+`;
+
+export const LinkWrapper = styled(Link)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1 1 auto;
+  gap: ${props => props.theme.spacing(3)};
 
   @media screen and (min-width: ${size.tablet}) {
     gap: 11px;

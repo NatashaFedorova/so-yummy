@@ -1,4 +1,4 @@
-import { size } from 'components/SignPages/SignPages.styled';
+import { size } from 'components/constants/deviceType/deviceType';
 import styled from 'styled-components';
 
 export const RecipePreparationFieldsWrapper = styled.div`

@@ -126,6 +126,7 @@ export const TextInput = styled.input`
 
   @media screen and (min-width: ${size.tablet}) {
     padding-bottom: 18px;
+    font-size: ${props => props.theme.fontSizes.s};
   }
 `;
 

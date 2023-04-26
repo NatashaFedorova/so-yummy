@@ -1,63 +1,62 @@
-import { useEffect, useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
 
 import SecondaryTitle from '../SecondaryTitle/SecondaryTitle';
-import { PopularRecipeWrapper } from './PopularRecipe.styled';
+import {
+  ErrorHeading,
+  ErrorWrapper,
+  PopularRecipeWrapper,
+} from './PopularRecipe.styled';
 import PopularRecipeList from './PopularRecipeList/PopularRecipeList';
 import PopularRecipeListCard from './PopularRecipeListCard/PopularRecipeListCard';
 
 import { size } from 'components/constants/deviceType/deviceType';
 import { cutWidth } from '../AddRecipeForm/RecipeDescriptionFields/RecipeDescriptionFields';
-
-const deserts = [
-  {
-    url: 'https://img.taste.com.au/hbNtzI2Q/taste/2021/08/clinkers-cake-173208-2.jpg',
-    title: 'Hallo !',
-    description:
-      'Sugar pie is a dessert in northern French and  Belgiancuisine, where it is called tarte...',
-  },
-  {
-    url: 'https://img.taste.com.au/hbNtzI2Q/taste/2021/08/clinkers-cake-173208-2.jpg',
-    title: 'Hallo !',
-    description:
-      'Sugar pie is a dessert in northern French and  Belgiancuisine, where it is called tarte...',
-  },
-  {
-    url: 'https://img.taste.com.au/hbNtzI2Q/taste/2021/08/clinkers-cake-173208-2.jpg',
-    title: 'Hallo !',
-    description:
-      'Sugar pie is a dessert in northern French and  Belgiancuisine, where it is called tarte...',
-  },
-  {
-    url: 'https://img.taste.com.au/hbNtzI2Q/taste/2021/08/clinkers-cake-173208-2.jpg',
-    title: 'Hallo !',
-    description:
-      'Sugar pie is a dessert in northern French and  Belgiancuisine, where it is called tarte...',
-  },
-];
+import { useSelector } from 'react-redux';
 
 const PopularRecipe = () => {
-  const [receipts, setReceipts] = useState([]);
+  const receipts = useSelector(state => state.addRecipe.receipts);
 
-  useEffect(() => {
-    if (
-      document.documentElement.clientWidth >= cutWidth(size.tablet) &&
-      document.documentElement.clientWidth < cutWidth(size.desktop)
-    ) {
-      setReceipts([(deserts[0], deserts[1])]);
-    } else {
-      setReceipts(deserts);
-    }
-  }, []);
+  const error = useSelector(state => state.addRecipe.receiptsError);
+  let cardsOnScreen = 4;
+
+  const mobileScreen = useMediaQuery({
+    minWidth: cutWidth(size.mobile),
+    maxWidth: cutWidth(size.mobile) - 1,
+  });
+
+  const desktopScreen = useMediaQuery({ minWidth: cutWidth(size.desktop) });
+
+  const tabletScreen = useMediaQuery({
+    minWidth: cutWidth(size.tablet),
+    maxWidth: cutWidth(size.desktop) - 1,
+  });
+
+  if (desktopScreen) {
+    cardsOnScreen = 4;
+  } else if (tabletScreen) {
+    cardsOnScreen = 2;
+  } else if (mobileScreen) {
+    cardsOnScreen = 4;
+  }
 
   return (
     <PopularRecipeWrapper>
-      <SecondaryTitle>Popular recipe</SecondaryTitle>
-      <PopularRecipeList
-        items={receipts}
-        renderItem={(item, index) => (
-          <PopularRecipeListCard {...item} key={index} />
-        )}
-      />
+      {receipts.lenght !== 0 && (
+        <>
+          <SecondaryTitle>Popular recipe</SecondaryTitle>
+          <PopularRecipeList
+            items={receipts.slice(0, cardsOnScreen)}
+            renderItem={(item, index) => (
+              <PopularRecipeListCard {...item} key={index} />
+            )}
+          />
+        </>
+      )}
+      {error && (
+        <ErrorWrapper>
+          <ErrorHeading>{`Sorry, we have no popular receipts for now :(`}</ErrorHeading>
+        </ErrorWrapper>
+      )}
     </PopularRecipeWrapper>
   );
 };
