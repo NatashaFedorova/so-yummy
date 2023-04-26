@@ -36,9 +36,14 @@ const SigninForm = () => {
       </AuthFormLabel>
       <AuthFormLabel>
         <AuthFormLockIcon />
-        <AuthFormInput type="password" name="password" placeholder="Password" required />
+        <AuthFormInput
+          type="password"
+          name="password"
+          placeholder="Password"
+          required
+        />
       </AuthFormLabel>
-      <AuthFormBtnSubmit type="submit">Sign up</AuthFormBtnSubmit>
+      <AuthFormBtnSubmit type="submit">Sign in</AuthFormBtnSubmit>
     </AuthForm>
   );
 };
