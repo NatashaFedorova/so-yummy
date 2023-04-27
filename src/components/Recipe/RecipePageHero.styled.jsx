@@ -2,6 +2,7 @@
 import styled from 'styled-components';
 import DefaultBtn from 'components/constants/DefaultBtn/';
 import { device } from 'components/constants/deviceType/deviceType';
+import clockIcon from './clock.svg'
 
 export const HeroHead = styled.div`
   background-image: url('${process.env.PUBLIC_URL}/images/recipeById/recipebg.png');
@@ -90,7 +91,7 @@ export const HeroP = styled.p`
   display: flex;
   flex-wrap: wrap;
   &:before {
-    content: url('${process.env.PUBLIC_URL}/images/recipebyId/clock.svg');
+    content: url(${clockIcon});
     margin-top: -3px;
     padding-right: 7px;
   }

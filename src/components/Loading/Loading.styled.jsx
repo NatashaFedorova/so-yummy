@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Box = styled.div`
-  height: 200vh;
+  height: 100vh;
   width: 100%;
   top: 0;
   background: rgba(139, 170, 54, 0.2);

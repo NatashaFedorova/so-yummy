@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { device } from 'components/constants/deviceType/deviceType';
+import pickIcon from './pick.svg'
 
 export const IngListItem = styled.li`
   display: flex;
@@ -124,7 +125,7 @@ export const IngListItemInput = styled.input`
   opacity: 0;
   cursor: pointer;
   &:checked + label:before {
-    content: url('${process.env.PUBLIC_URL}/images/recipebyId/pick.svg');
+    content: url(${pickIcon});
   }
   @media ${device.mobile} {
     width: 18px;
