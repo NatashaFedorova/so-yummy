@@ -15,8 +15,8 @@ const recipeByIdSlice = createSlice({
         status: STATUS.idle,
         items: [],
         shopList: [],
-        isLoading: 'init',
-        error: null,
+        // isLoading: 'init',
+        // error: null,
     },
     extraReducers: builder =>
         builder

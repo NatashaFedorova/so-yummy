@@ -25,7 +25,6 @@ const Recipe = () => {
   const dispatch = useDispatch();
 
   const { recipeId } = useParams();
-  //const [isRecipeFavorite, setIsRecipeFavorite] = useState(false);
 
   const Recipe = useSelector(selectRecipeById);
   const Status = useSelector(selectRecipeByIdStatus);
@@ -39,7 +38,6 @@ const Recipe = () => {
     await dispatch(addFavorite(recipeId));
     await dispatch(getRecipeById(recipeId));
     await dispatch(refreshUser());
-    //await setIsRecipeFavorite(true);
   };
 
   const removeRcpFromFavorite = async () => {
