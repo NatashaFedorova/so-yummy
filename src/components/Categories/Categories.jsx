@@ -128,7 +128,7 @@ const Categories = () => {
           </CategoryTabs>
         </Box>
         <MyTabPanel>{isLoad ? <Loading /> : TabPanel(dishes)}</MyTabPanel>
-        {totalPages > 8 && (
+        {totalPages > 12 && (
           <PagePagination
             totalPages={totalPages}
             cardsPerPage={cardsPerPage}

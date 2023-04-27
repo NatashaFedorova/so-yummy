@@ -32,10 +32,8 @@ const App = () => {
   const dispatch = useDispatch();
   const { isRefreshing, isLoggedIn } = useAuth();
   const location = useLocation();
-  console.log(location);
 
   useEffect(() => {
-    console.log(location);
     animateScroll.scrollToTop();
   }, [location]);
 
