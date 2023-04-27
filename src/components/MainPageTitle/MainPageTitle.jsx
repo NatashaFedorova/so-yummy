@@ -1,6 +1,6 @@
-
+import { MainTitle } from "./MainPageTitle.styled"
 const MainPageTitle = ({children}) => {
-    return <h1>{children}</h1>
+    return <MainTitle>{children}</MainTitle>
 }
 
 export default MainPageTitle

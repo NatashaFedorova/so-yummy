@@ -5,10 +5,10 @@ export const SearchButton = styled.button`
   cursor: pointer;
   display: block;
   border-radius: 24px 44px;
-  border: 1px solid #8baa36;
+  border: 1px solid ${p => p.theme.colors.searchPage.bgBtnSearch};
   height: 100%;
 
-  background-color: #8baa36;
+  background-color: ${p => p.theme.colors.searchPage.bgBtnSearch};
   padding: 16px 32px;
 
   position: absolute;
@@ -26,8 +26,8 @@ export const SearchButton = styled.button`
 export const SearchInput = styled.input`
   height: 100%;
   padding: 16px 32px;
-  border: 1px solid #f0f0f0;
-  background: #ffffff;
+  border: 1px solid ${p => p.theme.colors.searchPage.borderInput};
+  background: ${p => p.theme.colors.searchPage.bgInput};
   border-radius: 24px 44px;
   width: 100%;
 
