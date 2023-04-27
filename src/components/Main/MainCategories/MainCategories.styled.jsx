@@ -68,7 +68,7 @@ export const MainCategoriesBtnWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
 
-  padding-right: 18px;
+  padding-right: 20px;
 
   @media ${device.desktop} {
     padding-right: 0;
@@ -83,7 +83,12 @@ export const MainCategoriesBtn = styled(NavLink)`
   border-radius: 6px;
   color: ${props => props.theme.colors.mainPage.textBtnSeeAll};
 
-  padding: 10px 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 94px;
+  height: 38px;
+
   background-color: ${props => props.theme.colors.mainPage.bgBtnSeeAll};
   cursor: pointer;
   border: 1px solid ${props => props.theme.colors.mainPage.bgBtnSeeAllBorder};
