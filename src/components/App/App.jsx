@@ -39,14 +39,6 @@ const App = () => {
     animateScroll.scrollToTop();
   }, [location]);
 
-  const location = useLocation();
-  console.log(location);
-
-  useEffect(() => {
-    console.log(location);
-    animateScroll.scrollToTop();
-  }, [location]);
-
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
