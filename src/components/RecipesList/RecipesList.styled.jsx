@@ -30,8 +30,8 @@ export const RecipeTitle = styled.p`
   padding: 16px;
   width: 90%;
 
-  background-color: #ffffff;
-
+  background-color: ${p => p.theme.colors.cardRecipe.bgbtn};
+  color:  ${p => p.theme.colors.cardRecipe.textBtn};
   position: absolute;
   left: 18px;
   bottom: 26px;

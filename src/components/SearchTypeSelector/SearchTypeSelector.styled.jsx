@@ -3,7 +3,7 @@ import { device } from 'components/constants/deviceType/deviceType';
 import { AiOutlineDown } from 'react-icons/ai';
 
 export const LineDown = styled(AiOutlineDown)`
-  fill: #8baa36;
+  fill: ${p => p.theme.colors.searchPage.icon};
   pointer-events: none;
 `;
 export const Options = styled.button`
@@ -18,7 +18,8 @@ export const Options = styled.button`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  background-color: #d9d9d9;
+  background-color: ${p => p.theme.colors.searchPage.grey};
+  
   border-radius: 4px;
 
   cursor: pointer;
