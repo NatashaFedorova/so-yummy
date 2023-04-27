@@ -12,6 +12,8 @@ export const SignSection = styled.section`
   display: flex;
   align-items: flex-end;
   min-height: 100vh;
+  // background: ${props => props.theme.colors.background};
+  background: #fafafa;
 `;
 export const SignSectionBg = styled.div`
   position: absolute;
@@ -120,5 +122,5 @@ export const SignNavLink = styled(NavLink)`
   text-decoration-line: underline;
   text-align: center;
 
-  color: #fafafa;
+  color: ${props => props.theme.colors.userForm.textForm};
 `;
