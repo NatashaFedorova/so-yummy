@@ -11,8 +11,11 @@ import {
   AuthFormIconMail,
   AuthFormTitle,
   AuthFormValidaMsg,
+  AuthFormPassValidaMsg,
+  AuthFormPassValidaMsg2,
 } from 'components/SignPages/AuthForm.styled';
 import AuthFormIconValid from 'components/SignPages/AuthFormIconValid';
+import checkPasswordValidation from 'components/SignPages/AuthValidationPass';
 
 const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -28,6 +31,8 @@ const RegisterForm = () => {
   const [nameError, setNameError] = useState('');
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
+  const [passwordSecure, setPasswordSecure] = useState('');
+  const [passwordSecureMsg, setPasswordSecureMsg] = useState('');
   const [isValid, setIsValid] = useState(false);
   
   const handleBlur = e => {
@@ -68,9 +73,16 @@ const RegisterForm = () => {
     setPassword(e.target.value);
 
     if (e.target.value.length < 5 || e.target.value.length > 20) {
-      setPasswordError("A password must contain 5 to 20 characters.");
+      setPasswordError("Password must contain 5 to 16 characters.");
+      setPasswordSecureMsg("Enter a valid Password");
     } else {
       setPasswordError('');
+      setPasswordSecureMsg('');
+
+      const pasValid = checkPasswordValidation(e.target.value);
+      setPasswordSecure(pasValid);
+      if (pasValid) setPasswordSecureMsg("Your password is little secure");
+      else setPasswordSecureMsg("Password is secure");
     }
   }
   const handleSubmit = async e => {
@@ -99,18 +111,23 @@ const RegisterForm = () => {
     else if (emailDirty && email && !emailError) setEmailClass('green');
     else setEmailClass('');
   }, [emailDirty, email, emailError]);
-
+  
   useEffect(() => {
-    if (passwordDirty && passwordError) setPasswordClass('red');
-    else if (passwordDirty && password && !passwordError) setPasswordClass('green');
+    if (passwordDirty) {
+      if (passwordError) setPasswordClass('red');
+      else if (password && !passwordError) {
+        setPasswordClass('yellow');
+        if (!passwordSecure) setPasswordClass('green');
+      }
+    }
     else setPasswordClass('');
    
-  }, [passwordDirty, password, passwordError]);
+  }, [passwordDirty, password, passwordError, passwordSecure]);
 
   useEffect(() => {
     const isFormDataEmpty = !Boolean(name) && !Boolean(email) && !Boolean(password);
     const isFormDataValid = !Boolean(nameError) && !Boolean(emailError) && !Boolean(passwordError);
-    const isTrue = (!isFormDataEmpty && isFormDataValid);
+    const isTrue = (!isFormDataEmpty && isFormDataValid && !passwordSecure);
     setIsValid(isTrue);
 
     // console.log("-------------------------");console.log("-------------------------");
@@ -134,9 +151,9 @@ const RegisterForm = () => {
           type="text"
           name="name"
           placeholder="Name"
-          required
           autoComplete="off"
-          // autoFocus
+          minlength="2"
+          required
         />
         { nameClass && <AuthFormIconValid icon={nameClass}/>}
         { nameDirty && nameError && <AuthFormValidaMsg>{nameError}</AuthFormValidaMsg>}
@@ -150,8 +167,8 @@ const RegisterForm = () => {
           type="email"
           name="email"
           placeholder="Email"
-          required
           autoComplete="off"
+          required
         />
         { emailClass && <AuthFormIconValid icon={emailClass}/>}
         { emailDirty && emailError && <AuthFormValidaMsg>{emailError}</AuthFormValidaMsg>}
@@ -164,11 +181,17 @@ const RegisterForm = () => {
           type="password"
           name="password"
           placeholder="Password"
-          required
           autoComplete="new-password"
+          minlength="5"
+          required
         />
         { passwordClass && <AuthFormIconValid icon={passwordClass}/>}
-        { passwordDirty && passwordError && <AuthFormValidaMsg>{passwordError}</AuthFormValidaMsg>}
+        { passwordDirty && !passwordSecure && <AuthFormPassValidaMsg>{passwordSecureMsg}</AuthFormPassValidaMsg>}
+        { passwordDirty && passwordSecure && <AuthFormPassValidaMsg>{passwordSecureMsg}</AuthFormPassValidaMsg>}
+        { passwordDirty && passwordError && <AuthFormPassValidaMsg2>{passwordSecureMsg}</AuthFormPassValidaMsg2>}
+        
+        { passwordDirty && passwordError && <AuthFormPassValidaMsg2>{passwordError}</AuthFormPassValidaMsg2>}
+        { passwordDirty && !passwordError && passwordSecure && <AuthFormPassValidaMsg2>{passwordSecure}</AuthFormPassValidaMsg2>}
       </AuthFormLabel>
       <AuthFormBtnSubmit type="submit" disabled={!isValid} >Sign up</AuthFormBtnSubmit>
     </AuthForm>

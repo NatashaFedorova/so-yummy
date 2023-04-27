@@ -74,6 +74,9 @@ export const AuthFormLabel = styled.label`
       border-color: #E74A3B;
       opacity: 1;
     };
+    p {
+      color: #E74A3B;
+    }
   };
 
   &.yellow {
@@ -84,6 +87,9 @@ export const AuthFormLabel = styled.label`
       border-color: #F6C23E;
       opacity: 1;
     };
+    p {
+      color: #F6C23E;
+    }
   };
 
   &.green {
@@ -94,6 +100,9 @@ export const AuthFormLabel = styled.label`
       border-color: #3CBC81;
       opacity: 1;
     };
+    p {
+      color: #3CBC81;
+    }
   }
 `;
 
@@ -193,16 +202,60 @@ export const AuthFormInput = styled.input`
 `;
 export const AuthFormValidaMsg = styled.p`
   position: absolute;
-  // bottom: -24px;
-  bottom: -21px;
+  bottom: -11px;
   
   left: 0px;
 
   color: #E74A3B;
-  font-size: 14px;
-  line-height: 21px;
+  font-size: 11px;
+  line-height: 1;
   text-align: center;
+
+   @media ${device.tablet} {
+    bottom: -21px;
+
+    font-size: 14px;
+    line-height: 21px;
+  }
 `;
+export const AuthFormPassValidaMsg = styled.p`
+  position: absolute;
+  bottom: -11px;
+  
+  left: 0px;
+
+  color: #E74A3B;
+  font-size: 11px;
+  line-height: 1;
+  text-align: center;
+
+   @media ${device.tablet} {
+    bottom: -21px;
+
+    font-size: 14px;
+    line-height: 21px;
+  }
+`;
+export const AuthFormPassValidaMsg2 = styled.p`
+  position: absolute;
+  bottom: -22px;
+  
+  left: 0px;
+
+  color: #E74A3B;
+  font-size: 11px;
+  line-height: 1;
+  text-align: center;
+
+   @media ${device.tablet} {
+    bottom: -42px;
+
+    font-size: 14px;
+    line-height: 21px;
+  }
+`;
+
+
 export const AuthFormBtnSubmit = styled.button`
   height: 60px;
 
@@ -212,5 +265,8 @@ export const AuthFormBtnSubmit = styled.button`
   background-color: ${props => props.theme.colors.userForm.bgBtn};
   cursor: pointer;
 
-  :disabled {color: transparent}
+  :disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
 `;
