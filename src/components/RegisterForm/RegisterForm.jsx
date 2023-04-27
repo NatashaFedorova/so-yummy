@@ -137,7 +137,7 @@ const RegisterForm = () => {
     // console.log("isFormDataValid", isFormDataValid);
     // console.log("isFormDataValid", !Boolean(nameError), !Boolean(emailError) , !Boolean(passwordError));
     // console.log("isTrue", isTrue);
-  }, [name, email, password, nameError, emailError, passwordError]);
+  }, [name, email, password, nameError, emailError, passwordError, passwordSecure]);
 
   return (
     <AuthForm id="registerForm" onSubmit={handleSubmit} >
