@@ -17,7 +17,7 @@ import {
 } from '../../redux/recipes/selectors/selectRecipeById';
 
 import { getRecipeById } from '../../redux/recipes/operations/getRecipeById';
-import { addFavorite } from '../../redux/favorite/favoriteOperation';
+import { addFavorite, deleteFavorite } from '../../redux/favorite/favoriteOperation';
 import { refreshUser } from '../../redux/auth/authOperation';
 import { selectUser } from '../../redux/auth/authSelectors';
 
@@ -42,7 +42,11 @@ const Recipe = () => {
     //await setIsRecipeFavorite(true);
   };
 
-  const removeRcpFromFavorite = async () => {};
+  const removeRcpFromFavorite = async () => {
+    await dispatch(deleteFavorite(recipeId));
+    await dispatch(getRecipeById(recipeId));
+    await dispatch(refreshUser());
+  };
 
   const isRecipeFavor = Recipe.favorites;
   let ButtonState = Recipe.favorites;
@@ -90,3 +94,36 @@ const Recipe = () => {
 };
 
 export default Recipe;
+
+
+// AltReturn
+
+// <>
+//       {(Status === STATUS.idle || Status === STATUS.loading) && <Loading />}
+//       <div style={{ minHeight: '500px' }}>
+//         {Status === STATUS.success && (
+//           <>
+//             <RecipePageHero
+//               btnState={ButtonState}
+//               onBtnClickAdd={() => addRcpToFavorite(recipeId)}
+//               onBtnClickRemove={() => removeRcpFromFavorite(recipeId)}
+//               title={Recipe.title}
+//               time={Recipe.time}
+//               description={Recipe.description}
+//             />
+//             <Container>
+//               <RecipeInngredientsList
+//                 info={Recipe.ingredients}
+//                 recId={recipeId}
+//                 shopList={shoppingList}
+//               />
+//               <RecipePreparation
+//                 instructions={Recipe.instructions}
+//                 img={Recipe.thumb}
+//                 title={Recipe.title}
+//               />
+//             </Container>
+//           </>
+//         )}
+//       </div>
+//     </>

@@ -6,8 +6,8 @@ import {
     AddIngredientToShoppingList,
     //RemoveIngredientFromShoppingList 
 } from '../operations/getRecipeById';
-//import { addIngredientToShopList } from '../operations/getRecipeById';
-//import { addToFavorite } from '../operations/getRecipeById';
+
+
 
 const recipeByIdSlice = createSlice({
     name: 'recipeById',
@@ -34,14 +34,14 @@ const recipeByIdSlice = createSlice({
 
             /////
             .addCase(AddIngredientToShoppingList.pending, (state) => {
-                state.status = STATUS.loading;
+                // state.status = STATUS.loading;
             })
             .addCase(AddIngredientToShoppingList.fulfilled, (state, action) => {
                 state.shopList = action.payload;
-                state.status = STATUS.success;
+                // state.status = STATUS.success;
             })
             .addCase(AddIngredientToShoppingList.rejected, (state, action) => {
-                state.status = STATUS.error;
+                // state.status = STATUS.error;
                 state.error = action.payload;
             })
     ////

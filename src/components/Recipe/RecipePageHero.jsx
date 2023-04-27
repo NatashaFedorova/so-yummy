@@ -6,6 +6,7 @@ import {
   HeroP,
 } from './RecipePageHero.styled';
 
+
 const RecipePageHero = ({
   title,
   time,
