@@ -92,36 +92,3 @@ const Recipe = () => {
 };
 
 export default Recipe;
-
-
-// AltReturn
-
-// <>
-//       {(Status === STATUS.idle || Status === STATUS.loading) && <Loading />}
-//       <div style={{ minHeight: '500px' }}>
-//         {Status === STATUS.success && (
-//           <>
-//             <RecipePageHero
-//               btnState={ButtonState}
-//               onBtnClickAdd={() => addRcpToFavorite(recipeId)}
-//               onBtnClickRemove={() => removeRcpFromFavorite(recipeId)}
-//               title={Recipe.title}
-//               time={Recipe.time}
-//               description={Recipe.description}
-//             />
-//             <Container>
-//               <RecipeInngredientsList
-//                 info={Recipe.ingredients}
-//                 recId={recipeId}
-//                 shopList={shoppingList}
-//               />
-//               <RecipePreparation
-//                 instructions={Recipe.instructions}
-//                 img={Recipe.thumb}
-//                 title={Recipe.title}
-//               />
-//             </Container>
-//           </>
-//         )}
-//       </div>
-//     </>
