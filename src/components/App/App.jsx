@@ -43,6 +43,7 @@ const App = () => {
 
   const value = useSelector(selectStatusTheme);
   const theme = value ? darkTheme : lightTheme;
+  console.log(theme);
 
   return isRefreshing ? (
     <Loading />
