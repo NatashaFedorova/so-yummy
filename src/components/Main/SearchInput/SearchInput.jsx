@@ -9,6 +9,15 @@ import {
   SearchInputButton,
 } from './SearchInput.styled';
 
+import { Notify } from 'notiflix';
+
+Notify.init({
+  position: 'center-top',
+  width: '340px',
+  closeButton: false,
+  timeout: 4000,
+});
+
 const SearchInput = () => {
   const [searchValue, setSearchValue] = useState('');
   const navigate = useNavigate();
@@ -22,10 +31,12 @@ const SearchInput = () => {
     event.preventDefault();
     const inputQuery = searchValue.trim().toLowerCase();
     if (inputQuery === '') {
-      setSearchValue();
+      Notify.info(`Please enter your query!`);
+      // setSearchValue();
+      return;
     }
 
-    console.log(inputQuery);
+    // console.log(inputQuery);
 
     setSearchValue(inputQuery);
     return navigate(`/search?filter=${inputQuery}`);
