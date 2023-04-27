@@ -118,6 +118,8 @@ const SigninForm = () => {
           type="password"
           name="password"
           placeholder="Password"
+          autoComplete="on"
+          minlength="5"
           required
         />
         { passwordClass && <AuthFormIconValid icon={passwordClass}/>}
