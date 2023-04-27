@@ -4,7 +4,7 @@ import { STATUS } from "../../../components/constants/loadingStatus/LoadingStatu
 import { getRecipeById } from '../operations/getRecipeById';
 import {
     AddIngredientToShoppingList,
-    //RemoveIngredientFromShoppingList 
+    RemoveIngredientFromShoppingList
 } from '../operations/getRecipeById';
 
 
@@ -32,7 +32,8 @@ const recipeByIdSlice = createSlice({
                 state.error = action.payload;
             })
 
-            /////
+            ///// ADD TO SHOPPING LIST
+
             .addCase(AddIngredientToShoppingList.pending, (state) => {
                 // state.status = STATUS.loading;
             })
@@ -44,20 +45,22 @@ const recipeByIdSlice = createSlice({
                 // state.status = STATUS.error;
                 state.error = action.payload;
             })
-    ////
-    // .addCase(RemoveIngredientFromShoppingList.pending, (state) => {
-    //     state.status = STATUS.loading;
-    // })
-    // .addCase(RemoveIngredientFromShoppingList.fulfilled, (state, action) => {
-    //     const index = state.items.findIndex(
-    //         ingredient => ingredient._id === action.payload.id
-    //     );
-    //     state.status = STATUS.success;
-    // })
-    // .addCase(RemoveIngredientFromShoppingList.rejected, (state, action) => {
-    //     state.status = STATUS.error;
-    //     state.error = action.payload;
-    // })
+
+            //// REMOVE FROM SHOPPINGLIST
+
+            .addCase(RemoveIngredientFromShoppingList.pending, (state) => {
+                state.status = STATUS.loading;
+            })
+            .addCase(RemoveIngredientFromShoppingList.fulfilled, (state, action) => {
+                // const index = state.items.findIndex(
+                //     ingredient => ingredient._id === action.payload.id
+                // );
+                state.status = STATUS.success;
+            })
+            .addCase(RemoveIngredientFromShoppingList.rejected, (state, action) => {
+                state.status = STATUS.error;
+                state.error = action.payload;
+            })
 })
 
 export const recipesByIdReducer = recipeByIdSlice.reducer;
