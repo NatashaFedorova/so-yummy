@@ -54,14 +54,16 @@ export const SubscriptionInfo = styled.p`
 export const SubscriptionLabel = styled.label`
     display: flex;
     padding: 14px;
-    border: 1px solid ${props => props.theme.colors.userForm.input} !important;;
+    border: 1px solid ${props => props.theme.colors.userForm.input} !important;
     border-radius: 6px;
     align-items: center;
     width: 204px;
     height: 38px;
-   $:hover{
+   &:hover{
       border-color: ${props =>
         props.theme.colors.userForm.inputHover} !important;
+      color: ${props =>
+        props.theme.colors.userForm.inputHover} !important;        
     }
     margin-bottom: 16px;
     @media ${device.tablet} {
