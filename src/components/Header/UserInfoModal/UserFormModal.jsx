@@ -41,10 +41,10 @@ export const UserFormModal = () => {
     const form = document.getElementById('form');
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      const { image, name } = this.elements;
+      const { avatarImage, name } = this.elements;
       const data = new FormData();
-      console.log(image.files[0]);
-      data.append('image', image.files[0]);
+      console.log(avatarImage.files[0]);
+      data.append('avatarImage', avatarImage.files[0]);
       data.append('name', name.value);
       dispatch(changeUserData(data));
     });
@@ -70,7 +70,7 @@ export const UserFormModal = () => {
           <StyledAiFillPlusCircle />
           <ChangeImageInput
             type="file"
-            name="image"
+            name="avatarImage"
             onChange={handleFileChange}
             multiple
           />

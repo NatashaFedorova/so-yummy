@@ -260,17 +260,17 @@ const darkTheme = Object.freeze({
     // SearchPage
     searchPage: {
       title: '#fafafa',
-      text: '#001833',
+      text: '#fafafa',
       textInput: '#fafafa',
-      textSelect: 'rgba(0, 0, 0, .5)',
+      textSelect: 'rgba(250, 250, 250, 0.5)',
       placeholder: 'rgba(250, 250, 250, 0.5)',
       icon: '#8baa36',
       bgInput: 'transparent',
       borderInput: 'rgba(250, 250, 250, 0.5)',
-      borderInputHover: 'rgba(35, 38, 42, .2)',
+      borderInputHover: 'rgba(250, 250, 250, 0.5)',
       bgBtnSearch: '#8baa36',
       textBtnSearch: '#fafafa',
-      bgBtnSearchHover: '#22252a',
+      bgOptionsBtn: '#d9d9d9',
     },
 
     // ShoppingListPage

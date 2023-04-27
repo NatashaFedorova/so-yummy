@@ -268,8 +268,7 @@ const lightTheme = Object.freeze({
       borderInputHover: 'rgba(35, 38, 42, .2)',
       bgBtnSearch: '#8baa36',
       textBtnSearch: '#fafafa',
-      bgBtnSearchHover: '#22252a',
-      grey: '#d9d9d9'
+      bgOptionsBtn: '#d9d9d9',
     },
 
     // ShoppingListPage
