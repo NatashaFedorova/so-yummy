@@ -7,8 +7,7 @@ import {
   SignBox,
   SignNavLink,
 } from 'components/SignPages/SignPages.styled';
-// import SigninForm from 'components/SigninForm/';
-import SigninForm  from 'components/SigninForm/';
+import SigninForm from 'components/SigninForm/';
 
 const SigninPage = () => {
   return (
@@ -18,7 +17,7 @@ const SigninPage = () => {
           <SignBgImg />
           <SignBox>
             <SigninForm />
-            <SignNavLink to="/register">register</SignNavLink>
+            <SignNavLink to="/register">Registration</SignNavLink>
           </SignBox>
         </SignBoxWrap>
       </SignContainer>

@@ -7,8 +7,6 @@ import {
     RemoveIngredientFromShoppingList
 } from '../operations/getRecipeById';
 
-
-
 const recipeByIdSlice = createSlice({
     name: 'recipeById',
     initialState: {

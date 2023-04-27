@@ -1,10 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { STATUS } from 'components/constants/loadingStatus/LoadingStatus';
-import {
-  addFavorite,
-  deleteFavorite,
-  getFavorite,
-} from 'redux/favorite/favoriteOperation';
+import { addMyRecipes, deleteMyRecipes, getMyRecipes } from './myRecipesOperation';
+
+const handlePending = state => {
+  state.isLoading = true;
+};
+const handleRejected = (state, action) => {
+  state.isLoading = false;
+  state.error = action.payload;
+};
 
 export const myRecipesSlice = createSlice({
   name: 'myrecipes',
@@ -16,28 +20,43 @@ export const myRecipesSlice = createSlice({
   },
   extraReducers: builder =>
     builder
-      .addCase(addFavorite.pending, state => {
-        state.isLoading = true;
+      .addCase(addMyRecipes.pending, state => {
+        handlePending(state);
       })
-      .addCase(getFavorite.pending, state => {
-        state.isLoading = true;
+      .addCase(getMyRecipes.pending, state => {
+        handlePending(state);
       })
-      .addCase(deleteFavorite.pending, state => {
-        state.isLoading = true;
+      .addCase(deleteMyRecipes.pending, state => {
+        handlePending(state);
       })
-      .addCase(addFavorite.fulfilled, (state, action) => {
+      .addCase(addMyRecipes.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
+        state.items.push(action.payload);
       })
-      .addCase(getFavorite.fulfilled, (state, action) => {
+      .addCase(getMyRecipes.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
+        state.items = action.payload;
       })
-      .addCase(deleteFavorite.fulfilled, (state, action) => {
+      .addCase(deleteMyRecipes.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
+        const index = state.items.findIndex(
+          recipe => recipe.id === action.payload.id
+        );
+
+        state.items.splice(index, 1);
       })
-      .addCase(addFavorite.rejected, (state, action) => {}),
+      .addCase(addMyRecipes.rejected, (state, action) => {
+        handleRejected(state, action);
+      })
+      .addCase(getMyRecipes.rejected, (state, action) => {
+        handleRejected(state, action);
+      })
+      .addCase(deleteMyRecipes.rejected, (state, action) => {
+        handleRejected(state, action);
+      }),
 });
 
-export const favoriteReducer = myRecipesSlice.reducer;
+export const myRecipesReducer = myRecipesSlice.reducer;
