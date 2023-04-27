@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/so-yummy/static/css/main.a4bbdbbf.css",
-    "main.js": "/so-yummy/static/js/main.5ba65b3b.js",
-    "static/js/688.fb433978.chunk.js": "/so-yummy/static/js/688.fb433978.chunk.js",
-    "static/js/412.4ce0486e.chunk.js": "/so-yummy/static/js/412.4ce0486e.chunk.js",
+    "main.js": "/so-yummy/static/js/main.871fd267.js",
+    "static/js/763.4d84f483.chunk.js": "/so-yummy/static/js/763.4d84f483.chunk.js",
+    "static/js/509.d2139f69.chunk.js": "/so-yummy/static/js/509.d2139f69.chunk.js",
     "static/js/426.6005fa62.chunk.js": "/so-yummy/static/js/426.6005fa62.chunk.js",
     "static/js/138.5d31cea8.chunk.js": "/so-yummy/static/js/138.5d31cea8.chunk.js",
     "static/js/746.c5381aac.chunk.js": "/so-yummy/static/js/746.c5381aac.chunk.js",
@@ -31,9 +31,9 @@
     "static/media/pick.svg": "/so-yummy/static/media/pick.daf39ef5ede2bfe5733dc766de3147d9.svg",
     "static/media/deleteBtn.svg": "/so-yummy/static/media/deleteBtn.d4cff4fd43e9490a5ee9af7d19a262dc.svg",
     "main.a4bbdbbf.css.map": "/so-yummy/static/css/main.a4bbdbbf.css.map",
-    "main.5ba65b3b.js.map": "/so-yummy/static/js/main.5ba65b3b.js.map",
-    "688.fb433978.chunk.js.map": "/so-yummy/static/js/688.fb433978.chunk.js.map",
-    "412.4ce0486e.chunk.js.map": "/so-yummy/static/js/412.4ce0486e.chunk.js.map",
+    "main.871fd267.js.map": "/so-yummy/static/js/main.871fd267.js.map",
+    "763.4d84f483.chunk.js.map": "/so-yummy/static/js/763.4d84f483.chunk.js.map",
+    "509.d2139f69.chunk.js.map": "/so-yummy/static/js/509.d2139f69.chunk.js.map",
     "426.6005fa62.chunk.js.map": "/so-yummy/static/js/426.6005fa62.chunk.js.map",
     "138.5d31cea8.chunk.js.map": "/so-yummy/static/js/138.5d31cea8.chunk.js.map",
     "746.c5381aac.chunk.js.map": "/so-yummy/static/js/746.c5381aac.chunk.js.map",
@@ -51,6 +51,6 @@
   },
   "entrypoints": [
     "static/css/main.a4bbdbbf.css",
-    "static/js/main.5ba65b3b.js"
+    "static/js/main.871fd267.js"
   ]
 }
