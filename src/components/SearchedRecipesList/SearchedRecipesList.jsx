@@ -47,6 +47,10 @@ const SearchedRecepiesList = ({ searhType, refDiv }) => {
         );
         setRecipes(responseByIngridients);
         setStatus('resolved');
+
+        if (!responseByIngridients || responseByIngridients.length <= 1) {
+          setStatus('rejected');
+        }
       }
       if (searhType === 'Title') {
         const responseByTitle = await getRecepiesByTitle(params, page, limit);
