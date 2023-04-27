@@ -220,12 +220,12 @@ export const AuthFormValidaMsg = styled.p`
 `;
 export const AuthFormPassValidaMsg = styled.p`
   position: absolute;
-  bottom: -11px;
+  bottom: -12px;
   
   left: 0px;
 
   color: #E74A3B;
-  font-size: 11px;
+  font-size: 10px;
   line-height: 1;
   text-align: center;
 
@@ -238,12 +238,12 @@ export const AuthFormPassValidaMsg = styled.p`
 `;
 export const AuthFormPassValidaMsg2 = styled.p`
   position: absolute;
-  bottom: -22px;
+  bottom: -24px;
   
   left: 0px;
 
   color: #E74A3B;
-  font-size: 11px;
+  font-size: 10px;
   line-height: 1;
   text-align: center;
 
@@ -261,6 +261,7 @@ export const AuthFormBtnSubmit = styled.button`
 
   color: inherit;
 
+  border: 0px;
   border-radius: 6px;
   background-color: ${props => props.theme.colors.userForm.bgBtn};
   cursor: pointer;

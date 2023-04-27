@@ -54,7 +54,7 @@ const SigninForm = () => {
     setPassword(e.target.value);
 
     if (e.target.value.length < 5 || e.target.value.length > 20) {
-      setPasswordError('A password must contain 5 to 20 characters.');
+      setPasswordError('Enter a valid Password');
     } else {
       setPasswordError('');
     }
