@@ -68,12 +68,15 @@ export const SearchInputField = styled.input`
 `;
 
 export const SearchInputButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 113px;
-  height: 52px;
-  padding: 15.7px 31.7px;
+  height: 53px;
+  /* padding: 15.7px 31.7px; */
 
   position: absolute;
-  top: 0px;
+  top: -1px;
   right: -2px;
 
   background-color: ${props => props.theme.colors.mainPage.bgBtnSearch};
@@ -83,7 +86,7 @@ export const SearchInputButton = styled.button`
   font-size: ${props => props.theme.fontSizes.s};
   line-height: 1.5;
 
-  border: none;
+  border: 1px solid ${props => props.theme.colors.mainPage.bgBtnSeeAllBorder};
   border-radius: ${props => props.theme.radii.btnSpecial};
 
   cursor: pointer;
@@ -92,6 +95,8 @@ export const SearchInputButton = styled.button`
 
   &:hover {
     background-color: ${props => props.theme.colors.mainPage.bgBtnSearchHover};
+    border: 1px solid
+      ${props => props.theme.colors.mainPage.borderBtnSeeAllHover};
   }
 
   @media ${device.tablet} {
