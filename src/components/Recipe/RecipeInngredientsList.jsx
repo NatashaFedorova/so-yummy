@@ -21,9 +21,9 @@ import { AddIngredientToShoppingList } from '../../redux/recipes/operations/getR
 //import { selectUser } from '../../redux/auth/authSelectors';
 
 const RecipeInngredientsList = ({ info, recId, shopList }) => {
+
   const dispatch = useDispatch();
   //const isInShopList = useSelector(IsIngredientToShopList);
-  // const [isChecked, setIsChecked] = useState(false);
   //const userInfo = useSelector(selectUser);
 
   const onHandleChange = async info => {
