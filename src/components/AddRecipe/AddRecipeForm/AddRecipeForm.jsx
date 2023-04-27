@@ -1,24 +1,28 @@
-import { useRef, useState } from 'react';
-import axios from 'axios';
+import { useRef, useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { nanoid } from 'nanoid';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 import RecipeDescriptionField from './RecipeDescriptionFields/RecipeDescriptionFields';
 import RecipeIngredientsFields from './RecipeIngredientsFields/RecipeIngredientsFields';
 import RecipePreparationFields from './RecipePreparationFields/RecipePreparationFields';
-import { AddRecipeFormComponent } from './AddRecipeForm.styled';
+
 import { initialIngredients, initialValues } from '../helpers/vars';
-import { nanoid } from 'nanoid';
-import { useEffect } from 'react';
+import { selectAddRecipeError } from 'redux/recipes/selectors/addRecipeSelectors';
+
+import { AddRecipeFormComponent } from './AddRecipeForm.styled';
+import addRecipe from 'redux/recipes/operations/addRecipe';
 
 const AddRecipeForm = () => {
   const [initialDataState, setInitialDataState] = useState(initialValues);
   const [ingredientsState, setIngredientsState] = useState(initialIngredients);
   const [textareaContent, setTextareaContent] = useState([]);
   const photo = useRef(null);
-  const [error, setError] = useState(null);
+  const error = useSelector(selectAddRecipeError);
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const submitHandler = async event => {
     event.preventDefault();
@@ -40,20 +44,10 @@ const AddRecipeForm = () => {
     formData.set('ingredients', JSON.stringify(ingredients));
     formData.set('instructions', JSON.stringify(textareaContent));
 
-    try {
-      setError(null);
+    dispatch(addRecipe(formData));
 
-      await axios.post('ownrecipes', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      });
-
-      if (!error) {
-        navigate('/my', { replace: true });
-      }
-    } catch ({ message }) {
-      setError(message);
+    if (!error) {
+      navigate('/my', { replace: true });
     }
   };
 
@@ -84,7 +78,7 @@ const AddRecipeForm = () => {
   const decrementHandler = () => {
     const tmp = [...ingredientsState];
     if (tmp.length === 1) {
-      alert('Sorry, you need to add at least one ingredient');
+      Notify.failure('Sorry, you need to add at least one ingredient');
       return;
     }
     tmp.splice(ingredientsState.length - 1, 1);
