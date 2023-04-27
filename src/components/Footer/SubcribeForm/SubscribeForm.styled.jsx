@@ -7,6 +7,7 @@ export const SubcribeFormDiv = styled.div`
   display: flex;
   flex-direction: column;
   width: auto;
+  color: ${props => props.theme.colors.userForm.textForm};
 
   @media ${device.tablet} {
     flex-direction: row;
@@ -53,12 +54,15 @@ export const SubscriptionInfo = styled.p`
 export const SubscriptionLabel = styled.label`
     display: flex;
     padding: 14px;
-    border: 1px solid white;
+    border: 1px solid ${props => props.theme.colors.userForm.input} !important;;
     border-radius: 6px;
     align-items: center;
     width: 204px;
     height: 38px;
-
+   $:hover{
+      border-color: ${props =>
+        props.theme.colors.userForm.inputHover} !important;
+    }
     margin-bottom: 16px;
     @media ${device.tablet} {
       width: 260px;
@@ -80,8 +84,11 @@ export const SubscriptionInput = styled.input`
     text-align: left;
     border: none;
     padding: 0;
-    color: white;
+    color: ${props => props.theme.colors.userForm.placeholder} !important;
 
+    &:hover{
+      color: ${props => props.theme.colors.userForm.inputHover} !important;
+    }
     @media ${device.tablet} {
       font-size: 14px;
       line-height: 21px;
@@ -103,8 +110,8 @@ export const SubscriptionButton = styled(DefaultBtn)`
 
     width: 204px;
     height: 38px;
-    background-color: #8baa36;
-    color: white;
+    background: ${props => props.theme.colors.userForm.bgBtn} !important;
+    color:${props => props.theme.colors.userForm.placeholder} !important;
     border-radius: 6px;
     cursor: pointer;
 
@@ -116,7 +123,7 @@ export const SubscriptionButton = styled(DefaultBtn)`
     text-align: center;
 
     &:hover {
-      color: black;
+      color: ${props => props.theme.colors.userForm.textBtnHover} !important;
     }
 
     @media${device.tablet} {

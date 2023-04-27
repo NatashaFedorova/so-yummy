@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom/dist';
 import {
+  LinkIcon,
   SocialLinksList,
   StyledBsFacebook,
   StyledBsInstagram,
@@ -11,24 +11,24 @@ export const SocialLinks = () => {
   return (
     <SocialLinksList>
       <li>
-        <Link>
+        <LinkIcon>
           <StyledBsFacebook />
-        </Link>
+        </LinkIcon>
       </li>
       <li>
-        <Link>
+        <LinkIcon>
           <StyledBsYoutube />
-        </Link>
+        </LinkIcon>
       </li>
       <li>
-        <Link>
+        <LinkIcon>
           <StyledBsTwitter />
-        </Link>
+        </LinkIcon>
       </li>
       <li>
-        <Link>
+        <LinkIcon>
           <StyledBsInstagram />
-        </Link>
+        </LinkIcon>
       </li>
     </SocialLinksList>
   );

@@ -45,7 +45,7 @@ export const SubscribeForm = () => {
       >
         <StyledHiOutlineMail />
         <SubscriptionInput
-          disabled={subscribe && 'disabled'}
+          disabled={subscription && 'disabled'}
           value={subscribeEmail}
           placeholder={
             subscription ? 'You already subscribe' : 'Enter your email adress'
@@ -54,7 +54,7 @@ export const SubscribeForm = () => {
         />
       </SubscriptionLabel>
       <SubscriptionButton
-        disabled={subscribe && 'disabled'}
+        disabled={subscription && 'disabled'}
         onClick={onSubscribe}
         style={
           wrongEmail ? { background: 'red' } : { backgroundColor: '#8baa36' }
