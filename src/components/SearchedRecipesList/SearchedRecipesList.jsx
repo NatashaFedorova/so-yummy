@@ -1,11 +1,10 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import getRecepiesByTitle from 'redux/recipes/operations/getRecipesByTitle';
 import RecipesList from 'components/RecipesList/RecipesList';
 import getRecipesByIngredient from 'redux/recipes/operations/getRecipesByIngredient';
 
-const SearchedRecepiesList = ({ searhType }) => {
-  const divRef = useRef();
+const SearchedRecepiesList = ({ searhType, refDiv }) => {
   const [status, setStatus] = useState('idle');
   const [recipes, setRecipes] = useState(null);
   const [page, setPage] = useState(1);
@@ -14,18 +13,19 @@ const SearchedRecepiesList = ({ searhType }) => {
   const [limit, setLimit] = useState(6);
 
   useEffect(() => {
-    const divWidth = getComputedStyle(divRef.current)?.width;
-
-    if (divWidth === '1240px') {
-      setLimit(12);
+    if (refDiv.current) {
+      const divWidth = getComputedStyle(refDiv.current).width;
+      if (divWidth === '1240px') {
+        setLimit(12);
+      }
+      if (divWidth === '704px') {
+        setLimit(8);
+      }
+      if (divWidth === '343px') {
+        setLimit(6);
+      }
     }
-    if (divWidth === '704px') {
-      setLimit(8);
-    }
-    if (divWidth === '343px') {
-      setLimit(6);
-    }
-  }, [setLimit]);
+  }, [setLimit, refDiv]);
 
   const handlePageChange = page => {
     setPage(page);
@@ -65,14 +65,12 @@ const SearchedRecepiesList = ({ searhType }) => {
     return;
   }
   return (
-    <div ref={divRef}>
-      <RecipesList
-        page={page}
-        handlePageChange={handlePageChange}
-        status={status}
-        recipes={recipes}
-      />
-    </div>
+    <RecipesList
+      page={page}
+      handlePageChange={handlePageChange}
+      status={status}
+      recipes={recipes}
+    />
   );
 };
 
