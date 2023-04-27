@@ -6,7 +6,7 @@ export const BurgerMenuDiv = styled.div`
   margin-left: 27px;
   cursor: pointer;
 
-  @media${device.tablet} {
+  @media ${device.tablet} {
     margin-left: 54px;
   }
   @media ${device.desktop} {
@@ -18,7 +18,7 @@ export const StyledHiOutlineMenuAlt2 = styled(HiOutlineMenuAlt2)`
   width: 27px;
   height: 27px;
 
-  @media${device.tablet} {
+  @media ${device.tablet} {
     width: 36px;
     height: 36px;
   }

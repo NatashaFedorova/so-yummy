@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import { GrFormClose } from 'react-icons/gr';
 import { DecoreLeafsTop } from 'components/DecoratedMain/DecoratedMain.styled';
 import { device } from 'components/constants/deviceType/deviceType';
@@ -29,20 +29,17 @@ export const ModalWrapper = styled.div`
 `;
 
 export const BurgerModal = styled.div`
-   z-index: 100;
+  z-index: 100;
   display: flex;
   position: relative;
   width: 100vw;
   height: 100vh;
-  background: #ebf3d4;
+  background-color: ${props => props.theme.colors.burgerMenu.bg};
   flex-direction: column;
   align-items: center;
-padding-top: 180px;
-    padding-bottom: 190px;
-    justify-content: center;
-}
-
-
+  padding-top: 180px;
+  padding-bottom: 190px;
+  justify-content: center;
 `;
 
 export const StyledGrFormClose = styled(GrFormClose)`
@@ -76,7 +73,8 @@ export const BurgerBgImage = styled(DecoreLeafsTop)`
 
   filter: blur(4.5px);
   transform: rotate(83deg);
-  @media${device.tablet} {
+
+  @media ${device.tablet} {
     width: 558px;
     height: 852px;
 
