@@ -4,10 +4,10 @@ export const ContainerForAline = styled.div`
   display: flex;
   justify-content: center;
   /* padding: 20px; */
-  margin-bottom: 200px;
+  /* margin-bottom: 200px;
   @media (min-width: 768px) {
     margin-bottom: 100px;
-  }
+  } */
 `;
 export const PaginationContainer = styled.div`
   display: inline-flex;

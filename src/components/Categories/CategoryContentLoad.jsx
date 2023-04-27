@@ -12,15 +12,7 @@ export const CategoryContentLoad = ({ cardsData }) => (
   >
     {cardsData.map((card, index) => {
       console.log(card);
-      return (
-        <rect
-          key={index}
-          x={card.x}
-          y={card.y}
-          width={card.width}
-          height={card.height}
-        />
-      );
+      return <rect />;
     })}
   </ContentLoader>
 );

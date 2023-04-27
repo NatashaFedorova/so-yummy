@@ -49,6 +49,7 @@ export const RecipeCard = styled.div`
     font-weight: ${props => props.theme.fontWeight.medium};
     margin: 0;
     transition-duration: 2000ms;
+    color: ${props => props.theme.colors.cardRecipe.textBtn};
   }
 
   &:hover .title {
