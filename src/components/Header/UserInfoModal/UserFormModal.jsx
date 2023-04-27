@@ -43,7 +43,6 @@ export const UserFormModal = () => {
       e.preventDefault();
       const { avatarImage, name } = this.elements;
       const data = new FormData();
-      console.log(avatarImage.files[0]);
       data.append('avatarImage', avatarImage.files[0]);
       data.append('name', name.value);
       dispatch(changeUserData(data));
