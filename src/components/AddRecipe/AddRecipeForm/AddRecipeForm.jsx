@@ -22,19 +22,17 @@ const AddRecipeForm = () => {
 
   const submitHandler = async event => {
     event.preventDefault();
-    console.log(photo.current);
+
     const formData = new FormData();
     const ingredients = ingredientsState.map(item => ({
-      _id: item._id,
+      id: item._id,
       measure: item.quantity,
     }));
 
-    if (!photo.current) {
-      photo.current =
-        'https://t3.ftcdn.net/jpg/03/45/05/92/240_F_345059232_CPieT8RIWOUk4JqBkkWkIETYAkmz2b75.jpg';
+    if (photo.current) {
+      formData.set('recipeImage', photo.current);
     }
 
-    formData.set('recipeImage', photo.current);
     formData.set('title', initialDataState.title);
     formData.set('description', initialDataState.description);
     formData.set('category', initialDataState.category);
@@ -44,7 +42,12 @@ const AddRecipeForm = () => {
 
     try {
       setError(null);
-      await axios.post('ownrecipes', formData);
+
+      await axios.post('ownrecipes', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
 
       if (!error) {
         navigate('/my', { replace: true });

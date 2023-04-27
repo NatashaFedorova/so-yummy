@@ -32,7 +32,9 @@ const IngredientInput = ({ ingredients, id, onChange, value }) => {
     ) {
       for (let item of ingredients) {
         if (inputValue.includes(item.value)) {
-          inputValue.replace(item.value, prop);
+          const valuesArray = inputValue.split(' ');
+
+          inputValue = valuesArray[1];
         }
       }
     } else {
@@ -58,6 +60,7 @@ const IngredientInput = ({ ingredients, id, onChange, value }) => {
             setIsOpen(false);
           }, 100);
         }}
+        pattern="^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$"
       />
       <DropdownIcon onClick={clickHandler} />
       <Dropdown id={id} isOpen={isOpen}>

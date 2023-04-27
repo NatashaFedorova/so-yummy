@@ -89,6 +89,7 @@ const RecipeIngredientsFields = ({
                   options={initialOption}
                   styles={colorStyles}
                   required
+                  pattern="^[a-zA-Z]+$"
                 />
                 <IngredientInput
                   value={item.quantity}
