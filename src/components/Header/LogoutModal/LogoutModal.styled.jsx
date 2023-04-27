@@ -32,22 +32,36 @@ export const ModalWrapper = styled.div`
 export const Modal = styled.div`
   z-index: 100;
   display: flex;
-  background: white;
+  background: ${props => props.theme.colors.modal.bg} !important;
+  color: ${props => props.theme.colors.modal.textForm} !important;
   position: relative;
   border-radius: 30px;
-  width: 480px;
-  padding: 50px 40px;
+  width: 90%;
+  padding: 44px 24px;
+
   flex-direction: column;
   align-items: center;
 
   font-family: Poppins;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 400;
-  line-height: 24px;
+  line-height: 18px;
   letter-spacing: -0.02em;
   text-align: center;
 
-  @media${device.tablet} {
+  @media ${device.mobile} {
+    width: 330px;
+    padding: 44px 24px;
+  }
+
+  @media ${device.tablet} {
+    padding: 50px 40px;
+    width: 480px;
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  @media ${device.tablet} {
     width: 500px;
   }
 `;
@@ -55,15 +69,25 @@ export const Modal = styled.div`
 export const ButtonSet = styled.div`
   display: flex;
   gap: 16px;
-  margin-top: 32px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  @media ${device.mobile} {
+    flex-wrap: nowrap;
+  }
+  @media ${device.tablet} {
+    flex-wrap: nowrap;
+    margin-top: 32px;
+  }
 `;
 
 export const AgreedBTN = styled(DefaultBtn)`
-  width: 190px;
-  height: 60px;
-  background-color: #8baa36;
+  width: 137px;
+  height: 50px;
+  background-color: ${props => props.theme.colors.modal.bgBtn} !important;
   border-radius: 6px;
-
+  padding: 0;
   font-size: 16px;
   font-weight: 400;
   line-height: 18px;
@@ -71,25 +95,45 @@ export const AgreedBTN = styled(DefaultBtn)`
   text-align: center;
 
   &:hover {
-    background-color: black;
+    background-color: ${props =>
+      props.theme.colors.modal.bgBtnHover} !important;
+  }
+  @media ${device.tablet} {
+    height: 60px;
+    width: 190px;
   }
 `;
 
 export const CancelBTN = styled(AgreedBTN)`
-  color: black;
-  background-color: #d9d9d9;
+  color: ${props => props.theme.colors.modal.textBtnCancel} !important;
+  background-color: ${props => props.theme.colors.modal.bgBtnCancel} !important;
 
   &:hover {
-    background-color: white;
-    border: 1px solid black;
+    color: ${props => props.theme.colors.modal.textBtnCancelHover} !important;
+    background-color: ${props =>
+      props.theme.colors.modal.bgBtnHover} !important;
+    border: 1px solid ${props => props.theme.colors.modal.bg} !important;
   }
 `;
 
 export const StyledGrFormClose = styled(GrFormClose)`
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 10px;
+  right: 10px;
   width: 30px;
   height: 30px;
   cursor: pointer;
+  & path {
+    stroke: ${props => props.theme.colors.modal.iconClose} !important;
+    &:hover {
+      stroke: ${props =>
+        props.theme.colors.burgerMenu.iconCloseHover} !important;
+    }
+  }
+  @media${device.tablet} {
+    top: 20px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+  }
 `;

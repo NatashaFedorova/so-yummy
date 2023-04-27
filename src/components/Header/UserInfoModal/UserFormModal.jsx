@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { StyledRxPerson } from './UserInfoModal.styled';
+import { ConfigNameInput, StyledRxPerson } from './UserInfoModal.styled';
 import { StyledHiOutlinePencil } from './UserInfoModal.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeUserData } from 'redux/user/userOperation';
@@ -49,17 +49,7 @@ export const UserFormModal = () => {
       dispatch(changeUserData(data));
     });
   }, [dispatch]);
-  // const submitChange = () => {
-  //   const formData = new FormData();
-  //   formData.append('file', imageFile);
-  //   formData.append('name', newUserName);
-  //   console.log(imageFile);
-  //   for (var item of formData) {
-  //     console.log(item);
 
-  //   }
-  // dispatch(changeUserData(formData));
-  // };
   return (
     <>
       <ConfigAvatarArea>
@@ -71,6 +61,7 @@ export const UserFormModal = () => {
           <ChangeImageInput
             type="file"
             name="avatarImage"
+            accept="image/png, image/gif, image/jpeg"
             onChange={handleFileChange}
             multiple
           />
@@ -80,7 +71,7 @@ export const UserFormModal = () => {
           <ConfigNameLabel>
             <LeftInputDiv>
               <StyledRxPerson />
-              <input
+              <ConfigNameInput
                 name="name"
                 value={newUserName}
                 onChange={event => setNewUserName(event.target.value)}
