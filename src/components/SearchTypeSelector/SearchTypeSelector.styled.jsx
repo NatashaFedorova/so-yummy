@@ -6,6 +6,7 @@ export const LineDown = styled(AiOutlineDown)`
   fill: ${p => p.theme.colors.searchPage.icon};
   pointer-events: none;
 `;
+
 export const Options = styled.button`
   border: none;
   padding: 8px 14px 8px 14px;
@@ -18,8 +19,8 @@ export const Options = styled.button`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  background-color: ${p => p.theme.colors.searchPage.grey};
-  
+  background-color: ${p => p.theme.colors.searchPage.bgOptionsBtn};
+
   border-radius: 4px;
 
   cursor: pointer;

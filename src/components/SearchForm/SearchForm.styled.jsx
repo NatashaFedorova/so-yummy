@@ -27,6 +27,7 @@ export const SearchInput = styled.input`
   height: 100%;
   padding: 16px 32px;
   border: 1px solid ${p => p.theme.colors.searchPage.borderInput};
+  color: ${p => p.theme.colors.searchPage.textInput};
   background: ${p => p.theme.colors.searchPage.bgInput};
   border-radius: 24px 44px;
   width: 100%;
