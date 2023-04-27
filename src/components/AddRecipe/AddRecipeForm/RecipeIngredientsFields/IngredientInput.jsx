@@ -1,9 +1,8 @@
 import React, { useState, useRef } from 'react';
 
+import DropDown from './DropDown';
 import {
-  Dropdown,
   DropdownIcon,
-  DropdownItem,
   SmallInput,
   SmallInputWrapper,
 } from './RecipeIngredientsFields.styled';
@@ -12,9 +11,12 @@ const IngredientInput = ({ ingredients, id, onChange, value }) => {
   const [isOpen, setIsOpen] = useState(false);
   const inputRef = useRef(null);
 
+  const closeDropdown = () => {
+    setIsOpen(false);
+  };
+
   const clickHandler = () => {
     setIsOpen(prevState => !prevState);
-    inputRef.current.focus();
   };
 
   const changeHandler = event => {
@@ -22,6 +24,7 @@ const IngredientInput = ({ ingredients, id, onChange, value }) => {
   };
 
   const quantityClickHandler = event => {
+    event.stopPropagation();
     const prop = ingredients.find(item => item.id === event.target.id).value;
     let inputValue = inputRef.current.value.toString();
 
@@ -30,12 +33,16 @@ const IngredientInput = ({ ingredients, id, onChange, value }) => {
         return inputValue.includes(item.value);
       })
     ) {
-      for (let item of ingredients) {
-        if (inputValue.includes(item.value)) {
-          const valuesArray = inputValue.split(' ');
+      let inputValuesArray = inputValue.split(' ');
+      const valueIndex = inputValuesArray.findIndex(item =>
+        item.includes(prop)
+      );
 
-          inputValue = valuesArray[1];
-        }
+      if (valueIndex === -1) {
+        inputValuesArray.splice(valueIndex, 1, prop);
+        inputValue = inputValuesArray.join(' ');
+      } else {
+        inputValue = inputValuesArray.join(' ');
       }
     } else {
       inputValue = inputRef.current.value + ' ' + prop;
@@ -43,6 +50,7 @@ const IngredientInput = ({ ingredients, id, onChange, value }) => {
 
     inputRef.current.value = inputValue;
     onChange(event.target.closest('ul').id, inputValue);
+    closeDropdown();
   };
 
   return (
@@ -55,25 +63,18 @@ const IngredientInput = ({ ingredients, id, onChange, value }) => {
         type="text"
         placeholder="quantity"
         required
-        onBlur={() => {
-          setTimeout(() => {
-            setIsOpen(false);
-          }, 100);
-        }}
         pattern="^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$"
       />
       <DropdownIcon onClick={clickHandler} />
-      <Dropdown id={id} isOpen={isOpen}>
-        {ingredients.map(item => (
-          <DropdownItem
-            onClick={quantityClickHandler}
-            key={item.id}
-            id={item.id}
-          >
-            {item.value}
-          </DropdownItem>
-        ))}
-      </Dropdown>
+      {isOpen && (
+        <DropDown
+          id={id}
+          isOpen={isOpen}
+          ingredients={ingredients}
+          quantityClickHandler={quantityClickHandler}
+          closeDropdown={closeDropdown}
+        />
+      )}
     </SmallInputWrapper>
   );
 };

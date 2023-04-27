@@ -43,7 +43,7 @@ export const LeftWrapper = styled.div`
     gap: 100px;
   }
 
-  @media screen and (min-width: ${size.tablet}) {
+  @media screen and (min-width: ${size.desktop}) {
     align-items: flex-start;
     justify-content: space-between;
     flex-direction: row;
