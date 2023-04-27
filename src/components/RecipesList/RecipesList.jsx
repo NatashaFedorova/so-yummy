@@ -1,20 +1,34 @@
-import { RecipeCard, RecipeImg, RecipeTitle, List } from './RecipesList.styled';
+import {
+  RecipeCard,
+  RecipeImg,
+  RecipeTitle,
+  List,
+  NotFoundBox,
+  NotFoundImg,
+  NotFoundText,
+} from './RecipesList.styled';
 import Loading from 'components/Loading/Loading';
+import { PagePagination } from 'components/Pagination/Pagination';
 
-const RecipesList = ({ recipes, status }) => {
+import { Link } from 'react-router-dom';
+
+const RecipesList = ({ recipes, status, page, handlePageChange, getLimit }) => {
+  const totalPages = recipes[0]?.totalCount;
+  const cardsPerPage = 12;
+
   if (status === 'idle') {
     return;
   }
   if (status === 'rejected') {
     return (
       <>
-        <div>
-          <img
+        <NotFoundBox>
+          <NotFoundImg
             src={`${process.env.PUBLIC_URL}/images/errorPageNotFound/pileOfFruits.jpg `}
             alt="Not Found"
           />
-          <p>Try looking for something else..</p>
-        </div>
+          <NotFoundText>Try looking for something else..</NotFoundText>
+        </NotFoundBox>
       </>
     );
   }
@@ -24,11 +38,21 @@ const RecipesList = ({ recipes, status }) => {
         <List>
           {recipes.map(({ thumb, title, _id }) => (
             <RecipeCard key={_id}>
-              <RecipeImg src={thumb} alt={title} />
-              <RecipeTitle>{title}</RecipeTitle>
+              <Link to={`/recipe/${_id}`}>
+                <RecipeImg src={thumb} alt={title} />
+                <RecipeTitle>{title}</RecipeTitle>
+              </Link>
             </RecipeCard>
           ))}
         </List>
+        {totalPages > 12 && (
+          <PagePagination
+            totalPages={totalPages}
+            cardsPerPage={cardsPerPage}
+            currentPage={page}
+            handlePageChange={handlePageChange}
+          />
+        )}
         {status === 'pending' && <Loading />}
       </>
     );

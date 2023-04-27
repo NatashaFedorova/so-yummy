@@ -18,14 +18,18 @@ export const OtherCategoriesWrapper = styled.div`
 
 export const OtherCategoriesLink = styled(NavLink)`
   font-weight: ${props => props.theme.fontWeight.regular};
-  font-size: ${props => props.theme.fontSizes.m};
+  font-size: ${props => props.theme.fontSizes.s};
   line-height: 1.5;
   text-align: center;
   color: ${props => props.theme.colors.mainPage.textBtnOtherCategories};
   background-color: ${props =>
     props.theme.colors.mainPage.bgBtnOtherCategories};
 
-  padding: 14px 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 195px;
+  height: 46px;
 
   border-radius: ${props => props.theme.radii.btnSpecial};
   border: 2px solid
@@ -41,7 +45,8 @@ export const OtherCategoriesLink = styled(NavLink)`
   }
 
   @media ${device.tablet} {
-    padding: 20px 52px;
-    font-size: 16px;
+    width: 239px;
+    height: 61px;
+    font-size: ${props => props.theme.fontSizes.m};
   }
 `;

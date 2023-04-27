@@ -4,6 +4,7 @@ import { UserInfoModal } from '../UserInfoModal/UserInfoModal';
 import { HiOutlinePencil } from 'react-icons/hi';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 import {
+  ChangeUserButton,
   ModalOverlay,
   ModalUser,
   StyledLogoutBtn,
@@ -43,14 +44,14 @@ export const UserLogoModal = ({ showUserLogoModal, closeUserLogoModal }) => {
   return createPortal(
     <ModalOverlay onClick={onClickBackdrop}>
       <ModalUser>
-        <button
+        <ChangeUserButton
           onClick={() => {
             setShowUserInfoModal(true);
           }}
         >
           Edit profile
           <HiOutlinePencil />
-        </button>
+        </ChangeUserButton>
         <StyledLogoutBtn
           onClick={() => {
             setShowLogoutModal(true);

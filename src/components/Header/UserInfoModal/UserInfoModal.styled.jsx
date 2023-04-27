@@ -40,7 +40,7 @@ export const ModalWrapper = styled.div`
 export const Modal = styled.div`
   z-index: 100;
   display: flex;
-  background: white;
+  background: ${props => props.theme.colors.modal.bg} !important;
   position: relative;
   border-radius: 30px;
   width: 330px;
@@ -89,8 +89,12 @@ export const StyledAiFillPlusCircle = styled(AiFillPlusCircle)`
   left: 185px;
   width: 24px;
   height: 24px;
-  color: #8baa36;
+  color: ${props => props.theme.colors.modal.iconPersonPhotoUser} !important;
   cursor: pointer;
+  &:hover {
+    color: ${props =>
+      props.theme.colors.modal.iconPersonPhotoUserHover} !important;
+  }
   @media${device.tablet} {
     left: 265px;
     top: 130px;
@@ -113,24 +117,35 @@ export const ConfigNameLabel = styled.label`
   max-height: 60px;
   margin-bottom: 32px;
   padding: 20px 22px;
-  border: 1px solid #23262a;
+  border: 1px solid ${props => props.theme.colors.modal.border} !important;
   border-radius: 6px;
-  & input {
-    border: none;
-    font-family: Poppins;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 21px;
-    letter-spacing: 0px;
-
-    @media${device.tablet} {
-      font-size: 18px;
-      line-height: 27px;
-      letter-spacing: -0.02em;
-    }
+  color: ${props => props.theme.colors.modal.border} !important;
+  &:hover {
+    color: ${props => props.theme.colors.modal.borderHover} !important;
+    border: 1px solid ${props => props.theme.colors.modal.borderHover} !important;
   }
+
   @media${device.tablet} {
     width: 400px;
+  }
+`;
+
+export const ConfigNameInput = styled.input`
+  border: none;
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: 0px;
+
+  color: ${props => props.theme.colors.modal.border} !important;
+  &:hover {
+    color: ${props => props.theme.colors.modal.borderHover} !important;
+  }
+  @media${device.tablet} {
+    font-size: 18px;
+    line-height: 27px;
+    letter-spacing: -0.02em;
   }
 `;
 
@@ -163,6 +178,12 @@ export const StyledGrFormClose = styled(GrFormClose)`
   width: 30px;
   height: 30px;
   cursor: pointer;
+   & path {
+    stroke: ${props => props.theme.colors.modal.iconClose} !important;
+    &:hover {
+      stroke: ${props =>
+        props.theme.colors.burgerMenu.iconCloseHover} !important;
+    }
 `;
 
 export const StyledRxPerson = styled(RxPerson)`

@@ -34,10 +34,10 @@ const lightTheme = Object.freeze({
     userForm: {
       textForm: '#fafafa',
       placeholder: '#fafafa',
-      icon: '#fafafa',
-      iconHover: '#ffffff',
+      icon: '#8baa36',
+      iconHover: '#fafafa',
       input: '#fafafa',
-      inputHover: '#ffffff',
+      inputHover: '#8BAA36',
       textButton: '#fafafa',
       textBtnHover: '#22252a',
       bgBtn: '#8baa36',
@@ -50,19 +50,21 @@ const lightTheme = Object.freeze({
       iconPersonForm: 'rgba(35, 38, 42, .8)',
       iconPen: '#23262a',
       iconClose: '#333333',
-      iconPersonPhotoUser: '#c4c4c4',
+      iconPersonPhotoUser: '#8baa36',
+      iconPersonPhotoUserHover: '#23262A',
       bgUnderPhotoUser: '#d9d9d9',
       // iconHover: '#8baa36',
-      border: 'rgba(35, 38, 42, .8)',
+      border: '#23262a',
       // borderHover: '#23262a',
       bg: '#fafafa',
       bgBtn: '#8baa36',
       textBtn: '#fafafa',
       iconBtn: '#fafafa',
-      // bgBtnHover: '#22252a',
-      textbtnCancel: '#23262a',
-      bgBtnCancel: '#d9d9d9',
-      //   bgBtnHover: 'transparent',
+      bgBtnHover: '#22252a',
+      textBtnCancel: '#23262a',
+      textBtnCancelHover: '#fafafa',
+      bgBtnCancel: '#D9D9D9',
+      borderBtnCancel: '#23262A',
     },
 
     // pagination
@@ -98,7 +100,7 @@ const lightTheme = Object.freeze({
     // footer
     footer: {
       text: '#fafafa',
-      textSecondary: 'rgba(34, 37, 42, .5)',
+      textSecondary: '#8baa36',
       border: '#fafafa',
       textSubcribeBtn: '#fafafa',
       textSubcribeBtnHover: '#22252a',
@@ -269,6 +271,7 @@ const lightTheme = Object.freeze({
       bgBtnSearch: '#8baa36',
       textBtnSearch: '#fafafa',
       bgOptionsBtn: '#d9d9d9',
+      buttonHover: '#22252A'
     },
 
     // ShoppingListPage
