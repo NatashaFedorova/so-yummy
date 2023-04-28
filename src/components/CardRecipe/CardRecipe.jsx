@@ -10,7 +10,7 @@ export const CardRecipe = ({ item }) => {
     <RecipeCard>
       <img src={thumb} alt={title} />
       <div className="overlay">
-        <h3 className="title">{title}</h3>
+        <h2 className="title">{title}</h2>
       </div>
     </RecipeCard>
   );
