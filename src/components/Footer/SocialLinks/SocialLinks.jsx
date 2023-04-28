@@ -12,22 +12,22 @@ export const SocialLinks = () => {
     <SocialLinksList>
       <li>
         <LinkIcon>
-          <StyledBsFacebook />
+          <StyledBsFacebook aria-label="Facebook link" />
         </LinkIcon>
       </li>
       <li>
         <LinkIcon>
-          <StyledBsYoutube />
+          <StyledBsYoutube aria-label="Youtube link" />
         </LinkIcon>
       </li>
       <li>
         <LinkIcon>
-          <StyledBsTwitter />
+          <StyledBsTwitter aria-label="Twitter link" />
         </LinkIcon>
       </li>
       <li>
         <LinkIcon>
-          <StyledBsInstagram />
+          <StyledBsInstagram aria-label="Instagram link" />
         </LinkIcon>
       </li>
     </SocialLinksList>

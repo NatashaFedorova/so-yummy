@@ -17,7 +17,7 @@ export const Navigation = () => {
           {page.title}
         </StyledNavigationLink>
       ))}
-      <StyledNavigationLink to={`/search`}>
+      <StyledNavigationLink to={`/search`} aria-label="link to search page">
         <FiSearch />
       </StyledNavigationLink>
     </HeaderNavigation>
