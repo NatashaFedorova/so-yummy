@@ -68,7 +68,7 @@ export const SignBoxWrap = styled.div`
   }
 `;
 export const SignBgImg = styled.div`
-  width: 285px;
+  width: 280px;
   height: 250px;
   flex-shrink: 0;
 
@@ -76,6 +76,11 @@ export const SignBgImg = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   z-index: 1;
+
+  @media ${device.mobile} {
+    width: 285px;
+    height: 250px;
+  }
 
   @media ${device.tablet} {
     width: 409px;
@@ -101,10 +106,11 @@ export const SignBox = styled.div`
   align-items: center;
   flex-direction: column;
   gap: 18px;
-  width: 335px;
+  width: 100%;
   
   z-index: 1;
 
+  @media ${device.mobile} {width: 335px;}
   @media ${device.tablet} {
     bottom: 11px;
     width: 500px;

@@ -11,7 +11,6 @@ import { ReactComponent as GreenIcon } from './green.svg';
 export const AuthForm = styled.form`
   display: flex;
   flex-direction: column;
-  width: 335px;
   padding: 32px 28px 40px;
 
   color: ${props => props.theme.colors.userForm.textForm};
@@ -22,6 +21,9 @@ export const AuthForm = styled.form`
   border-radius: 30px;
   box-shadow: 0px 4px 48px rgba(0, 0, 0, 0.1);
 
+  @media ${device.mobile} {
+    width: 335px;
+  }
   @media ${device.tablet} {
     width: 500px;
   }
