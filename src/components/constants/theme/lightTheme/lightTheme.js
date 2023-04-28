@@ -53,7 +53,7 @@ const lightTheme = Object.freeze({
       iconPersonPhotoUser: '#8baa36',
       iconPersonPhotoUserHover: '#23262A',
       bgUnderPhotoUser: '#d9d9d9',
-      // iconHover: '#8baa36',
+      bgInputHover: '#fafafa',
       border: '#23262a',
       // borderHover: '#23262a',
       bg: '#fafafa',
@@ -108,6 +108,7 @@ const lightTheme = Object.freeze({
       bgSection: '#22252a',
       socIcon: '#8baa36',
       socIconHover: '#ffffff',
+      commerText: '#22252a',
     },
 
     // WelcomePage
@@ -270,7 +271,7 @@ const lightTheme = Object.freeze({
       bgBtnSearch: '#8baa36',
       textBtnSearch: '#fafafa',
       bgOptionsBtn: '#d9d9d9',
-      buttonHover: '#22252A'
+      buttonHover: '#22252A',
     },
 
     // ShoppingListPage

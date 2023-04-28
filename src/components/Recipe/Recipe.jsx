@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 
 import Container from 'components/constants/Container';
 import { STATUS } from '../constants/loadingStatus/LoadingStatus';
-import Loading from 'components/Loading/Loading';
+//import Loading from 'components/Loading/Loading';
 
 import RecipePageHero from './RecipePageHero';
 import RecipeInngredientsList from './RecipeInngredientsList';
@@ -60,8 +60,8 @@ const Recipe = () => {
 
   return (
     <>
-      {(Status === STATUS.idle || Status === STATUS.loading) && <Loading />}
-      <div style={{ minHeight: '500px' }}>
+      {/* {(Status === STATUS.idle || Status === STATUS.loading) && <Loading />} */}
+      <div style={{ minHeight: '65vh' }}>
         {Status === STATUS.success && (
           <>
             <RecipePageHero

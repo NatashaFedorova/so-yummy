@@ -3,7 +3,7 @@ import { HeaderNavigation, StyledNavigationLink } from './Navigation.styled';
 
 const pages = [
   { to: '/categories/beef', title: 'Categories' },
-  { to: '/add', title: 'Add receptes' },
+  { to: '/add', title: 'Add recepes' },
   { to: '/my', title: 'My recipes' },
   { to: '/favorite', title: 'Favorites' },
   { to: '/shopping-list', title: 'Shopping list' },

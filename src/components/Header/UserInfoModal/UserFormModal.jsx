@@ -13,10 +13,7 @@ import {
   SendChangeBTN,
   StyledAiFillPlusCircle,
 } from './UserInfoModal.styled';
-import axios from 'axios';
 import { selectUser } from 'redux/auth/authSelectors';
-
-axios.defaults.baseURL = 'https://t2d-soyammy-backend.onrender.com/api/';
 
 export const UserFormModal = () => {
   const { name, avatarUrl } = useSelector(selectUser);
@@ -24,13 +21,16 @@ export const UserFormModal = () => {
   const dispatch = useDispatch();
 
   const [newUserName, setNewUserName] = useState(`${name}`);
-  // const [imageFile, setImageFile] = useState('');
   const [imageRef, setImageRef] = useState(avatarUrl);
+  const [goodImage, setGoodImage] = useState('false');
 
   const handleFileChange = event => {
     let file = event.target.files[0];
-    // setImageFile(file);
-    console.log(file);
+    if (file.size > 2097152) {
+      setGoodImage(false);
+    } else {
+      setGoodImage(true);
+    }
     reader.onload = event => {
       setImageRef(event.currentTarget.result);
     };
@@ -45,9 +45,14 @@ export const UserFormModal = () => {
       const data = new FormData();
       data.append('avatarImage', avatarImage.files[0]);
       data.append('name', name.value);
-      dispatch(changeUserData(data));
+      if (goodImage) {
+        dispatch(changeUserData(data));
+        setNewUserName(`${name}`);
+        setImageRef(avatarUrl);
+        setGoodImage('false');
+      }
     });
-  }, [dispatch]);
+  }, [dispatch, goodImage, avatarUrl]);
 
   return (
     <>
@@ -60,7 +65,7 @@ export const UserFormModal = () => {
           <ChangeImageInput
             type="file"
             name="avatarImage"
-            accept="image/png, image/gif, image/jpeg"
+            accept="image/png, image/gif, image/jpeg, image/svg, image/jpg"
             onChange={handleFileChange}
             multiple
           />
@@ -80,7 +85,14 @@ export const UserFormModal = () => {
           </ConfigNameLabel>
         </label>
 
-        <SendChangeBTN>Save chandes</SendChangeBTN>
+        <SendChangeBTN
+          disabled={!goodImage && 'disabled'}
+          style={!goodImage ? { background: 'red' } : { background: '#8baa36' }}
+        >
+          {!goodImage
+            ? 'Please select an avatar with size 2MB'
+            : 'Save changes'}
+        </SendChangeBTN>
       </form>
     </>
   );
