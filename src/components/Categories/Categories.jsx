@@ -28,9 +28,10 @@ import {
   CategoryDefaultSquareСircle,
   CategoryDefaultSquareSecond,
 } from './Category.styled';
-import Loading from '../Loading/Loading';
+// import Loading from '../Loading/Loading';
 import { PagePagination } from '../Pagination/Pagination';
 import { getCatFood } from './Helpers/CheckCat';
+import { CategorySkeleton } from './CategoryContentLoad';
 
 const Categories = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -45,7 +46,6 @@ const Categories = () => {
   const isLoad = useSelector(selectRecipesIsLoading);
   const cardsPerPage = 8;
   const totalPages = dishesElement.length > 0 ? dishesElement[0].totalCount : 8;
-  console.log(categoriesFromFetch);
   const handlePageChange = page => {
     setCurrentPage(page);
   };
@@ -57,13 +57,11 @@ const Categories = () => {
   useEffect(() => {
     console.log(catFromMain);
     if (catFromMain && catFromMain?.length > 0) {
-      console.log('len');
       return;
     } else dispatch(getCategories());
   }, [dispatch, catFromMain]);
 
   useEffect(() => {
-    console.log(name);
     dispatch(getRecipesByCategory({ categoryName: name, page: currentPage }));
   }, [name, dispatch, currentPage]);
 
@@ -127,14 +125,25 @@ const Categories = () => {
             })}
           </CategoryTabs>
         </Box>
-        <MyTabPanel>{isLoad ? <Loading /> : TabPanel(dishes)}</MyTabPanel>
-        {totalPages > 12 && (
-          <PagePagination
-            totalPages={totalPages}
-            cardsPerPage={cardsPerPage}
-            currentPage={currentPage}
-            handlePageChange={handlePageChange}
-          />
+        <MyTabPanel>
+          {isLoad ? <CategorySkeleton /> : TabPanel(dishes)}
+        </MyTabPanel>
+        {totalPages > 8 && (
+          <div
+            style={{
+              marginBottom: '200px',
+              '@media (min-width: 768px)': {
+                marginBottom: '100px',
+              },
+            }}
+          >
+            <PagePagination
+              totalPages={totalPages}
+              cardsPerPage={cardsPerPage}
+              currentPage={currentPage}
+              handlePageChange={handlePageChange}
+            />
+          </div>
         )}
       </>
     </Container>
