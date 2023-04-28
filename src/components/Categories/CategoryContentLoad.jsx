@@ -1,18 +1,42 @@
-import React from 'react';
-import ContentLoader from 'react-content-loader';
+import Skeleton from '@mui/material/Skeleton';
+import useMediaQuery from '@mui/material/useMediaQuery';
+const styles = {
+  skeleton: {
+    width: '300px',
+    height: '400px',
+    margin: '10px',
+    BordeRadius: '6px',
+    backgroundColor: 'rgb(139, 170, 54)',
+    marginTop: '-50px',
+  },
+  row: {
+    display: 'flex',
+  },
+};
 
-export const CategoryContentLoad = ({ cardsData }) => (
-  <ContentLoader
-    speed={2}
-    width={400}
-    height={300}
-    viewBox="0 0 400 300"
-    backgroundColor="#f3f3f3"
-    foregroundColor="#ecebeb"
-  >
-    {cardsData.map((card, index) => {
-      console.log(card);
-      return <rect />;
-    })}
-  </ContentLoader>
-);
+export const CategorySkeleton = () => {
+  const isMobile = useMediaQuery('(max-width:767px)');
+  const isTablet = useMediaQuery('(min-width:768px) and (max-width:1023px) ');
+  let skeletons = [];
+  if (isMobile) {
+    skeletons = [<Skeleton key={1} style={styles.skeleton} />];
+  } else if (isTablet) {
+    skeletons = [
+      <Skeleton key={1} style={styles.skeleton} />,
+      <Skeleton key={2} style={styles.skeleton} />,
+    ];
+  } else {
+    skeletons = [
+      <Skeleton key={1} style={styles.skeleton} />,
+      <Skeleton key={2} style={styles.skeleton} />,
+      <Skeleton key={3} style={styles.skeleton} />,
+      <Skeleton key={4} style={styles.skeleton} />,
+    ];
+  }
+
+  return (
+    <div>
+      <div style={styles.row}>{skeletons}</div>
+    </div>
+  );
+};
