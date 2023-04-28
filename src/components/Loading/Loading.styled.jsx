@@ -1,11 +1,13 @@
 import styled from 'styled-components';
 
 export const Box = styled.div`
-  height: 100vh;
+  height: 500%;
   width: 100%;
-  top: 0;
+  // top: 0;
+  // left: 0;
+  // bottom: 0;
+  // right: 0;
   background: rgba(139, 170, 54, 0.9);
-  left: 0;
   display: flex;
   padding-top: 50vh;
   z-index: 5000;

@@ -35,7 +35,7 @@ const FavoritePage = () => {
 
   return (
     <>
-    {isLoading && <Loading />}
+  {isLoading && <Loading />}
     <FavoriteSection >
       <Container>
         {!isThemeDark && <FakeMainPageTitleWrap><FakeMainPageTitle>Favorites</FakeMainPageTitle></FakeMainPageTitleWrap>}

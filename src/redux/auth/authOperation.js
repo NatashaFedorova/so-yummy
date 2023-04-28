@@ -63,3 +63,7 @@ export const refreshUser = createAsyncThunk('auth/refresh', async (_, thunkAPI) 
     }
   }
 );
+
+export const toggleIsRefreshing = createAsyncThunk('auth/toggleIsRefreshing', async (bool, thunkAPI) => {
+  return bool;
+});

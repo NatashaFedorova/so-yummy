@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { register, logIn, logOut, refreshUser } from './authOperation';
+import { register, logIn, logOut, refreshUser, toggleIsRefreshing } from './authOperation';
 import { changeUserData, subscribe } from 'redux/user/userOperation';
 import { Notify } from 'notiflix';
 
@@ -75,7 +75,11 @@ export const authSlise = createSlice({
       })
       .addCase(subscribe.rejected, (_) => {
         Notify.failure('Error');
-      }),
+      })
+      .addCase(toggleIsRefreshing.fulfilled, (state, action) => {
+        console.log("toggleIsRefreshing action.payload", action.payload)
+        state.isRefreshing = action.payload;
+      })
 });
 
 export const authReducer = authSlise.reducer;

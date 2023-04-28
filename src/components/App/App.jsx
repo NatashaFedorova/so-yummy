@@ -48,7 +48,8 @@ const App = () => {
   const value = useSelector(selectStatusTheme);
   const theme = value ? darkTheme : lightTheme;
 
-  return isRefreshing && render ? (
+  // return isRefreshing && !render ? (
+  return isRefreshing ? (
     <Loading />
   ) : (
     <ThemeProvider theme={theme}>
