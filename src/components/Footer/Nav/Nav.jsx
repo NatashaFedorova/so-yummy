@@ -10,7 +10,7 @@ const pages = [
 export const Nav = () => {
   return (
     <FooterNav>
-      <StyledNavLink to={'/search'} searchType="Ingredients">
+      <StyledNavLink to={'/search'} searchtype="Ingredients">
         Ingredients
       </StyledNavLink>
       {pages.map((page, ind) => (
