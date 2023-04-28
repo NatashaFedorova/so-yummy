@@ -48,6 +48,7 @@ export const ChangeUserButton = styled.button`
   margin-bottom: 32px;
   display: flex;
   justify-content: space-between;
+  cursor: pointer;
 `;
 
 export const StyledLogoutBtn = styled(DefaultBtn)`

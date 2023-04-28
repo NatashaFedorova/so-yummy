@@ -16,12 +16,7 @@ import { UserLogo } from './UserLogo/UserLogo';
 import SwitchTheme from 'components/SwitchTheme';
 
 const Header = () => {
-  // const dispatch = useDispatch();
-  // const { user } = useAuth();
-  // const { name, email, avatarUrl, subscription } = user;
-  // useEffect(() => {
-  //   dispatch(setUser({ name, email, avatarUrl, subscription }));
-  // }, [dispatch, name, email, avatarUrl, subscription]);
+
   return (
     <HeaderS>
       <HeaderContainer>
