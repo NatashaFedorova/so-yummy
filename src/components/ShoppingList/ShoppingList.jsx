@@ -2,6 +2,7 @@ import {
   FakeMainPageTitle,
   FakeMainPageTitleWrap,
 } from 'components/Favorite/Favorite.styled';
+import emptyShoppingListImage from './emptyShoppingListImage.png';
 import {
   IngredientsTable,
   ShoppingListName,
@@ -18,11 +19,23 @@ import {
 } from './ShoppingList.styled';
 import defaultFood from './default-food.png';
 import { Container } from '@mui/system';
+import { refreshUser } from '../../redux/auth/authOperation';
+import useAuth from 'hooks/useAuth';
+import { useDispatch } from 'react-redux';
+import { RemoveIngredientFromShoppingList } from 'redux/recipes/operations/getRecipeById';
+import EmptyShoppingList from './EmptyShoppingList';
+
 const ShoppingList = () => {
+  const { user } = useAuth();
+  const dispatch = useDispatch();
+
+  const toDeleteIngredient = async id => {
+    await dispatch(RemoveIngredientFromShoppingList(id));
+    await dispatch(refreshUser());
+  };
   // render
   return (
     <Container>
-      {/* <ShoppingListTitle>Shopping list</ShoppingListTitle> */}
       <FakeMainPageTitleWrap style={{ paddingBottom: '72px' }}>
         <FakeMainPageTitle>Shopping list</FakeMainPageTitle>
       </FakeMainPageTitleWrap>
@@ -32,37 +45,39 @@ const ShoppingList = () => {
           <ShoppingListNumber>Number</ShoppingListNumber>
           <ShoppingListButton>Remove</ShoppingListButton>
         </IngredientsTable>
-        <IngredientCard>
-          <IngredientsList>
-            <IngredientImage>
-              <IngredientImageBackground>
-                <img alt="ingredient" src={defaultFood} />
-              </IngredientImageBackground>
-              <IngredientTitle>Lorem</IngredientTitle>
-            </IngredientImage>
+        {user.shoppingList.length !== 0 ? (
+          user.shoppingList.map(ingredient => {
+            return (
+              <IngredientCard key={ingredient._id}>
+                <IngredientsList>
+                  <IngredientImage>
+                    <IngredientImageBackground>
+                      <img
+                        alt="ingredient"
+                        src={ingredient.image || defaultFood}
+                      />
+                    </IngredientImageBackground>
+                    <IngredientTitle>{ingredient.title}</IngredientTitle>
+                  </IngredientImage>
 
-            <IngredientWeight>500g</IngredientWeight>
+                  <IngredientWeight>{ingredient.weight}</IngredientWeight>
 
-            <IngredientDeleteButton></IngredientDeleteButton>
-          </IngredientsList>
-        </IngredientCard>
-        <IngredientCard>
-          <IngredientsList>
-            <IngredientImage>
-              <IngredientImageBackground>
-                <img alt="ingredient" src={defaultFood} />
-              </IngredientImageBackground>
-              <IngredientTitle>Lorem</IngredientTitle>
-            </IngredientImage>
-
-            <IngredientWeight>500g</IngredientWeight>
-
-            <IngredientDeleteButton></IngredientDeleteButton>
-          </IngredientsList>
-        </IngredientCard>
+                  <IngredientDeleteButton
+                    id={ingredient._id}
+                    onClick={() => toDeleteIngredient(ingredient)}
+                  ></IngredientDeleteButton>
+                </IngredientsList>
+              </IngredientCard>
+            );
+          })
+        ) : (
+          <EmptyShoppingList
+            text={'Ooops, it`s empty'}
+            imageSource={emptyShoppingListImage}
+          ></EmptyShoppingList>
+        )}
       </ShoppingListWrapper>
     </Container>
   );
 };
-
 export default ShoppingList;
