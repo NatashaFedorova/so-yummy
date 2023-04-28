@@ -3,7 +3,7 @@ import { device } from 'components/constants/deviceType/deviceType';
 import styled from 'styled-components';
 
 export const ModalOverlay = styled.div`
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   z-index: 1040;
@@ -37,7 +37,7 @@ export const ModalUser = styled.div`
   }
 
   @media${device.desktop} {
-    right: 20vw;
+    right: 22vw;
   }
 `;
 

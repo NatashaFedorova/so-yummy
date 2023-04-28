@@ -67,6 +67,7 @@ const darkTheme = Object.freeze({
       textBtnCancelHover: '#fafafa',
       bgBtnCancel: '#D9D9D9',
       borderBtnCancel: '#23262a',
+      bgInputHover: '#8baa36',
     },
 
     // pagination
@@ -110,6 +111,7 @@ const darkTheme = Object.freeze({
       bgSection: '#8baa36',
       socIcon: '#fafafa',
       socIconHover: '#1e1f28',
+      commerText: '#fafafa',
     },
 
     // WelcomePage

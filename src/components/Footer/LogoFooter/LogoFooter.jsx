@@ -1,4 +1,9 @@
-import { LogoDiv, LogoSvg, StyledGrCafeteria } from './LogoFooter.styled';
+import {
+  LogoDiv,
+  LogoSvg,
+  LogoTitle,
+  StyledGrCafeteria,
+} from './LogoFooter.styled';
 
 export const LogoFooter = () => {
   return (
@@ -6,7 +11,7 @@ export const LogoFooter = () => {
       <LogoSvg>
         <StyledGrCafeteria />
       </LogoSvg>
-      <h2>So yummy</h2>
+      <LogoTitle>So yummy</LogoTitle>
     </LogoDiv>
   );
 };
