@@ -3,7 +3,7 @@ import { HeaderNavigation, StyledNavigationLink } from './Navigation.styled';
 
 const pages = [
   { to: '/categories/beef', title: 'Categories' },
-  { to: '/add', title: 'Add receptes' },
+  { to: '/add', title: 'Add recepes' },
   { to: '/my', title: 'My recipes' },
   { to: '/favorite', title: 'Favorites' },
   { to: '/shopping-list', title: 'Shopping list' },
@@ -17,7 +17,7 @@ export const Navigation = () => {
           {page.title}
         </StyledNavigationLink>
       ))}
-      <StyledNavigationLink to={`/search`}>
+      <StyledNavigationLink to={`/search`} aria-label="link to search page">
         <FiSearch />
       </StyledNavigationLink>
     </HeaderNavigation>

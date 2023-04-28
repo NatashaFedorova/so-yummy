@@ -1,12 +1,14 @@
-import { AppInfoList } from './AppInfo.styled';
+import { AppInfoItem, AppInfoList } from './AppInfo.styled';
 
 export const AppInfo = () => {
   return (
     <AppInfoList>
-      <li>Database of recipes that can be replenished </li>
-      <li>Flexible search for desired and unwanted ingredients</li>
-      <li>Ability to add your own recipes with photos</li>
-      <li>Convenient and easy to use</li>
+      <AppInfoItem>Database of recipes that can be replenished </AppInfoItem>
+      <AppInfoItem>
+        Flexible search for desired and unwanted ingredients
+      </AppInfoItem>
+      <AppInfoItem>Ability to add your own recipes with photos</AppInfoItem>
+      <AppInfoItem>Convenient and easy to use</AppInfoItem>
     </AppInfoList>
   );
 };

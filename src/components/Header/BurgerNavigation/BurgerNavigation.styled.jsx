@@ -4,6 +4,7 @@ import { device } from 'components/constants/deviceType/deviceType';
 
 export const StyledBurgerNavigation = styled.nav`
   display: flex;
+  z-index: 1;
   gap: 32px;
   flex-direction: column;
   align-items: center;
@@ -14,7 +15,7 @@ export const StyledBurgerNavigation = styled.nav`
 `;
 
 export const StyledBurgerLink = styled(NavLink)`
-  color: black;
+  color: ${props => props.theme.colors.burgerMenu.text} !important;
   display: flex;
   gap: 10px;
 
@@ -25,7 +26,7 @@ export const StyledBurgerLink = styled(NavLink)`
   letter-spacing: -0.02em;
 
   &:hover {
-    color: #8baa36;
+    color: ${props => props.theme.colors.burgerMenu.colorAccent} !important;
   }
 
   @media${device.tablet} {

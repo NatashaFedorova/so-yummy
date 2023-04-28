@@ -1,4 +1,6 @@
+import { useSelector } from 'react-redux';
 import SecondaryTitle from 'components/AddRecipe/SecondaryTitle/SecondaryTitle';
+import { selectAddRecipeIsLoading } from 'redux/recipes/selectors/addRecipeSelectors';
 import {
   RecipePreparationFieldsWrapper,
   SubmitButtom,
@@ -6,6 +8,7 @@ import {
 } from './RecipePreparationFields.styled';
 
 const RecipePreparationFields = ({ value, onChange }) => {
+  const isAdding = useSelector(selectAddRecipeIsLoading);
   return (
     <RecipePreparationFieldsWrapper>
       <SecondaryTitle>Recipe Preparation</SecondaryTitle>
@@ -18,7 +21,9 @@ const RecipePreparationFields = ({ value, onChange }) => {
         placeholder="Enter recipe"
         required
       ></Textarea>
-      <SubmitButtom type="submit">Add</SubmitButtom>
+      <SubmitButtom disabled={isAdding} type="submit">
+        {isAdding ? 'Adding...' : 'Add'}
+      </SubmitButtom>
     </RecipePreparationFieldsWrapper>
   );
 };

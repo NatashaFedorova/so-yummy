@@ -53,8 +53,11 @@ const RegisterForm = () => {
   };
   const handleName = e => {
     setName(e.target.value);
+    const re = /^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$/;
 
-    if (e.target.value.length < 2 || e.target.value.length > 20) {
+    if (!re.test(String(e.target.value).toLowerCase())) {
+      setNameError("A name must contain just A-Z, a-z, 0-9 characters");
+    } else if (e.target.value.length < 2 || e.target.value.length > 20) {
       setNameError("A name must contain 2 to 20 characters.");
     } else {
       setNameError('');
@@ -63,6 +66,7 @@ const RegisterForm = () => {
   const handleEmail = e => {
     setEmail(e.target.value);
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ ;
+    
     if (!re.test(String(e.target.value).toLowerCase())) {
       setEmailError("Email can contain only latin letters, numbers, '@' and '.'");
     } else {
@@ -72,8 +76,8 @@ const RegisterForm = () => {
   const handlePassword = e => {
     setPassword(e.target.value);
 
-    if (e.target.value.length < 5 || e.target.value.length > 20) {
-      setPasswordError("Password must contain 5 to 16 characters.");
+    if (e.target.value.length < 6 || e.target.value.length > 16) {
+      setPasswordError("Password must contain 6 to 16 characters.");
       setPasswordSecureMsg("Enter a valid Password");
     } else {
       setPasswordError('');
@@ -129,14 +133,6 @@ const RegisterForm = () => {
     const isFormDataValid = !Boolean(nameError) && !Boolean(emailError) && !Boolean(passwordError);
     const isTrue = (!isFormDataEmpty && isFormDataValid && !passwordSecure);
     setIsValid(isTrue);
-
-    // console.log("-------------------------");console.log("-------------------------");
-    // console.log("isFormDataEmpty", isFormDataEmpty);
-    // console.log("isFormDataEmpty", !Boolean(name), !Boolean(email) , !Boolean(password));
-    // console.log("-------------------------");
-    // console.log("isFormDataValid", isFormDataValid);
-    // console.log("isFormDataValid", !Boolean(nameError), !Boolean(emailError) , !Boolean(passwordError));
-    // console.log("isTrue", isTrue);
   }, [name, email, password, nameError, emailError, passwordError, passwordSecure]);
 
   return (
@@ -188,7 +184,6 @@ const RegisterForm = () => {
         { passwordClass && <AuthFormIconValid icon={passwordClass}/>}
         { passwordDirty && !passwordSecure && <AuthFormPassValidaMsg>{passwordSecureMsg}</AuthFormPassValidaMsg>}
         { passwordDirty && passwordSecure && <AuthFormPassValidaMsg>{passwordSecureMsg}</AuthFormPassValidaMsg>}
-        { passwordDirty && passwordError && <AuthFormPassValidaMsg2>{passwordSecureMsg}</AuthFormPassValidaMsg2>}
         
         { passwordDirty && passwordError && <AuthFormPassValidaMsg2>{passwordError}</AuthFormPassValidaMsg2>}
         { passwordDirty && !passwordError && passwordSecure && <AuthFormPassValidaMsg2>{passwordSecure}</AuthFormPassValidaMsg2>}

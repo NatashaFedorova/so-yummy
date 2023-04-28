@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom/dist';
 
 export const Logo = () => {
   return (
-    <NavLink to="/">
+    <NavLink to="/" aria-label="Logo button">
       <LogoSvg>
         <StyledGrCafeteria />
       </LogoSvg>

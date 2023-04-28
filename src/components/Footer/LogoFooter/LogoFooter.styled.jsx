@@ -23,22 +23,23 @@ export const LogoDiv = styled.div`
   gap: 12px;
   align-items: center;
   color: white;
+  cursor: context-menu;
+`;
 
-  & h2 {
+export const LogoTitle = styled.h2`
+  font-family: Poppins;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: 0.015em;
+  text-align: left;
+
+  @media ${device.tablet} {
     font-family: Poppins;
-    font-size: 18px;
+    font-size: 28px;
     font-weight: 700;
-    line-height: 18px;
+    line-height: 28px;
     letter-spacing: 0.015em;
-    text-align: left;
-
-    @media ${device.tablet} {
-      font-family: Poppins;
-      font-size: 28px;
-      font-weight: 700;
-      line-height: 28px;
-      letter-spacing: 0.015em;
-    }
   }
 `;
 

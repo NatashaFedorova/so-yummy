@@ -10,8 +10,10 @@ export const size = {
 export const SignSection = styled.section`
   position: relative;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   min-height: 100vh;
+  // background: ${props => props.theme.colors.background};
+  background: #fafafa;
 `;
 export const SignSectionBg = styled.div`
   position: absolute;
@@ -57,26 +59,28 @@ export const SignContainer = styled.div`
 export const SignBoxWrap = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
 
   @media ${device.desktop} {
-    // align-items: flex-start;
     flex-direction: row;
     gap: 114px;
   }
 `;
 export const SignBgImg = styled.div`
-  width: 285px;
+  width: 280px;
   height: 250px;
   flex-shrink: 0;
-
-  // background-image: url('${process.env.PUBLIC_URL}/images/welcomePage/bg1.webp');
 
   background-image: url('${process.env.PUBLIC_URL}/images/signPages/order-food-pana-mobile.png');
   background-size: cover;
   background-repeat: no-repeat;
   z-index: 1;
+
+  @media ${device.mobile} {
+    width: 285px;
+    height: 250px;
+  }
 
   @media ${device.tablet} {
     width: 409px;
@@ -88,6 +92,7 @@ export const SignBgImg = styled.div`
   @media ${device.desktop} {
     width: 532px;
     height: 469px;
+    margin-bottom: 186px;
 
     background-image: url('${process.env.PUBLIC_URL}/images/signPages/order-food-pana-desktop.png');
   }
@@ -96,27 +101,34 @@ export const SignBox = styled.div`
   position: relative;
   bottom: 32px;
 
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   flex-direction: column;
   gap: 18px;
-  flex-shrink: 0;
-  width: 335px;
+  width: 100%;
+  
   z-index: 1;
 
+  @media ${device.mobile} {width: 335px;}
   @media ${device.tablet} {
     bottom: 11px;
     width: 500px;
+    margin-bottom: 21px;
   }
   @media ${device.desktop} {
-    bottom: -32px;
+    bottom: 0px;
+    margin-bottom: 150px;
   }
 `;
 export const SignNavLink = styled(NavLink)`
   font-size: 16px;
   line-height: 24px;
-
   text-decoration-line: underline;
+  text-align: center;
+  color: ${props => props.theme.colors.userForm.textForm};
 
-  color: #fafafa;
+  &:hover, :focus {
+    color: #8BAA36;
+  }
 `;

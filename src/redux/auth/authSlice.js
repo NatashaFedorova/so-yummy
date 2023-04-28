@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { register, logIn, logOut, refreshUser } from './authOperation';
+import { register, logIn, logOut, refreshUser, toggleIsRefreshing } from './authOperation';
 import { changeUserData, subscribe } from 'redux/user/userOperation';
 import { Notify } from 'notiflix';
 
@@ -26,11 +26,10 @@ export const authSlise = createSlice({
         state.isLoggedIn = true;
         state.isRefreshing = false;
 
-        Notify.success('Registration successful!');
+        Notify.success(`Registration successful! Welcome ${action.payload.user.name}!`);
       })
-      .addCase(register.rejected, (state, action) => {
+      .addCase(register.rejected, (_) => {
         Notify.failure('Incorrect email or password! Or maybe the user with this email address is not registered. Try again');
-
       })
       .addCase(logIn.fulfilled, (state, action) => {
         state.user = action.payload.user;
@@ -40,17 +39,16 @@ export const authSlise = createSlice({
 
         Notify.success(`Welcome ${action.payload.user.name}!`);
       })
-      .addCase(logIn.rejected, (state, action) => {
+      .addCase(logIn.rejected, (_) => {
         Notify.failure('Incorrect email or password! Or maybe the user with this email address is not registered. Try again');
       })
-      .addCase(logOut.fulfilled, state => {
+      .addCase(logOut.fulfilled, (state) => {
+        Notify.success(`Goodbye ${state.user.name}!`);
         state.user = { name: null, email: null };
         state.token = null;
         state.isLoggedIn = false;
-
-        Notify.info(`Goodbuy!`);
       })
-      .addCase(refreshUser.pending, (state, action) => {
+      .addCase(refreshUser.pending, (state) => {
         state.isRefreshing = true;
       })
       .addCase(refreshUser.fulfilled, (state, action) => {
@@ -58,7 +56,7 @@ export const authSlise = createSlice({
         state.isLoggedIn = true;
         state.isRefreshing = false;
       })
-      .addCase(refreshUser.rejected, (state, action) => {
+      .addCase(refreshUser.rejected, (state) => {
         state.isLoggedIn = false;
         state.isRefreshing = false;
       })
@@ -68,16 +66,20 @@ export const authSlise = createSlice({
         state.isLoggedIn = true;
         Notify.success('Changes successful');
       })
-      .addCase(changeUserData.rejected, (state, action) => {
+      .addCase(changeUserData.rejected, (_) => {
         Notify.failure('Error');
       })
       .addCase(subscribe.fulfilled, (state, action) => {
         state.user.subscribtion = action.payload.subscription;
         Notify.success('Changes successful');
       })
-      .addCase(subscribe.rejected, (state, action) => {
+      .addCase(subscribe.rejected, (_) => {
         Notify.failure('Error');
-      }),
+      })
+      .addCase(toggleIsRefreshing.fulfilled, (state, action) => {
+        console.log("toggleIsRefreshing action.payload", action.payload)
+        state.isRefreshing = action.payload;
+      })
 });
 
 export const authReducer = authSlise.reducer;

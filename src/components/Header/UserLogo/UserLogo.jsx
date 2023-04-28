@@ -8,6 +8,7 @@ import {
   UserNameSpan,
 } from './UserLogo.styled';
 import useAuth from 'hooks/useAuth';
+import { useLocation } from 'react-router-dom';
 
 import styled from 'styled-components';
 import AchivementButton from '../AchivementButton/AchivementButton';
@@ -18,6 +19,14 @@ export const UserLogo = () => {
   const { name, avatarUrl } = user;
 
   const [showUserLogoModal, setShowUserLogoModal] = useState(false);
+  const [widthHTML, setWidthHTML] = useState('');
+
+  const path = useLocation().pathname;
+  const add = document.querySelector('html');
+
+  useEffect(() => {
+    setWidthHTML(add.offsetWidth);
+  }, [add.offsetWidth]);
 
   const togglerUserLogoModal = () => {
     setShowUserLogoModal(!showUserLogoModal);
@@ -35,6 +44,7 @@ export const UserLogo = () => {
       document.body.removeEventListener('keydown', closeOnESCLogoModal);
     };
   }, []);
+
   return (
     <>
       <UserLogoDiv onClick={togglerUserLogoModal}>
@@ -42,7 +52,13 @@ export const UserLogo = () => {
           <AvatarArea>
             <CurrentUserAvatar src={avatarUrl} alt={'User avatar'} />
           </AvatarArea>
-          <UserNameSpan>{`${name}`}</UserNameSpan>
+          <UserNameSpan
+            style={
+              path.toString() === '/main' && widthHTML > 1421
+                ? { color: '#1E1F28' }
+                : { color: '#fafafa' }
+            }
+          >{`${name}`}</UserNameSpan>
         </UserInfo>
       </UserLogoDiv>
       <AchivementButton />

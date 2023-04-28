@@ -20,6 +20,7 @@ import {
   selectRecipesByCategoryName,
   selectRecipesIsLoading,
 } from '../../redux/recipes/selectors/selectRecipeByCategoryName';
+import { getRecipesForMain } from '../../redux/recipes/selectors/selectCategoriesMain';
 import getCategories from 'redux/recipes/operations/getCategory';
 import getRecipesByCategory from 'redux/recipes/operations/getRecipesByCategory';
 import {
@@ -27,31 +28,24 @@ import {
   CategoryDefaultSquareСircle,
   CategoryDefaultSquareSecond,
 } from './Category.styled';
-import Loading from '../Loading/Loading';
+// import Loading from '../Loading/Loading';
 import { PagePagination } from '../Pagination/Pagination';
-// import { CategoryContentLoad } from './CategoryContentLoad';
-// import { useMediaQuery } from 'react-responsive';
+import { getCatFood } from './Helpers/CheckCat';
+import { CategorySkeleton } from './CategoryContentLoad';
 
 const Categories = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const { categoryName: name } = useParams();
   const dispatch = useDispatch();
-  const categories = useSelector(selectCategory);
+  const catFromMain = useSelector(getRecipesForMain)
+    ?.map(({ _id }) => _id)
+    ?.sort();
+  const categoriesFromFetch = useSelector(selectCategory);
   const dishesElement = useSelector(selectRecipesByCategoryName);
   const dishes = dishesElement;
   const isLoad = useSelector(selectRecipesIsLoading);
   const cardsPerPage = 8;
   const totalPages = dishesElement.length > 0 ? dishesElement[0].totalCount : 8;
-
-  // const desktopScreen = useMediaQuery({ minWidth: 1440 });
-  // const tabletScreen = useMediaQuery({ minWidth: 768, maxWidth: 1439 });
-  // let cardsOnScreen = null;
-  // desktopScreen === true
-  //   ? (cardsOnScreen = 4)
-  //   : tabletScreen === true
-  //   ? (cardsOnScreen = 2)
-  //   : (cardsOnScreen = 1);
-
   const handlePageChange = page => {
     setCurrentPage(page);
   };
@@ -61,12 +55,17 @@ const Categories = () => {
   }, [name]);
 
   useEffect(() => {
-    dispatch(getCategories());
-  }, [dispatch]);
+    console.log(catFromMain);
+    if (catFromMain && catFromMain?.length > 0) {
+      return;
+    } else dispatch(getCategories());
+  }, [dispatch, catFromMain]);
 
   useEffect(() => {
     dispatch(getRecipesByCategory({ categoryName: name, page: currentPage }));
   }, [name, dispatch, currentPage]);
+
+  const categories = getCatFood(catFromMain, categoriesFromFetch);
 
   const categoryIndex = categories.findIndex(item => {
     return item.toLowerCase() === name.toLowerCase();
@@ -126,14 +125,25 @@ const Categories = () => {
             })}
           </CategoryTabs>
         </Box>
-        <MyTabPanel>{isLoad ? <Loading /> : TabPanel(dishes)}</MyTabPanel>
+        <MyTabPanel>
+          {isLoad ? <CategorySkeleton /> : TabPanel(dishes)}
+        </MyTabPanel>
         {totalPages > 8 && (
-          <PagePagination
-            totalPages={totalPages}
-            cardsPerPage={cardsPerPage}
-            currentPage={currentPage}
-            handlePageChange={handlePageChange}
-          />
+          <div
+            style={{
+              marginBottom: '200px',
+              '@media (min-width: 768px)': {
+                marginBottom: '100px',
+              },
+            }}
+          >
+            <PagePagination
+              totalPages={totalPages}
+              cardsPerPage={cardsPerPage}
+              currentPage={currentPage}
+              handlePageChange={handlePageChange}
+            />
+          </div>
         )}
       </>
     </Container>

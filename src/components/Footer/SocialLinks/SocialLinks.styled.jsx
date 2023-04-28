@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { BsFacebook, BsYoutube, BsTwitter, BsInstagram } from 'react-icons/bs';
 import { device } from 'components/constants/deviceType/deviceType';
+import { Link } from 'react-router-dom';
 
 export const SocialLinksList = styled.ul`
   display: flex;
@@ -22,11 +23,16 @@ export const SocialLinksList = styled.ul`
   }
 `;
 
+export const LinkIcon = styled(Link)``;
+
 export const StyledBsFacebook = styled(BsFacebook)`
   width: 18px;
   height: 18px;
   & path {
-    fill: #8baa36;
+    fill: ${props => props.theme.colors.userForm.icon};
+  }
+  & path:hover {
+    fill: ${props => props.theme.colors.userForm.iconHover};
   }
 
   @media ${device.tablet} {
@@ -39,7 +45,10 @@ export const StyledBsYoutube = styled(BsYoutube)`
   width: 24px;
   height: 19px;
   & path {
-    fill: #8baa36;
+    fill: ${props => props.theme.colors.userForm.icon};
+  }
+  & path:hover {
+    fill: ${props => props.theme.colors.userForm.iconHover};
   }
   @media ${device.tablet} {
     width: 25px;
@@ -51,7 +60,10 @@ export const StyledBsTwitter = styled(BsTwitter)`
   width: 23px;
   height: 19px;
   & path {
-    fill: #8baa36;
+    fill: ${props => props.theme.colors.userForm.icon};
+  }
+  & path:hover {
+    fill: ${props => props.theme.colors.userForm.iconHover};
   }
   @media ${device.tablet} {
     width: 25px;
@@ -63,7 +75,10 @@ export const StyledBsInstagram = styled(BsInstagram)`
   width: 17px;
   height: 17px;
   & path {
-    fill: #8baa36;
+    fill: ${props => props.theme.colors.userForm.icon};
+  }
+  & path:hover {
+    fill: ${props => props.theme.colors.userForm.iconHover};
   }
   @media ${device.tablet} {
     width: 20px;

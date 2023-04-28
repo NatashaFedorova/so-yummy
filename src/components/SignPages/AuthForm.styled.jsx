@@ -11,7 +11,6 @@ import { ReactComponent as GreenIcon } from './green.svg';
 export const AuthForm = styled.form`
   display: flex;
   flex-direction: column;
-  width: 335px;
   padding: 32px 28px 40px;
 
   color: ${props => props.theme.colors.userForm.textForm};
@@ -22,6 +21,9 @@ export const AuthForm = styled.form`
   border-radius: 30px;
   box-shadow: 0px 4px 48px rgba(0, 0, 0, 0.1);
 
+  @media ${device.mobile} {
+    width: 335px;
+  }
   @media ${device.tablet} {
     width: 500px;
   }
@@ -220,12 +222,12 @@ export const AuthFormValidaMsg = styled.p`
 `;
 export const AuthFormPassValidaMsg = styled.p`
   position: absolute;
-  bottom: -11px;
+  bottom: -12px;
   
   left: 0px;
 
   color: #E74A3B;
-  font-size: 11px;
+  font-size: 10px;
   line-height: 1;
   text-align: center;
 
@@ -238,12 +240,12 @@ export const AuthFormPassValidaMsg = styled.p`
 `;
 export const AuthFormPassValidaMsg2 = styled.p`
   position: absolute;
-  bottom: -22px;
+  bottom: -24px;
   
   left: 0px;
 
   color: #E74A3B;
-  font-size: 11px;
+  font-size: 10px;
   line-height: 1;
   text-align: center;
 
@@ -255,15 +257,19 @@ export const AuthFormPassValidaMsg2 = styled.p`
   }
 `;
 
-
 export const AuthFormBtnSubmit = styled.button`
   height: 60px;
 
   color: inherit;
 
+  border: 0px;
   border-radius: 6px;
-  background-color: ${props => props.theme.colors.userForm.bgBtn};
+  background-color: #8baa36;
   cursor: pointer;
+
+  &:hover, :focus {
+    color: #22252A;
+  }
 
   :disabled {
     opacity: 0.5;

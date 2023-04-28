@@ -1,6 +1,7 @@
 import { device } from 'components/constants/deviceType/deviceType';
 import styled from 'styled-components';
 
+// prettier-ignore
 export const DecoreLeafsTop = styled.div`
   position: absolute;
   top: -196px;
@@ -8,7 +9,13 @@ export const DecoreLeafsTop = styled.div`
 
   width: 256px;
   height: 392px;
-  background-image: url('${process.env.PUBLIC_URL}/images/decoratedMain/leafs-top-mobile.png');
+  background-image: url('${process.env.PUBLIC_URL}/images/decoratedMain/leafs-top-mobile-webp.webp');
+  background-image: image-set(
+    url('${process.env.PUBLIC_URL}/images/decoratedMain/leafs-top-mobile-webp.webp')
+      type('image/webp'),
+    url('${process.env.PUBLIC_URL}/images/decoratedMain/leafs-top-mobile.png')
+      type('image/png')
+  );
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -23,7 +30,13 @@ export const DecoreLeafsTop = styled.div`
     width: 423px;
     height: 646px;
     filter: none;
-    background-image: url('${process.env.PUBLIC_URL}/images/decoratedMain/leafs-top-tablet.png');
+    background-image: url('${process.env.PUBLIC_URL}/images/decoratedMain/leafs-top-tablet-webp.webp');
+    background-image: image-set(
+      url('${process.env.PUBLIC_URL}/images/decoratedMain/leafs-top-tablet-webp.webp')
+        type('image/webp'),
+      url('${process.env.PUBLIC_URL}/images/decoratedMain/leafs-top-tablet.png')
+        type('image/png')
+    );
   }
   @media ${device.desktop} {
     top: -426px;
@@ -31,9 +44,17 @@ export const DecoreLeafsTop = styled.div`
 
     width: 588px;
     height: 852px;
-    background-image: url('${process.env.PUBLIC_URL}/images/decoratedMain/leafs-top-desktop.png');
+    background-image: url('${process.env.PUBLIC_URL}/images/decoratedMain/leafs-top-desktop-webp.webp');
+    background-image: image-set(
+      url('${process.env.PUBLIC_URL}/images/decoratedMain/leafs-top-desktop-webp.webp')
+        type('image/webp'),
+      url('${process.env.PUBLIC_URL}/images/decoratedMain/leafs-top-desktop.png')
+        type('image/png')
+    );
   }
 `;
+
+// prettier-ignore
 export const DecoreLeafsBottom = styled.div`
   position: absolute;
   bottom: -52px;
@@ -41,7 +62,13 @@ export const DecoreLeafsBottom = styled.div`
 
   width: 160px;
   height: 172px;
-  background-image: url('${process.env.PUBLIC_URL}/images/decoratedMain/leafs-bottom-mobile.png');
+  background-image: url('${process.env.PUBLIC_URL}/images/decoratedMain/leafs-bottom-mobile-webp.webp');
+  background-image: image-set(
+    url('${process.env.PUBLIC_URL}/images/decoratedMain/leafs-bottom-mobile-webp.webp')
+      type('image/webp'),
+    url('${process.env.PUBLIC_URL}/images/decoratedMain/leafs-bottom-mobile.png')
+      type('image/png')
+  );
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -52,19 +79,31 @@ export const DecoreLeafsBottom = styled.div`
   @media ${device.tablet} {
     bottom: -92px;
     right: -7px;
-  
+
     width: 290px;
     height: 313px;
-    background-image: url('${process.env.PUBLIC_URL}/images/decoratedMain/leafs-bottom-tablet.png');
+    background-image: url('${process.env.PUBLIC_URL}/images/decoratedMain/leafs-bottom-tablet-webp.webp');
+    background-image: image-set(
+      url('${process.env.PUBLIC_URL}/images/decoratedMain/leafs-bottom-tablet-webp.webp')
+        type('image/webp'),
+      url('${process.env.PUBLIC_URL}/images/decoratedMain/leafs-bottom-tablet.png')
+        type('image/png')
+    );
     filter: none;
   }
 
   @media ${device.desktop} {
     bottom: -161px;
     right: 7px;
-  
+
     width: 438px;
     height: 474px;
-    background-image: url('${process.env.PUBLIC_URL}/images/decoratedMain/leafs-bottom-desktop.png');
+    background-image: url('${process.env.PUBLIC_URL}/images/decoratedMain/leafs-bottom-desktop-webp.webp');
+    background-image: image-set(
+      url('${process.env.PUBLIC_URL}/images/decoratedMain/leafs-bottom-desktop-webp.webp')
+        type('image/webp'),
+      url('${process.env.PUBLIC_URL}/images/decoratedMain/leafs-bottom-desktop.png')
+        type('image/png')
+    );
   }
 `;

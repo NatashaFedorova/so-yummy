@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom/dist';
 import {
+  LinkIcon,
   SocialLinksList,
   StyledBsFacebook,
   StyledBsInstagram,
@@ -11,24 +11,24 @@ export const SocialLinks = () => {
   return (
     <SocialLinksList>
       <li>
-        <Link>
-          <StyledBsFacebook />
-        </Link>
+        <LinkIcon>
+          <StyledBsFacebook aria-label="Facebook link" />
+        </LinkIcon>
       </li>
       <li>
-        <Link>
-          <StyledBsYoutube />
-        </Link>
+        <LinkIcon>
+          <StyledBsYoutube aria-label="Youtube link" />
+        </LinkIcon>
       </li>
       <li>
-        <Link>
-          <StyledBsTwitter />
-        </Link>
+        <LinkIcon>
+          <StyledBsTwitter aria-label="Twitter link" />
+        </LinkIcon>
       </li>
       <li>
-        <Link>
-          <StyledBsInstagram />
-        </Link>
+        <LinkIcon>
+          <StyledBsInstagram aria-label="Instagram link" />
+        </LinkIcon>
       </li>
     </SocialLinksList>
   );

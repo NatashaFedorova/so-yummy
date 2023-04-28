@@ -53,8 +53,8 @@ const SigninForm = () => {
   const handlePassword = e => {
     setPassword(e.target.value);
 
-    if (e.target.value.length < 5 || e.target.value.length > 20) {
-      setPasswordError('A password must contain 5 to 20 characters.');
+    if (e.target.value.length < 5 || e.target.value.length > 16) {
+      setPasswordError('Enter a valid Password');
     } else {
       setPasswordError('');
     }
@@ -85,6 +85,16 @@ const SigninForm = () => {
     else setPasswordClass('');
    
   }, [passwordDirty, password, passwordError]);
+
+  useEffect(() => {
+    if (passwordDirty) {
+      if (passwordError) setPasswordClass('red');
+      else if (password && !passwordError) {
+        setPasswordClass('green'); 
+      }
+    }
+    else setPasswordClass('');
+  }, [email, password, emailError, passwordError, passwordDirty]);
 
   useEffect(() => {
     const isFormDataEmpty = !Boolean(email) && !Boolean(password);

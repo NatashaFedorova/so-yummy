@@ -1,10 +1,10 @@
 import axios from 'axios';
 
 
-const getRecipesByIngredient = async (query, page) => {
+const getRecipesByIngredient = async (query, page, limit) => {
   try {
     const response = await axios(
-      `https://t2d-soyammy-backend.onrender.com/api/ingredients?query=${query}&page=${page}&limit=8`
+      `https://t2d-soyammy-backend.onrender.com/api/ingredients?query=${query}&page=${page}&limit=${limit}`
     );
     const data = response.data;
     return data;

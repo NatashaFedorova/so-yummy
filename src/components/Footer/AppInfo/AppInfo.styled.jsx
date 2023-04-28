@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 export const AppInfoList = styled.ul`
   display: none;
+
   @media ${device.tablet} {
     display: flex;
     gap: 10px;
@@ -24,4 +25,8 @@ export const AppInfoList = styled.ul`
     gap: 12px;
     width: 404px;
   }
+`;
+
+export const AppInfoItem = styled.li`
+  cursor: context-menu;
 `;

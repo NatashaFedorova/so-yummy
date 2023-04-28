@@ -3,8 +3,6 @@ import { device } from 'components/constants/deviceType/deviceType';
 import styled from 'styled-components';
 
 export const HeaderS = styled.header`
-  // position: absolute;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,6 +16,8 @@ export const HeaderContainer = styled(Container)`
   align-items: center;
   justify-content: space-between;
   margin-top: 18px;
+  padding: 0px 16px;
+}
 `;
 
 export const HeaderRightDiv = styled.div`

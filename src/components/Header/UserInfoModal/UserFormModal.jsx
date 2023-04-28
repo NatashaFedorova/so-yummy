@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { StyledRxPerson } from './UserInfoModal.styled';
+import { ConfigNameInput, StyledRxPerson } from './UserInfoModal.styled';
 import { StyledHiOutlinePencil } from './UserInfoModal.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeUserData } from 'redux/user/userOperation';
@@ -13,10 +13,7 @@ import {
   SendChangeBTN,
   StyledAiFillPlusCircle,
 } from './UserInfoModal.styled';
-import axios from 'axios';
 import { selectUser } from 'redux/auth/authSelectors';
-
-axios.defaults.baseURL = 'https://t2d-soyammy-backend.onrender.com/api/';
 
 export const UserFormModal = () => {
   const { name, avatarUrl } = useSelector(selectUser);
@@ -24,13 +21,16 @@ export const UserFormModal = () => {
   const dispatch = useDispatch();
 
   const [newUserName, setNewUserName] = useState(`${name}`);
-  // const [imageFile, setImageFile] = useState('');
   const [imageRef, setImageRef] = useState(avatarUrl);
+  const [goodImage, setGoodImage] = useState('false');
 
   const handleFileChange = event => {
     let file = event.target.files[0];
-    // setImageFile(file);
-    console.log(file);
+    if (file.size > 2097152) {
+      setGoodImage(false);
+    } else {
+      setGoodImage(true);
+    }
     reader.onload = event => {
       setImageRef(event.currentTarget.result);
     };
@@ -41,25 +41,19 @@ export const UserFormModal = () => {
     const form = document.getElementById('form');
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      const { image, name } = this.elements;
+      const { avatarImage, name } = this.elements;
       const data = new FormData();
-      console.log(image.files[0]);
-      data.append('image', image.files[0]);
+      data.append('avatarImage', avatarImage.files[0]);
       data.append('name', name.value);
-      dispatch(changeUserData(data));
+      if (goodImage) {
+        dispatch(changeUserData(data));
+        setNewUserName(`${name}`);
+        setImageRef(avatarUrl);
+        setGoodImage('false');
+      }
     });
-  }, [dispatch]);
-  // const submitChange = () => {
-  //   const formData = new FormData();
-  //   formData.append('file', imageFile);
-  //   formData.append('name', newUserName);
-  //   console.log(imageFile);
-  //   for (var item of formData) {
-  //     console.log(item);
+  }, [dispatch, goodImage, avatarUrl]);
 
-  //   }
-  // dispatch(changeUserData(formData));
-  // };
   return (
     <>
       <ConfigAvatarArea>
@@ -70,7 +64,8 @@ export const UserFormModal = () => {
           <StyledAiFillPlusCircle />
           <ChangeImageInput
             type="file"
-            name="image"
+            name="avatarImage"
+            accept="image/png, image/gif, image/jpeg, image/svg, image/jpg"
             onChange={handleFileChange}
             multiple
           />
@@ -80,7 +75,7 @@ export const UserFormModal = () => {
           <ConfigNameLabel>
             <LeftInputDiv>
               <StyledRxPerson />
-              <input
+              <ConfigNameInput
                 name="name"
                 value={newUserName}
                 onChange={event => setNewUserName(event.target.value)}
@@ -90,7 +85,14 @@ export const UserFormModal = () => {
           </ConfigNameLabel>
         </label>
 
-        <SendChangeBTN>Save chandes</SendChangeBTN>
+        <SendChangeBTN
+          disabled={!goodImage && 'disabled'}
+          style={!goodImage ? { background: 'red' } : { background: '#8baa36' }}
+        >
+          {!goodImage
+            ? 'Please select an avatar with size 2MB'
+            : 'Save changes'}
+        </SendChangeBTN>
       </form>
     </>
   );
