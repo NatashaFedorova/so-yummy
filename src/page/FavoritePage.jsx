@@ -13,6 +13,7 @@ import { PagePagination } from 'components/Pagination/Pagination';
 const FavoritePage = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectFavoriteIsLoading);
+  const [render, setRender] = useState(1);
   const isThemeDark = useSelector(selectStatusTheme);
   const [currentPage, setCurrentPage] = useState(1);
   const cardsPerPage = 4;
@@ -25,8 +26,12 @@ const FavoritePage = () => {
   };
 
   useEffect(() => {
+    if (render) { 
+      setRender(0); 
+      return;
+    }
     dispatch(getFavorite(currentPage));
-  }, [dispatch, currentPage]);
+  }, [dispatch, currentPage, render, setRender]);
 
   return (
     <>

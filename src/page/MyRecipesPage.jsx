@@ -13,6 +13,7 @@ import { PagePagination } from 'components/Pagination/Pagination';
 const MyRecipesPage = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectMyRecipesIsLoading);
+  const [render, setRender] = useState(1);
   const isThemeDark = useSelector(selectStatusTheme);
   const [currentPage, setCurrentPage] = useState(1);
   const cardsPerPage = 4;
@@ -25,8 +26,12 @@ const MyRecipesPage = () => {
   };
 
   useEffect(() => {
+    if (render) { 
+      setRender(0); 
+      return;
+    }
     dispatch(getMyRecipes(currentPage));
-  }, [dispatch, currentPage]);
+  }, [dispatch, currentPage, render, setRender]);
 
   return (
       <>

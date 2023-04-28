@@ -118,9 +118,11 @@ export const SignBox = styled.div`
 export const SignNavLink = styled(NavLink)`
   font-size: 16px;
   line-height: 24px;
-
   text-decoration-line: underline;
   text-align: center;
-
   color: ${props => props.theme.colors.userForm.textForm};
+
+  &:hover, :focus {
+    color: #8BAA36;
+  }
 `;
