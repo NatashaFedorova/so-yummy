@@ -8,25 +8,27 @@ import {
   PrepInfoWrap,
   PrepImgImg,
 } from './RecipePreparation.styled';
+import noRecipeIMG from './no-recipe-image.png';
 
 const RecipePreparation = ({ instructions, img, title }) => {
   const ArrFromInstructions = instructions.split('. ');
-
   return (
-    <PrepWrap>
-      <PrepInfo>
-        <PrepInfoHead>RecipePreparation</PrepInfoHead>
-        {ArrFromInstructions.map((item, index) => (
-          <PrepInfoWrap key={index}>
-            <PrepInfoSpan>{index + 1}</PrepInfoSpan>
-            <PrepInfoText key={item}>{item}</PrepInfoText>
-          </PrepInfoWrap>
-        ))}
-      </PrepInfo>
-      <PrepImg>
-        <PrepImgImg src={img} alt={title} />
-      </PrepImg>
-    </PrepWrap>
+    <>
+      <PrepWrap>
+        <PrepInfo>
+          <PrepInfoHead>RecipePreparation</PrepInfoHead>
+          {ArrFromInstructions.map((item, index) => (
+            <PrepInfoWrap key={index}>
+              <PrepInfoSpan>{index + 1}</PrepInfoSpan>
+              <PrepInfoText key={item}>{item}</PrepInfoText>
+            </PrepInfoWrap>
+          ))}
+        </PrepInfo>
+        <PrepImg>
+          <PrepImgImg src={img ? img : noRecipeIMG} alt={title} />
+        </PrepImg>
+      </PrepWrap>
+    </>
   );
 };
 
