@@ -281,7 +281,7 @@ const lightTheme = Object.freeze({
       textSecondary: '#fafafa',
       bgAccent: '#8baa36',
       icon: '#333333',
-      // iconHover: '#8baa36',
+      iconHover: '#8baa36',
       line: '#e0e0e0',
     },
 

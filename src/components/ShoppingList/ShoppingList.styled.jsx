@@ -1,12 +1,12 @@
 // ${props => props.theme.colors.text}
 import styled from 'styled-components';
-import deleteBtn from './deleteBtn.svg';
 import {
   DefaultSquare,
   DefaultSquareСircle,
 } from 'components/constants/DefaultStyleComponents/DefaultStyleComponents';
 import { device } from 'components/constants/deviceType/deviceType';
 import Container from 'components/constants/Container';
+import { AiOutlineClose } from 'react-icons/ai';
 
 export const MainStyleConponent = styled.main``;
 
@@ -139,11 +139,11 @@ export const ShoppingListWrapper = styled.div`
   font-weight: 500;
   font-size: 10px;
   line-height: 12px;
-  color: #3e4462;
+  color: ${props => props.theme.colors.shoppingListPage.titleSecondary};
 `;
 export const IngredientsTable = styled.div`
   display: flex;
-  background-color: rgb(139, 170, 54);
+  background-color: ${props => props.theme.colors.shoppingListPage.bgAccent};
   border-radius: 8px;
   -webkit-box-align: center;
   align-items: center;
@@ -170,13 +170,13 @@ export const ShoppingListName = styled.p`
   font-weight: 600;
   font-size: 12px;
   line-height: 18px;
-  color: #fafafa;
+  color: ${props => props.theme.colors.shoppingListPage.textSecondary};
   margin-right: 167px;
 
   @media ${device.mobile} {
     font-size: 12px;
     line-height: 18px;
-    color: #fafafa;
+
     margin-right: 167px;
   }
   @media ${device.tablet} {
@@ -185,7 +185,6 @@ export const ShoppingListName = styled.p`
     align-items: center;
     letter-spacing: 0.03em;
     margin-right: auto;
-    color: #fafafa;
   }
   @media ${device.desktop} {
     font-weight: 600;
@@ -194,8 +193,6 @@ export const ShoppingListName = styled.p`
     display: flex;
     align-items: center;
     letter-spacing: 0.03em;
-
-    color: #fafafa;
   }
 `;
 
@@ -213,7 +210,7 @@ export const ShoppingListButton = styled(ShoppingListName)`
 export const ShoppingListImage = styled.div`
   width: 60px;
   height: 60px;
-  background-color: #ebf3d4;
+  background-color: ${props => props.theme.colors.mainPage.bgAccent};
   padding: 6px;
   border-radius: 6px;
 `;
@@ -265,7 +262,7 @@ export const IngredientImageBackground = styled.div`
   }
 `;
 export const ShoppingListTitle = styled.h3`
-  color: #001833;
+  color: ${props => props.theme.colors.shoppingListPage.title};
   font-weight: 600;
   letter-spacing: -0.02em;
   @media ${device.mobile} {
@@ -280,11 +277,11 @@ export const ShoppingListTitle = styled.h3`
   }
 `;
 export const IngredientTitle = styled.p`
-  color: #3e4462;
+  color: ${props => props.theme.colors.shoppingListPage.titleSecondary};
   @media ${device.mobile} {
     font-size: 10px;
     line-height: 12px;
-    color: #3e4462;
+    color: ${props => props.theme.colors.shoppingListPage.titleSecondary};
   }
   @media ${device.tablet} {
     font-weight: 500;
@@ -296,6 +293,7 @@ export const IngredientTitle = styled.p`
 export const IngredientWeight = styled.li`
   @media ${device.mobile} {
     margin-left: auto;
+    color: ${props => props.theme.colors.shoppingListPage.textSecondary};
     padding: 4px;
     background: #8baa36;
     height: fit-content;
@@ -306,8 +304,6 @@ export const IngredientWeight = styled.li`
     line-height: 15px;
 
     text-align: center;
-
-    color: #fafafa;
   }
   @media ${device.tablet} {
     font-size: 18px;
@@ -317,7 +313,7 @@ export const IngredientWeight = styled.li`
   }
 `;
 export const IngredientDeleteButton = styled.button`
-  background: url(${deleteBtn});
+  background: transparent;
   border: 0px;
 
   padding: 0px;
@@ -336,5 +332,20 @@ export const IngredientDeleteButton = styled.button`
   }
   @media ${device.desktop} {
     margin-right: 0;
+  }
+`;
+export const IngredientDeleteIcon = styled(AiOutlineClose)`
+  color: ${props => props.theme.colors.shoppingListPage.icon};
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover {
+    color: ${props => props.theme.colors.shoppingListPage.iconHover};
+  }
+  @media ${device.mobile} {
+    width: 14px;
+    height: 14px;
+  }
+  @media ${device.tablet} {
+    width: 20px;
+    height: 20px;
   }
 `;
