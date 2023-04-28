@@ -54,7 +54,7 @@ export const SubscriptionInfo = styled.p`
 export const SubscriptionLabel = styled.label`
     display: flex;
     padding: 14px;
-    border: 1px solid ${props => props.theme.colors.userForm.input} !important;
+    border: 1px solid ${props => props.theme.colors.userForm.input};
     border-radius: 6px;
     align-items: center;
     width: 204px;
@@ -86,10 +86,10 @@ export const SubscriptionInput = styled.input`
     text-align: left;
     border: none;
     padding: 0;
-    color: ${props => props.theme.colors.userForm.placeholder} !important;
+    color: ${props => props.theme.colors.userForm.placeholder} ;
 
     &:hover{
-      color: ${props => props.theme.colors.userForm.inputHover} !important;
+      color: ${props => props.theme.colors.userForm.inputHover};
     }
     @media ${device.tablet} {
       font-size: 14px;
@@ -101,7 +101,6 @@ export const SubscriptionInput = styled.input`
       font-weight: 400;
       line-height: 27px;
       letter-spacing: -0.02em;
-      color: white;
     }
   }
 `;
@@ -112,8 +111,8 @@ export const SubscriptionButton = styled(DefaultBtn)`
 
     width: 204px;
     height: 38px;
-    background: ${props => props.theme.colors.userForm.bgBtn} !important;
-    color:${props => props.theme.colors.userForm.placeholder} !important;
+    background: ${props => props.theme.colors.userForm.bgBtn} ;
+    color:${props => props.theme.colors.userForm.placeholder} ;
     border-radius: 6px;
     cursor: pointer;
 
@@ -126,6 +125,8 @@ export const SubscriptionButton = styled(DefaultBtn)`
 
     &:hover {
       color: ${props => props.theme.colors.userForm.textBtnHover} !important;
+    background: ${props => props.theme.colors.userForm.bgBtn} !important ;
+
     }
 
     @media${device.tablet} {

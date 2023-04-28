@@ -37,15 +37,11 @@ export const SubscribeForm = () => {
         offers, etc.
       </SubscriptionInfo>
       <SubscriptionLabel
-        style={
-          wrongEmail
-            ? { color: 'red', borderColor: 'red' }
-            : { color: 'currentColor', borderColor: 'currentColor' }
-        }
+        style={wrongEmail ? { color: 'red', borderColor: 'red' } : {}}
       >
         <StyledHiOutlineMail />
         <SubscriptionInput
-          disabled={subscription && 'disabled'}
+          // disabled={subscription && 'disabled'}
           value={subscribeEmail}
           placeholder={
             subscription ? 'You already subscribe' : 'Enter your email adress'
@@ -56,9 +52,7 @@ export const SubscribeForm = () => {
       <SubscriptionButton
         disabled={subscription && 'disabled'}
         onClick={onSubscribe}
-        style={
-          wrongEmail ? { background: 'red' } : { backgroundColor: '#8baa36' }
-        }
+        style={wrongEmail ? { background: 'red', color: '#1E1F28' } : {}}
       >
         {wrongEmail ? 'Wrong Email' : 'Subscribe'}
       </SubscriptionButton>
