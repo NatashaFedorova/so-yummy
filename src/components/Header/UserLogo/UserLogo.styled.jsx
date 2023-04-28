@@ -31,6 +31,7 @@ export const AvatarArea = styled.div`
 export const CurrentUserAvatar = styled.img``;
 
 export const UserNameSpan = styled.p`
+  color: ${props => props.theme.colors.header.textMain};
   font-family: Poppins;
   font-size: 12px;
   font-weight: 600;

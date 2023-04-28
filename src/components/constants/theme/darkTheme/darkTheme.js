@@ -89,6 +89,8 @@ const darkTheme = Object.freeze({
       accent: '#8baa36',
       // iconMenuHover: '#8baa36',
       // iconSearchHover: '#8baa36',
+      mainPageTextColor: '#1E1F28',
+      mainPageIconColor: '#fafafa',
     },
 
     // BurgerMenu

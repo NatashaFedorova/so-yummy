@@ -51,8 +51,10 @@ export const UserLogo = () => {
           <UserNameSpan
             style={
               path.toString() === '/main' && widthHTML > 1421
-                ? { color: '#1E1F28' }
-                : { color: '#fafafa' }
+                ? {
+                    color: `#1E1F28 `,
+                  }
+                : {}
             }
           >{`${name}`}</UserNameSpan>
         </UserInfo>

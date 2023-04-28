@@ -15,7 +15,7 @@ import {
 } from './UserInfoModal.styled';
 import { selectUser } from 'redux/auth/authSelectors';
 
-export const UserFormModal = () => {
+export const UserFormModal = ({ closeUserInfoModal }) => {
   const { name, avatarUrl } = useSelector(selectUser);
   const reader = new FileReader();
   const dispatch = useDispatch();
@@ -26,7 +26,7 @@ export const UserFormModal = () => {
 
   const handleFileChange = event => {
     let file = event.target.files[0];
-    if (file.size > 2097152) {
+    if (file.size > 3145728) {
       setGoodImage(false);
     } else {
       setGoodImage(true);
@@ -50,9 +50,10 @@ export const UserFormModal = () => {
         setNewUserName(`${name}`);
         setImageRef(avatarUrl);
         setGoodImage('false');
+        closeUserInfoModal();
       }
     });
-  }, [dispatch, goodImage, avatarUrl]);
+  }, [dispatch, goodImage, avatarUrl, closeUserInfoModal]);
 
   return (
     <>
@@ -90,7 +91,7 @@ export const UserFormModal = () => {
           style={!goodImage ? { background: 'red' } : { background: '#8baa36' }}
         >
           {!goodImage
-            ? 'Please select an avatar with size 2MB'
+            ? 'Please select an avatar with size 3 MB'
             : 'Save changes'}
         </SendChangeBTN>
       </form>

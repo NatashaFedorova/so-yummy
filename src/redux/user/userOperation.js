@@ -17,6 +17,7 @@ export const changeUserData = createAsyncThunk(
         credentials,
         config
       );
+
       return res.data;
     } catch ({ message }) {
       return thunkAPI.rejectWithValue(message);

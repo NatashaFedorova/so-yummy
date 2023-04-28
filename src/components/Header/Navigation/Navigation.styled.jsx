@@ -13,6 +13,12 @@ export const HeaderNavigation = styled.nav`
 
 export const StyledNavigationLink = styled(NavLink)`
   color: ${props => props.theme.colors.header.textMain};
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 22px;
+  letter-spacing: 0em;
+  text-align: left;
 
   &.active {
     color: ${props => props.theme.colors.header.accent};

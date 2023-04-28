@@ -17,6 +17,11 @@ export const BurgerMenuDiv = styled.div`
 export const StyledHiOutlineMenuAlt2 = styled(HiOutlineMenuAlt2)`
   width: 27px;
   height: 27px;
+  color: ${props => props.theme.colors.header.mainPageIconColor};
+
+  &:hover {
+    color: ${props => props.theme.colors.header.accent} !important;
+  }
 
   @media ${device.tablet} {
     width: 36px;
