@@ -5,10 +5,10 @@ import * as React from 'react';
 
 export const CardRecipe = ({ item }) => {
   // Card use in categories Soyummy, Categories, Search
-  const { thumb, title } = item;
+  const { preview, title } = item;
   return (
     <RecipeCard>
-      <img src={thumb} alt={title} />
+      <img src={preview} alt={title} />
       <div className="overlay">
         <h2 className="title">{title}</h2>
       </div>
