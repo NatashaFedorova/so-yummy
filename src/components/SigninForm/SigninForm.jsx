@@ -87,11 +87,6 @@ const SigninForm = () => {
   }, [passwordDirty, password, passwordError]);
 
   useEffect(() => {
-    // const isFormDataEmpty = !Boolean(email) && !Boolean(password);
-    // const isFormDataValid = !Boolean(emailError) && !Boolean(passwordError);
-    // const isTrue = (!isFormDataEmpty && isFormDataValid);
-    // setIsValid(isTrue);
-
     if (passwordDirty) {
       if (passwordError) setPasswordClass('red');
       else if (password && !passwordError) {
@@ -99,7 +94,7 @@ const SigninForm = () => {
       }
     }
     else setPasswordClass('');
-  }, [email, password, emailError, passwordError]);
+  }, [email, password, emailError, passwordError, passwordDirty]);
 
   useEffect(() => {
     const isFormDataEmpty = !Boolean(email) && !Boolean(password);
