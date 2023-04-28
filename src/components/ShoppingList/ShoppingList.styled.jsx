@@ -218,6 +218,7 @@ export const ShoppingListImage = styled.div`
   border-radius: 6px;
 `;
 export const IngredientCard = styled.div`
+  list-style: none;
   @media ${device.mobile} {
     width: 343px;
     background: transparent;
@@ -246,7 +247,7 @@ export const IngredientImage = styled.li`
     gap: 16px;
   }
 `;
-export const IngredientImageBackground = styled.li`
+export const IngredientImageBackground = styled.div`
   background: #ebf3d4;
   border-radius: 6px;
   padding: 6px;
