@@ -9,7 +9,7 @@ import {
 } from './UserLogo.styled';
 import useAuth from 'hooks/useAuth';
 import { useLocation } from 'react-router-dom';
-import AchivementButton from '../AchivementButton/AchivementButton';
+import AchivementButton from 'components/Header/AchivementButton/AchivementButton';
 
 export const UserLogo = () => {
   const { user } = useAuth();
