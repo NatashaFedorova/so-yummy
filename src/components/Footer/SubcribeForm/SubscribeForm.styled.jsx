@@ -79,6 +79,7 @@ export const SubscriptionLabel = styled.label`
   }
 `;
 export const SubscriptionInput = styled.input`
+  width: 100%;
     font-size: 10px;
     font-weight: 400;
     line-height: 15px;

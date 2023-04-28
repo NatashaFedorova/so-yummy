@@ -131,6 +131,7 @@ export const ConfigNameLabel = styled.label`
 `;
 
 export const ConfigNameInput = styled.input`
+  width: 100%;
   border: none;
   font-family: Poppins;
   font-size: 14px;
