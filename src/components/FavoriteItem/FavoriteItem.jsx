@@ -9,8 +9,8 @@ const {
   FavoriteBoxCenter,
   FavoriteBoxBottom,
   FavoriteTitle,
-  FavoriteDeleteBtn,
-  FavoriteDeleteIcon,
+  FavoriteBtnDelete,
+  FavoriteIconBtnDelete ,
   FavoriteDesc,
   FavoriteTime,
   FavoriteBtnDetails,
@@ -32,13 +32,13 @@ const FavoriteItem = ({
       <FavoriteBoxWrap>
         <FavoriteBoxTop>
           <FavoriteTitle>{title}</FavoriteTitle>
-          <FavoriteDeleteBtn
+          <FavoriteBtnDelete
             type={'button'}
             title={'Delete'}
             onClick={handleClick}
           >
-            <FavoriteDeleteIcon />
-          </FavoriteDeleteBtn>
+            <FavoriteIconBtnDelete  />
+          </FavoriteBtnDelete>
         </FavoriteBoxTop>
         <FavoriteBoxCenter>
           <FavoriteDesc>{description}</FavoriteDesc>

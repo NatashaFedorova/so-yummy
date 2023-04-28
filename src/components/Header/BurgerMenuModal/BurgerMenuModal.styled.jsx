@@ -17,14 +17,13 @@ export const ModalWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: flex-start;
-
+  overflow: inherit;
   position: fixed;
   left: 0;
   z-index: 1050;
   width: 100vw;
   height: 100vh;
-  overflow-x: hidden;
-  overflow-y: auto;
+
   outline: 0;
 `;
 
@@ -49,6 +48,13 @@ export const StyledGrFormClose = styled(GrFormClose)`
   width: 30px;
   height: 30px;
   cursor: pointer;
+  & path {
+    stroke: ${props => props.theme.colors.modal.iconClose} !important;
+    &:hover {
+      stroke: ${props =>
+        props.theme.colors.burgerMenu.iconCloseHover} !important;
+    }
+  }
 `;
 
 export const BurgerLogoDiv = styled.div`

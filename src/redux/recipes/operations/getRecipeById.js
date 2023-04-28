@@ -30,7 +30,7 @@ export const RemoveIngredientFromShoppingList = createAsyncThunk(
   "recipeById/removeFromShoppingList",
   async (Id, thunkAPI) => {
     try {
-      const response = await axios.patch(`/shoppinglist/${Id}`);
+      const response = await axios.patch("/shoppinglist", Id);
       return response.data;
     } catch (err) {
       return thunkAPI.rejectWithValue(err.message);

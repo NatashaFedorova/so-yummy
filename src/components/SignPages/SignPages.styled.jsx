@@ -12,6 +12,8 @@ export const SignSection = styled.section`
   display: flex;
   align-items: flex-end;
   min-height: 100vh;
+  // background: ${props => props.theme.colors.background};
+  background: #fafafa;
 `;
 export const SignSectionBg = styled.div`
   position: absolute;
@@ -116,9 +118,11 @@ export const SignBox = styled.div`
 export const SignNavLink = styled(NavLink)`
   font-size: 16px;
   line-height: 24px;
-
   text-decoration-line: underline;
   text-align: center;
+  color: ${props => props.theme.colors.userForm.textForm};
 
-  color: #fafafa;
+  &:hover, :focus {
+    color: #8BAA36;
+  }
 `;

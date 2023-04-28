@@ -17,7 +17,7 @@ const RegisterPage = () => {
           <SignBgImg />
           <SignBox>
             <RegisterForm />
-            <SignNavLink to="/signin">signin</SignNavLink>
+            <SignNavLink to="/signin">Sign In</SignNavLink>
           </SignBox>
         </SignBoxWrap>
       </SignContainer>

@@ -6,7 +6,7 @@ export const MainTitle = styled.h1`
   line-height: 1;
   letter-spacing: -0.02em;
   @media ${device.mobile} {
-    font-size: 16px;
+    font-size: 28px;
   }
   @media ${device.tablet} {
     font-size: 32px;

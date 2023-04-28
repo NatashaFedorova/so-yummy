@@ -3,8 +3,9 @@ import Container from 'components/constants/Container';
 import MainPageTitle from 'components/MainPageTitle';
 import SearchedRecepiesList from 'components/SearchedRecipesList/SearchedRecipesList';
 import Section from 'components/constants/Section.styled';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 const SearchPage = () => {
+  const refDiv = useRef();
   const [searhType, setSearchType] = useState('Title');
   const getSearchType = type => {
     setSearchType(type);
@@ -14,7 +15,9 @@ const SearchPage = () => {
       <Container>
         <MainPageTitle>Search</MainPageTitle>
         <SearchBar getSearchType={getSearchType} />
-        <SearchedRecepiesList searhType={searhType} />
+        <div ref={refDiv}>
+          <SearchedRecepiesList refDiv={refDiv} searhType={searhType} />
+        </div>
       </Container>
     </Section>
   );

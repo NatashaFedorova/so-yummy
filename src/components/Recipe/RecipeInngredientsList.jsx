@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-//import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 //import { useState } from 'react';
 
 import RecipeTableHead from '../RecipeTableHead/RecipeTableHead';
@@ -15,15 +15,18 @@ import {
   IngListItemCheckWrap,
 } from './RecipeInngredientsList.styled';
 
-//import { IsIngredientToShopList } from '../../redux/recipes/selectors/selectRecipeById';
+import { IsIngredientToShopList } from '../../redux/recipes/selectors/selectRecipeById';
 import { refreshUser } from '../../redux/auth/authOperation';
-import { AddIngredientToShoppingList } from '../../redux/recipes/operations/getRecipeById';
+import {
+  AddIngredientToShoppingList,
+  RemoveIngredientFromShoppingList
+} from '../../redux/recipes/operations/getRecipeById';
 //import { selectUser } from '../../redux/auth/authSelectors';
 
 const RecipeInngredientsList = ({ info, recId, shopList }) => {
 
   const dispatch = useDispatch();
-  //const isInShopList = useSelector(IsIngredientToShopList);
+  const isInShopList = useSelector(IsIngredientToShopList);
   //const userInfo = useSelector(selectUser);
 
   const onHandleChange = async info => {
@@ -31,11 +34,22 @@ const RecipeInngredientsList = ({ info, recId, shopList }) => {
     await dispatch(refreshUser());
   };
 
+  const removeFromShopList = async ingredientId => {
+    await dispatch(RemoveIngredientFromShoppingList(ingredientId));
+    await dispatch(refreshUser());
+  }
+
   const isInShopingList = shopList
     .filter(value => value.recipeID === recId)
     .flatMap(item => item.ingredientId);
 
-  // console.log('recipe Id  ', recId);
+
+  const ShoppingListToRemove = shopList
+    .filter(value => value.recipeID === recId)
+  //.flatMap(item => item.ingredientId);
+
+  console.log('ingredient fom List ?  ', ShoppingListToRemove);
+  console.log('show shop list ', isInShopList)
 
   return (
     <>
@@ -60,15 +74,19 @@ const RecipeInngredientsList = ({ info, recId, shopList }) => {
                 id="vehicle4"
                 name="vehicle4"
                 checked={isInShopingList.some(value => value === item._id)}
-                onChange={() =>
-                  onHandleChange({
-                    ingredientId: item._id,
-                    title: item.ttl,
-                    _id: item._id,
-                    image: item.thb,
-                    weight: item.measure,
-                    recipeID: recId,
-                  })
+                onChange={
+                  isInShopingList.some(value => value === item._id)
+                    ?
+                    () => removeFromShopList({ _id: ShoppingListToRemove.find(ingredient => ingredient.ingredientId === item._id)._id })
+                    :
+                    () => onHandleChange({
+                      ingredientId: item._id,
+                      title: item.ttl,
+                      _id: item._id,
+                      image: item.thb,
+                      weight: item.measure,
+                      recipeID: recId,
+                    })
                 }
               />
               <IngListItemLabel htmlFor="vehicle4"> </IngListItemLabel>
@@ -81,3 +99,37 @@ const RecipeInngredientsList = ({ info, recId, shopList }) => {
 };
 
 export default RecipeInngredientsList;
+
+
+// { isInShopingList.some(value => value === item._id) ?    
+                  // () => removeFromShopList({_id: item._id,})
+                  //:
+                 //() =>onHandleChange({ingredientId: item._id,})
+                //}
+
+
+
+                // onChange={() =>
+                //   onHandleChange({
+                //     ingredientId: item._id,
+                //     title: item.ttl,
+                //     _id: item._id,
+                //     image: item.thb,
+                //     weight: item.measure,
+                //     recipeID: recId,
+                //   })
+                // }
+
+                // onChange={
+                //   isInShopingList.some(value => value === item._id) ?
+                //     () => removeFromShopList({ _id: isInShopingListNone.find(ingredient => ingredient.ingredientId === item._id)._id })
+                //     :
+                //     () => onHandleChange({
+                //       ingredientId: item._id,
+                //       title: item.ttl,
+                //       _id: item._id,
+                //       image: item.thb,
+                //       weight: item.measure,
+                //       recipeID: recId,
+                //     })
+                // }

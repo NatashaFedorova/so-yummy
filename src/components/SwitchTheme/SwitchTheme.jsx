@@ -19,6 +19,7 @@ const SwitchTheme = () => {
       type="button"
       onClick={heandleClick}
       currentThemeStatus={statusTheme}
+      aria-label="switch theme button"
     >
       <Ellipse currentThemeStatus={statusTheme} />
     </Button>

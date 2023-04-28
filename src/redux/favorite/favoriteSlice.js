@@ -5,11 +5,10 @@ import { STATUS } from 'components/constants/loadingStatus/LoadingStatus';
 const handlePending = state => {
   state.isLoading = true;
 };
-
-// const handleRejected = (state, action) => {
-//   state.isLoading = false;
-//   state.error = action.payload;
-// };
+const handleRejected = (state, action) => {
+  state.isLoading = false;
+  state.error = action.payload;
+};
 
 export const favoriteSlise = createSlice({
   name: 'favorite',
@@ -21,7 +20,7 @@ export const favoriteSlise = createSlice({
   },
   extraReducers: builder =>
     builder
-      .addCase(addFavorite.pending, state => {
+      .addCase(addFavorite.pending, (state) => {
         handlePending(state);
         state.status = STATUS.loading;
       })
@@ -53,16 +52,14 @@ export const favoriteSlise = createSlice({
       })
       .addCase(addFavorite.rejected, (state, action) => {
         state.status = STATUS.error;
-        state.error = action.payload;
+        handleRejected(state, action);
+      })
+      .addCase(getFavorite.rejected, (state, action) => {
+        handleRejected(state, action);
+      })
+      .addCase(deleteFavorite.rejected, (state, action) => {
+        handleRejected(state, action);
       })
 });
 
 export const favoriteReducer = favoriteSlise.reducer;
-
-
-// state.isLoading = false;
-//         state.error = null;
-//         const index = state.items.findIndex(
-//           task => task.id === action.payload.id
-//         );
-//         state.items.splice(index, 1);

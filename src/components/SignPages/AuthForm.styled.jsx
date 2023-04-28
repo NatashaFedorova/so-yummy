@@ -255,7 +255,6 @@ export const AuthFormPassValidaMsg2 = styled.p`
   }
 `;
 
-
 export const AuthFormBtnSubmit = styled.button`
   height: 60px;
 
@@ -263,8 +262,12 @@ export const AuthFormBtnSubmit = styled.button`
 
   border: 0px;
   border-radius: 6px;
-  background-color: ${props => props.theme.colors.userForm.bgBtn};
+  background-color: #8baa36;
   cursor: pointer;
+
+  &:hover, :focus {
+    color: #22252A;
+  }
 
   :disabled {
     opacity: 0.5;

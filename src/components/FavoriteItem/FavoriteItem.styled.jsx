@@ -9,7 +9,7 @@ export const StyledFavoriteItem = styled.li`
   padding: 14px 9px;
 
   border-radius: 8px;
-  background-color: ${props => props.theme.colors.favoritePage.bgCardRecipe};
+  background-color: ${props => props.theme.colors.favoritePage.itemBgC};
 
   @media ${device.tablet} {
     gap: 24px;
@@ -24,14 +24,17 @@ export const FavoriteImg = styled.img`
   flex: 0 0 124px;
   width: 124px;
   height: 124px;
+  object-fit: cover;
 
   border-radius: 8px;
 
   @media ${device.tablet} {
+    flex: 0 0 228px;
     width: 228px;
     height: 232px;
   };
   @media ${device.desktop} {
+    flex: 0 0 318px;
     width: 318px;
     height: 324px;
   };
@@ -82,7 +85,7 @@ export const FavoriteTitle = styled.h3`
     font-size: 24px;
   };
 `;
-export const FavoriteDeleteBtn = styled.button`
+export const FavoriteBtnDelete = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -90,10 +93,16 @@ export const FavoriteDeleteBtn = styled.button`
   width: 24px;
   height: 24px;
 
-  background-color: ${props => props.theme.colors.favoritePage.bgBtnRemove};
+  background-color: ${props => props.theme.colors.favoritePage.btnDeleteBgC};
   border: none;
   border-radius: 4px;
   cursor: pointer;
+
+  &:hover, :focus {
+    background-color: ${props => props.theme.colors.favoritePage.btnDeleteBgCHover};
+
+    svg {color: ${props => props.theme.colors.favoritePage.iconBtnDeleteCHover};}
+  }
 
   @media ${device.tablet} {
     flex: 0 0 38px;
@@ -106,12 +115,12 @@ export const FavoriteDeleteBtn = styled.button`
     height: 44px;
   };
 `;
-export const FavoriteDeleteIcon = styled(Trash)`
+export const FavoriteIconBtnDelete  = styled(Trash)`
   flex: 0 0 14px;
   width: 14px;
   height: 14px;
 
-  color: ${props => props.theme.colors.favoritePage.iconBtnRemove};
+  color: ${props => props.theme.colors.favoritePage.iconBtnDeleteC};
   border-radius: 4px;
 
   @media ${device.tablet} {
@@ -170,11 +179,15 @@ export const FavoriteBtnDetails = styled(NavLink)`
 
   font-size: 10px;
   line-height: 1.5;
-  color: ${props => props.theme.colors.favoritePage.textBtnAboutRecipe};
+  color: ${props => props.theme.colors.favoritePage.btnDetailsC};
 
   border-radius: 24px 44px;
-  background-color: ${props => props.theme.colors.favoritePage.bgBtnAboutRecipe};
+  background-color: ${props => props.theme.colors.favoritePage.btnDetailsBgC};
   cursor: pointer;
+
+  &:hover, :focus {
+    background-color: ${props => props.theme.colors.favoritePage.btnDetailsBgCHover};
+  }
 
   @media ${device.tablet} {
     width: 138px;

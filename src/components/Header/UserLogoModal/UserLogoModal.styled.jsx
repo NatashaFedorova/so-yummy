@@ -3,13 +3,12 @@ import { device } from 'components/constants/deviceType/deviceType';
 import styled from 'styled-components';
 
 export const ModalOverlay = styled.div`
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   z-index: 1040;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
 `;
 
 export const ModalUser = styled.div`
@@ -18,7 +17,8 @@ export const ModalUser = styled.div`
 
   display: flex;
   flex-direction: column;
-  background-color: white;
+  background-color: ${props => props.theme.colors.modal.bg} !important;
+  color: ${props => props.theme.colors.modal.text} !important;
   padding: 18px;
   border-radius: 8px;
   border: 1px solid #8baa36;
@@ -31,29 +31,30 @@ export const ModalUser = styled.div`
   line-height: 22px;
   letter-spacing: 0em;
 
-  & button:first-child {
-    border: none;
-    background-color: white;
-    margin-bottom: 32px;
-    display: flex;
-    justify-content: space-between;
-  }
-
   @media${device.tablet} {
     right: 20vw;
     border-color: transparent;
   }
 
   @media${device.desktop} {
-    right: 20vw;
+    right: 22vw;
   }
+`;
+
+export const ChangeUserButton = styled.button`
+  border: none;
+  background-color: transparent;
+  color: ${props => props.theme.colors.modal.textForm} !important;
+  margin-bottom: 32px;
+  display: flex;
+  justify-content: space-between;
 `;
 
 export const StyledLogoutBtn = styled(DefaultBtn)`
   display: flex;
   align-items: center;
-  background-color: #8baa36;
-  color: white;
+  background-color: ${props => props.theme.colors.modal.bgBtn} !important;
+  color: ${props => props.theme.colors.modal.textBtn} !important;
   padding: 12px 32px;
 
   font-family: Poppins;

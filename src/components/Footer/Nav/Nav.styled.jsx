@@ -22,7 +22,7 @@ export const FooterNav = styled.nav`
 `;
 
 export const StyledNavLink = styled(NavLink)`
-  color: white;
+  color: ${props => props.theme.colors.userForm.textForm} !important;
   font-family: Poppins;
   font-size: 14px;
   font-weight: 500;
@@ -30,9 +30,6 @@ export const StyledNavLink = styled(NavLink)`
   letter-spacing: -0.02em;
 
   &:hover {
-    color: #8baa36;
-  }
-
-  @media ${device.tablet} {
+    color: ${props => props.theme.colors.footer.textSecondary} !important;
   }
 `;
