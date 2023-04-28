@@ -22,7 +22,7 @@ export const CategoryDefaultSquare = styled(DefaultSquare)`
     top: -32px;
   }
 
-  @media (min-width: 1200px) {
+  @media (min-width: 1440px) {
     left: 239px;
     top: -29px;
   }
@@ -38,7 +38,7 @@ export const CategoryDefaultSquareСircle = styled(DefaultSquareСircle)`
     bottom: 0px;
   }
 
-  @media (min-width: 1200px) {
+  @media (min-width: 1440px) {
     left: 707px;
     bottom: 0px;
   }
@@ -54,7 +54,7 @@ export const CategoryDefaultSquareSecond = styled(DefaultSquare)`
     top: -19px;
   }
 
-  @media (min-width: 1200px) {
+  @media (min-width: 1440px) {
     right: -911px;
     top: -16px;
   }
@@ -73,7 +73,7 @@ export const MyTabPanel = styled.div`
     margin-bottom: 50px;
   }
 
-  @media (min-width: 1200px) {
+  @media (min-width: 1440px) {
     grid-template-columns: repeat(4, 1fr);
     grid-row-gap: 100px;
   }
@@ -103,7 +103,7 @@ export const CategoryText = styled.span`
     line-height: 32px;
   }
 
-  @media (min-width: 1200px) {
+  @media (min-width: 1440px) {
     font-size: ${props => props.theme.fontSizes.xxxl};
     line-height: 44px;
   }
