@@ -9,6 +9,10 @@ import {
 } from './UserLogo.styled';
 import useAuth from 'hooks/useAuth';
 
+import styled from 'styled-components';
+import AchivementButton from '../AchivementButton/AchivementButton';
+export const Box = styled.div``;
+
 export const UserLogo = () => {
   const { user } = useAuth();
   const { name, avatarUrl } = user;
@@ -41,6 +45,7 @@ export const UserLogo = () => {
           <UserNameSpan>{`${name}`}</UserNameSpan>
         </UserInfo>
       </UserLogoDiv>
+      <AchivementButton />
       <UserLogoModal
         showUserLogoModal={showUserLogoModal}
         closeUserLogoModal={() => setShowUserLogoModal(false)}

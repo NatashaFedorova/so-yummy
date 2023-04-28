@@ -14,6 +14,10 @@ const darkTheme = Object.freeze({
     errorState: '#e74a3b',
     textDefaultBtn: '#fafafa',
 
+    achivement: {
+      accent: '#8baa36',
+    },
+
     // decoreElements
     decoreElements: {
       main: '#fafafa',

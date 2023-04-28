@@ -12,6 +12,12 @@ const lightTheme = Object.freeze({
     errorState: '#e74a3b',
     textDefaultBtn: '#fafafa',
 
+    achivement: {
+      accent: '#8baa36',
+      colorIconBtnClose: '#fafafa',
+      text: '#fafafa',
+    },
+
     // decoreElements
     decoreElements: {
       main: '#22252a',
@@ -268,8 +274,8 @@ const lightTheme = Object.freeze({
       borderInputHover: 'rgba(35, 38, 42, .2)',
       bgBtnSearch: '#8baa36',
       textBtnSearch: '#fafafa',
-      bgBtnSearchHover: '#22252a',
-      grey: '#d9d9d9'
+      bgOptionsBtn: '#d9d9d9',
+      buttonHover: '#22252a',
     },
 
     // ShoppingListPage
@@ -295,6 +301,7 @@ const lightTheme = Object.freeze({
     none: 'none',
     normal: '1px solid',
   },
+
   radii: {
     none: 'none',
     decore: '3px',

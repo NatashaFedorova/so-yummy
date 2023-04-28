@@ -22,7 +22,7 @@ export const AvatarArea = styled.div`
   justify-content: center;
   overflow: hidden;
 
-  @media${device.tablet} {
+  @media ${device.tablet} {
     width: 44px;
     height: 44px;
   }
@@ -38,7 +38,7 @@ export const UserNameSpan = styled.p`
   letter-spacing: 0em;
   text-align: left;
 
-  @media${device.tablet} {
+  @media ${device.tablet} {
     font-size: 14px;
     line-height: 24px;
   }

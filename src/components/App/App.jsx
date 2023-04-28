@@ -1,4 +1,4 @@
-import { lazy, useEffect } from 'react';
+import { lazy, useEffect, useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import selectStatusTheme from 'redux/theme/selectors';
@@ -31,6 +31,7 @@ const ShoppingListPage = lazy(() => import('page/ShoppingListPage'));
 const App = () => {
   const dispatch = useDispatch();
   const { isRefreshing, isLoggedIn } = useAuth();
+  const [render, setRender] = useState(1);
   const location = useLocation();
   console.log(location);
 
@@ -40,8 +41,12 @@ const App = () => {
   }, [location]);
 
   useEffect(() => {
+    if (render) {
+      setRender(0);
+      return;
+    }
     dispatch(refreshUser());
-  }, [dispatch]);
+  }, [dispatch, render, setRender]);
 
   const value = useSelector(selectStatusTheme);
   const theme = value ? darkTheme : lightTheme;
