@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { BurgerMenuModal } from '../BurgerMenuModal/BurgerMenuModal';
 import { BurgerMenuDiv, StyledHiOutlineMenuAlt2 } from './BurgerMenu.styled';
