@@ -16,6 +16,8 @@ const darkTheme = Object.freeze({
 
     achivement: {
       accent: '#8baa36',
+      colorIconBtnClose: '#fafafa',
+      text: '#fafafa',
     },
 
     // decoreElements
