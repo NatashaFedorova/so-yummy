@@ -283,7 +283,7 @@ const darkTheme = Object.freeze({
       textSecondary: '#fafafa',
       bgAccent: '#8baa36',
       icon: '#fafafa',
-      // iconHover: '#8baa36',
+      iconHover: '#8baa36',
 
       line: 'rgba(250, 250, 250, .3)',
     },

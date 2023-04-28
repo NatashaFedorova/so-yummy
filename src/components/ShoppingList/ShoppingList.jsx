@@ -16,6 +16,7 @@ import {
   IngredientWeight,
   IngredientDeleteButton,
   IngredientTitle,
+  IngredientDeleteIcon,
 } from './ShoppingList.styled';
 import defaultFood from './default-food.png';
 import { Container } from '@mui/system';
@@ -35,10 +36,12 @@ const ShoppingList = () => {
   };
   // render
   return (
-    <Container>
-      <FakeMainPageTitleWrap style={{ paddingBottom: '72px' }}>
-        <FakeMainPageTitle>Shopping list</FakeMainPageTitle>
-      </FakeMainPageTitleWrap>
+    <>
+      <Container>
+        <FakeMainPageTitleWrap style={{ paddingBottom: '72px' }}>
+          <FakeMainPageTitle>Shopping list</FakeMainPageTitle>
+        </FakeMainPageTitleWrap>
+      </Container>
       <ShoppingListWrapper>
         <IngredientsTable>
           <ShoppingListName>Product</ShoppingListName>
@@ -65,7 +68,9 @@ const ShoppingList = () => {
                   <IngredientDeleteButton
                     id={ingredient._id}
                     onClick={() => toDeleteIngredient(ingredient)}
-                  ></IngredientDeleteButton>
+                  >
+                    <IngredientDeleteIcon></IngredientDeleteIcon>
+                  </IngredientDeleteButton>
                 </IngredientsList>
               </IngredientCard>
             );
@@ -77,7 +82,7 @@ const ShoppingList = () => {
           ></EmptyShoppingList>
         )}
       </ShoppingListWrapper>
-    </Container>
+    </>
   );
 };
 export default ShoppingList;
