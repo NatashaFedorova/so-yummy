@@ -1,5 +1,6 @@
 // ${props => props.theme.colors.text}
 import styled from 'styled-components';
+import { RiCloseLine } from 'react-icons/ri';
 import { device } from '../deviceType/deviceType';
 
 export const DefaultSquare = styled.div`
@@ -84,5 +85,82 @@ export const BoxWithPicture = styled.div`
     background-size: auto;
     left: -214px;
     bottom: 176px;
+  }
+`;
+
+export const MotivationCardThumbDefault = styled.div`
+  z-index: 100;
+  position: relative;
+  display: block;
+  border-radius: 30px;
+  background-size: contain;
+
+  @media ${device.mobile} {
+    width: 300px;
+    height: 300px;
+  }
+
+  @media ${device.tablet} {
+    width: 400px;
+    height: 400px;
+  }
+
+  @media ${device.desktop} {
+    width: 500px;
+    height: 500px;
+  }
+`;
+
+export const MotivationCardBtnCloseDefault = styled.button`
+  cursor: pointer;
+  z-index: 111;
+  position: absolute;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: ${props => props.theme.colors.achivement.accent};
+
+  @media ${device.mobile} {
+    left: 130px;
+    bottom: 30px;
+    width: 40px;
+    height: 40px;
+  }
+
+  @media ${device.tablet} {
+    left: 176px;
+    bottom: 38px;
+    width: 48px;
+    height: 48px;
+  }
+
+  @media ${device.desktop} {
+    left: 226px;
+    bottom: 54px;
+  }
+`;
+
+export const MotivationCardIconClose = styled(RiCloseLine)`
+  color: ${props => props.theme.colors.achivement.colorIconBtnClose};
+
+  @media ${device.mobile} {
+    left: 130px;
+    bottom: 30px;
+    width: 24px;
+    height: 24px;
+  }
+
+  @media ${device.tablet} {
+    left: 176px;
+    bottom: 38px;
+    width: 28px;
+    height: 28px;
+  }
+
+  @media ${device.desktop} {
+    left: 226px;
+    bottom: 54px;
   }
 `;

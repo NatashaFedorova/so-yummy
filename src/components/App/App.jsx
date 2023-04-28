@@ -38,8 +38,8 @@ const App = () => {
   }, [location]);
 
   useEffect(() => {
-    if (render) { 
-      setRender(0); 
+    if (render) {
+      setRender(0);
       return;
     }
     dispatch(refreshUser());

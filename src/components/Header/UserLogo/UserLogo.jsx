@@ -9,6 +9,7 @@ import {
 } from './UserLogo.styled';
 import useAuth from 'hooks/useAuth';
 import { useLocation } from 'react-router-dom';
+import AchivementButton from '../AchivementButton/AchivementButton';
 
 export const UserLogo = () => {
   const { user } = useAuth();
@@ -59,6 +60,7 @@ export const UserLogo = () => {
           >{`${name}`}</UserNameSpan>
         </UserInfo>
       </UserLogoDiv>
+      <AchivementButton />
       <UserLogoModal
         showUserLogoModal={showUserLogoModal}
         closeUserLogoModal={() => setShowUserLogoModal(false)}
