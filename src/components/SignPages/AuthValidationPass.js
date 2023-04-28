@@ -25,9 +25,9 @@ export default function checkPasswordValidation(value) {
     return "Password must contain at least one Special Symbol.";
   }
 
-  const isValidLength = /^.{10,16}$/;
+  const isValidLength = /^.{6,16}$/;
   if (!isValidLength.test(value)) {
-    return "Password must be 10-16 Characters Long.";
+    return "Password must be 6-16 Characters Long.";
   }
 
   return "";

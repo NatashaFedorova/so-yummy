@@ -113,11 +113,13 @@ export const WelcomePageNavLinkRegister = styled(NavLink)`
   color: ${props => props.theme.colors.welcomePage.textButton};
 
   border-radius: 24px 44px;
-  border-color: ${props =>
-    props.theme.colors.welcomePage.borderBtnRegistration};
-  background-color: ${props =>
-    props.theme.colors.welcomePage.bgBtnRegistration};
+  border-color: ${props => props.theme.colors.welcomePage.borderBtnRegistration};
+  background-color: ${props => props.theme.colors.welcomePage.bgBtnRegistration};
   cursor: pointer;
+
+  &:hover, :focus {
+    background-color: #22252A;
+  }
 
   @media ${device.tablet} {
     padding: 22px 44px;
@@ -130,4 +132,10 @@ export const WelcomePageNavLinkLogin = styled(WelcomePageNavLinkRegister)`
   background-color: ${props => props.theme.colors.welcomePage.bgBtnSignIn};
   border-color: ${props => props.theme.colors.welcomePage.borderBtnSignIn};
   border: 2px solid;
+
+  &:hover, :focus {
+    color: #8BAA36;
+    background-color: ${props => props.theme.colors.welcomePage.borderBtnSignIn};
+    border-color: ${props => props.theme.colors.welcomePage.borderBtnSignIn};
+  }
 `;

@@ -1,11 +1,12 @@
 import { useSelector } from 'react-redux';
 
+import { selectMyRecipesItem } from 'redux/myRecipes/myRecipesSelectors';
 import { StyledFavoriteList } from '../FavoriteList/FavoriteList.styled';
-import { selectFavoriteItems } from 'redux/favorite/favoriteSelectors';
 import MyRecipesItem from 'components/MyRecipesItem/MyRecipesItem';
 
 const MyRecipesList = () => {
-  const items = useSelector(selectFavoriteItems);
+  const items = useSelector(selectMyRecipesItem);
+  // console.log(items)
 
   return (
     <>
