@@ -16,8 +16,6 @@ export const BurgerMenu = () => {
     }
   };
   useEffect(() => {
-    console.log(add.offsetWidth);
-
     setWidthHTML(add.offsetWidth);
   }, [add.offsetWidth]);
 
