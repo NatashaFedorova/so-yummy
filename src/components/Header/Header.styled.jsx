@@ -25,6 +25,12 @@ export const HeaderRightDiv = styled.div`
   align-items: center;
 `;
 
+export const HeaderLeftDiv = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 187px;
+`;
+
 export const RightDivSwitcher = styled.div`
   display: flex;
   align-items: center;

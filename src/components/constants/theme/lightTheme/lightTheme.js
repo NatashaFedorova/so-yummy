@@ -84,6 +84,8 @@ const lightTheme = Object.freeze({
       iconSearch: '#22252a',
       bgAccent: '#ebf3d4',
       accent: '#8baa36',
+      mainPageTextColor: '#1E1F28',
+      mainPageIconColor: '#1E1F28',
       // iconMenuHover: '#8baa36',
       // iconSearchHover: '#8baa36',
     },

@@ -32,7 +32,7 @@ export const BurgerMenu = () => {
           style={
             path.toString() === '/main' && widthHTML >= 748
               ? { color: '#1E1F28' }
-              : { color: '#fafafa' }
+              : {}
           }
         />
       </BurgerMenuDiv>

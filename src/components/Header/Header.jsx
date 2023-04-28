@@ -5,6 +5,7 @@
 import { BurgerMenu } from './BurgerMenu/BurgerMenu';
 import {
   HeaderContainer,
+  HeaderLeftDiv,
   HeaderRightDiv,
   HeaderS,
   HeaderSwitchDiv,
@@ -16,12 +17,13 @@ import { UserLogo } from './UserLogo/UserLogo';
 import SwitchTheme from 'components/SwitchTheme';
 
 const Header = () => {
-
   return (
     <HeaderS>
       <HeaderContainer>
-        <Logo />
-        <Navigation />
+        <HeaderLeftDiv>
+          <Logo />
+          <Navigation />
+        </HeaderLeftDiv>
         <RightDivSwitcher>
           <HeaderRightDiv>
             <UserLogo />
