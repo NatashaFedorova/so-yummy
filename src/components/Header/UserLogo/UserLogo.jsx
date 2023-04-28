@@ -9,10 +9,7 @@ import {
 } from './UserLogo.styled';
 import useAuth from 'hooks/useAuth';
 import { useLocation } from 'react-router-dom';
-
-import styled from 'styled-components';
 import AchivementButton from '../AchivementButton/AchivementButton';
-export const Box = styled.div``;
 
 export const UserLogo = () => {
   const { user } = useAuth();
