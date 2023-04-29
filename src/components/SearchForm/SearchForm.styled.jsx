@@ -5,19 +5,20 @@ export const SearchButton = styled.button`
   cursor: pointer;
   display: block;
   border-radius: 24px 44px;
-  border: 1px solid ${p => p.theme.colors.searchPage.bgBtnSearch} ;
+  border: 1px solid ${p => p.theme.colors.searchPage.bgBtnSearch};
   height: 100%;
   color: ${p => p.theme.colors.searchPage.textBtnSearch};
 
-  background-color: ${p => p.theme.colors.searchPage.bgBtnSearch} ;
+  background-color: ${p => p.theme.colors.searchPage.bgBtnSearch};
   padding: 16px 32px;
 
   position: absolute;
   right: 0;
   bottom: 0;
-  :hover, :focus :active{
-    border: 1px solid ${p => p.theme.colors.searchPage.buttonHover} ;
-    background-color: ${p => p.theme.colors.searchPage.buttonHover} ;
+  :hover,
+  :focus :active {
+    border: 1px solid ${p => p.theme.colors.searchPage.buttonHover};
+    background-color: ${p => p.theme.colors.searchPage.buttonHover};
   }
 
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
@@ -40,8 +41,8 @@ export const SearchInput = styled.input`
     color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
-
-  :hover, :focus{
+  :hover,
+  :focus {
     border: 1px solid ${p => p.theme.colors.searchPage.borderInputHover};
   }
 
@@ -50,16 +51,13 @@ export const SearchInput = styled.input`
   }
 `;
 export const Form = styled.form`
-  margin-top: 50px;
   height: 53px;
   @media ${device.tablet} {
-    margin-top: 40px;
     height: 57px;
     margin-left: 171px;
     margin-right: 171px;
   }
   @media ${device.desktop} {
-    margin-top: 50px;
     margin-left: 366px;
     margin-right: 366px;
   }

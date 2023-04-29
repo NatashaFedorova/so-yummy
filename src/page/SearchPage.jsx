@@ -1,6 +1,6 @@
 import SearchBar from 'components/SearchBar/SearchBar';
 import Container from 'components/constants/Container';
-import MainPageTitle from 'components/MainPageTitle';
+import MainTitle from 'components/MainTitle/MainTitle';
 import SearchedRecepiesList from 'components/SearchedRecipesList/SearchedRecipesList';
 import Section from 'components/constants/Section.styled';
 import { useRef, useState } from 'react';
@@ -13,7 +13,7 @@ const SearchPage = () => {
   return (
     <Section>
       <Container>
-        <MainPageTitle>Search</MainPageTitle>
+        <MainTitle title={'Search'}></MainTitle>
         <SearchBar getSearchType={getSearchType} />
         <div ref={refDiv}>
           <SearchedRecepiesList refDiv={refDiv} searhType={searhType} />
