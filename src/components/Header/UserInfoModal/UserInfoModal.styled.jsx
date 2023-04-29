@@ -62,11 +62,13 @@ export const Modal = styled.div`
 `;
 
 export const ConfigAvatarUser = styled.img`
-  width: 100%;
   height: 100%;
 `;
 
 export const ConfigAvatarArea = styled(AvatarArea)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 88px;
   height: 88px;
   position: relative;
@@ -89,7 +91,7 @@ export const StyledAiFillPlusCircle = styled(AiFillPlusCircle)`
   left: 185px;
   width: 24px;
   height: 24px;
-  color: ${props => props.theme.colors.modal.iconPersonPhotoUser} !important;
+  color: ${props => props.theme.colors.modal.iconPersonPhotoUser};
   cursor: pointer;
   &:hover {
     color: ${props =>
@@ -184,7 +186,7 @@ export const StyledGrFormClose = styled(GrFormClose)`
   height: 30px;
   cursor: pointer;
    & path {
-    stroke: ${props => props.theme.colors.modal.iconClose} !important;
+    stroke: ${props => props.theme.colors.modal.iconClose} ;
     &:hover {
       stroke: ${props =>
         props.theme.colors.burgerMenu.iconCloseHover} !important;
