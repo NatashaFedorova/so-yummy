@@ -44,7 +44,7 @@ const darkTheme = Object.freeze({
       placeholder: '#fafafa',
       icon: '#fafafa',
       iconHover: '#1E1F28',
-      input: '#fafafa',
+      input: 'rgba(250, 250, 250, .1)',
       inputHover: '#1E1F28',
       textButton: '#fafafa',
       textBtnHover: '#8BAA36',
