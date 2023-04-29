@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useMediaQuery } from 'react-responsive';
 
 import {
@@ -47,6 +47,20 @@ const MainCategories = () => {
     dispatcher(getRecipesByCategoryForMainPage());
   }, [dispatcher, mainRecipes]);
 
+  const filteredItems = useMemo(() => {
+    const allowedCategories = [
+      'breakfast',
+      'chicken',
+      'miscellaneous',
+      'dessert',
+    ];
+    return allowedCategories
+      .map(category =>
+        mainRecipes?.find(item => item._id.toLowerCase() === category)
+      )
+      .filter(Boolean);
+  }, [mainRecipes]);
+
   return (
     <ul>
       {mainStatus === 'idle' &&
@@ -67,25 +81,22 @@ const MainCategories = () => {
           <MainContentLoaderMobile />
         )
       ) : (
-        mainRecipes
-          ?.filter(({ recipes }) => recipes.length >= 4)
-          .slice(0, 4)
-          .map(({ _id, recipes }) => (
-            <MainCategoriesRow key={_id}>
-              <MainCategoriesTitle to={`/categories/${_id}`}>
-                {_id}
-              </MainCategoriesTitle>
-              <MainCategoriesList
-                mainRecipes={recipes}
-                cardsOnScreen={cardsOnScreen}
-              />
-              <MainCategoriesBtnWrapper>
-                <MainCategoriesBtn to={`/categories/${_id}`}>
-                  See all
-                </MainCategoriesBtn>
-              </MainCategoriesBtnWrapper>
-            </MainCategoriesRow>
-          ))
+        filteredItems?.map(({ _id, recipes }) => (
+          <MainCategoriesRow key={_id}>
+            <MainCategoriesTitle to={`/categories/${_id}`}>
+              {_id}
+            </MainCategoriesTitle>
+            <MainCategoriesList
+              mainRecipes={recipes}
+              cardsOnScreen={cardsOnScreen}
+            />
+            <MainCategoriesBtnWrapper>
+              <MainCategoriesBtn to={`/categories/${_id}`}>
+                See all
+              </MainCategoriesBtn>
+            </MainCategoriesBtnWrapper>
+          </MainCategoriesRow>
+        ))
       )}
     </ul>
   );
