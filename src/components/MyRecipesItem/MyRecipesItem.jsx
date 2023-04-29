@@ -43,7 +43,7 @@ const MyRecipesItem = ({
         </FavoriteBoxCenter>
         <FavoriteBoxBottom>
           <FavoriteTime>{Number.parseInt(time)} min</FavoriteTime>
-          <MyRecipesBtnDetails to={`/recipe/${_id}`}>See reecipe</MyRecipesBtnDetails>
+          <MyRecipesBtnDetails to={`/recipe/${_id}`}>See recipe</MyRecipesBtnDetails>
         </FavoriteBoxBottom>
       </FavoriteBoxWrap>
     </StyledFavoriteItem>

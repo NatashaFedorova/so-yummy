@@ -57,8 +57,8 @@ const RegisterForm = () => {
 
     if (!re.test(String(e.target.value).toLowerCase())) {
       setNameError("A name must contain just A-Z, a-z, 0-9 characters");
-    } else if (e.target.value.length < 2 || e.target.value.length > 20) {
-      setNameError("A name must contain 2 to 20 characters.");
+    } else if (e.target.value.length < 2 || e.target.value.length > 16) {
+      setNameError("A name must contain 2 to 16 characters.");
     } else {
       setNameError('');
     }
