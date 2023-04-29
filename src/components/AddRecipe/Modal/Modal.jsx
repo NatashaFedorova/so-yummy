@@ -62,7 +62,7 @@ export const ModalWindow = ({
         onDrop={onDrop}
       >
         <IconBtn onClick={closeModal}>
-          <AiOutlineCloseCircle size="30px" />
+          <AiOutlineCloseCircle size={36} />
         </IconBtn>
         {children}
       </ModalPaper>

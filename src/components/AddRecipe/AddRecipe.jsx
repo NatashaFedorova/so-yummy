@@ -18,7 +18,11 @@ import {
   InternalWrapper,
   LeftWrapper,
   RightWrapper,
+  Square,
+  SquareSecond,
+  SquareСircle,
 } from './AddRecipe.styled';
+import { AnimatedText } from './MainTitle/MainTitle.styled';
 
 const AddRecipe = () => {
   const dispatch = useDispatch();
@@ -34,7 +38,12 @@ const AddRecipe = () => {
     <AddRecipeSection>
       <Container>
         <InternalWrapper>
-          <MainTitle>Add recipe</MainTitle>
+          <Square />
+          <SquareСircle />
+          <SquareSecond />
+          <MainTitle>
+            <AnimatedText>Add recipe</AnimatedText>
+          </MainTitle>
           {!isLoading && (
             <LeftWrapper>
               <AddRecipeForm />

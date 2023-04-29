@@ -1,5 +1,11 @@
 import { useRef, useState } from 'react';
-import { BsDropletFill } from 'react-icons/bs';
+import { useSelector } from 'react-redux';
+
+import { ModalWindow } from 'components/AddRecipe/Modal/Modal';
+
+import { selectCategories } from 'redux/recipes/selectors/addRecipeSelectors';
+import { size } from 'components/constants/deviceType/deviceType';
+import useTime from 'components/AddRecipe/hooks/hooks';
 
 import {
   FileInput,
@@ -14,12 +20,8 @@ import {
   TextInput,
   UpdatedSelect,
   BrowseButton,
+  ModalIcon,
 } from './RecipeDescriptionFields.styled';
-import { ModalWindow } from 'components/AddRecipe/Modal/Modal';
-import { size } from 'components/constants/deviceType/deviceType';
-import useTime from 'components/AddRecipe/hooks/hooks';
-import { useSelector } from 'react-redux';
-import { selectCategories } from 'redux/recipes/selectors/addRecipeSelectors';
 
 export const cutWidth = width => {
   const newValue = width.toString().replace('px', '').trim();
@@ -29,28 +31,24 @@ export const cutWidth = width => {
 export const colorStyles = {
   control: (styles, { isFocused }) => ({
     ...styles,
-    backgroundColor: 'transparent',
-    border: isFocused ? 'none' : 'none',
-    borderRadius: 0,
     textAlign: 'right',
-    paddingBottom: 8,
-    fontSize: 13,
-    color: '#000000',
-    ':hover': {
-      borderBottomColor: 'rgba(35, 38, 42, 0.2)',
+    backgroundColor: 'transparent',
+
+    borderRadius: 0,
+    border: isFocused ? 0 : 0,
+
+    boxShadow: isFocused ? 0 : 0,
+    '&:hover': {
+      border: isFocused ? 0 : 0,
     },
   }),
   indicatorSeparator: styles => ({ ...styles, backgroundColor: 'transparent' }),
   indicatorContainer: styles => ({
     ...styles,
-    color: '#8BAA36',
   }),
   option: styles => {
     return {
       ...styles,
-      color: '#000000',
-      opacity: 0.5,
-      fontSize: 14,
       lineHeight: 1.5,
     };
   },
@@ -59,8 +57,6 @@ export const colorStyles = {
     right: 0,
     width: 150,
     height: 230,
-    padding: '8px 8px 8px 14px',
-    alignSelf: 'flex-end',
   }),
   menuList: styles => ({
     ...styles,
@@ -80,7 +76,7 @@ const RecipeDescriptionField = ({
   );
 
   const [isOver, setIsOver] = useState(false);
-  const [dragText, setDragText] = useState('Drag & Drop Picture here');
+  const [dragText, setDragText] = useState('Drop your picture here');
 
   const addFileInput = useRef(null);
 
@@ -217,6 +213,7 @@ const RecipeDescriptionField = ({
             onChange={handleChange}
             required
             pattern="^[a-zA-Z]+$"
+            classNamePrefix="Select"
           />
         </InputWrapper>
         <InputWrapper>
@@ -231,6 +228,7 @@ const RecipeDescriptionField = ({
             onChange={handleChange}
             required
             pattern="^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$"
+            classNamePrefix="Select"
           />
         </InputWrapper>
       </InputsWrapper>
@@ -245,7 +243,7 @@ const RecipeDescriptionField = ({
         >
           <ModalWrapper>
             <ModalTitle style={{ textTransform: 'capitalize' }}>
-              {dragText} <BsDropletFill size={44} color="#8baa36" />
+              {dragText} <ModalIcon />
             </ModalTitle>
             <ModalText>OR</ModalText>
             <BrowseButton

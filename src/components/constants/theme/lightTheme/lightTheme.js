@@ -185,7 +185,7 @@ const lightTheme = Object.freeze({
       gradient: '#a8c163',
     },
 
-    // AddRecipePage
+   // AddRecipePage
     addRecipePage: {
       title: '#001833',
       titleSecondary: '#3e4462',
@@ -194,13 +194,15 @@ const lightTheme = Object.freeze({
       iconDefaultImage: '#fafafa',
       borderForm: '#d9d9d9',
       textForm: '#23262a',
-      labelForm: '#000000',
+      labelForm: 'rgba(0, 0, 0, .5)',
       textNumberForm: '#333333',
       iconForm: 'rgba(51, 51, 51, .3)',
       iconFormHover: '#8baa36',
       iconClose: '#333333',
       // iconCloseHover: '#8baa36',
       bgInputTextArea: 'rgba(217, 217, 217, .17)',
+      textareaBorder: 'transparent',
+      optionMenuBg: '#FFFFFF',
       textBtnAdd: '#fafafa',
       bgBtnAdd: '#22252a',
       bgBtnAddHover: '#8baa36',
@@ -210,6 +212,8 @@ const lightTheme = Object.freeze({
       socIconHover: '#1e1f28',
       line: '#e0e0e0',
       lineSecondary: '#707070',
+      scrollBarBgColor: '#E7E5E5',
+      bgModal: '#fafafa',
     },
 
     // FavoritePage

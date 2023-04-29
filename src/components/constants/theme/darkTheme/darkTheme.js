@@ -188,7 +188,7 @@ const darkTheme = Object.freeze({
       gradient: '#a8c163',
     },
 
-    // AddRecipePage
+   // AddRecipePage
     addRecipePage: {
       title: '#fafafa',
       titleSecondary: '#fafafa',
@@ -204,6 +204,8 @@ const darkTheme = Object.freeze({
       iconClose: '#fafafa',
       // iconCloseHover: '#8baa36',
       bgInputTextArea: 'transparent',
+      textareaBorder: 'rgba(250, 250, 250, 0.2)',
+      optionMenuBg: '#8BAA36',
       textBtnAdd: '#fafafa',
       bgBtnAdd: '#8baa36',
       bgBtnAddHover: 'transparent',
@@ -211,9 +213,12 @@ const darkTheme = Object.freeze({
       placeholderForm: 'rgba(250, 250, 250, .6)',
       socIcon: '#fafafa',
       socIconHover: '#8baa36',
-      line: '#fafafa',
+      line: 'rgba(250, 250, 250, 0.3)',
       lineSecondary: '#707070',
+      scrollBarBgColor: '#1E1F28',
+      bgModal: '#2a2c36',
     },
+
 
     // FavoritePage
     favoritePage: {

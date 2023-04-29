@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import Select from 'react-select';
+import { BsDropletFill } from 'react-icons/bs';
+
 import { size } from 'components/constants/deviceType/deviceType';
 
 export const RecipeDescrWrapper = styled.div`
@@ -80,9 +82,10 @@ export const InputsWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 24px;
-  width: 393px;
+  width: 343px;
 
   @media screen and (min-width: ${size.tablet}) {
+    width: 393px;
     gap: 32px;
   }
 
@@ -119,11 +122,6 @@ export const TextInput = styled.input`
 
   transition: border-bottom-color 250ms ease-in-out;
 
-  &:focus,
-  &:not(:placeholder-shown) {
-    border-bottom-color: rgba(35, 38, 42, 0.2);
-  }
-
   @media screen and (min-width: ${size.tablet}) {
     padding-bottom: 18px;
     font-size: ${props => props.theme.fontSizes.s};
@@ -139,13 +137,12 @@ export const UpdatedSelect = styled(Select)`
   font-weight: ${props => props.theme.fontWeight.regular};
   line-height: 1;
   text-align: right;
-  color: ${props => props.theme.colors.addRecipePage.textForm};
+
   background-color: transparent;
 
-  border-color: transparent;
+  border-bottom-color: ${props => props.theme.colors.addRecipePage.line};
   border-bottom-style: solid;
   border-bottom-width: 1px;
-  border-bottom-color: ${props => props.theme.colors.addRecipePage.line};
 
   transition: border-bottom-color 250ms ease-in-out;
 
@@ -153,13 +150,74 @@ export const UpdatedSelect = styled(Select)`
     fill: ${props => props.theme.colors.addRecipePage.socIcon};
   }
 
-  &:focus,
-  &:not(:placeholder-shown) {
-    border-bottom-color: rgba(35, 38, 42, 0.2);
+  @media screen and (min-width: ${size.tablet}) {
+    font-size: ${props => props.theme.fontSizes.s};
+    padding-bottom: 18px;
   }
 
-  @media screen and (min-width: ${size.tablet}) {
-    padding-bottom: 18px;
+  & .Select__control {
+    cursor: pointer;
+  }
+
+  & .Select__single-value {
+    text-align: right;
+    color: ${props => props.theme.colors.addRecipePage.textForm};
+  }
+
+  & .Select__input-container {
+    margin: 0 auto;
+    color: ${props => props.theme.colors.addRecipePage.textForm};
+  }
+
+  & .Select__menu {
+    background-color: ${props => props.theme.colors.addRecipePage.optionMenuBg};
+    box-shadow: 0px 6.51852px 7.82222px rgba(0, 0, 0, 0.0314074);
+    padding: 8px 4px 8px 18px;
+
+    &-list::-webkit-scrollbar {
+      width: 6px;
+      height: 0;
+    }
+    &-list::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    &-list::-webkit-scrollbar-thumb {
+      background-color: ${props =>
+        props.theme.colors.addRecipePage.scrollBarBgColor};
+      border-radius: 12px;
+
+      transition: background-color 250ms ease-in-out;
+    }
+    &-list::-webkit-scrollbar-thumb:hover {
+      background-color: ${props => props.theme.colors.addRecipePage.socIcon};
+    }
+  }
+
+  & .Select__option {
+    text-align: left;
+    color: ${props => props.theme.colors.addRecipePage.placeholderForm};
+    font-size: ${props => props.theme.fontSizes.xs};
+    font-weight: ${props => props.theme.fontWeight.regular};
+    line-height: 1.5;
+    cursor: pointer;
+
+    @media screen and (min-width: ${size.tablet}) {
+      font-size: ${props => props.theme.fontSizes.s};
+    }
+
+    &--is-selected {
+      background-color: transparent;
+      color: ${props => props.theme.colors.addRecipePage.socIcon};
+    }
+
+    &--is-focused {
+      background-color: transparent;
+    }
+
+    &:hover {
+      background-color: transparent;
+      color: ${props => props.theme.colors.addRecipePage.socIcon};
+    }
   }
 `;
 
@@ -173,7 +231,6 @@ export const Label = styled.label`
   line-height: 1.5;
   letter-spacing: -0.02em;
   color: ${props => props.theme.colors.addRecipePage.labelForm};
-  opacity: 0.5;
 
   @media screen and (min-width: ${size.tablet}) {
     font-size: ${props => props.theme.fontSizes.m};
@@ -196,17 +253,26 @@ export const ModalTitle = styled.h3`
   align-items: center;
   gap: 16px;
 
-  font-size: ${props => props.theme.fontSizes.xl};
+  font-size: ${props => props.theme.fontSizes.xxl};
   font-weight: ${props => props.theme.fontWeight.semiBold};
   line-height: 1.5;
-  color: ${props => props.theme.colors.addRecipePage.bdUnderImage};
+  color: ${props => props.theme.colors.addRecipePage.textForm};
 `;
 
 export const ModalText = styled.p`
   font-size: ${props => props.theme.fontSizes.xxl};
   font-weight: ${props => props.theme.fontWeight.semiBold};
   line-height: 1.5;
-  color: ${props => props.theme.colors.addRecipePage.labelForm};
+  color: ${props => props.theme.colors.addRecipePage.textForm};
+`;
+
+export const ModalIcon = styled(BsDropletFill)`
+  width: 44px;
+  height: 44px;
+
+  & path {
+    fill: ${props => props.theme.colors.addRecipePage.socIcon};
+  }
 `;
 
 export const BrowseButton = styled.button`
@@ -216,7 +282,10 @@ export const BrowseButton = styled.button`
   color: ${props => props.theme.colors.addRecipePage.iconDefaultImage};
   background-color: ${props => props.theme.colors.addRecipePage.bgBtnAdd};
   border-radius: 24px 44px;
-  border: none;
+  border-width: 1px;
+  border-style: solid;
+  border-color: ${props => props.theme.colors.addRecipePage.textareaBorder};
+
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
