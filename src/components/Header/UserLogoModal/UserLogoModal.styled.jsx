@@ -49,6 +49,9 @@ export const ChangeUserButton = styled.button`
   display: flex;
   justify-content: space-between;
   cursor: pointer;
+  &:hover {
+    color: #8baa36 !important;
+  }
 `;
 
 export const StyledLogoutBtn = styled(DefaultBtn)`
@@ -66,6 +69,6 @@ export const StyledLogoutBtn = styled(DefaultBtn)`
   text-align: left;
 
   &:hover {
-    color: black;
+    color: #22252a !important;
   }
 `;

@@ -23,17 +23,16 @@ export const SocialLinksList = styled.ul`
   }
 `;
 
-export const LinkIcon = styled(Link)``;
+export const LinkIcon = styled(Link)`
+  color: ${props => props.theme.colors.userForm.icon};
+  &:hover {
+    color: ${props => props.theme.colors.userForm.iconHover};
+  }
+`;
 
 export const StyledBsFacebook = styled(BsFacebook)`
   width: 18px;
   height: 18px;
-  & path {
-    fill: ${props => props.theme.colors.userForm.icon};
-  }
-  & path:hover {
-    fill: ${props => props.theme.colors.userForm.iconHover};
-  }
 
   @media ${device.tablet} {
     width: 20px;
@@ -44,12 +43,7 @@ export const StyledBsFacebook = styled(BsFacebook)`
 export const StyledBsYoutube = styled(BsYoutube)`
   width: 24px;
   height: 19px;
-  & path {
-    fill: ${props => props.theme.colors.userForm.icon};
-  }
-  & path:hover {
-    fill: ${props => props.theme.colors.userForm.iconHover};
-  }
+
   @media ${device.tablet} {
     width: 25px;
     height: 20px;
@@ -59,12 +53,7 @@ export const StyledBsYoutube = styled(BsYoutube)`
 export const StyledBsTwitter = styled(BsTwitter)`
   width: 23px;
   height: 19px;
-  & path {
-    fill: ${props => props.theme.colors.userForm.icon};
-  }
-  & path:hover {
-    fill: ${props => props.theme.colors.userForm.iconHover};
-  }
+
   @media ${device.tablet} {
     width: 25px;
     height: 21px;
@@ -74,12 +63,7 @@ export const StyledBsTwitter = styled(BsTwitter)`
 export const StyledBsInstagram = styled(BsInstagram)`
   width: 17px;
   height: 17px;
-  & path {
-    fill: ${props => props.theme.colors.userForm.icon};
-  }
-  & path:hover {
-    fill: ${props => props.theme.colors.userForm.iconHover};
-  }
+
   @media ${device.tablet} {
     width: 20px;
     height: 20px;
