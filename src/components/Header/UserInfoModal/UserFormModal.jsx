@@ -23,6 +23,7 @@ export const UserFormModal = ({ closeUserInfoModal }) => {
   const [newUserName, setNewUserName] = useState(`${name}`);
   const [imageRef, setImageRef] = useState(avatarUrl);
   const [goodImage, setGoodImage] = useState('false');
+  const [nameError, setNameError] = useState('');
 
   const handleFileChange = event => {
     let file = event.target.files[0];
@@ -37,6 +38,19 @@ export const UserFormModal = ({ closeUserInfoModal }) => {
     reader.readAsDataURL(file);
   };
 
+  const handleName = e => {
+    setNewUserName(e.target.value);
+    const re = /^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$/;
+
+    if (!re.test(String(e.target.value).toLowerCase())) {
+      setNameError('A name must contain just A-Z, a-z, 0-9 characters');
+    } else if (e.target.value.length < 2 || e.target.value.length > 20) {
+      setNameError('A name must contain 2 to 20 characters.');
+    } else {
+      setNameError('');
+    }
+  };
+
   useEffect(() => {
     const form = document.getElementById('form');
     form.addEventListener('submit', function (e) {
@@ -45,15 +59,15 @@ export const UserFormModal = ({ closeUserInfoModal }) => {
       const data = new FormData();
       data.append('avatarImage', avatarImage.files[0]);
       data.append('name', name.value);
-      if (goodImage) {
-        dispatch(changeUserData(data));
-        setNewUserName(`${name}`);
-        setImageRef(avatarUrl);
-        setGoodImage('false');
-        closeUserInfoModal();
-      }
+      dispatch(changeUserData(data));
+      setNewUserName(`${name}`);
+      setImageRef(avatarUrl);
+      setGoodImage('false');
+      setNameError('');
+      closeUserInfoModal();
+      alert('good');
     });
-  }, [dispatch, goodImage, avatarUrl, closeUserInfoModal]);
+  }, [dispatch, avatarUrl, closeUserInfoModal]);
 
   return (
     <>
@@ -73,13 +87,16 @@ export const UserFormModal = ({ closeUserInfoModal }) => {
         </label>
 
         <label>
-          <ConfigNameLabel>
+          <ConfigNameLabel
+            style={nameError ? { borderColor: 'red', color: 'red' } : {}}
+          >
             <LeftInputDiv>
               <StyledRxPerson />
               <ConfigNameInput
                 name="name"
                 value={newUserName}
-                onChange={event => setNewUserName(event.target.value)}
+                onChange={handleName}
+                style={nameError ? { color: 'red' } : {}}
               />
             </LeftInputDiv>
             <StyledHiOutlinePencil />
@@ -87,9 +104,10 @@ export const UserFormModal = ({ closeUserInfoModal }) => {
         </label>
 
         <SendChangeBTN
-          disabled={!goodImage && 'disabled'}
-          style={!goodImage ? { background: 'red' } : { background: '#8baa36' }}
+          disabled={!goodImage || (nameError && 'disabled')}
+          style={!goodImage || nameError ? { background: 'red' } : {}}
         >
+          {nameError ? `${nameError}` : ''}
           {!goodImage
             ? 'Please select an avatar with size 3 MB'
             : 'Save changes'}
