@@ -117,47 +117,77 @@ export const NewSelect = styled(Select)`
       font-size: ${props => props.theme.fontSizes.l};
     }
   }
-`;
 
-export const SmallSelect = styled(Select)`
-  position: absolute;
-  top: -53px;
-  left: 0;
-  z-index: 1;
-  width: 84px;
-  height: 53px;
-  font-size: ${props => props.theme.fontSizes.s};
-  font-weight: ${props => props.theme.fontWeight.regular};
-  line-height: 1.5;
-  color: ${props => props.theme.colors.addRecipePage.textForm};
-  letter-spacing: -0.02em;
+  & .Select__control {
+    cursor: pointer;
+    padding-left: 16px;
 
-  &:focus {
-    border: none;
-  }
+    background-color: ${props =>
+      props.theme.colors.addRecipePage.bgInputTextArea};
+    border-color: ${props => props.theme.colors.addRecipePage.textareaBorder};
 
-  &::placeholder {
-    font-size: ${props => props.theme.fontSizes.s};
-    color: ${props => props.theme.colors.addRecipePage.placeholderForm};
-  }
-
-  & path {
-    fill: ${props => props.theme.colors.addRecipePage.socIcon};
-  }
-
-  @media screen and (min-width: ${size.tablet}) {
-    top: -59px;
-    width: 97px;
-    height: 59px;
-    font-size: ${props => props.theme.fontSizes.l};
-
-    &::placeholder {
-      font-size: ${props => props.theme.fontSizes.l};
+    @media screen and (min-width: ${size.tablet}) {
+      padding-left: 18px;
     }
   }
 
-  @media screen and (min-width: ${size.desktop}) {
-    width: 99px;
+  & .Select__single-value {
+    color: ${props => props.theme.colors.addRecipePage.textForm};
+  }
+
+  & .Select__input-container {
+    color: ${props => props.theme.colors.addRecipePage.textForm};
+  }
+
+  & .Select__option {
+    text-align: left;
+    color: ${props => props.theme.colors.addRecipePage.placeholderForm};
+    font-size: ${props => props.theme.fontSizes.xs};
+    font-weight: ${props => props.theme.fontWeight.regular};
+    line-height: 1.5;
+    cursor: pointer;
+
+    @media screen and (min-width: ${size.tablet}) {
+      font-size: ${props => props.theme.fontSizes.s};
+    }
+
+    &--is-selected {
+      background-color: transparent;
+      color: ${props => props.theme.colors.addRecipePage.socIcon};
+    }
+
+    &--is-focused {
+      background-color: transparent;
+    }
+
+    &:hover {
+      background-color: transparent;
+      color: ${props => props.theme.colors.addRecipePage.socIcon};
+    }
+  }
+
+  & .Select__menu {
+    padding: 8px 4px 8px 18px;
+    background-color: ${props => props.theme.colors.addRecipePage.optionMenuBg};
+    box-shadow: 0px 6.51852px 7.82222px rgba(0, 0, 0, 0.0314074);
+
+    &-list::-webkit-scrollbar {
+      width: 6px;
+      height: 0;
+    }
+    &-list::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    &-list::-webkit-scrollbar-thumb {
+      background-color: ${props =>
+        props.theme.colors.addRecipePage.scrollBarBgColor};
+      border-radius: 12px;
+
+      transition: background-color 250ms ease-in-out;
+    }
+    &-list::-webkit-scrollbar-thumb:hover {
+      background-color: ${props => props.theme.colors.addRecipePage.socIcon};
+    }
   }
 `;
 
@@ -210,15 +240,19 @@ export const SmallInput = styled.input`
   font-size: ${props => props.theme.fontSizes.s};
   font-weight: ${props => props.theme.fontWeight.regular};
   line-height: 1.5;
-  color: ${props => props.theme.colors.addRecipePage.textForm};
   letter-spacing: -0.02em;
-  border: 1px solid transparent;
-  border-radius: 6px;
+
+  color: ${props => props.theme.colors.addRecipePage.textForm};
   background-color: ${props =>
     props.theme.colors.addRecipePage.bgInputTextArea};
 
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 6px;
+  border-color: ${props => props.theme.colors.addRecipePage.textareaBorder};
+
   &:focus {
-    border: none;
+    border-color: ${props => props.theme.colors.addRecipePage.textareaBorder};
   }
 
   &::placeholder {
@@ -240,12 +274,6 @@ export const SmallInput = styled.input`
   @media screen and (min-width: ${size.desktop}) {
     width: 99px;
   }
-
-  &:hover {
-    border: 1px solid rgba(35, 38, 42, 0.2);
-  }
-
-  transition: border 250ms ease-in-out;
 `;
 
 export const Dropdown = styled.ul`
@@ -260,24 +288,26 @@ export const Dropdown = styled.ul`
 
   width: 100%;
   max-width: 123px;
-  height: ${props => (props.isOpen ? '144px' : '0px')};
-  padding: ${props => (props.isOpen ? '14px 14px' : '0')};
+  height: ${props => (props.isOpen ? '160px' : '0px')};
+  padding: ${props => (props.isOpen ? '16px 0 16px 0' : '0')};
   border-radius: 6px;
-  border-color: transparent;
+  border-color: ${props => props.theme.colors.addRecipePage.textareaBorder};
   overflow: hidden;
+  box-shadow: 0px 6.51852px 7.82222px rgba(0, 0, 0, 0.0314074);
 
+  text-align: center;
   font-size: ${props => props.theme.fontSizes.xs};
   font-weight: ${props => props.theme.fontWeight.regular};
   line-height: 1.5;
-  background-color: #ffffff;
+  background-color: ${props => props.theme.colors.addRecipePage.optionMenuBg};
   color: ${props => props.theme.colors.addRecipePage.placeholderForm};
 
   letter-spacing: -0.02em;
 
-  @media screen and (min-width: ${size.desktop}) {
+  @media screen and (min-width: ${size.tablet}) {
     max-width: 132px;
-    max-height: ${props => (props.isOpen ? '162px' : '0px')};
-    padding: ${props => (props.isOpen ? '8px 18px' : '0')};
+    height: ${props => (props.isOpen ? '170px' : '0px')};
+    padding: ${props => (props.isOpen ? '18px 0 18px 0' : '0')};
     font-size: ${props => props.theme.fontSizes.s};
   }
 
@@ -290,7 +320,7 @@ export const DropdownItem = styled.li`
   color: ${props => props.theme.colors.addRecipePage.placeholderForm};
 
   &:hover {
-    color: ${props => props.theme.colors.addRecipePage.bgBtnAddHover};
+    color: ${props => props.theme.colors.addRecipePage.socIcon};
   }
 
   transition: color 250ms ease-in-out;
@@ -310,10 +340,6 @@ export const DropdownIcon = styled(IoIosArrowDown)`
 
   & path {
     fill: ${props => props.theme.colors.addRecipePage.socIcon};
-
-    &:hover {
-      fill: ${props => props.theme.colors.addRecipePage.bgBtnAddHover};
-    }
   }
 
   @media screen and (min-width: ${size.tablet}) {

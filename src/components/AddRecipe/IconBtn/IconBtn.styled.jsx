@@ -10,13 +10,14 @@ export const CloseBtn = styled.button`
   align-items: center;
   cursor: pointer;
 
-  width: 30px;
-  height: 30px;
+  width: 36px;
+  height: 36px;
 
   border: transparent;
   border-radius: 50%;
-  background-color: #fff;
-  color: ${props => props.theme.colors.addRecipePage.labelForm};
+  background-color: ${props => props.theme.colors.addRecipePage.bgBtnAdd};
+
+  color: ${props => props.theme.colors.addRecipePage.iconDefaultImage};
 
   padding: 0;
 
@@ -25,7 +26,8 @@ export const CloseBtn = styled.button`
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
-    color: ${props => props.theme.colors.addRecipePage.bdUnderImage};
+    background-color: ${props =>
+      props.theme.colors.addRecipePage.bgBtnAddHover};
   }
 `;
 

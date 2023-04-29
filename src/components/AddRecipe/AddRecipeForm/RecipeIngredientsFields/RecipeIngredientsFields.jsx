@@ -1,6 +1,12 @@
+import { useSelector } from 'react-redux';
 import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
+
 import SecondaryTitle from 'components/AddRecipe/SecondaryTitle/SecondaryTitle';
 import IngredientInput from './IngredientInput';
+
+import { quantities } from 'components/AddRecipe/helpers/vars';
+import { selectIngredients } from 'redux/recipes/selectors/addRecipeSelectors';
+
 import { DeleteButton } from 'components/AddRecipe/IconBtn/IconBtn.styled';
 import {
   CounterValue,
@@ -13,22 +19,14 @@ import {
   SelectWrapper,
   TopWrapper,
 } from './RecipeIngredientsFields.styled';
-import { quantities } from 'components/AddRecipe/helpers/vars';
-import { useSelector } from 'react-redux';
-import { selectIngredients } from 'redux/recipes/selectors/addRecipeSelectors';
 
 export const colorStyles = {
-  control: styles => ({
+  control: (styles, { isFocused }) => ({
     ...styles,
-    backgroundColor: 'rgba(217,217,217, .17)',
-    borderColor: 'transparent',
     borderRadius: 6,
-    paddingLeft: 16,
     height: '100%',
-    color: '#23262A',
-    ':hover': {
-      borderColor: 'rgba(35, 38, 42, 0.2)',
-    },
+    boxShadow: isFocused ? 0 : 0,
+    '&:hover': {},
   }),
   indicatorSeparator: styles => ({ ...styles, backgroundColor: 'transparent' }),
   indicatorContainer: styles => ({
@@ -38,9 +36,6 @@ export const colorStyles = {
   option: styles => {
     return {
       ...styles,
-      color: '#000000',
-      opacity: 0.5,
-      fontSize: 14,
       lineHeight: 1.5,
     };
   },
@@ -90,6 +85,7 @@ const RecipeIngredientsFields = ({
                   styles={colorStyles}
                   required
                   pattern="^[a-zA-Z]+$"
+                  classNamePrefix="Select"
                 />
                 <IngredientInput
                   value={item.quantity}

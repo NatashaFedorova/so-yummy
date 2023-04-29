@@ -13,28 +13,6 @@ export const RecipePreparationFieldsWrapper = styled.div`
   }
 `;
 
-export const SubmitButtom = styled.button`
-  cursor: pointer;
-  display: block;
-  padding: 12px 48px;
-  color: ${props => props.theme.colors.addRecipePage.iconDefaultImage};
-  background-color: ${props => props.theme.colors.addRecipePage.bgBtnAdd};
-  border-radius: 24px 44px;
-  border: none;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
-  &:hover {
-    background-color: ${props =>
-      props.theme.colors.addRecipePage.bgBtnAddHover};
-  }
-
-  @media screen and (min-width: ${size.tablet}) {
-    padding: 14px 64px;
-  }
-`;
-
 export const Textarea = styled.textarea`
   width: 100%;
   height: 154px;
@@ -49,7 +27,7 @@ export const Textarea = styled.textarea`
 
   background: ${props => props.theme.colors.addRecipePage.bgInputTextArea};
   border-radius: 6px;
-  border-color: transparent;
+  border-color: ${props => props.theme.colors.addRecipePage.textareaBorder};
 
   &::placeholder {
     font-size: ${props => props.theme.fontSizes.s};
@@ -66,5 +44,28 @@ export const Textarea = styled.textarea`
     &::placeholder {
       font-size: ${props => props.theme.fontSizes.l};
     }
+  }
+`;
+
+export const SubmitButtom = styled.button`
+  cursor: pointer;
+  display: block;
+  padding: 12px 48px;
+  color: ${props => props.theme.colors.addRecipePage.iconDefaultImage};
+  background-color: ${props => props.theme.colors.addRecipePage.bgBtnAdd};
+  border-radius: 24px 44px;
+  border-color: ${props => props.theme.colors.addRecipePage.textareaBorder};
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    background-color: ${props =>
+      props.theme.colors.addRecipePage.bgBtnAddHover};
+  }
+
+  @media screen and (min-width: ${size.tablet}) {
+    padding: 14px 64px;
   }
 `;
