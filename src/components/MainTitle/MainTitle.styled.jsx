@@ -1,4 +1,6 @@
-import styled from 'styled-components';
+// import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
 import { device } from 'components/constants/deviceType/deviceType';
 
 const urlDots2Mobile = `${process.env.PUBLIC_URL}/images/decoratedMain/dot-2-mobile.svg`;
@@ -45,4 +47,48 @@ export const MainTitleH1 = styled.h1`
 
   @media ${device.tablet} {font-size: 32px;}
   @media ${device.desktop} {font-size: 44px;}
+`;
+
+// 
+export const CategoryText = styled.span`
+  font-style: normal;
+  font-weight: ${props => props.theme.fontWeight.semiBold};
+  line-height: 28px;
+  color: ${props => props.theme.colors.categoriesPage.title};
+
+  letter-spacing: -0.02em;
+  font-feature-settings: 'liga';
+  font-family: 'Poppins';
+  font-size: ${props => props.theme.fontSizes.xxl};
+  position: relative;
+  display: inline-block;
+  @media (min-width: 768px) {
+    font-size: 32px;
+    line-height: 32px;
+  }
+
+  @media (min-width: 1440px) {
+    font-size: ${props => props.theme.fontSizes.xxxl};
+    line-height: 44px;
+  }
+`;
+
+const animate = keyframes`
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
+export const AnimatedLetter = styled.span`
+  display: inline-block;
+  animation: ${animate} 1.5s ease-in-out;
+  animation-fill-mode: forwards;
+  opacity: 0;
+
+  animation-delay: ${({ index }) => `${0.1 * index}s`};
 `;
