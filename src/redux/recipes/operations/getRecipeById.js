@@ -1,7 +1,5 @@
-
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-
 
 export const getRecipeById = createAsyncThunk(
   'recipeById/getRecipeById',
@@ -12,14 +10,16 @@ export const getRecipeById = createAsyncThunk(
     } catch (err) {
       return thunkAPI.rejectWithValue(err.message);
     }
-  })
+  }
+);
 
 export const AddIngredientToShoppingList = createAsyncThunk(
-  "recipeById/addToShoppingList",
+  'recipeById/addToShoppingList',
   async (Items, thunkAPI) => {
     try {
-      const response = await axios.post("/shoppinglist", Items);
-      return response.data;
+      const { data, status } = await axios.post('/shoppinglist', Items);
+      // return response.data;
+      return { data, status };
     } catch (err) {
       return thunkAPI.rejectWithValue(err.message);
     }
@@ -27,10 +27,10 @@ export const AddIngredientToShoppingList = createAsyncThunk(
 );
 
 export const RemoveIngredientFromShoppingList = createAsyncThunk(
-  "recipeById/removeFromShoppingList",
+  'recipeById/removeFromShoppingList',
   async (Id, thunkAPI) => {
     try {
-      const response = await axios.patch("/shoppinglist", Id);
+      const response = await axios.patch('/shoppinglist', Id);
       return response.data;
     } catch (err) {
       return thunkAPI.rejectWithValue(err.message);

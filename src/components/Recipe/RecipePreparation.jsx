@@ -11,7 +11,14 @@ import {
 import noRecipeIMG from './no-recipe-image.png';
 
 const RecipePreparation = ({ instructions, img, title }) => {
-  const ArrFromInstructions = instructions.split('. ');
+  //const ArrFromInstructions = instructions.split('. ');
+  console.log(typeof instructions);
+
+  let ArrFromInstructions = instructions;
+  if (typeof instructions === 'string') {
+    ArrFromInstructions = instructions.split('. ');
+  }
+
   return (
     <>
       <PrepWrap>
