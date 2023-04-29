@@ -1,13 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { register, logIn, logOut, refreshUser, toggleIsRefreshing } from './authOperation';
 import { changeUserData, subscribe } from 'redux/user/userOperation';
-import { Notify } from 'notiflix';
+import Notiflix, { Notify } from 'notiflix';
 
-Notify.init({
-  position: 'center-top',
-  width: '340px',
+Notiflix.Notify.init({
+  position: "center-top",
+  background: "#8AA936",
+  width: "340px",
   closeButton: false,
   timeout: 4000,
+});
+
+Notiflix.Notify.merge({
+  background: "#8AA936",
+  position: "center-bottom",
 });
 
 export const authSlise = createSlice({

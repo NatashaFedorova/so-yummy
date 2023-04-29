@@ -183,13 +183,8 @@ export const AuthFormInput = styled.input`
 
   border: 1px solid;
   border-radius: 6px;
-  border-color: #ffffff;
-  opacity: 0.3;
-
-  &::placeholder {
-    color: #ffffff;
-    opacity: 0.8;
-  }
+  border-color: rgba(255, 255, 255. 0.3);
+  opacity: 0.3; 
 
   &:hover, &:focus {
     opacity: 1;

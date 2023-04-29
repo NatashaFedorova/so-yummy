@@ -45,7 +45,7 @@ const FavoriteItem = ({
         </FavoriteBoxCenter>
         <FavoriteBoxBottom>
           <FavoriteTime>{time} min</FavoriteTime>
-          <FavoriteBtnDetails to={`/recipe/${_id}`}>See reecipe</FavoriteBtnDetails>
+          <FavoriteBtnDetails to={`/recipe/${_id}`}>See recipe</FavoriteBtnDetails>
         </FavoriteBoxBottom>
       </FavoriteBoxWrap>
     </StyledFavoriteItem>

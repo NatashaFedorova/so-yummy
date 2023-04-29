@@ -53,7 +53,7 @@ const SigninForm = () => {
   const handlePassword = e => {
     setPassword(e.target.value);
 
-    if (e.target.value.length < 5 || e.target.value.length > 16) {
+    if (e.target.value.length < 6 || e.target.value.length > 16) {
       setPasswordError('Enter a valid Password');
     } else {
       setPasswordError('');
