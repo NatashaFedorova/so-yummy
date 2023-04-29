@@ -41,47 +41,47 @@ const ShoppingList = () => {
         <FakeMainPageTitleWrap style={{ paddingBottom: '72px' }}>
           <FakeMainPageTitle>Shopping list</FakeMainPageTitle>
         </FakeMainPageTitleWrap>
+        <ShoppingListWrapper>
+          <IngredientsTable>
+            <ShoppingListName>Product</ShoppingListName>
+            <ShoppingListNumber>Number</ShoppingListNumber>
+            <ShoppingListButton>Remove</ShoppingListButton>
+          </IngredientsTable>
+          {user.shoppingList.length !== 0 ? (
+            user.shoppingList.map(ingredient => {
+              return (
+                <IngredientCard key={ingredient._id}>
+                  <IngredientsList>
+                    <IngredientImage>
+                      <IngredientImageBackground>
+                        <img
+                          alt="ingredient"
+                          src={ingredient.image || defaultFood}
+                        />
+                      </IngredientImageBackground>
+                      <IngredientTitle>{ingredient.title}</IngredientTitle>
+                    </IngredientImage>
+
+                    <IngredientWeight>{ingredient.weight}</IngredientWeight>
+
+                    <IngredientDeleteButton
+                      id={ingredient._id}
+                      onClick={() => toDeleteIngredient(ingredient)}
+                    >
+                      <IngredientDeleteIcon></IngredientDeleteIcon>
+                    </IngredientDeleteButton>
+                  </IngredientsList>
+                </IngredientCard>
+              );
+            })
+          ) : (
+            <EmptyShoppingList
+              text={'Ooops, it`s empty'}
+              imageSource={emptyShoppingListImage}
+            ></EmptyShoppingList>
+          )}
+        </ShoppingListWrapper>
       </Container>
-      <ShoppingListWrapper>
-        <IngredientsTable>
-          <ShoppingListName>Product</ShoppingListName>
-          <ShoppingListNumber>Number</ShoppingListNumber>
-          <ShoppingListButton>Remove</ShoppingListButton>
-        </IngredientsTable>
-        {user.shoppingList.length !== 0 ? (
-          user.shoppingList.map(ingredient => {
-            return (
-              <IngredientCard key={ingredient._id}>
-                <IngredientsList>
-                  <IngredientImage>
-                    <IngredientImageBackground>
-                      <img
-                        alt="ingredient"
-                        src={ingredient.image || defaultFood}
-                      />
-                    </IngredientImageBackground>
-                    <IngredientTitle>{ingredient.title}</IngredientTitle>
-                  </IngredientImage>
-
-                  <IngredientWeight>{ingredient.weight}</IngredientWeight>
-
-                  <IngredientDeleteButton
-                    id={ingredient._id}
-                    onClick={() => toDeleteIngredient(ingredient)}
-                  >
-                    <IngredientDeleteIcon></IngredientDeleteIcon>
-                  </IngredientDeleteButton>
-                </IngredientsList>
-              </IngredientCard>
-            );
-          })
-        ) : (
-          <EmptyShoppingList
-            text={'Ooops, it`s empty'}
-            imageSource={emptyShoppingListImage}
-          ></EmptyShoppingList>
-        )}
-      </ShoppingListWrapper>
     </>
   );
 };
