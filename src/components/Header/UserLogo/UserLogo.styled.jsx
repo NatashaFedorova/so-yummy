@@ -39,6 +39,9 @@ export const UserNameSpan = styled.p`
   letter-spacing: 0em;
   text-align: left;
 
+  &:hover {
+    color: #8baa36 !important;
+  }
   @media ${device.tablet} {
     font-size: 14px;
     line-height: 24px;
