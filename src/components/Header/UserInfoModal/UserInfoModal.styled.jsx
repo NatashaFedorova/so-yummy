@@ -117,9 +117,9 @@ export const ConfigNameLabel = styled.label`
   max-height: 60px;
   margin-bottom: 32px;
   padding: 20px 22px;
-  border: 1px solid ${props => props.theme.colors.modal.border} !important;
+  border: 1px solid ${props => props.theme.colors.modal.border};
   border-radius: 6px;
-  color: ${props => props.theme.colors.modal.border} !important;
+  color: ${props => props.theme.colors.modal.border};
   &:hover {
     color: ${props => props.theme.colors.modal.borderHover} !important;
     border: 1px solid ${props => props.theme.colors.modal.borderHover} !important;
@@ -139,7 +139,7 @@ export const ConfigNameInput = styled.input`
   line-height: 21px;
   letter-spacing: 0px;
 
-  color: ${props => props.theme.colors.modal.border} !important;
+  color: ${props => props.theme.colors.modal.border};
   &:hover {
     color: ${props => props.theme.colors.modal.borderHover} !important;
   }
@@ -151,6 +151,10 @@ export const ConfigNameInput = styled.input`
 `;
 
 export const SendChangeBTN = styled(DefaultBtn)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   width: 282px;
   height: 60px;
   background-color: #8baa36;
@@ -163,7 +167,7 @@ export const SendChangeBTN = styled(DefaultBtn)`
   letter-spacing: 0px;
 
   &:hover {
-    color: black;
+    color: black !important;
   }
   @media${device.tablet} {
     width: 400px;
