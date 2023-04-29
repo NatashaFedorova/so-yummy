@@ -107,10 +107,11 @@ export const UserFormModal = ({ closeUserInfoModal }) => {
           disabled={!goodImage || (nameError && 'disabled')}
           style={!goodImage || nameError ? { background: 'red' } : {}}
         >
-          {nameError ? `${nameError}` : ''}
-          {!goodImage
+          {!goodImage && !nameError
             ? 'Please select an avatar with size 3 MB'
-            : 'Save changes'}
+            : ''}
+          {nameError && !goodImage ? `${nameError}` : ''}
+          {goodImage && !nameError ? `Save changes` : ''}
         </SendChangeBTN>
       </form>
     </>
