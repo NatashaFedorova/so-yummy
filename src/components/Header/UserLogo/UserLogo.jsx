@@ -26,7 +26,11 @@ export const UserLogo = () => {
   }, [add.offsetWidth]);
 
   const togglerUserLogoModal = () => {
-    setShowUserLogoModal(!showUserLogoModal);
+    if (showUserLogoModal) {
+      setShowUserLogoModal(false);
+    } else {
+      setShowUserLogoModal(true);
+    }
   };
 
   const closeOnESCLogoModal = e => {
@@ -61,10 +65,9 @@ export const UserLogo = () => {
         </UserInfo>
       </UserLogoDiv>
       <AchivementButton />
-      <UserLogoModal
-        showUserLogoModal={showUserLogoModal}
-        closeUserLogoModal={() => setShowUserLogoModal(false)}
-      />
+      {showUserLogoModal && (
+        <UserLogoModal closeUserLogoModal={() => setShowUserLogoModal(false)} />
+      )}
     </>
   );
 };
