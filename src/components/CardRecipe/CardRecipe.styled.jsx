@@ -5,12 +5,26 @@ export const RecipeCard = styled.div`
   width: 200px;
   border-radius: 8px;
   overflow: hidden;
-  min-width: 300px;
+  min-width: 343px;
+  height: 323px;
   transition-duration: 2000ms;
+  @media (min-width: 768px) {
+    min-width: 336px;
+  }
+  @media (min-width: 1440px) {
+    min-width: 300px;
+  }
 
   img {
-    max-width: 100%;
-    height: auto;
+    width: 343px;
+    height: 323px;
+
+    @media (min-width: 768px) {
+      width: 336px;
+    }
+    @media (min-width: 1440px) {
+      max-width: 100%;
+    }
   }
 
   &:hover {
