@@ -9,7 +9,6 @@ import {
 } from './RecipesList.styled';
 import Loading from 'components/Loading/Loading';
 import { PagePagination } from 'components/Pagination/Pagination';
-
 import { Link } from 'react-router-dom';
 
 const RecipesList = ({ recipes, status, page, handlePageChange, getLimit }) => {
