@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-//import { useState } from 'react';
+import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import Container from 'components/constants/Container';
@@ -17,7 +17,10 @@ import {
 } from '../../redux/recipes/selectors/selectRecipeById';
 
 import { getRecipeById } from '../../redux/recipes/operations/getRecipeById';
-import { addFavorite, deleteFavorite } from '../../redux/favorite/favoriteOperation';
+import {
+  addFavorite,
+  deleteFavorite,
+} from '../../redux/favorite/favoriteOperation';
 import { refreshUser } from '../../redux/auth/authOperation';
 import { selectUser } from '../../redux/auth/authSelectors';
 
@@ -26,13 +29,19 @@ const Recipe = () => {
 
   const { recipeId } = useParams();
 
+  const [render, setRender] = useState(1);
+
   const Recipe = useSelector(selectRecipeById);
   const Status = useSelector(selectRecipeByIdStatus);
   const { id, shoppingList } = useSelector(selectUser);
 
   useEffect(() => {
+    if (render) {
+      setRender(0);
+      return;
+    }
     dispatch(getRecipeById(recipeId));
-  }, [dispatch, recipeId]);
+  }, [dispatch, recipeId, render, setRender]);
 
   const addRcpToFavorite = async () => {
     await dispatch(addFavorite(recipeId));
@@ -80,7 +89,7 @@ const Recipe = () => {
               />
               <RecipePreparation
                 instructions={Recipe.instructions}
-                img={Recipe.thumb}
+                img={Recipe.preview}
                 title={Recipe.title}
               />
             </Container>
