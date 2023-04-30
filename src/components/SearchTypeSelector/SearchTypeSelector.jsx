@@ -11,7 +11,6 @@ import { useEffect, useRef, useState } from 'react';
 
 const SearchTypeSelector = ({ getSearchType }) => {
   const location = useLocation();
-  console.log('location.state.type', location.state.type);
   const [open, setOpen] = useState(false);
   const [type, setType] = useState(location.state.type || 'Title');
   const menuRef = useRef();

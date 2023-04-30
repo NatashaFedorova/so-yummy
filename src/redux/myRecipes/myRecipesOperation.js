@@ -6,7 +6,7 @@ axios.defaults.baseURL = 'https://t2d-soyammy-backend.onrender.com/api/';
 export const getMyRecipes = createAsyncThunk(
   'myRecipes/getMyRecipes',
   async (page, thunkAPI) => {
-    if (!page) page = 1; 
+    if (!page) page = 1;
     try {
       const res = await axios.get(`/ownrecipes/?page=${page}&limit=4`);
       return res.data;
@@ -18,7 +18,7 @@ export const getMyRecipes = createAsyncThunk(
 
 export const addMyRecipes = createAsyncThunk(
   'myRecipes/addMyRecipes',
-  async (thunkAPI) => {
+  async thunkAPI => {
     try {
       const res = await axios.post(`/ownrecipes/`);
       return res.data;
@@ -43,6 +43,6 @@ export const deleteMyRecipes = createAsyncThunk(
 export const clearMyRecipes = createAsyncThunk(
   'favorite/clearMyRecipes',
   async (_, thunkAPI) => {
-    return (true);
+    return true;
   }
 );

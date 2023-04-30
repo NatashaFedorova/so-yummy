@@ -51,8 +51,6 @@ const AchivementModal = ({ onClose }) => {
     };
   }, [onClose]);
 
-  console.log(visit, favorite, ownRecipes);
-
   return createPortal(
     <Backdrop onClick={onClickBackdrop}>
       {!visit && !favorite && !ownRecipes && (

@@ -6,7 +6,7 @@ axios.defaults.baseURL = 'https://t2d-soyammy-backend.onrender.com/api/';
 export const getFavorite = createAsyncThunk(
   'favorite/getFavorite',
   async (page, thunkAPI) => {
-    if (!page) page = 1; 
+    if (!page) page = 1;
     try {
       const res = await axios.get(`/ownrecipes/favorite/?page=${page}&limit=4`);
       return res.data;
@@ -43,6 +43,6 @@ export const deleteFavorite = createAsyncThunk(
 export const clearFavorite = createAsyncThunk(
   'favorite/clearFavorite',
   async (_, thunkAPI) => {
-    return (true);
+    return true;
   }
 );

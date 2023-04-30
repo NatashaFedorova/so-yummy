@@ -11,7 +11,9 @@ const clearAuthHeader = () => {
   axios.defaults.headers.common.Authorization = '';
 };
 
-export const register = createAsyncThunk('auth/register', async (credentials, thunkAPI) => {
+export const register = createAsyncThunk(
+  'auth/register',
+  async (credentials, thunkAPI) => {
     try {
       const res = await axios.post('/auth/register', credentials);
       setAuthHeader(res.data.token);
@@ -22,7 +24,9 @@ export const register = createAsyncThunk('auth/register', async (credentials, th
   }
 );
 
-export const logIn = createAsyncThunk('auth/login', async (credentials, thunkAPI) => {
+export const logIn = createAsyncThunk(
+  'auth/login',
+  async (credentials, thunkAPI) => {
     try {
       const res = await axios.post('/auth/login', credentials);
       setAuthHeader(res.data.token);
@@ -34,7 +38,7 @@ export const logIn = createAsyncThunk('auth/login', async (credentials, thunkAPI
 );
 
 export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
-try {
+  try {
     await axios.post('/auth/logout');
     clearAuthHeader();
   } catch (e) {
@@ -42,16 +46,17 @@ try {
   }
 });
 
-export const refreshUser = createAsyncThunk('auth/refresh', async (_, thunkAPI) => {
+export const refreshUser = createAsyncThunk(
+  'auth/refresh',
+  async (_, thunkAPI) => {
     const { token } = thunkAPI.getState().auth;
     // const state = thunkAPI.getState();
-    // console.log(state.auth.user);
     // const stateAuth = thunkAPI.getState().auth;
-    // console.log(stateAuth);
     // const stateUser = thunkAPI.getState().auth.user;
-    // console.log(stateUser);
 
-    if (!token) {return thunkAPI.rejectWithValue('No valid token');}
+    if (!token) {
+      return thunkAPI.rejectWithValue('No valid token');
+    }
 
     setAuthHeader(token);
 
@@ -64,21 +69,28 @@ export const refreshUser = createAsyncThunk('auth/refresh', async (_, thunkAPI) 
   }
 );
 
-export const toggleIsRefreshing = createAsyncThunk('auth/toggleIsRefreshing', async (bool, thunkAPI) => {
-  return bool;
-});
-
-export const refreshUserLite = createAsyncThunk('auth/refreshLite', async (_, thunkAPI) => {
-  const { token } = thunkAPI.getState().auth;
-  if (!token) {return thunkAPI.rejectWithValue('No valid token');}
-
-  setAuthHeader(token);
-
-  try {
-    const res = await axios.get('/users/current');
-    return res.data;
-  } catch (e) {
-    return thunkAPI.rejectWithValue(e.message);
+export const toggleIsRefreshing = createAsyncThunk(
+  'auth/toggleIsRefreshing',
+  async (bool, thunkAPI) => {
+    return bool;
   }
-}
+);
+
+export const refreshUserLite = createAsyncThunk(
+  'auth/refreshLite',
+  async (_, thunkAPI) => {
+    const { token } = thunkAPI.getState().auth;
+    if (!token) {
+      return thunkAPI.rejectWithValue('No valid token');
+    }
+
+    setAuthHeader(token);
+
+    try {
+      const res = await axios.get('/users/current');
+      return res.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
 );

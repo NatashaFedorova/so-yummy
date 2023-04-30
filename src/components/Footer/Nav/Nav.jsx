@@ -1,4 +1,3 @@
-import { useLocation } from 'react-router-dom';
 import { FooterNav, StyledNavLink } from './Nav.styled';
 
 const pages = [

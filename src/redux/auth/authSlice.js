@@ -91,7 +91,6 @@ export const authSlise = createSlice({
         Notify.failure('Error');
       })
       .addCase(toggleIsRefreshing.fulfilled, (state, action) => {
-        console.log("toggleIsRefreshing action.payload", action.payload)
         state.isRefreshing = action.payload;
       }) 
       .addCase(refreshUserLite.pending, state => {
