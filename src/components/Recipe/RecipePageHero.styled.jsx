@@ -20,7 +20,7 @@ export const HeroHead = styled.div`
   background-position: center center;
   margin-top: -78px;
   position: relative;
-  pos @media ${device.mobile} {
+  @media ${device.mobile} {
     padding: 164px 36px 32px;
   }
   @media ${device.tablet} {
@@ -48,7 +48,7 @@ export const HeroTitle = styled.h1`
 `;
 
 export const HeroInfo = styled.p`
-  color: ${props => props.theme.colors.welcomePage.iconClock};
+  color: ${props => props.theme.colors.recipePage.text};
   margin-bottom: ${props => props.theme.fontSizes.xl};
 
   @media ${device.mobile} {
@@ -89,6 +89,7 @@ export const HeroBtn = styled(DefaultBtn)`
 `;
 
 export const HeroP = styled.p`
+  color: ${props => props.theme.colors.recipePage.text};
   display: flex;
   flex-wrap: wrap;
   &:before {

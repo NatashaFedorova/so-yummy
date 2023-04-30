@@ -47,7 +47,6 @@ const Recipe = () => {
     setIsSubLoading(true);
     await dispatch(addFavorite(recipeId));
     await dispatch(getRecipeById(recipeId));
-    // await dispatch(refreshUser());
     await dispatch(refreshUserLite());
     setIsSubLoading(false);
   };
@@ -56,7 +55,6 @@ const Recipe = () => {
     setIsSubLoading(true);
     await dispatch(deleteFavorite(recipeId));
     await dispatch(getRecipeById(recipeId));
-    //await dispatch(refreshUser());
     await dispatch(refreshUserLite());
     setIsSubLoading(false);
   };
@@ -73,7 +71,6 @@ const Recipe = () => {
 
   return (
     <>
-      {/* {(Status === STATUS.idle || Status === STATUS.loading) && <Loading />} */}
       <div style={{ minHeight: '65vh' }}>
         {Status === STATUS.success && (
           <>
