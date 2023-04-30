@@ -75,7 +75,7 @@ const IngredientInput = ({
         ref={inputRef}
         id={id}
         type="text"
-        placeholder="quantity"
+        placeholder="1 kg"
         required
         pattern="^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$"
         color={color}

@@ -107,6 +107,7 @@ export const InputWrapper = styled.div`
 export const TextInput = styled.input`
   width: 100%;
   height: 100%;
+  padding-left: 140px;
   padding-bottom: 19px;
 
   font-size: ${props => props.theme.fontSizes.xs};
@@ -124,6 +125,7 @@ export const TextInput = styled.input`
   transition: border-bottom-color 250ms ease-in-out;
 
   @media screen and (min-width: ${size.tablet}) {
+    padding-left: 150px;
     padding-bottom: 18px;
     font-size: ${props => props.theme.fontSizes.s};
   }
