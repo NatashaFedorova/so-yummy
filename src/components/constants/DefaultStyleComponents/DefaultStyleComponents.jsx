@@ -80,7 +80,8 @@ export const BoxWithPicture = styled.div`
   @media ${device.desktop} {
     width: 558px;
     height: 852px;
-    background: url('${process.env.PUBLIC_URL}/images/bg/spinach-big-up-desktop.png');
+    background: url('${process.env
+      .PUBLIC_URL}/images/bg/spinach-big-up-desktop.png');
     background-repeat: no-repeat;
     background-size: auto;
     left: -214px;
@@ -108,6 +109,43 @@ export const MotivationCardThumbDefault = styled.div`
   @media ${device.desktop} {
     width: 500px;
     height: 500px;
+  }
+`;
+
+export const MotivationCardTextDefault = styled.p`
+  z-index: 11;
+  position: absolute;
+  color: ${props => props.theme.colors.achivement.text};
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  font-feature-settings: 'liga' off;
+
+  @media ${device.mobile} {
+    font-size: 20px;
+    line-height: 1.2;
+  }
+
+  @media ${device.tablet} {
+    font-size: 28px;
+    line-height: 1.07;
+  }
+`;
+
+export const MotivationCardAccentTextDefault = styled.span`
+  color: ${props => props.theme.colors.achivement.accent};
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  text-align: center;
+  font-feature-settings: 'liga' off;
+
+  @media ${device.mobile} {
+    font-size: 20px;
+    line-height: 1.2;
+  }
+
+  @media ${device.tablet} {
+    font-size: 28px;
+    line-height: 1.07;
   }
 `;
 

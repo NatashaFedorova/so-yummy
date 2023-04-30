@@ -1,38 +1,29 @@
 import { createPortal } from 'react-dom';
-import { useSelector } from 'react-redux';
-import { selectUser } from 'redux/auth/authSelectors';
-import MotivationCard from 'components/Header/MotivationCard';
-import { useEffect, useState } from 'react';
-import achievement from '../../constants/achievement';
+import { nanoid } from 'nanoid';
+import MotivationCardText from 'components/Header/MotivationCardText';
+import { useEffect } from 'react';
+
 import {
   Backdrop,
-  List,
+  GlobalList,
+  Item,
+  Box,
+  BoxForfavoriteCard,
+  BoxForOwnRecipesCard,
+  BoxForVisitsCard,
   MotivationCardThumb,
-  MotivationCardText,
+  Text,
   IconClose,
   BtnClose,
+  Decor,
 } from './AchivementModal.styled';
+import textForMotivationCard from 'components/constants/textForMotivationCard';
+
 const modalRoot = document.querySelector('#modal-root');
 
-const visibilityModal = (type, currentValue) => {
-  const value = achievement[type].find(value => value === currentValue);
-  return value ? { type, value } : undefined;
-};
-
-const AchivementModal = ({ onClose }) => {
-  const user = useSelector(selectUser);
-  const [visit, setVisit] = useState(null);
-  const [favorite, setFavorite] = useState(null);
-  const [ownRecipes, setOwnRecipes] = useState(null);
-
-  const { numberOfVisits, numberOfFavorites, numberOfOwnRecipes } = user;
-
-  useEffect(() => {
-    setVisit(visibilityModal('numberOfVisits', numberOfVisits));
-    setFavorite(visibilityModal('numberOfFavorites', numberOfFavorites));
-    setOwnRecipes(visibilityModal('numberOfOwnRecipes', numberOfOwnRecipes));
-  }, [numberOfVisits, numberOfFavorites, numberOfOwnRecipes]);
-
+const AchivementModal = ({ onClose, achivmenеts }) => {
+  const { visit, favorite, ownRecipes } = achivmenеts;
+  const { noAchievements } = textForMotivationCard;
   const onClickBackdrop = e => {
     if (e.currentTarget === e.target) {
       onClose();
@@ -51,29 +42,59 @@ const AchivementModal = ({ onClose }) => {
     };
   }, [onClose]);
 
-  console.log(visit, favorite, ownRecipes);
+  const visibilityDefaultMotivationCard =
+    visit.length === 0 && favorite.length === 0 && ownRecipes.length === 0;
 
   return createPortal(
     <Backdrop onClick={onClickBackdrop}>
-      {!visit && !favorite && !ownRecipes && (
+      {visibilityDefaultMotivationCard && (
         <MotivationCardThumb>
           <BtnClose type="button" onClick={() => onClose(false)}>
             <IconClose />
           </BtnClose>
-          <MotivationCardText>
-            You don't have any achievements yet
-          </MotivationCardText>
+          <Text>{noAchievements}</Text>
         </MotivationCardThumb>
       )}
-      <List>
-        {visit && <MotivationCard type={visit.type} value={visit.value} />}
-        {favorite && (
-          <MotivationCard type={favorite.type} value={favorite.value} />
+      <Box>
+        {!visibilityDefaultMotivationCard && (
+          <GlobalList>
+            {visit &&
+              visit.map(item => {
+                return (
+                  <Item key={nanoid()}>
+                    <BoxForVisitsCard>
+                      <MotivationCardText card={item} />
+                      <Decor />
+                    </BoxForVisitsCard>
+                  </Item>
+                );
+              })}
+            {favorite &&
+              favorite.map(item => {
+                return (
+                  <Item key={nanoid()}>
+                    <BoxForfavoriteCard>
+                      <MotivationCardText card={item} />
+                      <Decor />
+                    </BoxForfavoriteCard>
+                  </Item>
+                );
+              })}
+
+            {ownRecipes &&
+              ownRecipes.map(item => {
+                return (
+                  <Item key={nanoid()}>
+                    <BoxForOwnRecipesCard>
+                      <MotivationCardText card={item} />
+                      <Decor />
+                    </BoxForOwnRecipesCard>
+                  </Item>
+                );
+              })}
+          </GlobalList>
         )}
-        {ownRecipes && (
-          <MotivationCard type={ownRecipes.type} value={ownRecipes.value} />
-        )}
-      </List>
+      </Box>
     </Backdrop>,
     modalRoot
   );

@@ -1,12 +1,20 @@
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import Container from "components/constants/Container/Container.styled";
-import Loading from "components/Loading/Loading";
-import { FavoriteSection, FavoritePlugImg, FavoritePlugText, FavoritePlugNavLink } from "components/Favorite/Favorite.styled";
-import FavoriteList from "components/FavoriteList/FavoriteList";
+import Container from 'components/constants/Container/Container.styled';
+import Loading from 'components/Loading/Loading';
+import {
+  FavoriteSection,
+  FavoritePlugImg,
+  FavoritePlugText,
+  FavoritePlugNavLink,
+} from 'components/Favorite/Favorite.styled';
+import FavoriteList from 'components/FavoriteList/FavoriteList';
 import { getFavorite } from 'redux/favorite/favoriteOperation';
-import { selectFavoriteIsLoading, selectFavoriteItems } from 'redux/favorite/favoriteSelectors';
+import {
+  selectFavoriteIsLoading,
+  selectFavoriteItems,
+} from 'redux/favorite/favoriteSelectors';
 import { PagePagination } from 'components/Pagination/Pagination';
 import MainTitle from 'components/MainTitle/MainTitle';
 
@@ -25,8 +33,8 @@ const FavoritePage = () => {
   };
 
   useEffect(() => {
-    if (render) { 
-      setRender(0); 
+    if (render) {
+      setRender(0);
       return;
     }
     dispatch(getFavorite(currentPage));
@@ -35,32 +43,38 @@ const FavoritePage = () => {
   return (
     <>
       {isLoading && <Loading />}
-        <FavoriteSection >
-          <Container>
-            <MainTitle title={"Favorites"} />
-            {isFavoriteListEmpty ? (
-              <>
-                <FavoritePlugImg />
-                <FavoritePlugText>Favorite list is empty, but you can choose your favorite recipe on <FavoritePlugNavLink to="/categories/beef">Categories</FavoritePlugNavLink> page</FavoritePlugText>
-              </>
-            ) : (
-              <>
-                <FavoriteList />
-                <PagePagination
-                  totalPages={totalPages}
-                  cardsPerPage={cardsPerPage}
-                  currentPage={currentPage}
-                  handlePageChange={handlePageChange}
-                />
-              </>
-            )}
-          </Container>
-        </FavoriteSection>
+      <FavoriteSection>
+        <Container>
+          <MainTitle title={'Favorites'} />
+          {isFavoriteListEmpty ? (
+            <>
+              <FavoritePlugImg />
+              <FavoritePlugText>
+                Favorite list is empty, but you can choose your favorite recipe
+                on{' '}
+                <FavoritePlugNavLink to="/categories/beef">
+                  Categories
+                </FavoritePlugNavLink>{' '}
+                page
+              </FavoritePlugText>
+            </>
+          ) : (
+            <>
+              <FavoriteList />
+              <PagePagination
+                totalPages={totalPages}
+                cardsPerPage={cardsPerPage}
+                currentPage={currentPage}
+                handlePageChange={handlePageChange}
+              />
+            </>
+          )}
+        </Container>
+      </FavoriteSection>
     </>
   );
 };
 
 export default FavoritePage;
-
 
 // {/* <MainTitle title={"Favorites"} paddingBottom={400} /> */}
