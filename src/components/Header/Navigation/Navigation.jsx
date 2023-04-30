@@ -4,7 +4,7 @@ import { HeaderNavigation, StyledNavigationLink } from './Navigation.styled';
 
 const pages = [
   { to: '/categories/beef', title: 'Categories' },
-  { to: '/add', title: 'Add recіpes' },
+  { to: '/add', title: 'Add recipes' },
   { to: '/my', title: 'My recipes' },
   { to: '/favorite', title: 'Favorites' },
   { to: '/shopping-list', title: 'Shopping list' },
