@@ -86,6 +86,7 @@ const animate = keyframes`
 
 export const AnimatedLetter = styled.span`
   display: inline-block;
+  min-width: 7px;
   animation: ${animate} 1.5s ease-in-out;
   animation-fill-mode: forwards;
   opacity: 0;

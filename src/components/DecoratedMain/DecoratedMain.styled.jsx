@@ -19,9 +19,9 @@ export const DecoreLeafsTop = styled.div`
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  transform: rotateZ(88deg);
+  transform: rotateZ(149deg);
   pointer-events: none;
-  /* filter: blur(4.5px); */
+  filter: blur(4.5px);
 
   @media ${device.tablet} {
     top: -343px;
