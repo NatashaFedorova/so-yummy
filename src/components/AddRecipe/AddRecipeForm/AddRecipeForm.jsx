@@ -8,11 +8,12 @@ import RecipeDescriptionField from './RecipeDescriptionFields/RecipeDescriptionF
 import RecipeIngredientsFields from './RecipeIngredientsFields/RecipeIngredientsFields';
 import RecipePreparationFields from './RecipePreparationFields/RecipePreparationFields';
 
+import addRecipe from 'redux/recipes/operations/addRecipe';
+import { refreshUserLite } from 'redux/auth/authOperation';
 import { initialIngredients, initialValues } from '../helpers/vars';
 import { selectAddRecipeError } from 'redux/recipes/selectors/addRecipeSelectors';
 
 import { AddRecipeFormComponent } from './AddRecipeForm.styled';
-import addRecipe from 'redux/recipes/operations/addRecipe';
 
 const AddRecipeForm = () => {
   const [descriptionFields, setDescriptionFields] = useState(initialValues);
@@ -79,6 +80,7 @@ const AddRecipeForm = () => {
     formData.set('instructions', JSON.stringify(textareaContent));
 
     dispatch(addRecipe(formData));
+    dispatch(refreshUserLite());
 
     if (!error) {
       navigate('/my', { replace: true });
