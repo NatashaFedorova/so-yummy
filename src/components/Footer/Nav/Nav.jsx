@@ -1,7 +1,7 @@
 import { FooterNav, StyledNavLink } from './Nav.styled';
 
 const pages = [
-  { to: '/add', title: 'Add receptes' },
+  { to: '/add', title: 'Add recipes' },
   { to: '/my', title: 'My recipes' },
   { to: '/favorite', title: 'Favorites' },
   { to: '/shopping-list', title: 'Shopping list' },
