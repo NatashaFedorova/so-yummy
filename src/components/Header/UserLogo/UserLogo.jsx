@@ -19,11 +19,17 @@ export const UserLogo = () => {
   const [widthHTML, setWidthHTML] = useState('');
 
   const path = useLocation().pathname;
-  const add = document.querySelector('html');
 
   useEffect(() => {
-    setWidthHTML(add.offsetWidth);
-  }, [add.offsetWidth]);
+    function handleResize() {
+      setWidthHTML(window.innerWidth);
+    }
+    window.addEventListener('resize', handleResize);
+    handleResize();
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [setWidthHTML]);
 
   const togglerUserLogoModal = () => {
     if (showUserLogoModal) {
@@ -55,12 +61,10 @@ export const UserLogo = () => {
           </AvatarArea>
           <UserNameSpan
             style={
-              (path.toString() === '/main' && widthHTML > 1421
-                ? {
-                    color: `#1E1F28 `,
-                  }
-                : {},
-              path.toString().includes('/recipe') ? { color: '#1E1F28' } : {})
+              (path.toString().includes('/main') && widthHTML >= 1440) ||
+              path.toString().includes('/recipe')
+                ? { color: `#1E1F28` }
+                : {}
             }
           >{`${name}`}</UserNameSpan>
         </UserInfo>
