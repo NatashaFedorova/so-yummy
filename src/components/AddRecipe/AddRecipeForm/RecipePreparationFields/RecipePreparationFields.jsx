@@ -1,7 +1,7 @@
 import { useRef, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import SecondaryTitle from 'components/AddRecipe/SecondaryTitle/SecondaryTitle';
-import { selectAddRecipeIsLoading } from 'redux/recipes/selectors/addRecipeSelectors';
+import { selectMyRecipesIsLoading } from 'redux/myRecipes/myRecipesSelectors';
 import {
   validationColors,
   validationMessages,
@@ -25,7 +25,7 @@ const RecipePreparationFields = ({
   const [isDisabled, setIsDisabled] = useState(true);
 
   const submitBtn = useRef(null);
-  const isAdding = useSelector(selectAddRecipeIsLoading);
+  const isAdding = useSelector(selectMyRecipesIsLoading);
 
   useEffect(() => {
     if (!isValid || isAdding) {

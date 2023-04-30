@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { Notify } from 'notiflix';
 
 axios.defaults.baseURL = 'https://t2d-soyammy-backend.onrender.com/api/';
 
@@ -18,10 +19,16 @@ export const getMyRecipes = createAsyncThunk(
 
 export const addMyRecipes = createAsyncThunk(
   'myRecipes/addMyRecipes',
-  async thunkAPI => {
+  async (credentials, thunkAPI) => {
     try {
-      const res = await axios.post(`/ownrecipes/`);
-      return res.data;
+      const response = await axios.post('ownrecipes', credentials, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+
+      Notify.success('New recipe was successfully added');
+      return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
     }
