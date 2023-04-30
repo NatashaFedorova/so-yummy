@@ -8,7 +8,6 @@ const SearchBar = ({ getSearchType }) => {
   const handleSubmit = e => {
     e.preventDefault();
     const value = e.target.input.value;
-    console.log(value);
     setSearchParams(value !== '' ? { filter: value } : {});
   };
   return (

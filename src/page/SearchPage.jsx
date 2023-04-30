@@ -9,7 +9,6 @@ import { useLocation } from 'react-router-dom';
 const SearchPage = () => {
   const refDiv = useRef();
   const location = useLocation();
-  console.log('location', location);
   const [searhType, setSearchType] = useState('Title');
 
   useEffect(() => {
