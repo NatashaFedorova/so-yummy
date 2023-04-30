@@ -32,7 +32,7 @@ export const ModalUser = styled.div`
   letter-spacing: 0em;
 
   @media${device.tablet} {
-    right: 20vw;
+    right: 25vw;
     border-color: transparent;
   }
 
