@@ -67,3 +67,18 @@ export const refreshUser = createAsyncThunk('auth/refresh', async (_, thunkAPI) 
 export const toggleIsRefreshing = createAsyncThunk('auth/toggleIsRefreshing', async (bool, thunkAPI) => {
   return bool;
 });
+
+export const refreshUserLite = createAsyncThunk('auth/refreshLite', async (_, thunkAPI) => {
+  const { token } = thunkAPI.getState().auth;
+  if (!token) {return thunkAPI.rejectWithValue('No valid token');}
+
+  setAuthHeader(token);
+
+  try {
+    const res = await axios.get('/users/current');
+    return res.data;
+  } catch (e) {
+    return thunkAPI.rejectWithValue(e.message);
+  }
+}
+);

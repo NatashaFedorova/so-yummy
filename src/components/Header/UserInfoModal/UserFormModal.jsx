@@ -65,7 +65,6 @@ export const UserFormModal = ({ closeUserInfoModal }) => {
       setGoodImage('false');
       setNameError('');
       closeUserInfoModal();
-      alert('good');
     });
   }, [dispatch, avatarUrl, closeUserInfoModal]);
 
@@ -88,7 +87,7 @@ export const UserFormModal = ({ closeUserInfoModal }) => {
 
         <label>
           <ConfigNameLabel
-            style={nameError ? { borderColor: 'red', color: 'red' } : {}}
+            style={nameError ? { borderColor: 'red ', color: 'red' } : {}}
           >
             <LeftInputDiv>
               <StyledRxPerson />
@@ -96,7 +95,7 @@ export const UserFormModal = ({ closeUserInfoModal }) => {
                 name="name"
                 value={newUserName}
                 onChange={handleName}
-                style={nameError ? { color: 'red' } : {}}
+                style={nameError ? { color: 'red ' } : {}}
               />
             </LeftInputDiv>
             <StyledHiOutlinePencil />
@@ -104,13 +103,16 @@ export const UserFormModal = ({ closeUserInfoModal }) => {
         </label>
 
         <SendChangeBTN
-          disabled={!goodImage || (nameError && 'disabled')}
-          style={!goodImage || nameError ? { background: 'red' } : {}}
+          disabled={(!goodImage || nameError) && 'disabled'}
+          style={
+            !goodImage || nameError ? { background: 'red', color: 'white' } : {}
+          }
         >
-          {nameError ? `${nameError}` : ''}
-          {!goodImage
+          {(!goodImage && !nameError) || (!goodImage && nameError)
             ? 'Please select an avatar with size 3 MB'
-            : 'Save changes'}
+            : ''}
+          {nameError && goodImage ? `${nameError}` : ''}
+          {goodImage && !nameError ? `Save changes` : ''}
         </SendChangeBTN>
       </form>
     </>

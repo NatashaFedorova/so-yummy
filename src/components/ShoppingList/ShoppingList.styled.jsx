@@ -236,7 +236,7 @@ export const IngredientsList = styled.ul`
 `;
 export const IngredientImage = styled.li`
   display: flex;
-
+  width: 80%;
   @media ${device.mobile} {
     gap: 10px;
   }
@@ -292,24 +292,26 @@ export const IngredientTitle = styled.p`
 
 export const IngredientWeight = styled.li`
   @media ${device.mobile} {
-    margin-left: auto;
     color: ${props => props.theme.colors.shoppingListPage.textSecondary};
+    color: rgb(250, 250, 250);
     padding: 4px;
-    background: #8baa36;
+    background: rgb(139, 170, 54);
     height: fit-content;
     border-radius: 4px;
-    margin-right: 46px;
+    margin-right: auto;
     font-weight: 600;
     font-size: 10px;
     line-height: 15px;
-
     text-align: center;
+    width: 20%;
+    margin-right: 35px;
   }
   @media ${device.tablet} {
-    font-size: 18px;
-    line-height: 27px;
-    padding: 4px 8px;
-    margin-right: 110px;
+    width: 12%;
+    margin-right: 116px;
+  }
+  @media ${device.desktop} {
+    width: 6%;
   }
 `;
 export const IngredientDeleteButton = styled.button`

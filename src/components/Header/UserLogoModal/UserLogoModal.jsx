@@ -13,7 +13,7 @@ import { UserLogoutModal } from '../LogoutModal/LogoutModal';
 
 const modalRoot = document.querySelector('#modal-root');
 
-export const UserLogoModal = ({ showUserLogoModal, closeUserLogoModal }) => {
+export const UserLogoModal = ({ closeUserLogoModal }) => {
   const [showUserInfoModal, setShowUserInfoModal] = useState(false);
   const [showLogoutModal, setShowLogoutModal] = useState(false);
 
@@ -36,10 +36,6 @@ export const UserLogoModal = ({ showUserLogoModal, closeUserLogoModal }) => {
       document.body.removeEventListener('keydown', closeOnESCLogoModal);
     };
   }, []);
-
-  if (!showUserLogoModal) {
-    return null;
-  }
 
   return createPortal(
     <ModalOverlay onClick={onClickBackdrop}>

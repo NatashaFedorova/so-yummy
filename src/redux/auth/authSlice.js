@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { register, logIn, logOut, refreshUser, toggleIsRefreshing } from './authOperation';
+import { register, logIn, logOut, refreshUser, toggleIsRefreshing, refreshUserLite } from './authOperation';
 import { changeUserData, subscribe } from 'redux/user/userOperation';
 import Notiflix, { Notify } from 'notiflix';
 
@@ -93,6 +93,18 @@ export const authSlise = createSlice({
       .addCase(toggleIsRefreshing.fulfilled, (state, action) => {
         console.log("toggleIsRefreshing action.payload", action.payload)
         state.isRefreshing = action.payload;
+      }) 
+      .addCase(refreshUserLite.pending, state => {
+        // state.isRefreshing = true;
+      })
+      .addCase(refreshUserLite.fulfilled, (state, action) => {
+        state.user = action.payload;
+        state.isLoggedIn = true;
+        // state.isRefreshing = false;
+      })
+      .addCase(refreshUserLite.rejected, state => {
+        state.isLoggedIn = false;
+        // state.isRefreshing = false;
       })
 });
 

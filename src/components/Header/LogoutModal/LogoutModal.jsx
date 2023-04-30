@@ -10,12 +10,18 @@ import {
 } from './LogoutModal.styled';
 import { useDispatch } from 'react-redux';
 import { logOut } from 'redux/auth/authOperation';
+import { clearFavorite } from 'redux/favorite/favoriteOperation';
+import { clearMyRecipes } from 'redux/myRecipes/myRecipesOperation';
 
 const modalRoot = document.querySelector('#modal-root');
 
 export const UserLogoutModal = ({ closeLogoutModal }) => {
   const dispatch = useDispatch();
-  const onLogOutBtnClick = () => dispatch(logOut());
+  const onLogOutBtnClick = () => {
+    dispatch(clearFavorite());
+    dispatch(clearMyRecipes());
+    dispatch(logOut());
+  }
   const onClickBackdrop = e => {
     if (e.currentTarget === e.target) {
       closeLogoutModal();
