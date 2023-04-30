@@ -1,5 +1,4 @@
 import { useDispatch } from 'react-redux';
-//import { useSelector } from 'react-redux';
 import { useState } from 'react';
 
 import RecipeTableHead from '../RecipeTableHead/RecipeTableHead';
@@ -16,7 +15,6 @@ import {
 } from './RecipeInngredientsList.styled';
 import SubLoading from './SubLoader';
 
-//import { IsIngredientToShopList } from '../../redux/recipes/selectors/selectRecipeById';
 import { refreshUserLite } from '../../redux/auth/authOperation';
 import {
   AddIngredientToShoppingList,
@@ -25,14 +23,12 @@ import {
 
 const RecipeInngredientsList = ({ info, recId, shopList }) => {
   const dispatch = useDispatch();
-  //const isInTrueShopList = useSelector(IsIngredientToShopList);
 
   const [isSubLoading, setIsSubLoading] = useState(false);
 
   const addToShopList = async info => {
     setIsSubLoading(true);
     await dispatch(AddIngredientToShoppingList(info));
-    // await dispatch(refreshUser());
     await dispatch(refreshUserLite());
     setIsSubLoading(false);
   };
@@ -40,7 +36,6 @@ const RecipeInngredientsList = ({ info, recId, shopList }) => {
   const removeFromShopList = async ingredientId => {
     setIsSubLoading(true);
     await dispatch(RemoveIngredientFromShoppingList(ingredientId));
-    //await dispatch(refreshUser());
     await dispatch(refreshUserLite());
     setIsSubLoading(false);
   };

@@ -6,8 +6,6 @@ import {
   HeroP,
 } from './RecipePageHero.styled';
 
-import SubLoadingHero from './SubLoaderHero';
-
 const RecipePageHero = ({
   title,
   time,
@@ -22,18 +20,12 @@ const RecipePageHero = ({
       <HeroHead>
         <HeroTitle>{title}</HeroTitle>
         <HeroInfo>{description}</HeroInfo>
-        {isloading ? (
-          <SubLoadingHero />
+        {btnState ? (
+          <HeroBtn onClick={onBtnClickRemove}>
+            Remove from favorite recipes
+          </HeroBtn>
         ) : (
-          <>
-            {btnState ? (
-              <HeroBtn onClick={onBtnClickRemove}>
-                Remove from favorite recipes
-              </HeroBtn>
-            ) : (
-              <HeroBtn onClick={onBtnClickAdd}>Add to favorite recipes</HeroBtn>
-            )}
-          </>
+          <HeroBtn onClick={onBtnClickAdd}>Add to favorite recipes</HeroBtn>
         )}
         <HeroP>{Number.parseInt(time)} min</HeroP>
       </HeroHead>
