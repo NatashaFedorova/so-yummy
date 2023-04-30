@@ -60,6 +60,11 @@ const PopularRecipe = () => {
           <ErrorHeading>{`Sorry, we have no popular receipts for now :(`}</ErrorHeading>
         </ErrorWrapper>
       )}
+      {receipts.length === 0 && (
+        <ErrorWrapper>
+          <ErrorHeading>{`Sorry, we have no popular receipts for now :(`}</ErrorHeading>
+        </ErrorWrapper>
+      )}
     </PopularRecipeWrapper>
   );
 };
