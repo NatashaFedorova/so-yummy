@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
 
 import SecondaryTitle from 'components/AddRecipe/SecondaryTitle/SecondaryTitle';
@@ -22,24 +21,10 @@ const RecipeIngredientsFields = ({
   deleteHandler,
   changeHandler,
   changeIngredientHandler,
-  ingredientsValidationStatusSetter,
 }) => {
   const handleChange = (selectedOption, actionMeta) => {
     changeIngredientHandler(actionMeta.name, selectedOption._id);
   };
-
-  useEffect(() => {
-    const isIngredientsFieldsEmpty = !ingredients.every(
-      item => item._id.length !== 0
-    );
-
-    const isMeasureFieldsEmpty = !ingredients.every(
-      item => item.quantity.length !== 0
-    );
-
-    const isTrue = !isIngredientsFieldsEmpty && !isMeasureFieldsEmpty;
-    ingredientsValidationStatusSetter(isTrue);
-  }, [ingredients, ingredientsValidationStatusSetter]);
 
   return (
     <RecipeIngredientsWrapper>

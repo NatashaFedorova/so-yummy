@@ -34,6 +34,21 @@ const AddRecipeForm = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    setTimeout(() => {
+      const isIngredientsFieldsEmpty = !ingredientsState.every(
+        item => item._id.length !== 0
+      );
+
+      const isMeasureFieldsEmpty = !ingredientsState.every(
+        item => item.quantity.length !== 0
+      );
+
+      const isTrue = !isIngredientsFieldsEmpty && !isMeasureFieldsEmpty;
+      setIngredientsStateReady(isTrue);
+    }, 1);
+  }, [ingredientsState, setIngredientsStateReady]);
+
+  useEffect(() => {
     if (descriptionFieldsReady && ingredientsStateReady && textareaReady) {
       setIsValid(true);
     } else {
@@ -160,7 +175,6 @@ const AddRecipeForm = () => {
         deleteHandler={deleteHandler}
         changeHandler={changeMeasureHandler}
         changeIngredientHandler={changeIngredientHandler}
-        ingredientsValidationStatusSetter={setIngredientsStateReady}
       />
       <RecipePreparationFields
         isValid={isValid}
