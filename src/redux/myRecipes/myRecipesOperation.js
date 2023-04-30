@@ -43,10 +43,6 @@ export const deleteMyRecipes = createAsyncThunk(
 export const clearMyRecipes = createAsyncThunk(
   'favorite/clearMyRecipes',
   async (_, thunkAPI) => {
-    try {
-      return true
-    } catch (e) {
-      return thunkAPI.rejectWithValue(e.message);
-    }
+    return (true);
   }
 );
