@@ -7,7 +7,7 @@ import getCategories from 'redux/recipes/operations/getAddReceiptCategories';
 import { selectIsLoading } from 'redux/recipes/selectors/addRecipeSelectors';
 
 import Container from 'components/constants/Container';
-import MainTitle from './MainTitle/MainTitle';
+import MainTitle from 'components/MainTitle/MainTitle';
 import FollowUs from './FollowUs/FollowUs';
 import PopularRecipe from './PopularRecipe/PopularRecipe';
 import AddRecipeForm from './AddRecipeForm/AddRecipeForm';
@@ -18,11 +18,7 @@ import {
   InternalWrapper,
   LeftWrapper,
   RightWrapper,
-  Square,
-  SquareSecond,
-  SquareСircle,
 } from './AddRecipe.styled';
-import { AnimatedText } from './MainTitle/MainTitle.styled';
 
 const AddRecipe = () => {
   const dispatch = useDispatch();
@@ -37,13 +33,8 @@ const AddRecipe = () => {
   return (
     <AddRecipeSection>
       <Container>
+        <MainTitle title={'Add recipe'} />
         <InternalWrapper>
-          <Square />
-          <SquareСircle />
-          <SquareSecond />
-          <MainTitle>
-            <AnimatedText>Add recipe</AnimatedText>
-          </MainTitle>
           {!isLoading && (
             <LeftWrapper>
               <AddRecipeForm />
