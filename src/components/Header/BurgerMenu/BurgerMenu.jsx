@@ -36,11 +36,10 @@ export const BurgerMenu = () => {
           }
         />
       </BurgerMenuDiv>
-      {showBurgerMenu && (
-        <BurgerMenuModal
-          closeBurgerMenuModal={() => setShowBurgerMenu(false)}
-        />
-      )}
+      <BurgerMenuModal
+        closeBurgerMenuModal={() => setShowBurgerMenu(false)}
+        showBurgerMenu={showBurgerMenu}
+      />
     </>
   );
 };
