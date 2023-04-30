@@ -1,13 +1,28 @@
 import styled from 'styled-components';
+import { device } from 'components/constants/deviceType/deviceType';
 
 export const Box = styled.div`
-  height: 50px;
   width: 50px;
-  top: -3px;
-  right: 2px;
-  background: rgba(139, 170, 54, 0);
   display: flex;
   z-index: 5000;
   position: absolute;
   justify-content: center;
+  @media ${device.mobile} {
+    top: -11px;
+    right: -6px;
+    height: 45px;
+    background: rgba(42, 44, 54);
+  }
+  @media ${device.tablet} {
+    top: -3px;
+    right: 2px;
+    height: 50px;
+    background: rgba(139, 170, 54, 0);
+  }
+  @media ${device.desktop} {
+    top: -3px;
+    right: 2px;
+    height: 50px;
+    background: rgba(139, 170, 54, 0);
+  }
 `;
