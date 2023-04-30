@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { addFavorite, deleteFavorite, getFavorite } from './favoriteOperation';
+import { addFavorite, clearFavorite, deleteFavorite, getFavorite } from './favoriteOperation';
 import { STATUS } from 'components/constants/loadingStatus/LoadingStatus';
 
 const handlePending = state => {
@@ -59,6 +59,9 @@ export const favoriteSlise = createSlice({
       })
       .addCase(deleteFavorite.rejected, (state, action) => {
         handleRejected(state, action);
+      })
+      .addCase(clearFavorite.fulfilled, (state, action) => {
+        state.items = [];
       })
 });
 
