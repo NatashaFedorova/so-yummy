@@ -14,10 +14,24 @@ export const RecipeCard = styled.div`
   @media (min-width: 1440px) {
     min-width: 300px;
   }
+  .remark {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 60px;
+    height: 30px;
+    background-color: rgb(139, 170, 54);
+    color: white;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
   img {
     width: 343px;
     height: 323px;
+    object-fit: cover;
 
     @media (min-width: 768px) {
       width: 336px;

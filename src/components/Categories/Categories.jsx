@@ -55,7 +55,6 @@ const Categories = () => {
   }, [name]);
 
   useEffect(() => {
-    console.log(catFromMain);
     if (catFromMain && catFromMain?.length > 0) {
       return;
     } else dispatch(getCategories());
