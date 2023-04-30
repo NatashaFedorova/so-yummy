@@ -19,8 +19,8 @@ import {
   IngredientDeleteIcon,
 } from './ShoppingList.styled';
 import defaultFood from './default-food.png';
-import { Container } from '@mui/system';
-import { refreshUser } from '../../redux/auth/authOperation';
+import Container from 'components/constants/Container/Container.styled';
+import { refreshUserLite } from '../../redux/auth/authOperation';
 import useAuth from 'hooks/useAuth';
 import { useDispatch } from 'react-redux';
 import { RemoveIngredientFromShoppingList } from 'redux/recipes/operations/getRecipeById';
@@ -32,7 +32,7 @@ const ShoppingList = () => {
 
   const toDeleteIngredient = async id => {
     await dispatch(RemoveIngredientFromShoppingList(id));
-    await dispatch(refreshUser());
+    await dispatch(refreshUserLite());
   };
   // render
   return (
