@@ -1,11 +1,11 @@
-
 import styled from 'styled-components';
 import DefaultBtn from 'components/constants/DefaultBtn/';
 import { device } from 'components/constants/deviceType/deviceType';
-import clockIcon from './clock.svg'
+import clockIcon from './clock.svg';
 
 export const HeroHead = styled.div`
-  background-image: url('${process.env.PUBLIC_URL}/images/recipeById/recipebg-1x.png');
+  background-image: url('${process.env
+    .PUBLIC_URL}/images/recipeById/recipebg-1x.png');
   background-size: cover;
   left: 0px;
   top: 0px;
@@ -19,8 +19,8 @@ export const HeroHead = styled.div`
   background-size: cover;
   background-position: center center;
   margin-top: -78px;
-
-  @media ${device.mobile} {
+  position: relative;
+  pos @media ${device.mobile} {
     padding: 164px 36px 32px;
   }
   @media ${device.tablet} {
@@ -97,4 +97,3 @@ export const HeroP = styled.p`
     padding-right: 7px;
   }
 `;
-

@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 //import { useSelector } from 'react-redux';
-//import { useState } from 'react';
+import { useState } from 'react';
 
 import RecipeTableHead from '../RecipeTableHead/RecipeTableHead';
 import {
@@ -14,6 +14,7 @@ import {
   IngListItemLabel,
   IngListItemCheckWrap,
 } from './RecipeInngredientsList.styled';
+import SubLoading from './SubLoader';
 
 //import { IsIngredientToShopList } from '../../redux/recipes/selectors/selectRecipeById';
 import { refreshUserLite } from '../../redux/auth/authOperation';
@@ -26,16 +27,22 @@ const RecipeInngredientsList = ({ info, recId, shopList }) => {
   const dispatch = useDispatch();
   //const isInTrueShopList = useSelector(IsIngredientToShopList);
 
-  const onHandleChange = async info => {
+  const [isSubLoading, setIsSubLoading] = useState(false);
+
+  const addToShopList = async info => {
+    setIsSubLoading(true);
     await dispatch(AddIngredientToShoppingList(info));
     // await dispatch(refreshUser());
     await dispatch(refreshUserLite());
+    setIsSubLoading(false);
   };
 
   const removeFromShopList = async ingredientId => {
+    setIsSubLoading(true);
     await dispatch(RemoveIngredientFromShoppingList(ingredientId));
     //await dispatch(refreshUser());
     await dispatch(refreshUserLite());
+    setIsSubLoading(false);
   };
 
   const isInShopingList = shopList
@@ -45,8 +52,6 @@ const RecipeInngredientsList = ({ info, recId, shopList }) => {
   const ShoppingListToRemove = shopList.filter(
     value => value.recipeID === recId
   );
-
-  //console.log('show shop list ', isInTrueShopList);
 
   return (
     <>
@@ -66,30 +71,34 @@ const RecipeInngredientsList = ({ info, recId, shopList }) => {
               <IngListItemNumber>{item.measure}</IngListItemNumber>
             </IngListItemNumberWrap>
             <IngListItemCheckWrap>
-              <IngListItemInput
-                type="checkbox"
-                id="vehicle4"
-                name="vehicle4"
-                checked={isInShopingList.some(value => value === item._id)}
-                onChange={
-                  isInShopingList.some(value => value === item._id)
-                    ? () =>
-                        removeFromShopList({
-                          _id: ShoppingListToRemove.find(
-                            ingredient => ingredient.ingredientId === item._id
-                          )._id,
-                        })
-                    : () =>
-                        onHandleChange({
-                          ingredientId: item._id,
-                          title: item.ttl,
-                          _id: item._id,
-                          image: item.thb,
-                          weight: item.measure,
-                          recipeID: recId,
-                        })
-                }
-              />
+              {isSubLoading ? (
+                <SubLoading />
+              ) : (
+                <IngListItemInput
+                  type="checkbox"
+                  id="vehicle4"
+                  name="vehicle4"
+                  checked={isInShopingList.some(value => value === item._id)}
+                  onChange={
+                    isInShopingList.some(value => value === item._id)
+                      ? () =>
+                          removeFromShopList({
+                            _id: ShoppingListToRemove.find(
+                              ingredient => ingredient.ingredientId === item._id
+                            )._id,
+                          })
+                      : () =>
+                          addToShopList({
+                            ingredientId: item._id,
+                            title: item.ttl,
+                            _id: item._id,
+                            image: item.thb,
+                            weight: item.measure,
+                            recipeID: recId,
+                          })
+                  }
+                />
+              )}
               <IngListItemLabel htmlFor="vehicle4"> </IngListItemLabel>
             </IngListItemCheckWrap>
           </IngListItem>
