@@ -1,22 +1,19 @@
 import styled from 'styled-components';
 import { size } from 'components/constants/deviceType/deviceType';
-import {
-  DefaultSquare,
-  DefaultSquareСircle,
-} from 'components/constants/DefaultStyleComponents/DefaultStyleComponents';
 
 export const AddRecipeSection = styled.section`
-  padding: 50px 0 100px 0;
+  padding: 0 0 100px 0;
+  min-height: 100%;
 
   font-family: 'Poppins', sans-serif;
   background-color: inherit;
 
   @media screen and (min-width: ${size.tablet}) {
-    padding: 72px 0 200px 0;
+    padding: 0 0 200px 0;
   }
 
   @media screen and (min-width: ${size.desktop}) {
-    padding: 100px 0 200px 0;
+    padding: 0 0 200px 0;
   }
 `;
 
@@ -61,54 +58,6 @@ export const RightWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 100px;
-`;
-
-export const Square = styled(DefaultSquare)`
-  position: absolute;
-  left: 104px;
-  top: -26px;
-
-  @media (min-width: 768px) {
-    left: 187px;
-    top: -32px;
-  }
-
-  @media (min-width: 1440px) {
-    left: 228px;
-    top: -29px;
-  }
-`;
-
-export const SquareСircle = styled(DefaultSquareСircle)`
-  position: absolute;
-  left: 231px;
-  top: 28px;
-
-  @media (min-width: 768px) {
-    left: 405px;
-    top: 19px;
-  }
-
-  @media (min-width: 1440px) {
-    left: 707px;
-    top: 36px;
-  }
-`;
-
-export const SquareSecond = styled(DefaultSquare)`
-  position: absolute;
-  left: 333px;
-  top: 6px;
-
-  @media (min-width: 768px) {
-    left: 694px;
-    top: -19px;
-  }
-
-  @media (min-width: 1440px) {
-    left: 1150px;
-    top: -16px;
-  }
 `;
 
 export const ValidationMessage = styled.span`
