@@ -80,11 +80,12 @@ const AddRecipeForm = () => {
     formData.set('instructions', JSON.stringify(textareaContent));
 
     dispatch(addRecipe(formData));
-    dispatch(refreshUserLite());
 
-    if (!error) {
-      navigate('/my', { replace: true });
-    }
+    Promise.resolve(dispatch(refreshUserLite())).then(() => {
+      if (!error) {
+        navigate('/my', { replace: true });
+      }
+    });
   };
 
   useEffect(() => {
