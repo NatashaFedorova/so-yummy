@@ -286,7 +286,9 @@ const darkTheme = Object.freeze({
       borderInputHover: 'rgba(250, 250, 250, 0.5)',
       bgBtnSearch: '#8baa36',
       textBtnSearch: '#fafafa',
-      bgOptionsBtn: '#d9d9d9',
+      bgOptionsBtn: '#1E1F28',
+      bgDropdown: '#8BAA36',
+      optionBgColor: 'rgba(250, 250, 250, 0.5)',
     },
 
     // ShoppingListPage
