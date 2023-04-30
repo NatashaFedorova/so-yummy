@@ -43,10 +43,6 @@ export const deleteFavorite = createAsyncThunk(
 export const clearFavorite = createAsyncThunk(
   'favorite/clearFavorite',
   async (_, thunkAPI) => {
-    try {
-      return true
-    } catch (e) {
-      return thunkAPI.rejectWithValue(e.message);
-    }
+    return (true);
   }
 );
