@@ -39,6 +39,7 @@ export const colorStyles = {
       lineHeight: 1.5,
     };
   },
+  noOptionsMessage: base => ({ ...base, color: '#000', textAlign: 'center' }),
 };
 
 const RecipeIngredientsFields = ({

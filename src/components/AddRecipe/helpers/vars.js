@@ -20,3 +20,22 @@ export const initialValues = {
   time: '',
   category: '',
 };
+
+export const validationMessages = Object.freeze({
+  required: { message: 'This field is required' },
+  fromLimit: {
+    message: 'This field must contain at least 3 characters',
+  },
+  toLimit: {
+    message: 'This field can contain no more than 100 characters',
+  },
+  wrongExtention: {
+    message: 'This field can contain only letters and numbers',
+  },
+});
+
+export const validationColors = Object.freeze({
+  error: '#E74A3B',
+  warning: '#F6C23E',
+  success: '#3CBC81',
+});

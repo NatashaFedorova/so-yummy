@@ -110,3 +110,22 @@ export const SquareSecond = styled(DefaultSquare)`
     top: -16px;
   }
 `;
+
+export const ValidationMessage = styled.span`
+  position: absolute;
+  left: 0;
+  bottom: 3px;
+  font-size: ${props => props.theme.fontSizes.xs};
+  font-weight: ${props => props.theme.fontWeight.regular};
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  color: ${props =>
+    props.color ? props.color : props.theme.colors.addRecipePage.textForm};
+  opacity: ${props => (props.color ? 1 : 0)};
+
+  transition: opacity 250ms ease-in-out;
+
+  @media screen and (min-width: ${size.tablet}) {
+    font-size: ${props => props.theme.fontSizes.s};
+  }
+`;
