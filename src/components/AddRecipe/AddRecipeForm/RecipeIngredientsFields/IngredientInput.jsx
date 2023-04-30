@@ -7,7 +7,14 @@ import {
   SmallInputWrapper,
 } from './RecipeIngredientsFields.styled';
 
-const IngredientInput = ({ ingredients, id, onChange, value }) => {
+const IngredientInput = ({
+  ingredients,
+  id,
+  onChange,
+  onBlur,
+  value,
+  color,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const inputRef = useRef(null);
 
@@ -56,6 +63,7 @@ const IngredientInput = ({ ingredients, id, onChange, value }) => {
   return (
     <SmallInputWrapper>
       <SmallInput
+        onBlur={onBlur}
         onChange={changeHandler}
         value={value}
         ref={inputRef}
@@ -64,6 +72,7 @@ const IngredientInput = ({ ingredients, id, onChange, value }) => {
         placeholder="quantity"
         required
         pattern="^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$"
+        color={color}
       />
       <DropdownIcon onClick={clickHandler} />
       {isOpen && (

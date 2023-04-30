@@ -24,8 +24,10 @@ const AddRecipeForm = () => {
   const [textareaContent, setTextareaContent] = useState([]);
   const [textareaReady, setTextareaReady] = useState(false);
 
+  const [isValid, setIsValid] = useState(false);
+
   const photo = useRef(null);
-  const isFormFieldsValid = useRef(null);
+
   const error = useSelector(selectAddRecipeError);
 
   const navigate = useNavigate();
@@ -33,7 +35,9 @@ const AddRecipeForm = () => {
 
   useEffect(() => {
     if (descriptionFieldsReady && ingredientsStateReady && textareaReady) {
-      isFormFieldsValid.current = true;
+      setIsValid(true);
+    } else {
+      setIsValid(false);
     }
   }, [descriptionFieldsReady, ingredientsStateReady, textareaReady]);
 
@@ -147,6 +151,7 @@ const AddRecipeForm = () => {
         initialDataState={descriptionFields}
         changeHandler={initialDataChangeHandler}
         photo={photo}
+        descriptionValidationStatusSetter={setDescriptionFieldsReady}
       />
       <RecipeIngredientsFields
         ingredients={ingredientsState}
@@ -155,11 +160,13 @@ const AddRecipeForm = () => {
         deleteHandler={deleteHandler}
         changeHandler={changeMeasureHandler}
         changeIngredientHandler={changeIngredientHandler}
+        ingredientsValidationStatusSetter={setIngredientsStateReady}
       />
       <RecipePreparationFields
-        isValid={isFormFieldsValid}
+        isValid={isValid}
         value={textareaContent}
         onChange={textareaChangeHandler}
+        preparationFieldsValidationStatusSetter={setTextareaReady}
       />
     </AddRecipeFormComponent>
   );

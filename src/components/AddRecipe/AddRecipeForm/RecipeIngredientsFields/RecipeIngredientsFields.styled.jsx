@@ -83,6 +83,7 @@ export const SelectWrapper = styled.div`
   display: flex;
   gap: 14px;
   width: 292px;
+  position: relative;
 
   @media screen and (min-width: ${size.tablet}) {
     gap: 32px;
@@ -124,7 +125,10 @@ export const NewSelect = styled(Select)`
 
     background-color: ${props =>
       props.theme.colors.addRecipePage.bgInputTextArea};
-    border-color: ${props => props.theme.colors.addRecipePage.textareaBorder};
+    border-color: ${props =>
+      props.color
+        ? props.color
+        : props.theme.colors.addRecipePage.textareaBorder};
 
     @media screen and (min-width: ${size.tablet}) {
       padding-left: 18px;
@@ -249,10 +253,16 @@ export const SmallInput = styled.input`
   border-width: 1px;
   border-style: solid;
   border-radius: 6px;
-  border-color: ${props => props.theme.colors.addRecipePage.textareaBorder};
+  border-color: ${props =>
+    props.color
+      ? props.color
+      : props.theme.colors.addRecipePage.textareaBorder};
 
   &:focus {
-    border-color: ${props => props.theme.colors.addRecipePage.textareaBorder};
+    border-color: ${props =>
+      props.color
+        ? props.color
+        : props.theme.colors.addRecipePage.textareaBorder};
   }
 
   &::placeholder {
@@ -345,5 +355,47 @@ export const DropdownIcon = styled(IoIosArrowDown)`
   @media screen and (min-width: ${size.tablet}) {
     width: 20px;
     height: 20px;
+  }
+`;
+
+export const SelectValidationMessage = styled.span`
+  position: absolute;
+  left: 0;
+  bottom: -17px;
+  font-size: ${props => props.theme.fontSizes.xs};
+  font-weight: ${props => props.theme.fontWeight.regular};
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  color: ${props =>
+    props.color ? props.color : props.theme.colors.addRecipePage.textForm};
+  opacity: ${props => (props.color ? 1 : 0)};
+
+  transition: opacity 250ms ease-in-out;
+
+  @media screen and (min-width: ${size.tablet}) {
+    font-size: ${props => props.theme.fontSizes.s};
+    bottom: -20px;
+  }
+`;
+
+export const InputValidationMessage = styled.span`
+  position: absolute;
+  width: 500px;
+  left: 210px;
+  bottom: -17px;
+  font-size: ${props => props.theme.fontSizes.xs};
+  font-weight: ${props => props.theme.fontWeight.regular};
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  color: ${props =>
+    props.color ? props.color : props.theme.colors.addRecipePage.textForm};
+  opacity: ${props => (props.color ? 1 : 0)};
+
+  transition: opacity 250ms ease-in-out;
+
+  @media screen and (min-width: ${size.tablet}) {
+    font-size: ${props => props.theme.fontSizes.s};
+    left: 430px;
+    bottom: -20px;
   }
 `;

@@ -74,6 +74,7 @@ const RecipeDescriptionField = ({
   photo,
   changeHandler: dataChangeHandler,
   initialDataState,
+  descriptionValidationStatusSetter,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [photoUrl, setPhotoUrl] = useState(
@@ -155,22 +156,30 @@ const RecipeDescriptionField = ({
     }
   }, [timeDirty, timeErrorMessage, time]);
 
-  // useEffect(() => {
-  //   const isFormDataEmpty =
-  //     !Boolean(name) && !Boolean(email) && !Boolean(password);
-  //   const isFormDataValid =
-  //     !Boolean(nameError) && !Boolean(emailError) && !Boolean(passwordError);
-  //   const isTrue = !isFormDataEmpty && isFormDataValid && !passwordSecure;
-  //   setIsValid(isTrue);
-  // }, [
-  //   name,
-  //   email,
-  //   password,
-  //   nameError,
-  //   emailError,
-  //   passwordError,
-  //   passwordSecure,
-  // ]);
+  useEffect(() => {
+    const isFormDataEmpty =
+      !Boolean(title) &&
+      !Boolean(description) &&
+      !Boolean(category) &&
+      !Boolean(time);
+    const isFormDataValid =
+      !Boolean(titleErrorMessage) &&
+      !Boolean(descriptionErrorMessage) &&
+      !Boolean(categoryErrorMessage) &&
+      !Boolean(timeErrorMessage);
+    const isTrue = !isFormDataEmpty && isFormDataValid;
+    descriptionValidationStatusSetter(isTrue);
+  }, [
+    title,
+    description,
+    category,
+    time,
+    titleErrorMessage,
+    descriptionErrorMessage,
+    categoryErrorMessage,
+    timeErrorMessage,
+    descriptionValidationStatusSetter,
+  ]);
 
   const clickHandler = () => {
     if (Number(document.documentElement.clientWidth) < cutWidth(size.desktop)) {

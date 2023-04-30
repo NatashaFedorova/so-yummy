@@ -8,6 +8,8 @@ export const RecipePreparationFieldsWrapper = styled.div`
   justify-content: center;
   gap: 24px;
 
+  position: relative;
+
   @media screen and (min-width: ${size.tablet}) {
     gap: 32px;
   }
@@ -27,7 +29,10 @@ export const Textarea = styled.textarea`
 
   background: ${props => props.theme.colors.addRecipePage.bgInputTextArea};
   border-radius: 6px;
-  border-color: ${props => props.theme.colors.addRecipePage.textareaBorder};
+  border-color: ${props =>
+    props.color
+      ? props.color
+      : props.theme.colors.addRecipePage.textareaBorder};
 
   &::placeholder {
     font-size: ${props => props.theme.fontSizes.s};
@@ -47,12 +52,13 @@ export const Textarea = styled.textarea`
   }
 `;
 
-export const SubmitButtom = styled.button`
-  cursor: pointer;
+export const SubmitButton = styled.button`
+  cursor: ${props => (props.isDisabled ? 'auto' : 'pointer')};
   display: block;
   padding: 12px 48px;
   color: ${props => props.theme.colors.addRecipePage.iconDefaultImage};
-  background-color: ${props => props.theme.colors.addRecipePage.bgBtnAdd};
+  background-color: ${props =>
+    props.isDisabled ? '#e5e5e5' : props.theme.colors.addRecipePage.bgBtnAdd};
   border-radius: 24px 44px;
   border-color: ${props => props.theme.colors.addRecipePage.textareaBorder};
 
@@ -62,10 +68,32 @@ export const SubmitButtom = styled.button`
 
   &:hover {
     background-color: ${props =>
-      props.theme.colors.addRecipePage.bgBtnAddHover};
+      props.isDisabled
+        ? '#e5e5e5'
+        : props.theme.colors.addRecipePage.bgBtnAddHover};
   }
 
   @media screen and (min-width: ${size.tablet}) {
     padding: 14px 64px;
+  }
+`;
+
+export const ValidationMessage = styled.span`
+  position: absolute;
+  left: 0;
+  top: 205px;
+  font-size: ${props => props.theme.fontSizes.xs};
+  font-weight: ${props => props.theme.fontWeight.regular};
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  color: ${props =>
+    props.color ? props.color : props.theme.colors.addRecipePage.textForm};
+  opacity: ${props => (props.color ? 1 : 0)};
+
+  transition: opacity 250ms ease-in-out;
+
+  @media screen and (min-width: ${size.tablet}) {
+    font-size: ${props => props.theme.fontSizes.s};
+    top: 285px;
   }
 `;

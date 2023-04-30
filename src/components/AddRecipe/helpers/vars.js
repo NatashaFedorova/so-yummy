@@ -27,7 +27,7 @@ export const validationMessages = Object.freeze({
     message: 'This field must contain at least 3 characters',
   },
   toLimit: {
-    message: 'This field can contain no more than 100 characters',
+    message: 'This field can not contain so much characters',
   },
   wrongExtention: {
     message: 'This field can contain only letters and numbers',
