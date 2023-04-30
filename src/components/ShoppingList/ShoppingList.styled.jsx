@@ -243,9 +243,6 @@ export const IngredientImage = styled.li`
   @media ${device.tablet} {
     gap: 16px;
   }
-  @media ${device.desktop} {
-    width: 85%;
-  }
 `;
 export const IngredientImageBackground = styled.div`
   background: #ebf3d4;
@@ -324,10 +321,11 @@ export const IngredientDeleteButton = styled.button`
 
   padding: 0px;
   cursor: pointer;
+
   @media ${device.mobile} {
     width: 14px;
     height: 14px;
-    margin-right: 23px;
+    margin-right: 13px;
   }
   @media ${device.tablet} {
     width: 20px;
