@@ -6,7 +6,6 @@ import {
   HeroP,
 } from './RecipePageHero.styled';
 
-
 const RecipePageHero = ({
   title,
   time,
@@ -15,10 +14,6 @@ const RecipePageHero = ({
   onBtnClickRemove,
   btnState,
 }) => {
-
-
-
-
   return (
     <>
       <HeroHead>
@@ -31,7 +26,7 @@ const RecipePageHero = ({
         ) : (
           <HeroBtn onClick={onBtnClickAdd}>Add to favorite recipes</HeroBtn>
         )}
-        <HeroP>{time} min</HeroP>
+        <HeroP>{Number.parseInt(time)} min</HeroP>
       </HeroHead>
     </>
   );
