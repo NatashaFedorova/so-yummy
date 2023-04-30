@@ -10,7 +10,7 @@ const SearchedRecepiesList = ({ searhType, refDiv }) => {
   const [page, setPage] = useState(1);
   const [searchParams] = useSearchParams();
   const params = searchParams.get('filter') ?? '';
-  const [limit, setLimit] = useState(6);
+  const [limit, setLimit] = useState(12);
 
   useEffect(() => {
     if (refDiv.current) {
@@ -19,9 +19,6 @@ const SearchedRecepiesList = ({ searhType, refDiv }) => {
         setLimit(12);
       }
       if (divWidth === '704px') {
-        setLimit(8);
-      }
-      if (divWidth === '343px') {
         setLimit(6);
       }
     }

@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { STATUS } from 'components/constants/loadingStatus/LoadingStatus';
-import { addMyRecipes, deleteMyRecipes, getMyRecipes } from './myRecipesOperation';
+import { addMyRecipes, clearMyRecipes, deleteMyRecipes, getMyRecipes } from './myRecipesOperation';
 
 const handlePending = state => {
   state.isLoading = true;
@@ -56,7 +56,10 @@ export const myRecipesSlice = createSlice({
       })
       .addCase(deleteMyRecipes.rejected, (state, action) => {
         handleRejected(state, action);
-      }),
+      })
+      .addCase(clearMyRecipes.fulfilled, (state, action) => {
+        state.items = [];
+      })
 });
 
 export const myRecipesReducer = myRecipesSlice.reducer;

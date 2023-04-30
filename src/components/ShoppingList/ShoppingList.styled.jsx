@@ -312,6 +312,7 @@ export const IngredientWeight = styled.li`
   }
   @media ${device.desktop} {
     width: 6%;
+    margin-right: 110px;
   }
 `;
 export const IngredientDeleteButton = styled.button`
@@ -320,10 +321,11 @@ export const IngredientDeleteButton = styled.button`
 
   padding: 0px;
   cursor: pointer;
+
   @media ${device.mobile} {
     width: 14px;
     height: 14px;
-    margin-right: 23px;
+    margin-right: 13px;
   }
   @media ${device.tablet} {
     width: 20px;

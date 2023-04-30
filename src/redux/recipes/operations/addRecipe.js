@@ -13,7 +13,7 @@ const addRecipe = createAsyncThunk(
       });
 
       Notify.success('New recipe was successfully added');
-      return response;
+      return response.data;
     } catch ({ message }) {
       return thunkAPI.rejectWithValue(message);
     }

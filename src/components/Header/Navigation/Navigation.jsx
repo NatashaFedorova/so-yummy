@@ -26,7 +26,8 @@ export const Navigation = () => {
         </StyledNavigationLink>
       ))}
       <StyledNavigationLink
-        to={`/search`}
+        to={'/search'}
+        state={{ type: 'Title' }}
         aria-label="link to search page"
         style={path.toString().includes('/recipe') ? { color: '#1E1F28' } : {}}
         searchtype="Title"

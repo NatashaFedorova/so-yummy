@@ -62,6 +62,7 @@ export const Modal = styled.div`
 `;
 
 export const ConfigAvatarUser = styled.img`
+  width: auto;
   height: 100%;
 `;
 

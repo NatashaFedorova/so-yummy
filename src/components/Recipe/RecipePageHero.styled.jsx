@@ -1,11 +1,9 @@
-
 import styled from 'styled-components';
 import DefaultBtn from 'components/constants/DefaultBtn/';
 import { device } from 'components/constants/deviceType/deviceType';
-import clockIcon from './clock.svg'
+import clockIcon from './clock.svg';
 
 export const HeroHead = styled.div`
-  background-image: url('${process.env.PUBLIC_URL}/images/recipeById/recipebg-1x.png');
   background-size: cover;
   left: 0px;
   top: 0px;
@@ -19,15 +17,57 @@ export const HeroHead = styled.div`
   background-size: cover;
   background-position: center center;
   margin-top: -78px;
-
+  position: relative;
   @media ${device.mobile} {
     padding: 164px 36px 32px;
+
+    background-image: url('${process.env
+      .PUBLIC_URL}/images/recipeById/recipebg-mobile-1x.webp');
+    background-image: image-set(
+      url('${process.env.PUBLIC_URL}/images/recipeById/recipebg-mobile-1x.webp')
+        type('image/webp'),
+      url('${process.env.PUBLIC_URL}/images/recipeById/recipebg-mobile-1x.png')
+        type('image/png')
+    );
   }
   @media ${device.tablet} {
     padding: 164px 130px 32px;
+
+    background-image: url('${process.env
+      .PUBLIC_URL}/images/recipeById/recipebg-tablet-1x.webp');
+    background-image: image-set(
+      url('${process.env.PUBLIC_URL}/images/recipeById/recipebg-tablet-1x.webp')
+        type('image/webp'),
+      url('${process.env.PUBLIC_URL}/images/recipeById/recipebg-tablet-1x.png')
+        type('image/png')
+    );
   }
   @media ${device.desktop} {
     padding: 164px 202px 32px;
+
+    background-image: url('${process.env
+      .PUBLIC_URL}/images/recipeById/recipebg-1x.webp');
+    background-image: image-set(
+      url('${process.env.PUBLIC_URL}/images/recipeById/recipebg-1x.webp')
+        type('image/webp'),
+      url('${process.env.PUBLIC_URL}/images/recipeById/recipebg-1x.png')
+        type('image/png')
+    );
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      (-webkit-min-device-pixel-ratio: 2),
+      screen and (min-resolution: 2dppx) {
+      background-image: url('${process.env
+        .PUBLIC_URL}/images/recipeById/recipebg-2x.webp');
+
+      background-image: image-set(
+        url('${process.env.PUBLIC_URL}/images/recipeById/recipebg-2x.webp')
+          type('image/webp'),
+        url('${process.env.PUBLIC_URL}/images/recipeById/recipebg-2x.png')
+          type('image/png')
+      );
+    }
   }
 `;
 
@@ -48,7 +88,7 @@ export const HeroTitle = styled.h1`
 `;
 
 export const HeroInfo = styled.p`
-  color: ${props => props.theme.colors.welcomePage.iconClock};
+  color: ${props => props.theme.colors.recipePage.text};
   margin-bottom: ${props => props.theme.fontSizes.xl};
 
   @media ${device.mobile} {
@@ -89,6 +129,7 @@ export const HeroBtn = styled(DefaultBtn)`
 `;
 
 export const HeroP = styled.p`
+  color: ${props => props.theme.colors.recipePage.text};
   display: flex;
   flex-wrap: wrap;
   &:before {
@@ -97,4 +138,3 @@ export const HeroP = styled.p`
     padding-right: 7px;
   }
 `;
-

@@ -6,7 +6,6 @@ import MyRecipesItem from 'components/MyRecipesItem/MyRecipesItem';
 
 const MyRecipesList = () => {
   const items = useSelector(selectMyRecipesItem);
-  // console.log(items)
 
   return (
     <>

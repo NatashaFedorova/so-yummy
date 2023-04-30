@@ -3,7 +3,6 @@ import { createSlice } from '@reduxjs/toolkit';
 import getIngredientsList from '../operations/getIngredientsList';
 import popularRecipes from '../operations/popularRecipes';
 import getCategories from '../operations/getAddReceiptCategories';
-import addRecipe from '../operations/addRecipe';
 
 const addRecipeSlice = createSlice({
   name: 'addRecipe',
@@ -12,7 +11,6 @@ const addRecipeSlice = createSlice({
     ingredients: [],
     categories: [],
     isLoading: false,
-    addRecipeIsLoading: false,
     receiptsError: null,
     ingredientsError: null,
     categoriesError: null,
@@ -55,17 +53,6 @@ const addRecipeSlice = createSlice({
       .addCase(getCategories.rejected, (state, action) => {
         state.isLoading = false;
         state.categoriesError = action.payload;
-      })
-      .addCase(addRecipe.pending, state => {
-        state.addRecipeIsLoading = true;
-      })
-      .addCase(addRecipe.fulfilled, state => {
-        state.addRecipeIsLoading = false;
-        state.categoriesError = null;
-      })
-      .addCase(addRecipe.rejected, (state, action) => {
-        state.addRecipeIsLoading = false;
-        state.addRecipeError = action.payload;
       }),
 });
 

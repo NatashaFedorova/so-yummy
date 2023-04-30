@@ -107,6 +107,7 @@ export const InputWrapper = styled.div`
 export const TextInput = styled.input`
   width: 100%;
   height: 100%;
+  padding-left: 140px;
   padding-bottom: 19px;
 
   font-size: ${props => props.theme.fontSizes.xs};
@@ -118,11 +119,13 @@ export const TextInput = styled.input`
   border-color: transparent;
   border-bottom-style: solid;
   border-bottom-width: 1px;
-  border-bottom-color: ${props => props.theme.colors.addRecipePage.line};
+  border-bottom-color: ${props =>
+    props.color ? props.color : props.theme.colors.addRecipePage.line};
 
   transition: border-bottom-color 250ms ease-in-out;
 
   @media screen and (min-width: ${size.tablet}) {
+    padding-left: 150px;
     padding-bottom: 18px;
     font-size: ${props => props.theme.fontSizes.s};
   }
@@ -140,7 +143,8 @@ export const UpdatedSelect = styled(Select)`
 
   background-color: transparent;
 
-  border-bottom-color: ${props => props.theme.colors.addRecipePage.line};
+  border-bottom-color: ${props =>
+    props.color ? props.color : props.theme.colors.addRecipePage.line};
   border-bottom-style: solid;
   border-bottom-width: 1px;
 
@@ -230,7 +234,8 @@ export const Label = styled.label`
   font-weight: ${props => props.theme.fontWeight.regular};
   line-height: 1.5;
   letter-spacing: -0.02em;
-  color: ${props => props.theme.colors.addRecipePage.labelForm};
+  color: ${props =>
+    props.color ? props.color : props.theme.colors.addRecipePage.labelForm};
 
   @media screen and (min-width: ${size.tablet}) {
     font-size: ${props => props.theme.fontSizes.m};

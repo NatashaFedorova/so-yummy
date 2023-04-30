@@ -1,22 +1,19 @@
 import styled from 'styled-components';
 import { size } from 'components/constants/deviceType/deviceType';
-import {
-  DefaultSquare,
-  DefaultSquareСircle,
-} from 'components/constants/DefaultStyleComponents/DefaultStyleComponents';
 
 export const AddRecipeSection = styled.section`
-  padding: 50px 0 100px 0;
+  padding: 0 0 100px 0;
+  min-height: 100%;
 
   font-family: 'Poppins', sans-serif;
   background-color: inherit;
 
   @media screen and (min-width: ${size.tablet}) {
-    padding: 72px 0 200px 0;
+    padding: 0 0 200px 0;
   }
 
   @media screen and (min-width: ${size.desktop}) {
-    padding: 100px 0 200px 0;
+    padding: 0 0 200px 0;
   }
 `;
 
@@ -63,50 +60,21 @@ export const RightWrapper = styled.div`
   gap: 100px;
 `;
 
-export const Square = styled(DefaultSquare)`
+export const ValidationMessage = styled.span`
   position: absolute;
-  left: 104px;
-  top: -26px;
+  left: 0;
+  bottom: 3px;
+  font-size: ${props => props.theme.fontSizes.xs};
+  font-weight: ${props => props.theme.fontWeight.regular};
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  color: ${props =>
+    props.color ? props.color : props.theme.colors.addRecipePage.textForm};
+  opacity: ${props => (props.color ? 1 : 0)};
 
-  @media (min-width: 768px) {
-    left: 187px;
-    top: -32px;
-  }
+  transition: opacity 250ms ease-in-out;
 
-  @media (min-width: 1440px) {
-    left: 228px;
-    top: -29px;
-  }
-`;
-
-export const SquareСircle = styled(DefaultSquareСircle)`
-  position: absolute;
-  left: 231px;
-  top: 28px;
-
-  @media (min-width: 768px) {
-    left: 405px;
-    top: 19px;
-  }
-
-  @media (min-width: 1440px) {
-    left: 707px;
-    top: 36px;
-  }
-`;
-
-export const SquareSecond = styled(DefaultSquare)`
-  position: absolute;
-  left: 333px;
-  top: 6px;
-
-  @media (min-width: 768px) {
-    left: 694px;
-    top: -19px;
-  }
-
-  @media (min-width: 1440px) {
-    left: 1150px;
-    top: -16px;
+  @media screen and (min-width: ${size.tablet}) {
+    font-size: ${props => props.theme.fontSizes.s};
   }
 `;

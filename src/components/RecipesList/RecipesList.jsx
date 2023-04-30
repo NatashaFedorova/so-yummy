@@ -1,7 +1,4 @@
 import {
-  RecipeCard,
-  RecipeImg,
-  RecipeTitle,
   List,
   NotFoundBox,
   NotFoundImg,
@@ -10,6 +7,7 @@ import {
 import Loading from 'components/Loading/Loading';
 import { PagePagination } from 'components/Pagination/Pagination';
 import { Link } from 'react-router-dom';
+import CardRecipe from 'components/CardRecipe/CardRecipe';
 
 const RecipesList = ({ recipes, status, page, handlePageChange, getLimit }) => {
   const totalPages = recipes[0]?.totalCount;
@@ -35,13 +33,10 @@ const RecipesList = ({ recipes, status, page, handlePageChange, getLimit }) => {
     return (
       <>
         <List>
-          {recipes.map(({ thumb, title, _id }) => (
-            <RecipeCard key={_id}>
-              <Link to={`/recipe/${_id}`}>
-                <RecipeImg src={thumb} alt={title} />
-                <RecipeTitle>{title}</RecipeTitle>
-              </Link>
-            </RecipeCard>
+          {recipes.map(item => (
+            <Link to={`/recipe/${item._id}`} key={item._id}>
+              <CardRecipe key={item._id} item={item} />
+            </Link>
           ))}
         </List>
         {totalPages > 12 && (

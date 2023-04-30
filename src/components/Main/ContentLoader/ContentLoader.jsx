@@ -6,7 +6,6 @@ export const MainContentLoader = props => (
     <ContentLoader
       speed={2}
       width={2480}
-      //   height={420}
       viewBox="0 0 1240 420"
       backgroundColor="#d1d1d1"
       foregroundColor="#89aa36"
@@ -31,7 +30,6 @@ export const MainContentLoaderTablet = props => (
     <ContentLoader
       speed={2}
       width={1536}
-      //   height={420}
       viewBox="0 0 768 450"
       backgroundColor="#d1d1d1"
       foregroundColor="#89aa36"
@@ -52,18 +50,15 @@ export const MainContentLoaderMobile = props => (
     <ContentLoader
       speed={2}
       width={768}
-      //   height={420}
       viewBox="0 0 375 430"
       backgroundColor="#d1d1d1"
       foregroundColor="#89aa36"
       {...props}
     >
       <rect x="1" y="50" rx="8" ry="8" width="145" height="145" />
-      {/* <rect x="200" y="70" rx="8" ry="8" width="145" height="145" /> */}
       <rect x="1" y="1" rx="8" ry="8" width="110" height="30" />
       <rect x="1" y="230" rx="8" ry="8" width="110" height="30" />
       <rect x="1" y="285" rx="8" ry="8" width="145" height="145" />
-      {/* <rect x="200" y="305" rx="8" ry="8" width="145" height="145" /> */}
     </ContentLoader>
   </div>
 );

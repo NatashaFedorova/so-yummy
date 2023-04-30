@@ -17,7 +17,6 @@ export const HeaderContainer = styled(Container)`
   justify-content: space-between;
   margin-top: 18px;
   padding: 0px 16px;
-}
 `;
 
 export const HeaderRightDiv = styled.div`
@@ -38,7 +37,7 @@ export const RightDivSwitcher = styled.div`
 `;
 export const HeaderSwitchDiv = styled.div`
   display: none;
-  @media${device.desktop} {
+  @media ${device.desktop} {
     display: flex;
   }
 `;

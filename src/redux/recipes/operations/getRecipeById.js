@@ -18,7 +18,6 @@ export const AddIngredientToShoppingList = createAsyncThunk(
   async (Items, thunkAPI) => {
     try {
       const { data, status } = await axios.post('/shoppinglist', Items);
-      // return response.data;
       return { data, status };
     } catch (err) {
       return thunkAPI.rejectWithValue(err.message);

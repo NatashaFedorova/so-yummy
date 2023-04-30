@@ -19,13 +19,16 @@ export const Options = styled.button`
   width: 100%;
   display: flex;
   justify-content: space-between;
+  color: ${p => p.theme.colors.searchPage.textSelect};
   background-color: ${p => p.theme.colors.searchPage.bgOptionsBtn};
+  border: 1px solid ${p => p.theme.colors.searchPage.optionBgColor};
 
   border-radius: 4px;
 
   cursor: pointer;
 `;
 export const SearchOption = styled.li`
+  color: ${p => p.theme.colors.searchPage.textSelect};
   cursor: pointer;
   width: 100%;
   padding: 8px 16px 8px 16px;
@@ -37,7 +40,7 @@ export const SearchOptions = styled.ul`
   left: 0;
   top: 100%;
   z-index: 999;
-  background-color: #fafafa;
+  background-color: ${p => p.theme.colors.searchPage.bgDropdown};
   border-radius: 0px 0px 6px 6px;
 `;
 export const SearchBox = styled.div`

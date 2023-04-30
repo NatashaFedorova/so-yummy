@@ -28,7 +28,10 @@ export const AvatarArea = styled.div`
   }
 `;
 
-export const CurrentUserAvatar = styled.img``;
+export const CurrentUserAvatar = styled.img`
+  width: auto;
+  height: 100%;
+`;
 
 export const UserNameSpan = styled.p`
   color: ${props => props.theme.colors.header.textMain};

@@ -5,7 +5,6 @@ import { useParams } from 'react-router-dom';
 
 import Container from 'components/constants/Container';
 import { STATUS } from '../constants/loadingStatus/LoadingStatus';
-//import Loading from 'components/Loading/Loading';
 
 import RecipePageHero from './RecipePageHero';
 import RecipeInngredientsList from './RecipeInngredientsList';
@@ -21,7 +20,7 @@ import {
   addFavorite,
   deleteFavorite,
 } from '../../redux/favorite/favoriteOperation';
-import { refreshUser } from '../../redux/auth/authOperation';
+import { refreshUserLite } from '../../redux/auth/authOperation';
 import { selectUser } from '../../redux/auth/authSelectors';
 
 const Recipe = () => {
@@ -30,6 +29,7 @@ const Recipe = () => {
   const { recipeId } = useParams();
 
   const [render, setRender] = useState(1);
+  const [isSubLoading, setIsSubLoading] = useState(false);
 
   const Recipe = useSelector(selectRecipeById);
   const Status = useSelector(selectRecipeByIdStatus);
@@ -44,15 +44,19 @@ const Recipe = () => {
   }, [dispatch, recipeId, render, setRender]);
 
   const addRcpToFavorite = async () => {
+    setIsSubLoading(true);
     await dispatch(addFavorite(recipeId));
     await dispatch(getRecipeById(recipeId));
-    await dispatch(refreshUser());
+    await dispatch(refreshUserLite());
+    setIsSubLoading(false);
   };
 
   const removeRcpFromFavorite = async () => {
+    setIsSubLoading(true);
     await dispatch(deleteFavorite(recipeId));
     await dispatch(getRecipeById(recipeId));
-    await dispatch(refreshUser());
+    await dispatch(refreshUserLite());
+    setIsSubLoading(false);
   };
 
   const isRecipeFavor = Recipe.favorites;
@@ -65,15 +69,13 @@ const Recipe = () => {
     ButtonState = hasRecipeFavorites;
   }
 
-  //console.log('is hier Favorites fild', Recipe);
-
   return (
     <>
-      {/* {(Status === STATUS.idle || Status === STATUS.loading) && <Loading />} */}
       <div style={{ minHeight: '65vh' }}>
         {Status === STATUS.success && (
           <>
             <RecipePageHero
+              isloading={isSubLoading}
               btnState={ButtonState}
               onBtnClickAdd={() => addRcpToFavorite(recipeId)}
               onBtnClickRemove={() => removeRcpFromFavorite(recipeId)}
