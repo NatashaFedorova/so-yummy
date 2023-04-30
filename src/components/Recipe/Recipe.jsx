@@ -5,7 +5,6 @@ import { useParams } from 'react-router-dom';
 
 import Container from 'components/constants/Container';
 import { STATUS } from '../constants/loadingStatus/LoadingStatus';
-//import Loading from 'components/Loading/Loading';
 
 import RecipePageHero from './RecipePageHero';
 import RecipeInngredientsList from './RecipeInngredientsList';
@@ -21,7 +20,7 @@ import {
   addFavorite,
   deleteFavorite,
 } from '../../redux/favorite/favoriteOperation';
-import { refreshUser } from '../../redux/auth/authOperation';
+import { refreshUserLite } from '../../redux/auth/authOperation';
 import { selectUser } from '../../redux/auth/authSelectors';
 
 const Recipe = () => {
@@ -46,13 +45,15 @@ const Recipe = () => {
   const addRcpToFavorite = async () => {
     await dispatch(addFavorite(recipeId));
     await dispatch(getRecipeById(recipeId));
-    await dispatch(refreshUser());
+    // await dispatch(refreshUser());
+    await dispatch(refreshUserLite());
   };
 
   const removeRcpFromFavorite = async () => {
     await dispatch(deleteFavorite(recipeId));
     await dispatch(getRecipeById(recipeId));
-    await dispatch(refreshUser());
+    //await dispatch(refreshUser());
+    await dispatch(refreshUserLite());
   };
 
   const isRecipeFavor = Recipe.favorites;
@@ -64,8 +65,6 @@ const Recipe = () => {
       .some(value => value === id);
     ButtonState = hasRecipeFavorites;
   }
-
-  //console.log('is hier Favorites fild', Recipe);
 
   return (
     <>

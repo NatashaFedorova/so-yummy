@@ -14,20 +14,18 @@ const recipeByIdSlice = createSlice({
     items: [],
     shopList: [],
     addStausCode: '',
-    // isLoading: 'init',
-    // error: null,
   },
   extraReducers: builder =>
     builder
       .addCase(getRecipeById.pending, state => {
-        state.status = STATUS.loading;
+        //state.status = STATUS.loading;
       })
       .addCase(getRecipeById.fulfilled, (state, action) => {
         state.items = action.payload;
         state.status = STATUS.success;
       })
       .addCase(getRecipeById.rejected, (state, action) => {
-        state.status = STATUS.error;
+        //state.status = STATUS.error;
         state.error = action.payload;
       })
 
@@ -48,47 +46,18 @@ const recipeByIdSlice = createSlice({
       //// REMOVE FROM SHOPPINGLIST
 
       .addCase(RemoveIngredientFromShoppingList.pending, state => {
-        state.status = STATUS.loading;
+        //state.status = STATUS.loading;
       })
       .addCase(RemoveIngredientFromShoppingList.fulfilled, (state, action) => {
         // const index = state.items.findIndex(
         //     ingredient => ingredient._id === action.payload.id
         // );
-        state.status = STATUS.success;
+        //state.status = STATUS.success;
       })
       .addCase(RemoveIngredientFromShoppingList.rejected, (state, action) => {
-        state.status = STATUS.error;
+        // state.status = STATUS.error;
         state.error = action.payload;
       }),
 });
 
 export const recipesByIdReducer = recipeByIdSlice.reducer;
-
-// const recipeByIdSlice = createSlice({
-//     name: 'recipeById',
-//     initialState: initState,
-//     reducers: {},
-//     extraReducers: {
-//         [getRecipeById.pending]: handlePending,
-//         [getRecipeById.rejected]: handleRejected,
-//         [getRecipeById.fulfilled](state, action) {
-//             state.recipeById.items = action.payload;
-//             state.recipeById.status = STATUS.success;
-//         },
-
-//         [addToFavorite.pending]: (state) => {
-//             state.recipeById.status = STATUS.loading
-//         },
-//         [addToFavorite.rejected]: (state) => {
-//             state.recipeById.status = STATUS.error;
-//         },
-//         [addToFavorite.fulfilled](state, action) {
-//             state.recipeById.status = STATUS.success;
-//         },
-
-//     },
-
-// });
-
-// const recipesByIdReducer = recipeByIdSlice.reducer;
-// export default recipesByIdReducer;

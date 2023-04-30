@@ -1,26 +1,26 @@
-import { BallTriangle } from 'react-loader-spinner';
+import { Watch } from 'react-loader-spinner';
 import { Box } from './Loading.styled';
 
 import { createPortal } from 'react-dom';
 
 const modalRoot = document.querySelector('#modal-root');
 
-const Loading = () => {
-    return createPortal(
-        <Box>
-            <BallTriangle
-                height={100}
-                width={100}
-                radius={5}
-                color="#4fa94d"
-                ariaLabel="ball-triangle-loading"
-                wrapperClass={{}}
-                wrapperStyle=""
-                visible={true}
-            />
-        </Box>,
-        modalRoot
-    );
+const SubLoading = () => {
+  return createPortal(
+    <Box>
+      <Watch
+        height="40"
+        width="40"
+        radius="30"
+        color="#4fa94d"
+        ariaLabel="watch-loading"
+        wrapperStyle={{}}
+        wrapperClassName=""
+        visible={true}
+      />
+    </Box>,
+    modalRoot
+  );
 };
 
-export default Loading;
+export default SubLoading;

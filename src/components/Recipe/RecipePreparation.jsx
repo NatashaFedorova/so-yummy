@@ -11,9 +11,6 @@ import {
 import noRecipeIMG from './no-recipe-image.png';
 
 const RecipePreparation = ({ instructions, img, title }) => {
-  //const ArrFromInstructions = instructions.split('. ');
-  console.log(typeof instructions);
-
   let ArrFromInstructions = instructions;
   if (typeof instructions === 'string') {
     ArrFromInstructions = instructions.split('. ');
@@ -23,7 +20,7 @@ const RecipePreparation = ({ instructions, img, title }) => {
     <>
       <PrepWrap>
         <PrepInfo>
-          <PrepInfoHead>RecipePreparation</PrepInfoHead>
+          <PrepInfoHead>Recipe Preparation</PrepInfoHead>
           {ArrFromInstructions.map((item, index) => (
             <PrepInfoWrap key={index}>
               <PrepInfoSpan>{index + 1}</PrepInfoSpan>
@@ -40,5 +37,3 @@ const RecipePreparation = ({ instructions, img, title }) => {
 };
 
 export default RecipePreparation;
-
-//<PrepInfoText><PrepInfoSpan>2</PrepInfoSpan> Heat the flat grill plate over a low heat, on top of 2 rings/flames </PrepInfoText>

@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
+//import { useSelector } from 'react-redux';
 //import { useState } from 'react';
 
 import RecipeTableHead from '../RecipeTableHead/RecipeTableHead';
@@ -15,27 +15,27 @@ import {
   IngListItemCheckWrap,
 } from './RecipeInngredientsList.styled';
 
-import { IsIngredientToShopList } from '../../redux/recipes/selectors/selectRecipeById';
-import { refreshUser } from '../../redux/auth/authOperation';
+//import { IsIngredientToShopList } from '../../redux/recipes/selectors/selectRecipeById';
+import { refreshUserLite } from '../../redux/auth/authOperation';
 import {
   AddIngredientToShoppingList,
   RemoveIngredientFromShoppingList,
 } from '../../redux/recipes/operations/getRecipeById';
-//import { selectUser } from '../../redux/auth/authSelectors';
 
 const RecipeInngredientsList = ({ info, recId, shopList }) => {
   const dispatch = useDispatch();
-  const isInTrueShopList = useSelector(IsIngredientToShopList);
-  //const userInfo = useSelector(selectUser);
+  //const isInTrueShopList = useSelector(IsIngredientToShopList);
 
   const onHandleChange = async info => {
     await dispatch(AddIngredientToShoppingList(info));
-    await dispatch(refreshUser());
+    // await dispatch(refreshUser());
+    await dispatch(refreshUserLite());
   };
 
   const removeFromShopList = async ingredientId => {
     await dispatch(RemoveIngredientFromShoppingList(ingredientId));
-    await dispatch(refreshUser());
+    //await dispatch(refreshUser());
+    await dispatch(refreshUserLite());
   };
 
   const isInShopingList = shopList
@@ -45,10 +45,8 @@ const RecipeInngredientsList = ({ info, recId, shopList }) => {
   const ShoppingListToRemove = shopList.filter(
     value => value.recipeID === recId
   );
-  //.flatMap(item => item.ingredientId);
 
-  // console.log('ingredient fom List ?  ', ShoppingListToRemove);
-  console.log('show shop list ', isInTrueShopList);
+  //console.log('show shop list ', isInTrueShopList);
 
   return (
     <>
