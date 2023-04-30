@@ -87,11 +87,7 @@ export const UserFormModal = ({ closeUserInfoModal }) => {
 
         <label>
           <ConfigNameLabel
-            style={
-              nameError
-                ? { borderColor: 'red !important', color: 'red !important' }
-                : {}
-            }
+            style={nameError ? { borderColor: 'red ', color: 'red' } : {}}
           >
             <LeftInputDiv>
               <StyledRxPerson />
@@ -99,7 +95,7 @@ export const UserFormModal = ({ closeUserInfoModal }) => {
                 name="name"
                 value={newUserName}
                 onChange={handleName}
-                style={nameError ? { color: 'red !important' } : {}}
+                style={nameError ? { color: 'red ' } : {}}
               />
             </LeftInputDiv>
             <StyledHiOutlinePencil />
@@ -109,9 +105,7 @@ export const UserFormModal = ({ closeUserInfoModal }) => {
         <SendChangeBTN
           disabled={(!goodImage || nameError) && 'disabled'}
           style={
-            !goodImage || nameError
-              ? { background: 'red !important', color: 'white !important' }
-              : {}
+            !goodImage || nameError ? { background: 'red', color: 'white' } : {}
           }
         >
           {(!goodImage && !nameError) || (!goodImage && nameError)
