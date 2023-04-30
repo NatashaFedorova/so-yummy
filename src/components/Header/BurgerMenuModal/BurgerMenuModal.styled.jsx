@@ -6,9 +6,8 @@ import { device } from 'components/constants/deviceType/deviceType';
 export const BurgerModal = styled.div`
   display: flex;
   position: fixed;
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
+  width: 100%;
+  height: 100%;
   top: 0;
   right: -120%;
   z-index: 1040;
@@ -55,16 +54,22 @@ export const BurgerBgImage = styled(DecoreLeafsTop)`
   width: 360px;
   height: 550px;
 
-  left: 236px;
-  top: 162px;
+  left: 198px;
+  top: unset;
+  bottom: -152px;
+
+  filter: none;
+  transform: rotateZ(88deg);
 
   @media ${device.tablet} {
     width: 558px;
     height: 852px;
 
-    left: 453px;
-    top: 622px;
+    left: unset;
+    right: -226px;
+    top: unset;
+    bottom: -295px;
 
-    transform: rotate(118deg);
+    transform: rotateZ(88deg);
   }
 `;
