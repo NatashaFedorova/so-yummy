@@ -34,7 +34,7 @@ const RecipesList = ({ recipes, status, page, handlePageChange, getLimit }) => {
       <>
         <List>
           {recipes.map(item => (
-            <Link to={`/recipe/${item._id}`}>
+            <Link to={`/recipe/${item._id}`} key={item._id}>
               <CardRecipe key={item._id} item={item} />
             </Link>
           ))}

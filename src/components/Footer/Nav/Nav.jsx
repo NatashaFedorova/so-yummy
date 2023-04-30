@@ -1,3 +1,4 @@
+import { useLocation } from 'react-router-dom';
 import { FooterNav, StyledNavLink } from './Nav.styled';
 
 const pages = [
@@ -10,7 +11,7 @@ const pages = [
 export const Nav = () => {
   return (
     <FooterNav>
-      <StyledNavLink to={'/search'} searchtype="Ingredients">
+      <StyledNavLink to={'/search'} state={{ type: 'Ingredients' }}>
         Ingredients
       </StyledNavLink>
       {pages.map((page, ind) => (

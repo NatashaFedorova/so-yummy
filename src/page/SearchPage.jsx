@@ -4,6 +4,7 @@ import MainTitle from 'components/MainTitle/MainTitle';
 import SearchedRecepiesList from 'components/SearchedRecipesList/SearchedRecipesList';
 import Section from 'components/constants/Section.styled';
 import { useRef, useState } from 'react';
+
 const SearchPage = () => {
   const refDiv = useRef();
   const [searhType, setSearchType] = useState('Title');

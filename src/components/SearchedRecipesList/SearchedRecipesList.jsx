@@ -19,9 +19,6 @@ const SearchedRecepiesList = ({ searhType, refDiv }) => {
         setLimit(12);
       }
       if (divWidth === '704px') {
-        setLimit(8);
-      }
-      if (divWidth === '343px') {
         setLimit(6);
       }
     }
