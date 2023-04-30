@@ -30,9 +30,15 @@ export const BurgerMenu = () => {
       <BurgerMenuDiv onClick={() => setShowBurgerMenu(true)}>
         <StyledHiOutlineMenuAlt2
           style={
-            path.toString() === '/main' && widthHTML >= 748
+            (path.toString() === '/main' && widthHTML >= 748
               ? { color: '#1E1F28' }
-              : {}
+              : {},
+            path.toString() === '/main' && widthHTML > 1421
+              ? {
+                  color: `#1E1F28 `,
+                }
+              : {},
+            path.toString().includes('/recipe') ? { color: '#1E1F28' } : {})
           }
         />
       </BurgerMenuDiv>
