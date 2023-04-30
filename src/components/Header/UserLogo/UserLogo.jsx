@@ -55,11 +55,12 @@ export const UserLogo = () => {
           </AvatarArea>
           <UserNameSpan
             style={
-              path.toString() === '/main' && widthHTML > 1421
+              (path.toString() === '/main' && widthHTML > 1421
                 ? {
                     color: `#1E1F28 `,
                   }
-                : {}
+                : {},
+              path.toString().includes('/recipe') ? { color: '#1E1F28' } : {})
             }
           >{`${name}`}</UserNameSpan>
         </UserInfo>

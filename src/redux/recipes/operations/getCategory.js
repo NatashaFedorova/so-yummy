@@ -1,17 +1,16 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from "axios";
-// axios.defaults.baseURL = 'https://t2d-soyammy-backend.onrender.com/api/';
-// console.log(axios.defaults.baseURL);
+import axios from 'axios';
 
-const getCategories = createAsyncThunk('categories/getCat', async (_, thunkAPI) => {
+const getCategories = createAsyncThunk(
+  'categories/getCat',
+  async (_, thunkAPI) => {
     try {
-        const res = await axios.get('recipes/category-list');
-        return res.data
+      const res = await axios.get('recipes/category-list');
+      return res.data;
+    } catch (e) {
+      return thunkAPI.fulfillWithValue(e.message);
     }
-    catch (e) {
-        console.log("error");
-        return thunkAPI.fulfillWithValue(e.message);
-    }
-});
+  }
+);
 
 export default getCategories;

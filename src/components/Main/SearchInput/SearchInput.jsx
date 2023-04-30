@@ -34,7 +34,10 @@ const SearchInput = () => {
     }
 
     setSearchValue(inputQuery);
-    return navigate(`/search?filter=${inputQuery}`);
+    return navigate(`/search?filter=${inputQuery}`, {
+      replace: true,
+      state: { type: 'Title' },
+    });
   }
 
   return (

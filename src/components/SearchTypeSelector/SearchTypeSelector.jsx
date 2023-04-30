@@ -4,14 +4,15 @@ import {
   Options,
   SearchOption,
   SearchBox,
-  LineDown
+  LineDown,
 } from './SearchTypeSelector.styled';
+import { useLocation } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
 
-
 const SearchTypeSelector = ({ getSearchType }) => {
+  const location = useLocation();
   const [open, setOpen] = useState(false);
-  const [type, setType] = useState('Title');
+  const [type, setType] = useState(location.state.type || 'Title');
   const menuRef = useRef();
   const optionsRef = useRef();
   const handleClick = e => {
@@ -34,21 +35,21 @@ const SearchTypeSelector = ({ getSearchType }) => {
     <SearchWrapper>
       <p>Search by: </p>
       <SearchBox>
-      <Options
-        ref={optionsRef}
-        onClick={() => {
-          setOpen(!open);
-        }}
-      >
-        {type}
-        <LineDown/>
-      </Options>
-      {open === true && (
-        <SearchOptions ref={menuRef} open={open}>
-          <SearchOption onClick={handleTypeChange}>Title</SearchOption>
-          <SearchOption onClick={handleTypeChange}>Ingredients</SearchOption>
-        </SearchOptions>
-      )}
+        <Options
+          ref={optionsRef}
+          onClick={() => {
+            setOpen(!open);
+          }}
+        >
+          {type}
+          <LineDown />
+        </Options>
+        {open === true && (
+          <SearchOptions ref={menuRef} open={open}>
+            <SearchOption onClick={handleTypeChange}>Title</SearchOption>
+            <SearchOption onClick={handleTypeChange}>Ingredients</SearchOption>
+          </SearchOptions>
+        )}
       </SearchBox>
     </SearchWrapper>
   );

@@ -1,7 +1,7 @@
 import { FooterNav, StyledNavLink } from './Nav.styled';
 
 const pages = [
-  { to: '/add', title: 'Add receptes' },
+  { to: '/add', title: 'Add recipes' },
   { to: '/my', title: 'My recipes' },
   { to: '/favorite', title: 'Favorites' },
   { to: '/shopping-list', title: 'Shopping list' },
@@ -10,7 +10,7 @@ const pages = [
 export const Nav = () => {
   return (
     <FooterNav>
-      <StyledNavLink to={'/search'} searchtype="Ingredients">
+      <StyledNavLink to={'/search'} state={{ type: 'Ingredients' }}>
         Ingredients
       </StyledNavLink>
       {pages.map((page, ind) => (
