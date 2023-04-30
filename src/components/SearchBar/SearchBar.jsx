@@ -3,15 +3,12 @@ import SearchTypeSelector from 'components/SearchTypeSelector/SearchTypeSelector
 import { useSearchParams } from 'react-router-dom';
 
 const SearchBar = ({ getSearchType }) => {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams({});
 
   const handleSubmit = e => {
     e.preventDefault();
     const value = e.target.input.value;
-    if (value === '') {
-      setSearchParams({});
-      return;
-    }
+    console.log(value);
     setSearchParams(value !== '' ? { filter: value } : {});
   };
   return (

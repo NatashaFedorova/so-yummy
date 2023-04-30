@@ -12,9 +12,16 @@ import { useEffect, useRef, useState } from 'react';
 const SearchTypeSelector = ({ getSearchType }) => {
   const location = useLocation();
   const [open, setOpen] = useState(false);
-  const [type, setType] = useState(location.state.type || 'Title');
+  const [type, setType] = useState('Title');
   const menuRef = useRef();
   const optionsRef = useRef();
+
+  useEffect(() => {
+    if (location.state) {
+      setType(location.state.type);
+    }
+  }, [location.state]);
+
   const handleClick = e => {
     if (e.target !== menuRef.current && e.target !== optionsRef.current) {
       setOpen(false);

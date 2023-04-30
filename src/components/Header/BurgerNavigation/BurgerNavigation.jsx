@@ -24,7 +24,12 @@ export const BurgerNavigation = ({ closeBurgerMenuModal }) => {
           {page.title}
         </StyledBurgerLink>
       ))}
-      <StyledBurgerLink to={`/search`} onClick={closeBurgerMenuModal}>
+
+      <StyledBurgerLink
+        to={`/search`}
+        state={{ type: 'Title' }}
+        onClick={closeBurgerMenuModal}
+      >
         <FiSearch />
         Search
       </StyledBurgerLink>
