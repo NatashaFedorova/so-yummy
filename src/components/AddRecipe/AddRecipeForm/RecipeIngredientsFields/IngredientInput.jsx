@@ -23,7 +23,13 @@ const IngredientInput = ({
   };
 
   const clickHandler = () => {
-    setIsOpen(prevState => !prevState);
+    if (!isOpen) {
+      setIsOpen(true);
+      inputRef.current.focus();
+    } else {
+      setIsOpen(false);
+      inputRef.current.blur();
+    }
   };
 
   const changeHandler = event => {
