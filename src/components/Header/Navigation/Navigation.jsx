@@ -29,6 +29,7 @@ export const Navigation = () => {
         to={`/search`}
         aria-label="link to search page"
         style={path.toString().includes('/recipe') ? { color: '#1E1F28' } : {}}
+        searchtype="Title"
       >
         <FiSearch />
       </StyledNavigationLink>
