@@ -15,32 +15,51 @@ import { AddRecipeFormComponent } from './AddRecipeForm.styled';
 import addRecipe from 'redux/recipes/operations/addRecipe';
 
 const AddRecipeForm = () => {
-  const [initialDataState, setInitialDataState] = useState(initialValues);
+  const [descriptionFields, setDescriptionFields] = useState(initialValues);
+  const [descriptionFieldsReady, setDescriptionFieldsReady] = useState(false);
+
   const [ingredientsState, setIngredientsState] = useState(initialIngredients);
+  const [ingredientsStateReady, setIngredientsStateReady] = useState(false);
+
   const [textareaContent, setTextareaContent] = useState([]);
+  const [textareaReady, setTextareaReady] = useState(false);
+
+  const [isValid, setIsValid] = useState(false);
+
   const photo = useRef(null);
+
   const error = useSelector(selectAddRecipeError);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    if (descriptionFieldsReady && ingredientsStateReady && textareaReady) {
+      setIsValid(true);
+    } else {
+      setIsValid(false);
+    }
+  }, [descriptionFieldsReady, ingredientsStateReady, textareaReady]);
+
   const submitHandler = async event => {
     event.preventDefault();
 
     const formData = new FormData();
+
     const ingredients = ingredientsState.map(item => ({
       id: item._id,
       measure: item.quantity,
     }));
+    const { title, description, category, time } = descriptionFields;
 
     if (photo.current) {
       formData.set('recipeImage', photo.current);
     }
 
-    formData.set('title', initialDataState.title);
-    formData.set('description', initialDataState.description);
-    formData.set('category', initialDataState.category);
-    formData.set('time', initialDataState.time);
+    formData.set('title', title);
+    formData.set('description', description);
+    formData.set('category', category);
+    formData.set('time', time);
     formData.set('ingredients', JSON.stringify(ingredients));
     formData.set('instructions', JSON.stringify(textareaContent));
 
@@ -58,7 +77,7 @@ const AddRecipeForm = () => {
   }, [error]);
 
   const initialDataChangeHandler = (name, value) => {
-    setInitialDataState(prevState => ({
+    setDescriptionFields(prevState => ({
       ...prevState,
       [name]: value,
     }));
@@ -86,11 +105,16 @@ const AddRecipeForm = () => {
   };
 
   const deleteHandler = event => {
-    const newIngredients = ingredientsState.filter(item => {
-      return item.id.toString() !== event.target.closest('li').id.toString();
-    });
+    if (ingredientsState.length > 1) {
+      const newIngredients = ingredientsState.filter(item => {
+        return item.id.toString() !== event.target.closest('li').id.toString();
+      });
 
-    setIngredientsState(newIngredients);
+      setIngredientsState(newIngredients);
+    } else {
+      Notify.failure('Sorry, you need to add at least one ingredient');
+      return;
+    }
   };
 
   const changeIngredientHandler = (id, _id) => {
@@ -124,9 +148,10 @@ const AddRecipeForm = () => {
   return (
     <AddRecipeFormComponent onSubmit={submitHandler}>
       <RecipeDescriptionField
-        initialDataState={initialDataState}
+        initialDataState={descriptionFields}
         changeHandler={initialDataChangeHandler}
         photo={photo}
+        descriptionValidationStatusSetter={setDescriptionFieldsReady}
       />
       <RecipeIngredientsFields
         ingredients={ingredientsState}
@@ -135,10 +160,13 @@ const AddRecipeForm = () => {
         deleteHandler={deleteHandler}
         changeHandler={changeMeasureHandler}
         changeIngredientHandler={changeIngredientHandler}
+        ingredientsValidationStatusSetter={setIngredientsStateReady}
       />
       <RecipePreparationFields
+        isValid={isValid}
         value={textareaContent}
         onChange={textareaChangeHandler}
+        preparationFieldsValidationStatusSetter={setTextareaReady}
       />
     </AddRecipeFormComponent>
   );

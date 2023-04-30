@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import { ModalWindow } from 'components/AddRecipe/Modal/Modal';
@@ -6,6 +6,10 @@ import { ModalWindow } from 'components/AddRecipe/Modal/Modal';
 import { selectCategories } from 'redux/recipes/selectors/addRecipeSelectors';
 import { size } from 'components/constants/deviceType/deviceType';
 import useTime from 'components/AddRecipe/hooks/hooks';
+import {
+  validationColors,
+  validationMessages,
+} from 'components/AddRecipe/helpers/vars';
 
 import {
   FileInput,
@@ -22,6 +26,7 @@ import {
   BrowseButton,
   ModalIcon,
 } from './RecipeDescriptionFields.styled';
+import { ValidationMessage } from 'components/AddRecipe/AddRecipe.styled';
 
 export const cutWidth = width => {
   const newValue = width.toString().replace('px', '').trim();
@@ -62,26 +67,119 @@ export const colorStyles = {
     ...styles,
     height: '100%',
   }),
+  noOptionsMessage: base => ({ ...base, color: '#000', textAlign: 'center' }),
 };
 
 const RecipeDescriptionField = ({
   photo,
   changeHandler: dataChangeHandler,
   initialDataState,
+  descriptionValidationStatusSetter,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-
   const [photoUrl, setPhotoUrl] = useState(
     'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=='
   );
-
   const [isOver, setIsOver] = useState(false);
   const [dragText, setDragText] = useState('Drop your picture here');
+
+  const [titleDirty, setTitleDirty] = useState(false);
+  const [descriptionDirty, setDescriptionDirty] = useState(false);
+  const [categoryDirty, setCategoryDirty] = useState(false);
+  const [timeDirty, setTimeDirty] = useState(false);
+
+  const [titleErrorMessage, setTitleErrorMessage] = useState(null);
+  const [descriptionErrorMessage, setDescriptionErrorMessage] = useState(null);
+  const [categoryErrorMessage, setCategoryErrorMessage] = useState(null);
+  const [timeErrorMessage, setTimeErrorMessage] = useState(null);
+
+  const [titleColor, setTitleColor] = useState(null);
+  const [descriptionColor, setDescriptionColor] = useState(null);
+  const [categoryColor, setCategoryColor] = useState(null);
+  const [timeColor, setTimeColor] = useState(null);
 
   const addFileInput = useRef(null);
 
   const { initialData } = useTime(5, 120, 5);
   const categories = useSelector(selectCategories);
+  const { title, description, category, time } = initialDataState;
+
+  useEffect(() => {
+    if (titleDirty && titleErrorMessage) {
+      setTitleColor(validationColors.error);
+    } else if (titleDirty && title.trim().length === 0) {
+      setTitleColor(validationColors.error);
+    } else {
+      setTitleColor(null);
+    }
+  }, [titleDirty, titleErrorMessage, title]);
+
+  useEffect(() => {
+    if (descriptionDirty && descriptionErrorMessage) {
+      setDescriptionColor(validationColors.error);
+    } else if (descriptionDirty && description.trim().lenght === 0) {
+      setDescriptionColor(validationColors.error);
+    } else {
+      setDescriptionColor(null);
+    }
+  }, [descriptionDirty, descriptionErrorMessage, description]);
+
+  useEffect(() => {
+    if (categoryDirty) {
+      if (category.length === 0) {
+        setCategoryErrorMessage(validationMessages.required.message);
+      } else {
+        setCategoryErrorMessage(null);
+      }
+    }
+
+    if (categoryDirty && categoryErrorMessage) {
+      setCategoryColor(validationColors.error);
+    } else {
+      setCategoryColor(null);
+    }
+  }, [categoryDirty, categoryErrorMessage, category]);
+
+  useEffect(() => {
+    if (timeDirty) {
+      if (time.length === 0) {
+        setTimeErrorMessage(validationMessages.required.message);
+      } else {
+        setTimeErrorMessage(null);
+      }
+    }
+
+    if (timeDirty && timeErrorMessage) {
+      setTimeColor(validationColors.error);
+    } else {
+      setTimeColor(null);
+    }
+  }, [timeDirty, timeErrorMessage, time]);
+
+  useEffect(() => {
+    const isFormDataEmpty =
+      !Boolean(title) &&
+      !Boolean(description) &&
+      !Boolean(category) &&
+      !Boolean(time);
+    const isFormDataValid =
+      !Boolean(titleErrorMessage) &&
+      !Boolean(descriptionErrorMessage) &&
+      !Boolean(categoryErrorMessage) &&
+      !Boolean(timeErrorMessage);
+    const isTrue = !isFormDataEmpty && isFormDataValid;
+    descriptionValidationStatusSetter(isTrue);
+  }, [
+    title,
+    description,
+    category,
+    time,
+    titleErrorMessage,
+    descriptionErrorMessage,
+    categoryErrorMessage,
+    timeErrorMessage,
+    descriptionValidationStatusSetter,
+  ]);
 
   const clickHandler = () => {
     if (Number(document.documentElement.clientWidth) < cutWidth(size.desktop)) {
@@ -143,10 +241,52 @@ const RecipeDescriptionField = ({
     };
 
     fileReader.readAsDataURL(photo.current);
+    setIsOver(false);
   };
 
   const inputHandleChange = event => {
+    const regExp = /^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$/;
+
     dataChangeHandler(event.target.name, event.target.value);
+
+    switch (event.target.name) {
+      case 'title':
+        if (event.target.value.trim().length === 0) {
+          setTitleErrorMessage(validationMessages.required.message);
+        } else {
+          if (!regExp.test(event.target.value.trim().toLowerCase())) {
+            setTitleErrorMessage(validationMessages.wrongExtention.message);
+          } else if (event.target.value.trim().length < 3) {
+            setTitleErrorMessage(validationMessages.fromLimit.message);
+          } else if (event.target.value.trim().length > 100) {
+            setTitleErrorMessage(validationMessages.toLimit.message);
+          } else {
+            setTitleErrorMessage(null);
+          }
+        }
+        break;
+
+      case 'description':
+        if (event.target.value.trim().length === 0) {
+          setDescriptionErrorMessage(validationMessages.required.message);
+        } else {
+          if (!regExp.test(event.target.value.toLowerCase().trim())) {
+            setDescriptionErrorMessage(
+              validationMessages.wrongExtention.message
+            );
+          } else if (event.target.value.trim().length < 3) {
+            setDescriptionErrorMessage(validationMessages.fromLimit.message);
+          } else if (event.target.value.trim().length > 100) {
+            setDescriptionErrorMessage(validationMessages.toLimit.message);
+          } else {
+            setDescriptionErrorMessage(null);
+          }
+        }
+        break;
+
+      default:
+        return;
+    }
   };
 
   const handleChange = (selectedOption, actionMeta) => {
@@ -159,6 +299,25 @@ const RecipeDescriptionField = ({
     }
   };
 
+  const handleBlur = event => {
+    switch (event.target.name) {
+      case 'title':
+        setTitleDirty(true);
+        if (event.target.value.trim().length === 0) {
+          setTitleErrorMessage(validationMessages.required.message);
+        }
+        break;
+      case 'description':
+        setDescriptionDirty(true);
+        if (event.target.value.trim().length === 0) {
+          setDescriptionErrorMessage(validationMessages.required.message);
+        }
+        break;
+      default:
+        return;
+    }
+  };
+
   return (
     <RecipeDescrWrapper>
       <PictureThumb
@@ -167,7 +326,7 @@ const RecipeDescriptionField = ({
         onDragLeave={dragLeaveHandler}
         onDrop={dropHandler}
       >
-        <img src={photoUrl} alt="recept" />
+        <img src={photoUrl} alt="receipt" />
       </PictureThumb>
       <FileInput
         type="file"
@@ -178,32 +337,47 @@ const RecipeDescriptionField = ({
       />
       <InputsWrapper>
         <InputWrapper>
-          <Label htmlFor="title">Enter item title</Label>
+          <Label color={titleColor} htmlFor="title">
+            Enter item title
+          </Label>
           <TextInput
             id="title"
             type="text"
             placeholder=" "
             name="title"
             onChange={inputHandleChange}
-            value={initialDataState.title}
+            onBlur={handleBlur}
+            value={title}
             required
             pattern="^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$"
+            color={titleColor}
           />
+          <ValidationMessage color={titleColor}>
+            {titleErrorMessage}
+          </ValidationMessage>
         </InputWrapper>
         <InputWrapper>
-          <Label htmlFor="description">Enter about recipe</Label>
+          <Label color={descriptionColor} htmlFor="description">
+            Enter about recipe
+          </Label>
           <TextInput
             id="description"
             type="text"
             placeholder=" "
             name="description"
             onChange={inputHandleChange}
+            onBlur={handleBlur}
+            value={description}
             required
             pattern="^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$"
+            color={descriptionColor}
           />
+          <ValidationMessage color={descriptionColor}>
+            {descriptionErrorMessage}
+          </ValidationMessage>
         </InputWrapper>
         <InputWrapper>
-          <Label>Category</Label>
+          <Label color={categoryColor}>Category</Label>
           <UpdatedSelect
             placeholder=" "
             name="category"
@@ -211,13 +385,20 @@ const RecipeDescriptionField = ({
             options={categories}
             styles={colorStyles}
             onChange={handleChange}
+            onBlur={() => {
+              setCategoryDirty(true);
+            }}
             required
             pattern="^[a-zA-Z]+$"
             classNamePrefix="Select"
+            color={categoryColor}
           />
+          <ValidationMessage color={categoryColor}>
+            {categoryErrorMessage}
+          </ValidationMessage>
         </InputWrapper>
         <InputWrapper>
-          <Label>Cooking time</Label>
+          <Label color={timeColor}>Cooking time</Label>
           <UpdatedSelect
             placeholder=" "
             options={initialData}
@@ -226,10 +407,17 @@ const RecipeDescriptionField = ({
             styles={colorStyles}
             isSearchable={false}
             onChange={handleChange}
+            onBlur={() => {
+              setTimeDirty(true);
+            }}
             required
             pattern="^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$"
             classNamePrefix="Select"
+            color={timeColor}
           />
+          <ValidationMessage color={timeColor}>
+            {timeErrorMessage}
+          </ValidationMessage>
         </InputWrapper>
       </InputsWrapper>
       {isOpen && (
