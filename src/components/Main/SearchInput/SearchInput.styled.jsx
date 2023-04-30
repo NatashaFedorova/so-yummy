@@ -1,5 +1,4 @@
 import { device } from 'components/constants/deviceType/deviceType';
-// import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const SearchInputWrapper = styled.div`
@@ -73,7 +72,6 @@ export const SearchInputButton = styled.button`
   justify-content: center;
   width: 113px;
   height: 53px;
-  /* padding: 15.7px 31.7px; */
 
   position: absolute;
   top: -1px;

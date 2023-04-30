@@ -17,7 +17,6 @@ import {
 } from './MainCategories.styled';
 
 import MainCategoriesList from '../MainCategoriesList/MainCategoriesList';
-// import Loading from '../../Loading/Loading';
 import {
   MainContentLoader,
   MainContentLoaderTablet,

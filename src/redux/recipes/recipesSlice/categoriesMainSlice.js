@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-// import getCategoryList from '../operations/getCategotyList';
 import getRecipesByCategoryForMainPage from '../operations/getRecipesByCategoryForMainPage';
 
 import { STATUS } from '../../../components/constants/loadingStatus/LoadingStatus';
@@ -25,7 +24,6 @@ const initialState = {
 const mainCategoriesSlice = createSlice({
   name: 'mainCategories',
   initialState,
-  //   reducers: {},
   extraReducers: builder =>
     builder
       .addCase(
