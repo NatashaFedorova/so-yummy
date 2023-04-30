@@ -3,8 +3,6 @@ import {
   BurgerLogoDiv,
   BurgerModal,
   BurgerSwitchDiv,
-  ModalOverlay,
-  ModalWrapper,
   StyledGrFormClose,
 } from './BurgerMenuModal.styled';
 import { BurgerNavigation } from '../BurgerNavigation/BurgerNavigation';
@@ -13,8 +11,6 @@ import SwitchTheme from 'components/SwitchTheme';
 
 export const BurgerMenuModal = ({ closeBurgerMenuModal, showBurgerMenu }) => {
   return (
-    // <ModalOverlay>
-    //   <ModalWrapper>
     <BurgerModal style={showBurgerMenu ? { top: 0 } : { top: '-120%' }}>
       <BurgerLogoDiv onClick={closeBurgerMenuModal}>
         <Logo />
@@ -26,7 +22,5 @@ export const BurgerMenuModal = ({ closeBurgerMenuModal, showBurgerMenu }) => {
       </BurgerSwitchDiv>
       <BurgerBgImage />
     </BurgerModal>
-    //   </ModalWrapper>
-    // </ModalOverlay>
   );
 };

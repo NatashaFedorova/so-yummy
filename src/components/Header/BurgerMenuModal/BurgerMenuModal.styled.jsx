@@ -3,30 +3,6 @@ import { GrFormClose } from 'react-icons/gr';
 import { DecoreLeafsTop } from 'components/DecoratedMain/DecoratedMain.styled';
 import { device } from 'components/constants/deviceType/deviceType';
 
-// export const ModalOverlay = styled.div`
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   z-index: 1040;
-//   width: 100vw;
-//   height: 100vh;
-//   background-color: rgba(0, 0, 0, 0.5);
-// `;
-
-// export const ModalWrapper = styled.div`
-//   display: flex;
-//   justify-content: center;
-//   align-items: flex-start;
-//   overflow: inherit;
-//   position: fixed;
-//   left: 0;
-//   z-index: 1050;
-//   width: 100vw;
-//   height: 100vh;
-
-//   outline: 0;
-// `;
-
 export const BurgerModal = styled.div`
   display: flex;
   position: fixed;
