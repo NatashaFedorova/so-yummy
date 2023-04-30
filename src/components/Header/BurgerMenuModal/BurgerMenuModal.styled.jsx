@@ -9,10 +9,10 @@ export const BurgerModal = styled.div`
   width: 100vw;
   height: 100vh;
   position: fixed;
-  top: -120%;
-  left: 0;
+  top: 0;
+  right: -120%;
   z-index: 1040;
-  transition: top 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: right 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   background-color: ${props => props.theme.colors.burgerMenu.bg};
   flex-direction: column;
@@ -55,20 +55,16 @@ export const BurgerBgImage = styled(DecoreLeafsTop)`
   width: 360px;
   height: 550px;
 
-  left: 275px;
-  top: 212px;
-
-  filter: blur(4.5px);
-  transform: rotate(83deg);
+  left: 236px;
+  top: 162px;
 
   @media ${device.tablet} {
     width: 558px;
     height: 852px;
 
-    left: 630px;
-    top: 190px;
+    left: 453px;
+    top: 622px;
 
-    filter: blur(4.5px);
     transform: rotate(118deg);
   }
 `;

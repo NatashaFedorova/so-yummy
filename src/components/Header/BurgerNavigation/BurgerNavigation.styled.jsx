@@ -9,7 +9,7 @@ export const StyledBurgerNavigation = styled.nav`
   flex-direction: column;
   align-items: center;
 
-  @media${device.tablet} {
+  @media ${device.tablet} {
     gap: 40px;
   }
 `;
@@ -29,7 +29,7 @@ export const StyledBurgerLink = styled(NavLink)`
     color: ${props => props.theme.colors.burgerMenu.colorAccent} !important;
   }
 
-  @media${device.tablet} {
+  @media ${device.tablet} {
     font-size: 24px;
     line-height: 24px;
   }
