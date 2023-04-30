@@ -29,6 +29,7 @@ const Recipe = () => {
   const { recipeId } = useParams();
 
   const [render, setRender] = useState(1);
+  const [isSubLoading, setIsSubLoading] = useState(false);
 
   const Recipe = useSelector(selectRecipeById);
   const Status = useSelector(selectRecipeByIdStatus);
@@ -43,17 +44,21 @@ const Recipe = () => {
   }, [dispatch, recipeId, render, setRender]);
 
   const addRcpToFavorite = async () => {
+    setIsSubLoading(true);
     await dispatch(addFavorite(recipeId));
     await dispatch(getRecipeById(recipeId));
     // await dispatch(refreshUser());
     await dispatch(refreshUserLite());
+    setIsSubLoading(false);
   };
 
   const removeRcpFromFavorite = async () => {
+    setIsSubLoading(true);
     await dispatch(deleteFavorite(recipeId));
     await dispatch(getRecipeById(recipeId));
     //await dispatch(refreshUser());
     await dispatch(refreshUserLite());
+    setIsSubLoading(false);
   };
 
   const isRecipeFavor = Recipe.favorites;
@@ -73,6 +78,7 @@ const Recipe = () => {
         {Status === STATUS.success && (
           <>
             <RecipePageHero
+              isloading={isSubLoading}
               btnState={ButtonState}
               onBtnClickAdd={() => addRcpToFavorite(recipeId)}
               onBtnClickRemove={() => removeRcpFromFavorite(recipeId)}

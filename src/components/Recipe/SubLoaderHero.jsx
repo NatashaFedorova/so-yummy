@@ -1,12 +1,12 @@
 import { Watch } from 'react-loader-spinner';
-import { Box } from './SubLoader.styled';
+import { Box } from './SubLoaderHero.styled';
 
-const SubLoading = () => {
+const SubLoadingHero = () => {
   return (
     <Box>
       <Watch
-        height="40"
-        width="40"
+        height="60"
+        width="60"
         radius="30"
         color="#4fa94d"
         ariaLabel="watch-loading"
@@ -18,4 +18,4 @@ const SubLoading = () => {
   );
 };
 
-export default SubLoading;
+export default SubLoadingHero;
