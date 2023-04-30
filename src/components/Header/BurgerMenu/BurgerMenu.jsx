@@ -8,16 +8,23 @@ export const BurgerMenu = () => {
   const [widthHTML, setWidthHTML] = useState('');
 
   const path = useLocation().pathname;
-  const add = document.querySelector('html');
 
   const closeOnESCBurgerMenuModal = e => {
     if ((e.charCode || e.keyCode) === 27) {
       setShowBurgerMenu(false);
     }
   };
+
   useEffect(() => {
-    setWidthHTML(add.offsetWidth);
-  }, [add.offsetWidth]);
+    function handleResize() {
+      setWidthHTML(window.innerWidth);
+    }
+    window.addEventListener('resize', handleResize);
+    handleResize();
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [setWidthHTML]);
 
   useEffect(() => {
     document.body.addEventListener('keydown', closeOnESCBurgerMenuModal);
@@ -30,12 +37,12 @@ export const BurgerMenu = () => {
       <BurgerMenuDiv onClick={() => setShowBurgerMenu(true)}>
         <StyledHiOutlineMenuAlt2
           style={
-            (path.toString() === '/main' && widthHTML > 1421
-              ? {
-                  color: `#1E1F28 `,
-                }
-              : {},
-            path.toString().includes('/recipe') ? { color: '#1E1F28' } : {})
+            (path.toString().includes('/main') &&
+              widthHTML >= 768 &&
+              widthHTML <= 1250) ||
+            path.toString().includes('/recipe')
+              ? { color: `#1E1F28` }
+              : {}
           }
         />
       </BurgerMenuDiv>
