@@ -8,10 +8,9 @@ import RecipeDescriptionField from './RecipeDescriptionFields/RecipeDescriptionF
 import RecipeIngredientsFields from './RecipeIngredientsFields/RecipeIngredientsFields';
 import RecipePreparationFields from './RecipePreparationFields/RecipePreparationFields';
 
-import addRecipe from 'redux/recipes/operations/addRecipe';
-import { refreshUserLite } from 'redux/auth/authOperation';
+import { addMyRecipes } from 'redux/myRecipes/myRecipesOperation';
+import { selectMyRecipesError } from 'redux/myRecipes/myRecipesSelectors';
 import { initialIngredients, initialValues } from '../helpers/vars';
-import { selectAddRecipeError } from 'redux/recipes/selectors/addRecipeSelectors';
 
 import { AddRecipeFormComponent } from './AddRecipeForm.styled';
 
@@ -29,7 +28,7 @@ const AddRecipeForm = () => {
 
   const photo = useRef(null);
 
-  const error = useSelector(selectAddRecipeError);
+  const error = useSelector(selectMyRecipesError);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -79,9 +78,7 @@ const AddRecipeForm = () => {
     formData.set('ingredients', JSON.stringify(ingredients));
     formData.set('instructions', JSON.stringify(textareaContent));
 
-    dispatch(addRecipe(formData));
-
-    Promise.resolve(dispatch(refreshUserLite())).then(() => {
+    Promise.resolve(dispatch(addMyRecipes(formData))).then(() => {
       if (!error) {
         navigate('/my', { replace: true });
       }
