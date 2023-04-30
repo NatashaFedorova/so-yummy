@@ -4,8 +4,6 @@ import { device } from 'components/constants/deviceType/deviceType';
 import clockIcon from './clock.svg';
 
 export const HeroHead = styled.div`
-  background-image: url('${process.env
-    .PUBLIC_URL}/images/recipeById/recipebg-1x.png');
   background-size: cover;
   left: 0px;
   top: 0px;
@@ -20,14 +18,56 @@ export const HeroHead = styled.div`
   background-position: center center;
   margin-top: -78px;
   position: relative;
-  pos @media ${device.mobile} {
+  @media ${device.mobile} {
     padding: 164px 36px 32px;
+
+    background-image: url('${process.env
+      .PUBLIC_URL}/images/recipeById/recipebg-mobile-1x.webp');
+    background-image: image-set(
+      url('${process.env.PUBLIC_URL}/images/recipeById/recipebg-mobile-1x.webp')
+        type('image/webp'),
+      url('${process.env.PUBLIC_URL}/images/recipeById/recipebg-mobile-1x.png')
+        type('image/png')
+    );
   }
   @media ${device.tablet} {
     padding: 164px 130px 32px;
+
+    background-image: url('${process.env
+      .PUBLIC_URL}/images/recipeById/recipebg-tablet-1x.webp');
+    background-image: image-set(
+      url('${process.env.PUBLIC_URL}/images/recipeById/recipebg-tablet-1x.webp')
+        type('image/webp'),
+      url('${process.env.PUBLIC_URL}/images/recipeById/recipebg-tablet-1x.png')
+        type('image/png')
+    );
   }
   @media ${device.desktop} {
     padding: 164px 202px 32px;
+
+    background-image: url('${process.env
+      .PUBLIC_URL}/images/recipeById/recipebg-1x.webp');
+    background-image: image-set(
+      url('${process.env.PUBLIC_URL}/images/recipeById/recipebg-1x.webp')
+        type('image/webp'),
+      url('${process.env.PUBLIC_URL}/images/recipeById/recipebg-1x.png')
+        type('image/png')
+    );
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      (-webkit-min-device-pixel-ratio: 2),
+      screen and (min-resolution: 2dppx) {
+      background-image: url('${process.env
+        .PUBLIC_URL}/images/recipeById/recipebg-2x.webp');
+
+      background-image: image-set(
+        url('${process.env.PUBLIC_URL}/images/recipeById/recipebg-2x.webp')
+          type('image/webp'),
+        url('${process.env.PUBLIC_URL}/images/recipeById/recipebg-2x.png')
+          type('image/png')
+      );
+    }
   }
 `;
 
