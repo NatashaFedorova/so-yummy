@@ -8,7 +8,7 @@ const getRecipesByCategory = createAsyncThunk(
       const res = await axios.get(`recipes/category/${categoryName}`,
         {
         params: { page: page }
-      });
+        });
       return res.data
     } catch ({ message }) {
       return thunkAPI.rejectWithValue(message);
