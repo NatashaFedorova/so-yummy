@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { UserLogoModal } from '../UserLogoModal/UserLogoModal';
 import {
   AvatarArea,
-  CurrentUserAvatar,
   UserInfo,
   UserLogoDiv,
   UserNameSpan,
@@ -60,7 +59,7 @@ export const UserLogo = () => {
             style={{
               backgroundImage: `url(${avatarUrl})`,
             }}
-          ></AvatarArea>
+          />
           <UserNameSpan
             style={
               (path.toString().includes('/main') && widthHTML >= 1440) ||
