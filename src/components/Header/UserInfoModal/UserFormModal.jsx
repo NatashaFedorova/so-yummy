@@ -8,7 +8,6 @@ import { LeftInputDiv } from './UserInfoModal.styled';
 import {
   ChangeImageInput,
   ConfigAvatarArea,
-  // ConfigAvatarUser,
   ConfigNameLabel,
   SendChangeBTN,
   StyledAiFillPlusCircle,
@@ -74,7 +73,7 @@ export const UserFormModal = ({ closeUserInfoModal }) => {
         style={{
           backgroundImage: `url(${imageRef})`,
         }}
-      ></ConfigAvatarArea>
+      />
       <form id="form" encType="multipart/form-data">
         <label>
           <StyledAiFillPlusCircle />
