@@ -70,9 +70,11 @@ export const UserFormModal = ({ closeUserInfoModal }) => {
 
   return (
     <>
-      <ConfigAvatarArea>
-        <ConfigAvatarUser src={imageRef} alt={'User avatar'} />
-      </ConfigAvatarArea>
+      <ConfigAvatarArea
+        style={{
+          backgroundImage: `url(${imageRef})`,
+        }}
+      ></ConfigAvatarArea>
       <form id="form" encType="multipart/form-data">
         <label>
           <StyledAiFillPlusCircle />

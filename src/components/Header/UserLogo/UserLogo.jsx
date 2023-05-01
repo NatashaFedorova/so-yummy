@@ -56,9 +56,11 @@ export const UserLogo = () => {
     <>
       <UserLogoDiv onClick={togglerUserLogoModal}>
         <UserInfo>
-          <AvatarArea>
-            <CurrentUserAvatar src={avatarUrl} alt={'User avatar'} />
-          </AvatarArea>
+          <AvatarArea
+            style={{
+              backgroundImage: `url(${avatarUrl})`,
+            }}
+          ></AvatarArea>
           <UserNameSpan
             style={
               (path.toString().includes('/main') && widthHTML >= 1440) ||

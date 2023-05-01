@@ -22,15 +22,13 @@ export const AvatarArea = styled.div`
   justify-content: center;
   overflow: hidden;
 
+  background-position: 50% 50%;
+  background-size: cover;
+
   @media ${device.tablet} {
     width: 44px;
     height: 44px;
   }
-`;
-
-export const CurrentUserAvatar = styled.img`
-  width: auto;
-  height: 100%;
 `;
 
 export const UserNameSpan = styled.p`
