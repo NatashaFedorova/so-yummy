@@ -61,19 +61,12 @@ export const Modal = styled.div`
   }
 `;
 
-export const ConfigAvatarUser = styled.img`
-  width: auto;
-  height: 100%;
-`;
-
 export const ConfigAvatarArea = styled(AvatarArea)`
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 88px;
   height: 88px;
   position: relative;
   margin-bottom: 54px;
+
   @media${device.tablet} {
     width: 103px;
     height: 103px;
