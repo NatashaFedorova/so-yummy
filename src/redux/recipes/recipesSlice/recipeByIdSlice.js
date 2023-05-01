@@ -17,45 +17,33 @@ const recipeByIdSlice = createSlice({
   },
   extraReducers: builder =>
     builder
-      .addCase(getRecipeById.pending, state => {
-        //state.status = STATUS.loading;
-      })
+      .addCase(getRecipeById.pending, state => {})
       .addCase(getRecipeById.fulfilled, (state, action) => {
         state.items = action.payload;
         state.status = STATUS.success;
       })
       .addCase(getRecipeById.rejected, (state, action) => {
-        //state.status = STATUS.error;
         state.error = action.payload;
       })
 
       ///// ADD TO SHOPPING LIST
 
-      .addCase(AddIngredientToShoppingList.pending, state => {
-        // state.status = STATUS.loading;
-      })
+      .addCase(AddIngredientToShoppingList.pending, state => {})
       .addCase(AddIngredientToShoppingList.fulfilled, (state, action) => {
         state.shopList = action.payload;
-        // state.status = STATUS.success;
       })
       .addCase(AddIngredientToShoppingList.rejected, (state, action) => {
-        // state.status = STATUS.error;
         state.error = action.payload;
       })
 
       //// REMOVE FROM SHOPPINGLIST
 
-      .addCase(RemoveIngredientFromShoppingList.pending, state => {
-        //state.status = STATUS.loading;
-      })
-      .addCase(RemoveIngredientFromShoppingList.fulfilled, (state, action) => {
-        // const index = state.items.findIndex(
-        //     ingredient => ingredient._id === action.payload.id
-        // );
-        //state.status = STATUS.success;
-      })
+      .addCase(RemoveIngredientFromShoppingList.pending, state => {})
+      .addCase(
+        RemoveIngredientFromShoppingList.fulfilled,
+        (state, action) => {}
+      )
       .addCase(RemoveIngredientFromShoppingList.rejected, (state, action) => {
-        // state.status = STATUS.error;
         state.error = action.payload;
       }),
 });
