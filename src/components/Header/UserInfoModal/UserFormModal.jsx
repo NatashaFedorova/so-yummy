@@ -8,7 +8,7 @@ import { LeftInputDiv } from './UserInfoModal.styled';
 import {
   ChangeImageInput,
   ConfigAvatarArea,
-  ConfigAvatarUser,
+  // ConfigAvatarUser,
   ConfigNameLabel,
   SendChangeBTN,
   StyledAiFillPlusCircle,

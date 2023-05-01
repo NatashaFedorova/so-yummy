@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { UserLogoModal } from '../UserLogoModal/UserLogoModal';
 import {
   AvatarArea,
-  CurrentUserAvatar,
+  // CurrentUserAvatar,
   UserInfo,
   UserLogoDiv,
   UserNameSpan,
